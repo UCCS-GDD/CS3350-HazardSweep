@@ -1,2 +1,0 @@
-Content\Images\Ball.xnb
-Content\Images\Animation.xnb
