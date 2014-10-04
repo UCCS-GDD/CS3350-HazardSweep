@@ -7,3 +7,12 @@ c:\users\nick\documents\visual studio 2013\Projects\Hazard Sweep\Hazard Sweep\Ha
 c:\users\nick\documents\visual studio 2013\Projects\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Hazard_Sweep.pdb
 c:\users\nick\documents\visual studio 2013\Projects\Hazard Sweep\Hazard Sweep\Hazard_Sweep\obj\x86\Debug\Hazard_Sweep.exe
 c:\users\nick\documents\visual studio 2013\Projects\Hazard Sweep\Hazard Sweep\Hazard_Sweep\obj\x86\Debug\Hazard_Sweep.pdb
+C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Animation.xnb
+C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Ball.xnb
+C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\laser.xnb
+C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Hazard_Sweep.exe
+C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Hazard_Sweep.pdb
+C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\obj\x86\Debug\Hazard_Sweep.csprojResolveAssemblyReference.cache
+C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\obj\x86\Debug\Hazard_Sweep.exe
+C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\obj\x86\Debug\Hazard_Sweep.pdb

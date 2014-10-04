@@ -14,16 +14,19 @@ namespace Hazard_Sweep.Classes
 {
     public class PlayerSprite : Sprite
     {
-        Vector2 movement;
-        MouseState ms;
-        Vector2 mousePosition;
+        //variables
+        protected Vector2 movement;
+        protected MouseState ms;
+        protected Vector2 mousePosition;
 
+        //Constructor
         public PlayerSprite(Game game, string textureFile, Vector2 position)
             : base(game, textureFile, position)
         {
 
         }
 
+        // update method
         public override void Update(GameTime gameTime)
         {
             KeyboardState keyboardState = Keyboard.GetState();
