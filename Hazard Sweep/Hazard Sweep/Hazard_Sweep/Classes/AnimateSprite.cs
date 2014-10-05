@@ -42,19 +42,19 @@ namespace Hazard_Sweep.Classes
             KeyboardState keyboardState = Keyboard.GetState();
 
             //switches animation
-            if (keyboardState.IsKeyDown(Keys.Space))
-            {
-                if (currentFrame == 0)
-                {
-                    frame.X = (texture.Width / 2);
-                    currentFrame = 1;
-                }
-                else if (currentFrame == 1)
-                {
-                    frame.X = 0;
-                    currentFrame = 0;
-                }
-            }
+            //if (keyboardState.IsKeyDown(Keys.Space))
+            //{
+            //    if (currentFrame == 0)
+            //    {
+            //        frame.X = (texture.Width / 2);
+            //        currentFrame = 1;
+            //    }
+            //    else if (currentFrame == 1)
+            //    {
+            //        frame.X = 0;
+            //        currentFrame = 0;
+            //    }
+            //}
 
             base.Update(gameTime);
         }

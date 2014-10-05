@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Hazard_Sweep.Classes
 {
-    class Weapon : GameComponent
+    public class Weapon : GameComponent
     {
         //variables
         protected int loadedBullets;
@@ -18,11 +18,12 @@ namespace Hazard_Sweep.Classes
         protected int totalBullets;
         protected int delay = 90;
         protected double currentTime;
-        protected KeyboardState keyboardState;
+        protected Game game;
 
         //weapon constructor
         public Weapon(Game game, int totalBullets) : base(game)
         {
+            this.game = game;
             this.totalBullets = totalBullets;
             loadedBullets = capacity;
         }        
@@ -30,8 +31,8 @@ namespace Hazard_Sweep.Classes
         //update methode
         public override void Update(GameTime gameTime)
         {
-            currentTime += gameTime.ElapsedGameTime.TotalMilliseconds;
-            keyboardState = Keyboard.GetState();
+            //currentTime += gameTime.ElapsedGameTime.TotalMilliseconds;
+            currentTime++;
 
             base.Update(gameTime);
         }
@@ -39,43 +40,52 @@ namespace Hazard_Sweep.Classes
         //adds bullets to the total bullets
         public void addBullets(int numBullets)
         {
-
+            totalBullets += numBullets;
         }
 
-        //returns number of bullets
-        public int getNumBullets()
+        //returns the total bullets in the clip
+        public int getClipBullets()
+        {
+            return loadedBullets;
+        }
+
+        //returns number of total bullets held
+        public int getTotalNumBullets()
         {
             return totalBullets;
+            
         }
 
         //fires the weapon
-        public void shoot()
+        public void shoot(Vector2 bulletOrigin, Facing direction)
         {
-            if(((int)currentTime >= delay) && keyboardState.IsKeyDown(Keys.Space) &&
-                (loadedBullets > 0))
+            if(((int)currentTime >= delay) && (loadedBullets > 0))
             {
                 loadedBullets--;
+
+                //creates a bullet
+                game.Components.Add(new Bullet(game, "Images//Animation", bulletOrigin, direction));
+                currentTime = 0;
             }
         }
 
         //reloads weapon
         public void reload()
         {
-            if((loadedBullets != capacity) && (totalBullets > 0) && 
-                keyboardState.IsKeyDown(Keys.R))
+            if((loadedBullets != capacity) && (totalBullets > 0))
             {
-                if(totalBullets >= 30)
+                if(totalBullets >= 30)//if there are more bullets than full reload
                 {
                     totalBullets -= capacity - loadedBullets;
                     loadedBullets = capacity;
                 }
                 else 
                 {
-                    if((loadedBullets + totalBullets) < capacity)
+                    if((loadedBullets + totalBullets) < capacity)// if there are less bullets and loaded bullets than capacity
                     {
                         loadedBullets += totalBullets;
                     }
-                    else
+                    else// if there are less total bullets than capacity but more loaded bullets plus total bullets than capacity
                     {
                         totalBullets = capacity - loadedBullets;
                         loadedBullets = capacity;
