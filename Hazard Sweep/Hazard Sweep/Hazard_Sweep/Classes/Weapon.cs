@@ -16,7 +16,7 @@ namespace Hazard_Sweep.Classes
         protected int loadedBullets;
         protected int capacity = 30;
         protected int totalBullets;
-        protected int delay = 90;
+        protected int delay = 10;
         protected double currentTime;
         protected Game game;
 

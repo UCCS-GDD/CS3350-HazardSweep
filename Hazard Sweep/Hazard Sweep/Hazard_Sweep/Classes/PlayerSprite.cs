@@ -72,7 +72,7 @@ namespace Hazard_Sweep.Classes
             }
             if (keyboardState.IsKeyDown(Keys.Space))
             {
-                weapon.shoot(bulletOrigin, direction);
+                weapon.shoot(position, direction);
             }
             if (keyboardState.IsKeyDown(Keys.R))
             {
