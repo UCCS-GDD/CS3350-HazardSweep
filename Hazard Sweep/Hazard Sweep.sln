@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hazard_Sweep", "Hazard Sweep\Hazard_Sweep\Hazard_Sweep.csproj", "{57C9359D-042F-414D-B8CC-FCA3DE502DA4}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "Hazard_SweepContent", "Hazard Sweep\Hazard_SweepContent\Hazard_SweepContent.contentproj", "{5A3B4E60-5622-4D53-AE4D-E2DE3ACEB64B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hazard_SweepContent", "Hazard Sweep\Hazard_SweepContent\Hazard_SweepContent.contentproj", "{5A3B4E60-5622-4D53-AE4D-E2DE3ACEB64B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{974B499F-3DB5-4D09-AE92-9B8848EB43E7}"
 EndProject
