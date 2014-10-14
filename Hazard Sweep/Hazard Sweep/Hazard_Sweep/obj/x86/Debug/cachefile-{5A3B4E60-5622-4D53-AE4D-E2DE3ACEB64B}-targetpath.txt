@@ -5,3 +5,4 @@ Content\Fonts\HealthNumeric.xnb
 Content\Fonts\AmmoLabel.xnb
 Content\Fonts\HealthLabel.xnb
 Content\Fonts\AmmoNumeric.xnb
+Content\Images\zombie.xnb

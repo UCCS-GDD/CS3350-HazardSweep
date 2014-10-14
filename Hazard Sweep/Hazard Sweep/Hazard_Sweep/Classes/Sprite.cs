@@ -55,22 +55,22 @@ namespace Hazard_Sweep.Classes
             KeyboardState keyboardState = Keyboard.GetState();
 
             //Allows the sprite to wrap around the screen
-            if (position.X < 0)
-            {
-                position.X = GlobalClass.ScreenWidth;
-            }
-            else if (position.X > GlobalClass.ScreenWidth)
-            {
-                position.X = 0;
-            }
-            else if (position.Y < 0)
-            {
-                position.Y = GlobalClass.ScreenHeight;
-            }
-            else if (position.Y > GlobalClass.ScreenHeight)
-            {
-                position.Y = 0;
-            }
+            //if (position.X < 0)
+            //{
+            //    position.X = GlobalClass.ScreenWidth;
+            //}
+            //else if (position.X > GlobalClass.ScreenWidth)
+            //{
+            //    position.X = 0;
+            //}
+            //else if (position.Y < 0)
+            //{
+            //    position.Y = GlobalClass.ScreenHeight;
+            //}
+            //else if (position.Y > GlobalClass.ScreenHeight)
+            //{
+            //    position.Y = 0;
+            //}
 
             base.Update(gameTime);
         }

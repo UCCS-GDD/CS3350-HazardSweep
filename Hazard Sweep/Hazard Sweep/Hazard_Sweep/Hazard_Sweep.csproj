@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="Classes\AnimateSprite.cs" />
     <Compile Include="Classes\Bullet.cs" />
+    <Compile Include="Classes\Enemy.cs" />
     <Compile Include="Classes\GlobalClass.cs" />
     <Compile Include="Classes\InanimateSprite.cs" />
     <Compile Include="Classes\PlayerSprite.cs" />
