@@ -1,3 +1,7 @@
 Content\Images\Animation.xnb
 Content\Images\Ball.xnb
 Content\Images\laser.xnb
+Content\Fonts\HealthNumeric.xnb
+Content\Fonts\AmmoLabel.xnb
+Content\Fonts\HealthLabel.xnb
+Content\Fonts\AmmoNumeric.xnb

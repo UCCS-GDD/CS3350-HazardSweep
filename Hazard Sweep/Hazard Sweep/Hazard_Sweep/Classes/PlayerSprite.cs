@@ -20,13 +20,16 @@ namespace Hazard_Sweep.Classes
         protected Vector2 mousePosition;
         protected Vector2 bulletOrigin;
         protected Facing direction;
+        protected int health;
         Weapon weapon;
 
         //Constructor
         public PlayerSprite(Game game, string textureFile, Vector2 position)
             : base(game, textureFile, position)
         {
-            weapon = new Weapon(game, 60);           
+            health = 100;
+
+            weapon = new Weapon(game, 60);
 
             //sets initial direction
             direction = Facing.Left;
@@ -80,6 +83,16 @@ namespace Hazard_Sweep.Classes
             }
 
             base.Update(gameTime);
+        }
+
+        public int GetHealth()
+        {
+            return health;
+        }
+
+        public Weapon GetWeapon()
+        {
+            return weapon;
         }
     }
 }

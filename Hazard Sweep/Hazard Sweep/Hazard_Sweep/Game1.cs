@@ -14,7 +14,6 @@ namespace Hazard_Sweep
 {
     public enum Facing { Left, Right};
 
-
     /// <summary>
     /// This is the main type for your game
     /// </summary>
@@ -22,7 +21,18 @@ namespace Hazard_Sweep
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        
+
+        PlayerSprite player;
+
+        // health/ammo text assets
+        Vector2 ammoLabelLocation;
+        Vector2 ammoNumericLocation;
+        Vector2 healthLabelLocation;
+        Vector2 healthNumericLocation;
+        string ammoText;
+        string healthText;
+        SpriteFont ammoLabelFont;
+        SpriteFont ammoNumericFont;
 
         public Game1()
         {
@@ -43,12 +53,20 @@ namespace Hazard_Sweep
             GlobalClass.ScreenHeight = graphics.PreferredBackBufferHeight;
 
             //Add game components
-            Components.Add(new PlayerSprite(this, "Images//Ball", new Vector2(GlobalClass.ScreenWidth / 2,
+            Components.Add(player = new PlayerSprite(this, "Images//Ball", new Vector2(GlobalClass.ScreenWidth / 2,
                 GlobalClass.ScreenHeight / 2)));
             Components.Add(new AnimateSprite(this, "Images//Animation", new Vector2(50, 50), 2));
 
             //testing
-            Components.Add(new Bullet(this, "Images//Animation", new Vector2(150, 150), Facing.Right));
+            //Components.Add(new Bullet(this, "Images//Animation", new Vector2(150, 150), Facing.Right));
+
+            // health/ammo text locations
+            ammoLabelLocation = new Vector2(48, GlobalClass.ScreenHeight - 96);
+            ammoNumericLocation = new Vector2(32, GlobalClass.ScreenHeight - 64);
+            healthLabelLocation = new Vector2(GlobalClass.ScreenWidth - 84, GlobalClass.ScreenHeight - 96);
+            healthNumericLocation = new Vector2(GlobalClass.ScreenWidth - 96, GlobalClass.ScreenHeight - 64);
+            ammoText = "-1/-1";
+            healthText = "-1";
 
             Random rand = new Random();
 
@@ -66,6 +84,10 @@ namespace Hazard_Sweep
 
             // Creates a service for the spritebatch so it can be used in other classes
             Services.AddService(typeof(SpriteBatch), spriteBatch);
+
+            // load fonts
+            ammoLabelFont = Content.Load<SpriteFont>("Fonts//AmmoLabel");
+            ammoNumericFont = Content.Load<SpriteFont>("Fonts//AmmoNumeric");
 
             // TODO: use this.Content to load your game content here
         }
@@ -91,7 +113,11 @@ namespace Hazard_Sweep
                 this.Exit();
 
             // TODO: Add your update logic here
-
+            
+            // update health/ammo text
+            ammoText = player.GetWeapon().getClipBullets() + " / " + player.GetWeapon().getTotalNumBullets();
+            healthText = "" + player.GetHealth();
+            
             base.Update(gameTime);
         }
 
@@ -104,6 +130,15 @@ namespace Hazard_Sweep
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            spriteBatch.Begin();
+
+            // draw score & font
+            spriteBatch.DrawString(ammoLabelFont, "Ammo", ammoLabelLocation, Color.White);
+            spriteBatch.DrawString(ammoNumericFont, ammoText, ammoNumericLocation, Color.White);
+            spriteBatch.DrawString(ammoLabelFont, "Health", healthLabelLocation, Color.White);
+            spriteBatch.DrawString(ammoNumericFont, healthText, healthNumericLocation, Color.White);
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
