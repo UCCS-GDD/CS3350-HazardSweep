@@ -42,6 +42,12 @@ namespace Hazard_Sweep.Classes
             center = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
             boundingBox = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
 
+            //set the size and initial position of the bounding box
+            boundingBox.Height = texture.Height;
+            boundingBox.Width = texture.Width;
+            boundingBox.X = (int)position.X;
+            boundingBox.Y = (int)position.Y;
+
             base.LoadContent();
         }
 
@@ -53,6 +59,10 @@ namespace Hazard_Sweep.Classes
         public override void Update(GameTime gameTime)
         {
             KeyboardState keyboardState = Keyboard.GetState();
+
+            //updates the bounding box for the sprite
+            boundingBox.X = (int)position.X;
+            boundingBox.Y = (int)position.Y;
 
             //Allows the sprite to wrap around the screen
             //if (position.X < 0)

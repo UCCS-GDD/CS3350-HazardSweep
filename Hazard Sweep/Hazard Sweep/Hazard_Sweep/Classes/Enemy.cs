@@ -16,6 +16,7 @@ namespace Hazard_Sweep.Classes
     {
         //class variables
         protected int health;
+        
 
         //class constructor
         public Enemy(Game game, string textureFile, Vector2 position)
@@ -24,12 +25,16 @@ namespace Hazard_Sweep.Classes
             health = 2;
         }
 
+        protected override void LoadContent()
+        {
+            base.LoadContent();
+            
+        }
+
         //update method
         public override void Update(GameTime gameTime)
         {
-
-
-
+            Console.WriteLine(boundingBox.X + " " + boundingBox.Y);
             base.Update(gameTime);
         }
     }
