@@ -62,6 +62,7 @@ namespace Hazard_Sweep.Classes
             if(((int)currentTime >= delay) && (loadedBullets > 0))
             {
                 loadedBullets--;
+                totalBullets--;
 
                 //creates a bullet
                 game.Components.Add(new Bullet(game, "Images//Animation", bulletOrigin, direction));

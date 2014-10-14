@@ -18,9 +18,9 @@ namespace Weapon.Tests
     [TestClass()]
     public class WeaponTests
     {        
-        protected int loadedBullets;
+        protected int loadedBullets = 3;
         protected int capacity = 30;
-        protected int totalBullets = 90;
+        protected int totalBullets = 3;
         protected int delay = 10;
         protected double currentTime;
         protected Game game = null;
@@ -28,7 +28,7 @@ namespace Weapon.Tests
         public void WeaponTest()
         {
             Assert.AreEqual(null, game);
-            Assert.AreEqual(90, totalBullets);
+            Assert.AreEqual(3, totalBullets);
             loadedBullets = capacity;
             Assert.AreEqual(capacity, loadedBullets);
         }
@@ -44,23 +44,29 @@ namespace Weapon.Tests
         [TestMethod()]
         public void addBulletsTest()
         {
-            totalBullets += 4;
-            Assert.AreEqual(94, totalBullets);
+            totalBullets += 2;
+            Assert.AreEqual(5, totalBullets);
         }
 
 
         [TestMethod()]
         public void shootTest()
         {
-                int testBullets = loadedBullets - 1;
+            loadedBullets = 3;
+                while (loadedBullets > 2)
+                {
                 loadedBullets--;
-                currentTime = 0;
-                Assert.AreEqual(testBullets, loadedBullets);
+                totalBullets--;
+                }
+
+                Assert.AreEqual(2, loadedBullets);
+                Assert.AreEqual(2, totalBullets);
         }
 
         [TestMethod()]
         public void reloadTest()
         {
+           // totalBullets = 2;
             if ((loadedBullets != capacity) && (totalBullets > 0))
             {
                 if (totalBullets >= 30)//if there are more bullets than full reload
@@ -73,11 +79,13 @@ namespace Weapon.Tests
                     if ((loadedBullets + totalBullets) < capacity)// if there are less bullets and loaded bullets than capacity
                     {
                         loadedBullets += totalBullets;
+                        Assert.AreEqual(6, loadedBullets);
                     }
                     else// if there are less total bullets than capacity but more loaded bullets plus total bullets than capacity
                     {
                         totalBullets = capacity - loadedBullets;
-                        loadedBullets = capacity;
+                        loadedBullets = capacity;         
+                        Assert.AreEqual(3, loadedBullets);
                     }
                 }
             }
