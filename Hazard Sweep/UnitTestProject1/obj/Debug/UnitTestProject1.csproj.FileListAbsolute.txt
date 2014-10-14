@@ -1,6 +1,3 @@
-C:\Users\Nick\Desktop\CS3350-HazardSweep\Hazard Sweep\UnitTestProject1\bin\Debug\Content\Images\Animation.xnb
-C:\Users\Nick\Desktop\CS3350-HazardSweep\Hazard Sweep\UnitTestProject1\bin\Debug\Content\Images\Ball.xnb
-C:\Users\Nick\Desktop\CS3350-HazardSweep\Hazard Sweep\UnitTestProject1\bin\Debug\Content\Images\laser.xnb
 C:\Users\Nick\Desktop\CS3350-HazardSweep\Hazard Sweep\UnitTestProject1\bin\Debug\UnitTestProject1.dll
 C:\Users\Nick\Desktop\CS3350-HazardSweep\Hazard Sweep\UnitTestProject1\bin\Debug\UnitTestProject1.pdb
 C:\Users\Nick\Desktop\CS3350-HazardSweep\Hazard Sweep\UnitTestProject1\bin\Debug\Hazard_Sweep.exe
