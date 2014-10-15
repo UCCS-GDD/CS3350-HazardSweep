@@ -53,9 +53,8 @@ namespace Hazard_Sweep
             GlobalClass.ScreenHeight = graphics.PreferredBackBufferHeight;
 
             //Add game components
-            Components.Add(player = new PlayerSprite(this, "Images//Ball", new Vector2(GlobalClass.ScreenWidth / 2,
-                GlobalClass.ScreenHeight / 2)));
-            Components.Add(new AnimateSprite(this, "Images//Animation", new Vector2(50, 50), 2));
+            Components.Add(player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,
+                GlobalClass.ScreenHeight / 2), 2, 6));
             Components.Add(new Enemy(this, "Images//zombie", new Vector2(200, 100)));
 
             //testing

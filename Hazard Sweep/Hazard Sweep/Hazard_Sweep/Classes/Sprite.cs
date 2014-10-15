@@ -34,7 +34,7 @@ namespace Hazard_Sweep.Classes
             : base(game)
         {
             this.textureFile = textureFile;
-            this.position = position;
+            this.position = position + center;
             color = Color.White;
             random = new Random();
             this.game = game;

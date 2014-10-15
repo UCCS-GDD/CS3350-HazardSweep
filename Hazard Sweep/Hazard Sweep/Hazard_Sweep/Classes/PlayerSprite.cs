@@ -22,9 +22,11 @@ namespace Hazard_Sweep.Classes
         protected Facing direction;
         protected int health;
         Weapon weapon;
+        protected Rectangle drawRectangle;
+        protected int spriteRows, spriteCols;
 
         //Constructor
-        public PlayerSprite(Game game, string textureFile, Vector2 position)
+        public PlayerSprite(Game game, string textureFile, Vector2 position, int spriteRows, int spriteCols)
             : base(game, textureFile, position)
         {
             health = 100;
@@ -33,6 +35,11 @@ namespace Hazard_Sweep.Classes
 
             //sets initial direction
             direction = Facing.Left;
+
+            //set rows and columns
+            this.spriteRows = spriteRows;
+            this.spriteCols = spriteCols;
+
         }
 
         //load content
@@ -41,8 +48,15 @@ namespace Hazard_Sweep.Classes
             base.LoadContent();
 
             // sets up bullet origin vector has to be here so texture is loaded when looking at width and height
-            bulletOrigin = new Vector2(center.X + (texture.Width / 2), texture.Height / 2);
+            bulletOrigin = new Vector2(texture.Width / spriteCols / 2, texture.Height / spriteRows / 2);
             game.Components.Add(weapon);
+            drawRectangle = new Rectangle(0, 0, texture.Width / spriteCols, texture.Height / spriteRows);
+
+            //set the size and initial position of the bounding box
+            boundingBox.Height = texture.Height / spriteRows;
+            boundingBox.Width = texture.Width / spriteCols;
+            boundingBox.X = (int)position.X;
+            boundingBox.Y = (int)position.Y;
         }
 
         // update method
@@ -51,8 +65,17 @@ namespace Hazard_Sweep.Classes
             KeyboardState keyboardState = Keyboard.GetState();
             ms = Mouse.GetState();            
 
-            //update firing position
-            bulletOrigin += position;
+            //logic for animation
+            if(direction == Facing.Left)
+            {
+                drawRectangle.X = 0;
+                drawRectangle.Y = texture.Height / spriteRows;
+            }
+            else if(direction == Facing.Right)
+            {
+                drawRectangle.X = 0;
+                drawRectangle.Y = 0;
+            }
 
             //move the sprite with WASD
             if (keyboardState.IsKeyDown(Keys.D))
@@ -75,7 +98,7 @@ namespace Hazard_Sweep.Classes
             }
             if (keyboardState.IsKeyDown(Keys.Space))
             {
-                weapon.shoot(position, direction);
+                weapon.shoot(position + bulletOrigin, direction);
             }
             if (keyboardState.IsKeyDown(Keys.R))
             {
@@ -89,6 +112,15 @@ namespace Hazard_Sweep.Classes
             }
 
             base.Update(gameTime);
+        }
+
+        //draw method
+        public override void Draw(GameTime gameTime)
+        {
+            sb = Game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
+            sb.Begin();
+            sb.Draw(texture, position, drawRectangle, Color.White);
+            sb.End();
         }
 
         //returns the health

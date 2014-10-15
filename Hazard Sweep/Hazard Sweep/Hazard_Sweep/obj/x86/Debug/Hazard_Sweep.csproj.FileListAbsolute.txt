@@ -52,3 +52,4 @@ C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSwe
 C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\obj\x86\Debug\Hazard_Sweep.csprojResolveAssemblyReference.cache
 C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\zombie.xnb
+C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\playerWalk.xnb

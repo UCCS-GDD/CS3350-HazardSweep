@@ -73,6 +73,15 @@
       <Output>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\AmmoNumeric.xnb</Output>
       <Time>2014-10-14T15:27:44.1107611-06:00</Time>
     </Item>
+    <Item>
+      <Source>Images\playerWalk.png</Source>
+      <Name>Images\playerWalk</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\playerWalk.xnb</Output>
+      <Time>2014-10-15T16:59:44.0432333-06:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{5A3B4E60-5622-4D53-AE4D-E2DE3ACEB64B}</ContentProjectGUID>

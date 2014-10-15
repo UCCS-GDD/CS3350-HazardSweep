@@ -65,7 +65,7 @@ namespace Hazard_Sweep.Classes
                 totalBullets--;
 
                 //creates a bullet
-                game.Components.Add(new Bullet(game, "Images//Animation", bulletOrigin, direction));
+                game.Components.Add(new Bullet(game, "Images/laser", bulletOrigin, direction));
                 currentTime = 0;
             }
         }
