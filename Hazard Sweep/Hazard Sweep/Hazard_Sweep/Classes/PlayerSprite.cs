@@ -82,6 +82,12 @@ namespace Hazard_Sweep.Classes
                 weapon.reload();
             }
 
+            //ends the game if player's health is 0, will later go to menus
+            if (health <= 0)
+            {
+                game.Exit();
+            }
+
             base.Update(gameTime);
         }
 
@@ -101,6 +107,12 @@ namespace Hazard_Sweep.Classes
         public Vector2 getPlayerPosition()
         {
             return position;
+        }
+
+        //sets the player's health
+        public void reducePlayerHealth(int damage)
+        {
+            health -= damage;
         }
     }
 }

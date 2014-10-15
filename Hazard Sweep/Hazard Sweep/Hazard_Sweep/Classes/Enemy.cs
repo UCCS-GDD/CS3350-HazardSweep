@@ -18,6 +18,9 @@ namespace Hazard_Sweep.Classes
         protected int health;
         protected Vector2 target;
         protected float moveSpeed = 1;
+        protected int damage = 5;
+        protected int currentTime;
+        protected int delay = 30;
 
         //class constructor
         public Enemy(Game game, string textureFile, Vector2 position)
@@ -38,8 +41,10 @@ namespace Hazard_Sweep.Classes
             Console.WriteLine(boundingBox.X + " " + boundingBox.Y);
             base.Update(gameTime);
 
-            //check for collisions with player
+            //update current time
+            currentTime++;
 
+            //check for collisions with player
             foreach (GameComponent g in game.Components)
             {
                 if (g is PlayerSprite)
@@ -52,6 +57,12 @@ namespace Hazard_Sweep.Classes
                     Rectangle b = s.getRectangle();
                     if (b.Intersects(this.boundingBox))
                     {
+                        //damage the player
+                        if (currentTime >= delay)
+                        {
+                            s.reducePlayerHealth(damage);
+                            currentTime = 0;
+                        }
                     }
                 }
             }
@@ -59,12 +70,15 @@ namespace Hazard_Sweep.Classes
             //enemy AI (moves enemy towards player
             Vector2 direction = target - position;
             direction.Normalize();
-            if (Math.Abs(Vector2.Distance(target, position)) < 500)
+            //enemy will only move towards player if the player is within 250
+            if (Math.Abs(Vector2.Distance(target, position)) < 250)
             {
                 Vector2 velocity = direction * moveSpeed;
                 position += velocity;
             }
 
         }
+
+
     }
 }
