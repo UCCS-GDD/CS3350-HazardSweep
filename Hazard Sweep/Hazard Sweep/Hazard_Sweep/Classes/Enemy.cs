@@ -16,6 +16,8 @@ namespace Hazard_Sweep.Classes
     {
         //class variables
         protected int health;
+        protected Vector2 target;
+        protected float moveSpeed = 1;
 
         //class constructor
         public Enemy(Game game, string textureFile, Vector2 position)
@@ -36,18 +38,29 @@ namespace Hazard_Sweep.Classes
             Console.WriteLine(boundingBox.X + " " + boundingBox.Y);
             base.Update(gameTime);
 
-            //check for collisions
+            //check for collisions with player
+
             foreach (GameComponent g in game.Components)
             {
                 if (g is PlayerSprite)
                 {
-                    Sprite s = (Sprite)g;
+                    PlayerSprite s = (PlayerSprite)g;
+                    //get position of player
+                    target = s.getPlayerPosition();
+
+                    //collision logic
                     Rectangle b = s.getRectangle();
                     if (b.Intersects(this.boundingBox))
                     {
                     }
                 }
             }
+
+            //enemy AI (moves enemy towards player
+            Vector2 direction = target - position;
+            direction.Normalize();
+            Vector2 velocity = direction * moveSpeed;
+            position += velocity;
 
         }
     }

@@ -85,14 +85,22 @@ namespace Hazard_Sweep.Classes
             base.Update(gameTime);
         }
 
+        //returns the health
         public int GetHealth()
         {
             return health;
         }
 
+        // returns player's weapon
         public Weapon GetWeapon()
         {
             return weapon;
+        }
+
+        //returns player's position
+        public Vector2 getPlayerPosition()
+        {
+            return position;
         }
     }
 }

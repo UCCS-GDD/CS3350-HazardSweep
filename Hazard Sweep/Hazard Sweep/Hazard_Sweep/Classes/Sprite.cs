@@ -24,10 +24,9 @@ namespace Hazard_Sweep.Classes
         protected Game game;
         protected Rectangle boundingBox;
 
-        //default constructor
+        //default constructor (mainly to make references easy)
         public Sprite(Game game) : base(game)
         {
-
         }
 
         //constructor with arguments

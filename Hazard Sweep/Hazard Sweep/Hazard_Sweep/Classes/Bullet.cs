@@ -54,7 +54,7 @@ namespace Hazard_Sweep.Classes
                 }
             }
 
-            //remove objects that have collided
+            //remove objects that have collided (can't be removed in the loop)
             if(remove)
             {
                 game.Components.Remove(this);
