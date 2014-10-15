@@ -59,8 +59,11 @@ namespace Hazard_Sweep.Classes
             //enemy AI (moves enemy towards player
             Vector2 direction = target - position;
             direction.Normalize();
-            Vector2 velocity = direction * moveSpeed;
-            position += velocity;
+            if (Math.Abs(Vector2.Distance(target, position)) < 500)
+            {
+                Vector2 velocity = direction * moveSpeed;
+                position += velocity;
+            }
 
         }
     }
