@@ -22,8 +22,15 @@ namespace Hazard_Sweep.Classes
         protected Random random;
         protected SpriteBatch sb;
         protected Game game;
-        public Rectangle boundingBox;
+        protected Rectangle boundingBox;
 
+        //default constructor
+        public Sprite(Game game) : base(game)
+        {
+
+        }
+
+        //constructor with arguments
         public Sprite(Game game, String textureFile, Vector2 position)
             : base(game)
         {
@@ -32,8 +39,6 @@ namespace Hazard_Sweep.Classes
             color = Color.White;
             random = new Random();
             this.game = game;
-
-
         }
 
         protected override void LoadContent()
@@ -58,6 +63,7 @@ namespace Hazard_Sweep.Classes
 
         public override void Update(GameTime gameTime)
         {
+
             KeyboardState keyboardState = Keyboard.GetState();
 
             //updates the bounding box for the sprite
@@ -94,6 +100,12 @@ namespace Hazard_Sweep.Classes
             sb.End();
 
             base.Draw(gameTime);
+        }
+
+        //returns bounding box
+        public Rectangle getRectangle()
+        {
+            return this.boundingBox;
         }
     }
 }

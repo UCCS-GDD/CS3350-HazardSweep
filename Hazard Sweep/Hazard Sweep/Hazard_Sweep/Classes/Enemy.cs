@@ -16,7 +16,6 @@ namespace Hazard_Sweep.Classes
     {
         //class variables
         protected int health;
-        
 
         //class constructor
         public Enemy(Game game, string textureFile, Vector2 position)
@@ -36,6 +35,20 @@ namespace Hazard_Sweep.Classes
         {
             Console.WriteLine(boundingBox.X + " " + boundingBox.Y);
             base.Update(gameTime);
+
+            //check for collisions
+            foreach (GameComponent g in game.Components)
+            {
+                if (g is PlayerSprite)
+                {
+                    Sprite s = (Sprite)g;
+                    Rectangle b = s.getRectangle();
+                    if (b.Intersects(this.boundingBox))
+                    {
+                    }
+                }
+            }
+
         }
     }
 }

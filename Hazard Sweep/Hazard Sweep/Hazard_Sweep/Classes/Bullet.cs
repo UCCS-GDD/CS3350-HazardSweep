@@ -16,6 +16,7 @@ namespace Hazard_Sweep.Classes
         //variables
         protected int speed;
         protected Facing direction;
+        protected bool remove = false;
 
         //constructor
         public Bullet(Game game, string textureFile, Vector2 position, Facing dir)
@@ -36,6 +37,30 @@ namespace Hazard_Sweep.Classes
             {
                 position.X += 10;
             }
+
+            Sprite collisionSprite = new Sprite(game);
+            //check for collisions
+            foreach( GameComponent g in game.Components)
+            {
+                if (g is Enemy)
+                {
+                    Sprite s = (Sprite)g;
+                    Rectangle b = s.getRectangle();
+                    if (b.Intersects(this.boundingBox))
+                    {
+                        collisionSprite = s;
+                        remove = true;
+                    }
+                }
+            }
+
+            //remove objects that have collided
+            if(remove)
+            {
+                game.Components.Remove(this);
+                game.Components.Remove(collisionSprite);
+            }
+
             base.Update(gameTime);
         }
     }
