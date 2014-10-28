@@ -24,6 +24,7 @@ namespace Hazard_Sweep.Classes
         Weapon weapon;
         protected Rectangle drawRectangle;
         protected int spriteRows, spriteCols;
+        protected Vector2 center;
 
         //Constructor
         public PlayerSprite(Game game, string textureFile, Vector2 position, int spriteRows, int spriteCols)
@@ -57,13 +58,20 @@ namespace Hazard_Sweep.Classes
             boundingBox.Width = texture.Width / spriteCols;
             boundingBox.X = (int)position.X;
             boundingBox.Y = (int)position.Y;
+
+            //set the center
+            center = new Vector2(position.X + boundingBox.Width / 2, position.Y + boundingBox.Height / 2);
         }
 
         // update method
         public override void Update(GameTime gameTime)
         {
             KeyboardState keyboardState = Keyboard.GetState();
-            ms = Mouse.GetState();            
+            ms = Mouse.GetState();    
+        
+            //update center
+            center.X = position.X + boundingBox.Width / 2;
+            center.Y = position.Y + boundingBox.Height / 2;
 
             //logic for animation
             if(direction == Facing.Left)
@@ -133,6 +141,12 @@ namespace Hazard_Sweep.Classes
         public Weapon GetWeapon()
         {
             return weapon;
+        }
+
+        //returns center
+        public Vector2 GetCenter()
+        {
+            return center;
         }
 
         //returns player's position

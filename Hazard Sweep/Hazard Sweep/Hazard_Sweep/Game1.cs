@@ -34,6 +34,8 @@ namespace Hazard_Sweep
         SpriteFont ammoLabelFont;
         SpriteFont ammoNumericFont;
 
+        Camera camera;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -69,6 +71,8 @@ namespace Hazard_Sweep
             healthText = "-1";
 
             Random rand = new Random();
+
+            camera = new Camera(GraphicsDevice.Viewport);
 
             base.Initialize();
         }
@@ -117,6 +121,9 @@ namespace Hazard_Sweep
             // update health/ammo text
             ammoText = player.GetWeapon().getClipBullets() + " / " + player.GetWeapon().getTotalNumBullets();
             healthText = "" + player.GetHealth();
+
+            //update camera
+            camera.Update(gameTime, player);
             
             base.Update(gameTime);
         }
@@ -130,7 +137,8 @@ namespace Hazard_Sweep
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null,
+                null, null, camera.transform);
 
             // draw score & font
             spriteBatch.DrawString(ammoLabelFont, "Ammo", ammoLabelLocation, Color.White);
