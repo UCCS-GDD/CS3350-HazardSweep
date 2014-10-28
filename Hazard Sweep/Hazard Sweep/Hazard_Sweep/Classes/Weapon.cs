@@ -100,7 +100,7 @@ namespace Hazard_Sweep.Classes
             }
         }
 
-        public WeaponType GetType()
+        public WeaponType GetWeaponType()
         {
             return type;
         }

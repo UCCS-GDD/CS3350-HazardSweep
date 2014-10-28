@@ -84,7 +84,7 @@ namespace Hazard_Sweep.Classes
         public void Draw(SpriteBatch spriteBatch)
         {
             // draw ammo
-            if (player.GetWeapon().GetType() != WeaponType.Melee)
+            if (player.GetWeapon().GetWeaponType() != WeaponType.Melee)
             {
                 spriteBatch.DrawString(ammoLabelFont, "Ammo", ammoLabelLocation, Color.White);
                 spriteBatch.DrawString(ammoNumericFont, ammoText, ammoNumericLocation, Color.White);

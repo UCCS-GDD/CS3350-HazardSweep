@@ -50,7 +50,7 @@ namespace Hazard_Sweep.Classes
                 WeaponAcquired();
             }
 
-            if(type == player.GetWeapon().GetType())
+            if(type == player.GetWeapon().GetWeaponType())
             {
                 WeaponEquipped();
             }
@@ -126,7 +126,8 @@ namespace Hazard_Sweep.Classes
 
         public void Draw(SpriteBatch sb)
         {
-            sb.Draw(texture, drawRec, sRec, Color.White);
+            sb.Draw(texture, drawRec, sRec, Color.White,0f,new Vector2(0f,0f),SpriteEffects.None,0f);
+            
         }
 
         // weapon acquired

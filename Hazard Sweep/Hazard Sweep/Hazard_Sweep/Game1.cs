@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Hazard_Sweep.Classes;
+using Hazard_Sweep.Classes.Maps.ExternalMaps;
 
 namespace Hazard_Sweep
 {
@@ -27,6 +28,8 @@ namespace Hazard_Sweep
         PlayerSprite player;
         GameElements elements;
         Camera camera;
+
+        ExternalMap testExMap;
 
         public Game1()
         {
@@ -49,10 +52,12 @@ namespace Hazard_Sweep
             //Add game components
             Components.Add(player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,
                 GlobalClass.ScreenHeight / 2), 2, 6));
-            Components.Add(new Enemy(this, "Images//zombie", new Vector2(200, 100)));
+            Components.Add(new Enemy(this, "Images//enemyWalk", new Vector2(200, 100), 2, 5));
             elements = new GameElements(this, player);
             elements.Initialize();
             camera = new Camera(GraphicsDevice.Viewport);
+
+            testExMap = new ExternalMap(this, "Images//Maps//External//test01", 0, Color.White);
 
             // what is this for?
             Random rand = new Random();
@@ -74,6 +79,8 @@ namespace Hazard_Sweep
 
             // load game elements
             elements.LoadContent();
+
+            testExMap.LoadContent();
         }
 
         /// <summary>
@@ -116,8 +123,10 @@ namespace Hazard_Sweep
             // draw objects
             spriteBatch.Begin();
             //spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null,
-            //    null, null, camera.transform);
+                //null, null, camera.transform);
+            testExMap.Draw(spriteBatch);
             elements.Draw(spriteBatch);
+            
             spriteBatch.End();
 
             base.Draw(gameTime);

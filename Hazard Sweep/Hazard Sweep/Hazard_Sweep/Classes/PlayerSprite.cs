@@ -35,13 +35,6 @@ namespace Hazard_Sweep.Classes
         Weapon assaultRifle;
         Weapon shotgun;
         protected Vector2 bulletOrigin;
-        /*
-        WeaponIcon meleeIcon;
-        WeaponIcon pistolIcon;
-        WeaponIcon assaultIcon;
-        WeaponIcon shotgunIcon;
-        */
-
 
         //Constructor
         public PlayerSprite(Game game, string textureFile, Vector2 position, int spriteRows, int spriteCols)
@@ -70,26 +63,12 @@ namespace Hazard_Sweep.Classes
             shotgun = new Weapon(WeaponType.Shotgun, game, 24, 6, 20);
 
             weapon = pistol;
-
-            /*
-            meleeIcon = new WeaponIcon
-                (game, "Image//iconMelee", new Vector2((int)(GlobalClass.ScreenWidth - (128 * 4)), 0f));
-            pistolIcon = new WeaponIcon
-                (game, "Image//iconPistol", new Vector2((int)(GlobalClass.ScreenWidth - (128 * 3)), 0f));
-            assaultIcon = new WeaponIcon
-                (game, "Image//iconAssault", new Vector2((int)(GlobalClass.ScreenWidth - (128 * 2)), 0f));
-            shotgunIcon = new WeaponIcon
-                (game, "Image//iconShotgun", new Vector2((int)(GlobalClass.ScreenWidth - (128 * 1)), 0f));
-            */
-
         }
 
         //load content
         protected override void LoadContent()
         {
             base.LoadContent();
-
-            
 
             // sets up bullet origin vector has to be here so texture is loaded when looking at width and height
             bulletOrigin = new Vector2(texture.Width / spriteCols / 2, texture.Height / spriteRows / 2);
@@ -101,13 +80,6 @@ namespace Hazard_Sweep.Classes
             boundingBox.Width = texture.Width / spriteCols;
             boundingBox.X = (int)position.X;
             boundingBox.Y = (int)position.Y;
-
-            /*
-            game.Components.Add(meleeIcon);
-            game.Components.Add(pistolIcon);
-            game.Components.Add(assaultIcon);
-            game.Components.Add(shotgunIcon);
-             */
         }
 
         // update method
@@ -210,7 +182,8 @@ namespace Hazard_Sweep.Classes
         {
             sb = Game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
             sb.Begin();
-            sb.Draw(texture, position, drawRectangle, Color.White);
+            // sb.Draw(texture, position, drawRectangle, Color.White);
+            sb.Draw(texture, position, drawRectangle, Color.White, 0f, new Vector2(0f, 0f), new Vector2(2f, 2f), SpriteEffects.None, 0.5f);
             sb.End();
         }
 

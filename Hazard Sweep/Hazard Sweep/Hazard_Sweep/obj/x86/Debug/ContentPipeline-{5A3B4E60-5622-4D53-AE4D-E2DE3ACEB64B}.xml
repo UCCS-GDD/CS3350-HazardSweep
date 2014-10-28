@@ -118,6 +118,24 @@
       <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\AmmoNumeric.xnb</Output>
       <Time>2014-10-13T14:52:50.8620433-06:00</Time>
     </Item>
+    <Item>
+      <Source>Images\Maps\External\test01.png</Source>
+      <Name>Images\Maps\External\test01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Maps\External\test01.xnb</Output>
+      <Time>2014-10-16T15:15:10.8517624-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\enemyWalk.png</Source>
+      <Name>Images\enemyWalk</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\enemyWalk.xnb</Output>
+      <Time>2014-10-28T00:28:17.0254939-06:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{5A3B4E60-5622-4D53-AE4D-E2DE3ACEB64B}</ContentProjectGUID>
