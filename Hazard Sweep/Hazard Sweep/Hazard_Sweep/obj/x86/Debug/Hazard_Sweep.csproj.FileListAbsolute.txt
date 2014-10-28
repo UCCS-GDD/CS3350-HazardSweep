@@ -94,3 +94,9 @@ C:\Users\Kim\Documents\Backupz\Hazard Sweep\Hazard Sweep\Hazard_Sweep\obj\x86\De
 C:\Users\Kim\Documents\Backupz\Hazard Sweep\Hazard Sweep\Hazard_Sweep\obj\x86\Debug\Hazard_Sweep.pdb
 C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Maps\External\test01.xnb
 C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\enemyWalk.xnb
+C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\GUI\iconAssault.xnb
+C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\GUI\iconMelee.xnb
+C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\GUI\iconPistol.xnb
+C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\GUI\iconShotgun.xnb
+C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\enemyWalk.xnb
+C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Maps\External\test01.xnb

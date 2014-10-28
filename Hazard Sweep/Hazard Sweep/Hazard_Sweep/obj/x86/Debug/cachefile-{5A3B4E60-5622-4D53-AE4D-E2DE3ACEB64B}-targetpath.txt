@@ -7,9 +7,9 @@ Content\Images\GUI\iconAssault.xnb
 Content\Images\GUI\iconMelee.xnb
 Content\Images\GUI\iconPistol.xnb
 Content\Images\GUI\iconShotgun.xnb
+Content\Images\enemyWalk.xnb
+Content\Images\Maps\External\test01.xnb
 Content\Fonts\HealthNumeric.xnb
 Content\Fonts\AmmoLabel.xnb
 Content\Fonts\HealthLabel.xnb
 Content\Fonts\AmmoNumeric.xnb
-Content\Images\Maps\External\test01.xnb
-Content\Images\enemyWalk.xnb
