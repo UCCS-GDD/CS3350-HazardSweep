@@ -24,28 +24,30 @@ namespace Hazard_Sweep.Classes
         string healthText;
         SpriteFont ammoLabelFont;
         SpriteFont ammoNumericFont;
+        Viewport viewport;
 
         // handling other entities
         Game game;
         PlayerSprite player;
 
-        public GameElements(Game game, PlayerSprite player)
+        public GameElements(Game game, PlayerSprite player, Viewport viewport)
         {
             this.game = game;
             this.player = player;
+            this.viewport = viewport;
         }
 
         public void Initialize()
         {
             // weapon icons
             meleeIcon = new WeaponIcon
-                ("Images//GUI//iconMelee", ((int)GlobalClass.ScreenWidth - (64 * 4)), WeaponType.Melee, player);
+                ("Images//GUI//iconMelee", ((int)GlobalClass.ScreenWidth - (64 * 4)), WeaponType.Melee, player, viewport);
             pistolIcon = new WeaponIcon
-                ("Images//GUI//iconPistol", ((int)GlobalClass.ScreenWidth - (64 * 3)), WeaponType.Pistol, player);
+                ("Images//GUI//iconPistol", ((int)GlobalClass.ScreenWidth - (64 * 3)), WeaponType.Pistol, player, viewport);
             assaultIcon = new WeaponIcon
-                ("Images//GUI//iconAssault", ((int)GlobalClass.ScreenWidth - (64 * 2)), WeaponType.AssaultRifle, player);
+                ("Images//GUI//iconAssault", ((int)GlobalClass.ScreenWidth - (64 * 2)), WeaponType.AssaultRifle, player, viewport);
             shotgunIcon = new WeaponIcon
-                ("Images//GUI//iconShotgun", ((int)GlobalClass.ScreenWidth - (64)), WeaponType.Shotgun, player);
+                ("Images//GUI//iconShotgun", ((int)GlobalClass.ScreenWidth - (64)), WeaponType.Shotgun, player, viewport);
 
             // health/ammo text locations
             ammoLabelLocation = new Vector2(48, GlobalClass.ScreenHeight - 96);

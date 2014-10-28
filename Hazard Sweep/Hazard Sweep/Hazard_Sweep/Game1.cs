@@ -27,7 +27,8 @@ namespace Hazard_Sweep
 
         PlayerSprite player;
         GameElements elements;
-        Camera camera;
+        // Camera camera;
+        Camera2D camera;
 
         ExternalMap testExMap;
 
@@ -53,9 +54,10 @@ namespace Hazard_Sweep
             Components.Add(player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,
                 GlobalClass.ScreenHeight / 2), 2, 6));
             Components.Add(new Enemy(this, "Images//enemyWalk", new Vector2(200, 100), 2, 5));
-            elements = new GameElements(this, player);
+            elements = new GameElements(this, player,GraphicsDevice.Viewport);
             elements.Initialize();
-            camera = new Camera(GraphicsDevice.Viewport);
+            // camera = new Camera(GraphicsDevice.Viewport);
+            camera = new Camera2D(GraphicsDevice.Viewport);
 
             testExMap = new ExternalMap(this, "Images//Maps//External//test01", 0, Color.White);
 
@@ -107,7 +109,8 @@ namespace Hazard_Sweep
             elements.Update(gameTime);
 
             //update camera
-            camera.Update(gameTime, player);
+            //camera.Update(gameTime, player);
+            camera.Update();
 
             base.Update(gameTime);
         }
@@ -121,9 +124,9 @@ namespace Hazard_Sweep
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // draw objects
-            spriteBatch.Begin();
-            //spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null,
-                //null, null, camera.transform);
+            //sspriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null,
+                null, null, camera.Transform);
             testExMap.Draw(spriteBatch);
             elements.Draw(spriteBatch);
             

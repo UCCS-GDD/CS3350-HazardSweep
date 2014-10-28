@@ -17,13 +17,15 @@ namespace Hazard_Sweep.Classes
         int x;
         WeaponType type;
         PlayerSprite player;
+        Viewport viewport;
 
-        public WeaponIcon(string textureFile, int x, WeaponType type, PlayerSprite player)
+        public WeaponIcon(string textureFile, int x, WeaponType type, PlayerSprite player, Viewport viewport)
         {
             this.textureFile = textureFile;
             this.x = x;
             this.type = type;
             this.player = player;
+            this.viewport = viewport;
 
             Initialize();
         }
@@ -64,6 +66,9 @@ namespace Hazard_Sweep.Classes
 
         public void Update(GameTime gameTime)
         {
+            drawRec.X = viewport.X + x;
+            drawRec.Y = viewport.Y;
+
             KeyboardState ks = Keyboard.GetState();
 
             if (ks.IsKeyDown(Keys.D1))
