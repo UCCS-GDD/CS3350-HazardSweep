@@ -137,8 +137,9 @@ namespace Hazard_Sweep
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null,
-                null, null, camera.transform);
+            //spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null,
+            //    null, null, camera.transform);
+            spriteBatch.Begin();
 
             // draw score & font
             spriteBatch.DrawString(ammoLabelFont, "Ammo", ammoLabelLocation, Color.White);
