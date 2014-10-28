@@ -81,7 +81,7 @@ namespace Hazard_Sweep.Classes
             if ((loadedBullets != capacity) && (totalBullets >= 0))
             {
                 if (totalBullets >= capacity)//if there are more bullets than full reload
-                {
+                {      
                     totalBullets -= capacity - loadedBullets;
                     loadedBullets = capacity;
                 }
@@ -89,7 +89,8 @@ namespace Hazard_Sweep.Classes
                 {
                     if ((loadedBullets + totalBullets) < capacity)// if there are less bullets and loaded bullets than capacity
                     {
-                        loadedBullets += totalBullets;
+                        loadedBullets += totalBullets;                    
+                        totalBullets -= totalBullets;
                     }
                     else// if there are less total bullets than capacity but more loaded bullets plus total bullets than capacity
                     {

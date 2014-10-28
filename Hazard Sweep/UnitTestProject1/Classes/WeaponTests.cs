@@ -66,11 +66,11 @@ namespace Weapon.Tests
         [TestMethod()]
         public void reloadTest()
         {
-            for (int loadedBullets = 90; loadedBullets > 0; loadedBullets--)
+            for (int loadedBullets = 90; totalBullets > 0; loadedBullets--)
             {
                 if ((loadedBullets != capacity) && (totalBullets >= 0))
                 {
-                    if (totalBullets >= 30)//if there are more bullets than full reload
+                    if (totalBullets >= capacity)//if there are more bullets than full reload
                     {
                         totalBullets -= capacity - loadedBullets;
                         loadedBullets = capacity;
@@ -78,7 +78,8 @@ namespace Weapon.Tests
                     else
                     {
                         if ((loadedBullets + totalBullets) < capacity)// if there are less bullets and loaded bullets than capacity
-                        {
+                        {       
+                            totalBullets -= totalBullets;
                             loadedBullets += totalBullets;
                         }
                         else// if there are less total bullets than capacity but more loaded bullets plus total bullets than capacity

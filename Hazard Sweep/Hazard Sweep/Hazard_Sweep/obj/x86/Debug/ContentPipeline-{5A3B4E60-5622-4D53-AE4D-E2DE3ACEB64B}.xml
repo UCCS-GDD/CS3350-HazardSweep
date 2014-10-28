@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Animation.xnb</Output>
-      <Time>2014-10-27T19:00:25.2497097-06:00</Time>
+      <Output>C:\Users\Nick\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Animation.xnb</Output>
+      <Time>2014-10-28T15:17:09.4077225-06:00</Time>
     </Item>
     <Item>
       <Source>Images\Ball.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Ball.xnb</Output>
-      <Time>2014-10-27T19:00:25.2507125-06:00</Time>
+      <Output>C:\Users\Nick\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Ball.xnb</Output>
+      <Time>2014-10-28T15:17:09.4087226-06:00</Time>
     </Item>
     <Item>
       <Source>Images\laser.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\laser.xnb</Output>
-      <Time>2014-10-27T19:00:25.2517115-06:00</Time>
+      <Output>C:\Users\Nick\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\laser.xnb</Output>
+      <Time>2014-10-28T15:17:09.5187289-06:00</Time>
     </Item>
     <Item>
       <Source>Images\zombie.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\zombie.xnb</Output>
-      <Time>2014-10-27T19:00:25.2728593-06:00</Time>
+      <Output>C:\Users\Nick\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\zombie.xnb</Output>
+      <Time>2014-10-28T15:17:09.5847326-06:00</Time>
     </Item>
     <Item>
       <Source>Images\playerWalk.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\playerWalk.xnb</Output>
-      <Time>2014-10-27T19:00:25.2527134-06:00</Time>
+      <Output>C:\Users\Nick\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\playerWalk.xnb</Output>
+      <Time>2014-10-28T15:17:09.5837326-06:00</Time>
     </Item>
     <Item>
       <Source>Images\GUI\iconAssault.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\GUI\iconAssault.xnb</Output>
-      <Time>2014-10-28T10:56:40.9593977-06:00</Time>
+      <Output>C:\Users\Nick\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\GUI\iconAssault.xnb</Output>
+      <Time>2014-10-28T15:17:09.4267236-06:00</Time>
     </Item>
     <Item>
       <Source>Images\GUI\iconMelee.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\GUI\iconMelee.xnb</Output>
-      <Time>2014-10-28T10:56:40.9603983-06:00</Time>
+      <Output>C:\Users\Nick\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\GUI\iconMelee.xnb</Output>
+      <Time>2014-10-28T15:17:09.4277237-06:00</Time>
     </Item>
     <Item>
       <Source>Images\GUI\iconPistol.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\GUI\iconPistol.xnb</Output>
-      <Time>2014-10-28T10:56:40.9603983-06:00</Time>
+      <Output>C:\Users\Nick\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\GUI\iconPistol.xnb</Output>
+      <Time>2014-10-28T15:17:09.4327239-06:00</Time>
     </Item>
     <Item>
       <Source>Images\GUI\iconShotgun.png</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\GUI\iconShotgun.xnb</Output>
-      <Time>2014-10-28T10:56:40.961399-06:00</Time>
+      <Output>C:\Users\Nick\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\GUI\iconShotgun.xnb</Output>
+      <Time>2014-10-28T15:17:09.4607255-06:00</Time>
     </Item>
     <Item>
       <Source>Images\enemyWalk.png</Source>
@@ -88,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\enemyWalk.xnb</Output>
-      <Time>2014-10-28T10:56:40.9644031-06:00</Time>
+      <Output>C:\Users\Nick\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\enemyWalk.xnb</Output>
+      <Time>2014-10-28T15:17:09.5177288-06:00</Time>
     </Item>
     <Item>
       <Source>Images\Maps\External\test01.png</Source>
@@ -97,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Maps\External\test01.xnb</Output>
-      <Time>2014-10-28T10:56:40.9634021-06:00</Time>
+      <Output>C:\Users\Nick\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Maps\External\test01.xnb</Output>
+      <Time>2014-10-28T15:17:09.4637257-06:00</Time>
     </Item>
     <Item>
       <Source>Fonts\HealthNumeric.spritefont</Source>
@@ -106,8 +106,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\HealthNumeric.xnb</Output>
-      <Time>2014-10-27T19:00:25.2467077-06:00</Time>
+      <Output>C:\Users\Nick\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\HealthNumeric.xnb</Output>
+      <Time>2014-10-28T15:17:09.4017222-06:00</Time>
     </Item>
     <Item>
       <Source>Fonts\AmmoLabel.spritefont</Source>
@@ -115,8 +115,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\AmmoLabel.xnb</Output>
-      <Time>2014-10-27T19:00:25.2345073-06:00</Time>
+      <Output>C:\Users\Nick\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\AmmoLabel.xnb</Output>
+      <Time>2014-10-28T15:17:09.3757207-06:00</Time>
     </Item>
     <Item>
       <Source>Fonts\HealthLabel.spritefont</Source>
@@ -124,8 +124,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\HealthLabel.xnb</Output>
-      <Time>2014-10-27T19:00:25.2457122-06:00</Time>
+      <Output>C:\Users\Nick\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\HealthLabel.xnb</Output>
+      <Time>2014-10-28T15:17:09.4007221-06:00</Time>
     </Item>
     <Item>
       <Source>Fonts\AmmoNumeric.spritefont</Source>
@@ -133,8 +133,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\AmmoNumeric.xnb</Output>
-      <Time>2014-10-27T19:00:25.235508-06:00</Time>
+      <Output>C:\Users\Nick\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\AmmoNumeric.xnb</Output>
+      <Time>2014-10-28T15:17:09.3787208-06:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -143,39 +143,39 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_SweepContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Nick\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_SweepContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Nick\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Nick\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Nick\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
         <Value>2011-09-01T16:22:30-06:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
         <Value>2011-09-01T16:22:30-06:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
         <Value>2011-09-01T16:22:30-06:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
         <Value>2011-09-01T16:22:30-06:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
         <Value>2011-09-01T16:22:30-06:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
         <Value>2011-09-01T16:22:30-06:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2014-09-04T14:57:43.4956719-06:00</Value>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2014-07-20T13:24:05.034154-06:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
