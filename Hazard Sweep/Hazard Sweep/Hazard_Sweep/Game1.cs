@@ -12,7 +12,9 @@ using Hazard_Sweep.Classes;
 
 namespace Hazard_Sweep
 {
+    public enum GameState { Menu, Gameplay };
     public enum Facing { Left, Right};
+    public enum WeaponType { Melee, Pistol, AssaultRifle, Shotgun };
 
     /// <summary>
     /// This is the main type for your game
@@ -23,17 +25,7 @@ namespace Hazard_Sweep
         SpriteBatch spriteBatch;
 
         PlayerSprite player;
-
-        // health/ammo text assets
-        Vector2 ammoLabelLocation;
-        Vector2 ammoNumericLocation;
-        Vector2 healthLabelLocation;
-        Vector2 healthNumericLocation;
-        string ammoText;
-        string healthText;
-        SpriteFont ammoLabelFont;
-        SpriteFont ammoNumericFont;
-
+        GameElements elements;
         Camera camera;
 
         public Game1()
@@ -58,21 +50,12 @@ namespace Hazard_Sweep
             Components.Add(player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,
                 GlobalClass.ScreenHeight / 2), 2, 6));
             Components.Add(new Enemy(this, "Images//zombie", new Vector2(200, 100)));
-
-            //testing
-            //Components.Add(new Bullet(this, "Images//Animation", new Vector2(150, 150), Facing.Right));
-
-            // health/ammo text locations
-            ammoLabelLocation = new Vector2(48, GlobalClass.ScreenHeight - 96);
-            ammoNumericLocation = new Vector2(32, GlobalClass.ScreenHeight - 64);
-            healthLabelLocation = new Vector2(GlobalClass.ScreenWidth - 84, GlobalClass.ScreenHeight - 96);
-            healthNumericLocation = new Vector2(GlobalClass.ScreenWidth - 96, GlobalClass.ScreenHeight - 64);
-            ammoText = "-1/-1";
-            healthText = "-1";
-
-            Random rand = new Random();
-
+            elements = new GameElements(this, player);
+            elements.Initialize();
             camera = new Camera(GraphicsDevice.Viewport);
+
+            // what is this for?
+            Random rand = new Random();
 
             base.Initialize();
         }
@@ -89,11 +72,8 @@ namespace Hazard_Sweep
             // Creates a service for the spritebatch so it can be used in other classes
             Services.AddService(typeof(SpriteBatch), spriteBatch);
 
-            // load fonts
-            ammoLabelFont = Content.Load<SpriteFont>("Fonts//AmmoLabel");
-            ammoNumericFont = Content.Load<SpriteFont>("Fonts//AmmoNumeric");
-
-            // TODO: use this.Content to load your game content here
+            // load game elements
+            elements.LoadContent();
         }
 
         /// <summary>
@@ -116,15 +96,12 @@ namespace Hazard_Sweep
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // TODO: Add your update logic here
-            
-            // update health/ammo text
-            ammoText = player.GetWeapon().getClipBullets() + " / " + player.GetWeapon().getTotalNumBullets();
-            healthText = "" + player.GetHealth();
+            // update game elements
+            elements.Update(gameTime);
 
             //update camera
             camera.Update(gameTime, player);
-            
+
             base.Update(gameTime);
         }
 
@@ -136,17 +113,11 @@ namespace Hazard_Sweep
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            // draw objects
+            spriteBatch.Begin();
             //spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null,
             //    null, null, camera.transform);
-            spriteBatch.Begin();
-
-            // draw score & font
-            spriteBatch.DrawString(ammoLabelFont, "Ammo", ammoLabelLocation, Color.White);
-            spriteBatch.DrawString(ammoNumericFont, ammoText, ammoNumericLocation, Color.White);
-            spriteBatch.DrawString(ammoLabelFont, "Health", healthLabelLocation, Color.White);
-            spriteBatch.DrawString(ammoNumericFont, healthText, healthNumericLocation, Color.White);
-
+            elements.Draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);

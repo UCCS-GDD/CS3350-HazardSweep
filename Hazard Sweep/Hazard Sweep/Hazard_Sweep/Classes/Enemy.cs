@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Hazard_Sweep.Classes
 {
-    class Enemy : Sprite
+    public class Enemy : Sprite
     {
         //class variables
         protected int health;

@@ -18,21 +18,43 @@ namespace Hazard_Sweep.Classes
         protected Vector2 movement;
         protected MouseState ms;
         protected Vector2 mousePosition;
-        protected Vector2 bulletOrigin;
         protected Facing direction;
         protected int health;
-        Weapon weapon;
         protected Rectangle drawRectangle;
         protected int spriteRows, spriteCols;
-        protected Vector2 center;
+
+        // weapon variables
+        Weapon weapon;
+        protected WeaponType weaponSelect;
+        public bool hasMelee;
+        public bool hasPistol;
+        public bool hasAssaultRifle;
+        public bool hasShotgun;
+        Weapon melee;
+        Weapon pistol;
+        Weapon assaultRifle;
+        Weapon shotgun;
+        protected Vector2 bulletOrigin;
+        /*
+        WeaponIcon meleeIcon;
+        WeaponIcon pistolIcon;
+        WeaponIcon assaultIcon;
+        WeaponIcon shotgunIcon;
+        */
+
 
         //Constructor
         public PlayerSprite(Game game, string textureFile, Vector2 position, int spriteRows, int spriteCols)
             : base(game, textureFile, position)
         {
+
             health = 100;
 
-            weapon = new Weapon(game, 60);
+            //randomize weapons spawn later
+            hasMelee = true;
+            hasPistol = true;
+            hasAssaultRifle = true;
+            hasShotgun = true;
 
             //sets initial direction
             direction = Facing.Left;
@@ -41,12 +63,33 @@ namespace Hazard_Sweep.Classes
             this.spriteRows = spriteRows;
             this.spriteCols = spriteCols;
 
+            // create weapons
+            melee = new Weapon(WeaponType.Melee, game, 0, 0, 15);
+            pistol = new Weapon(WeaponType.Pistol, game, 48, 12, 12);
+            assaultRifle = new Weapon(WeaponType.AssaultRifle, game, 60, 30, 5);
+            shotgun = new Weapon(WeaponType.Shotgun, game, 24, 6, 20);
+
+            weapon = pistol;
+
+            /*
+            meleeIcon = new WeaponIcon
+                (game, "Image//iconMelee", new Vector2((int)(GlobalClass.ScreenWidth - (128 * 4)), 0f));
+            pistolIcon = new WeaponIcon
+                (game, "Image//iconPistol", new Vector2((int)(GlobalClass.ScreenWidth - (128 * 3)), 0f));
+            assaultIcon = new WeaponIcon
+                (game, "Image//iconAssault", new Vector2((int)(GlobalClass.ScreenWidth - (128 * 2)), 0f));
+            shotgunIcon = new WeaponIcon
+                (game, "Image//iconShotgun", new Vector2((int)(GlobalClass.ScreenWidth - (128 * 1)), 0f));
+            */
+
         }
 
         //load content
         protected override void LoadContent()
         {
             base.LoadContent();
+
+            
 
             // sets up bullet origin vector has to be here so texture is loaded when looking at width and height
             bulletOrigin = new Vector2(texture.Width / spriteCols / 2, texture.Height / spriteRows / 2);
@@ -59,19 +102,19 @@ namespace Hazard_Sweep.Classes
             boundingBox.X = (int)position.X;
             boundingBox.Y = (int)position.Y;
 
-            //set the center
-            center = new Vector2(position.X + boundingBox.Width / 2, position.Y + boundingBox.Height / 2);
+            /*
+            game.Components.Add(meleeIcon);
+            game.Components.Add(pistolIcon);
+            game.Components.Add(assaultIcon);
+            game.Components.Add(shotgunIcon);
+             */
         }
 
         // update method
         public override void Update(GameTime gameTime)
         {
             KeyboardState keyboardState = Keyboard.GetState();
-            ms = Mouse.GetState();    
-        
-            //update center
-            center.X = position.X + boundingBox.Width / 2;
-            center.Y = position.Y + boundingBox.Height / 2;
+            ms = Mouse.GetState();            
 
             //logic for animation
             if(direction == Facing.Left)
@@ -104,6 +147,8 @@ namespace Hazard_Sweep.Classes
             {
                 position.Y += 5;
             }
+
+            // weapon handling
             if (keyboardState.IsKeyDown(Keys.Space))
             {
                 weapon.shoot(position + bulletOrigin, direction);
@@ -111,6 +156,44 @@ namespace Hazard_Sweep.Classes
             if (keyboardState.IsKeyDown(Keys.R))
             {
                 weapon.reload();
+            }
+
+            // changing weapons
+            if (keyboardState.IsKeyDown(Keys.D1))
+            {
+                if (hasMelee == true)
+                {
+                    game.Components.Remove(weapon);
+                    weapon = melee;
+                    game.Components.Add(weapon);
+                }
+            }
+            if (keyboardState.IsKeyDown(Keys.D2))
+            {
+                if (hasPistol == true)
+                {
+                    game.Components.Remove(weapon);
+                    weapon = pistol;
+                    game.Components.Add(weapon);
+                }
+            }
+            if (keyboardState.IsKeyDown(Keys.D3))
+            {
+                if (hasAssaultRifle == true)
+                {
+                    game.Components.Remove(weapon);
+                    weapon = assaultRifle;
+                    game.Components.Add(weapon);
+                }
+            }
+            if (keyboardState.IsKeyDown(Keys.D4))
+            {
+                if (hasShotgun == true)
+                {
+                    game.Components.Remove(weapon);
+                    weapon = shotgun;
+                    game.Components.Add(weapon);
+                }
             }
 
             //ends the game if player's health is 0, will later go to menus
@@ -143,16 +226,16 @@ namespace Hazard_Sweep.Classes
             return weapon;
         }
 
-        //returns center
-        public Vector2 GetCenter()
-        {
-            return center;
-        }
-
         //returns player's position
         public Vector2 getPlayerPosition()
         {
             return position;
+        }
+
+        //returns center
+        public Vector2 GetCenter()
+        {
+            return center;
         }
 
         //sets the player's health

@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.Threading.Tasks;
 using Hazard_Sweep.Classes;
+using Hazard_Sweep;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace AnimateSprite.Tests
 {

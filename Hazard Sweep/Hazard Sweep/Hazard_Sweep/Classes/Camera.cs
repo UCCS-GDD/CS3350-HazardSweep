@@ -29,7 +29,7 @@ namespace Hazard_Sweep.Classes
         {
             Vector2 playerPos = sprite.GetCenter();
             Rectangle playerRect = sprite.getRectangle();
-            center = new Vector2((playerPos.X + playerRect.Width / 2) - GlobalClass.ScreenWidth, 
+            center = new Vector2((playerPos.X + playerRect.Width / 2) - GlobalClass.ScreenWidth,
                 (playerPos.Y + playerRect.Height / 2) - GlobalClass.ScreenHeight);
 
             transform = Matrix.CreateScale(new Vector3(1, 1, 0)) *

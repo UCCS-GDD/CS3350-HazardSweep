@@ -57,6 +57,11 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Classes\AnimateSpriteTests.cs" />
+    <Compile Include="Classes\BulletTests.cs" />
+    <Compile Include="Classes\EnemyTests.cs" />
+    <Compile Include="Classes\InanimateSpriteTests.cs" />
+    <Compile Include="Classes\PlayerSpriteTests.cs" />
+    <Compile Include="Classes\SpriteTests.cs" />
     <Compile Include="Classes\WeaponTests.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

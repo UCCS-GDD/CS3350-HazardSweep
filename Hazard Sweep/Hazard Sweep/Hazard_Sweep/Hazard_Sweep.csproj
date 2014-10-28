@@ -76,11 +76,13 @@
     <Compile Include="Classes\Bullet.cs" />
     <Compile Include="Classes\Camera.cs" />
     <Compile Include="Classes\Enemy.cs" />
+    <Compile Include="Classes\GameElements.cs" />
     <Compile Include="Classes\GlobalClass.cs" />
     <Compile Include="Classes\InanimateSprite.cs" />
     <Compile Include="Classes\PlayerSprite.cs" />
     <Compile Include="Classes\Sprite.cs" />
     <Compile Include="Classes\Weapon.cs" />
+    <Compile Include="Classes\WeaponIcon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />

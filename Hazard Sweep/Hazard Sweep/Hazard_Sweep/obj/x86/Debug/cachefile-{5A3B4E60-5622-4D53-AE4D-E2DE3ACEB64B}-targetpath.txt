@@ -2,8 +2,12 @@ Content\Images\Animation.xnb
 Content\Images\Ball.xnb
 Content\Images\laser.xnb
 Content\Images\zombie.xnb
+Content\Images\playerWalk.xnb
+Content\Images\GUI\iconAssault.xnb
+Content\Images\GUI\iconMelee.xnb
+Content\Images\GUI\iconPistol.xnb
+Content\Images\GUI\iconShotgun.xnb
 Content\Fonts\HealthNumeric.xnb
 Content\Fonts\AmmoLabel.xnb
 Content\Fonts\HealthLabel.xnb
 Content\Fonts\AmmoNumeric.xnb
-Content\Images\playerWalk.xnb

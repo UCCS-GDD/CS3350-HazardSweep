@@ -14,19 +14,25 @@ namespace Hazard_Sweep.Classes
     {
         //variables
         protected int loadedBullets;
-        protected int capacity = 30;
+        protected int capacity;
         protected int totalBullets;
-        protected int delay = 10;
+        protected int delay;
         protected double currentTime;
         protected Game game;
+        WeaponType type;
 
         //weapon constructor
-        public Weapon(Game game, int totalBullets) : base(game)
+        public Weapon(WeaponType type, Game game, int totalBullets, int capacity, int delay)
+            : base(game)
         {
             this.game = game;
             this.totalBullets = totalBullets;
+            this.capacity = capacity;
             loadedBullets = capacity;
-        }        
+            this.delay = delay;
+            currentTime = 0;
+            this.type = type;
+        }
 
         //update methode
         public override void Update(GameTime gameTime)
@@ -53,16 +59,15 @@ namespace Hazard_Sweep.Classes
         public int getTotalNumBullets()
         {
             return totalBullets;
-            
+
         }
 
         //fires the weapon
         public void shoot(Vector2 bulletOrigin, Facing direction)
         {
-            if(((int)currentTime >= delay) && (loadedBullets > 0))
+            if (((int)currentTime >= delay) && (loadedBullets > 0))
             {
                 loadedBullets--;
-                totalBullets--;
 
                 //creates a bullet
                 game.Components.Add(new Bullet(game, "Images/laser", bulletOrigin, direction));
@@ -73,26 +78,31 @@ namespace Hazard_Sweep.Classes
         //reloads weapon
         public void reload()
         {
-            if((loadedBullets != capacity) && (totalBullets > 0))
+            if ((loadedBullets != capacity) && (totalBullets >= 0))
             {
-                if(totalBullets >= 30)//if there are more bullets than full reload
+                if (totalBullets >= capacity)//if there are more bullets than full reload
                 {
                     totalBullets -= capacity - loadedBullets;
                     loadedBullets = capacity;
                 }
-                else 
+                else
                 {
-                    if((loadedBullets + totalBullets) < capacity)// if there are less bullets and loaded bullets than capacity
+                    if ((loadedBullets + totalBullets) < capacity)// if there are less bullets and loaded bullets than capacity
                     {
                         loadedBullets += totalBullets;
                     }
                     else// if there are less total bullets than capacity but more loaded bullets plus total bullets than capacity
                     {
-                        totalBullets = capacity - loadedBullets;
+                        totalBullets -= capacity - loadedBullets;
                         loadedBullets = capacity;
                     }
                 }
             }
+        }
+
+        public WeaponType GetType()
+        {
+            return type;
         }
     }
 }
