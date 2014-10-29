@@ -22,6 +22,23 @@ namespace Hazard_Sweep.Classes
         private bool down;
         private List<Door> doors;
 
+        Vector2 boundaryPosition;
+
+        //door positions
+        Vector2 topDoorPos;
+        Vector2 leftDoorPos;
+        Vector2 rightDoorPos;
+        Vector2 bottomDoorPos;
+
+        //door activations
+        bool topActive = false;
+        bool leftActive = false;
+        bool rightActive = false;
+        bool bottomActive = false;
+
+        //map variables
+
+
         public Room(Game game, string textureFile, Vector2 position, int row, int column, bool up, bool down)
             : base(game, textureFile, position)
         {            
@@ -29,16 +46,25 @@ namespace Hazard_Sweep.Classes
             this.column = column;
             this.up = up;
             this.down = down;
-
+            
+            boundaryPosition = new Vector2(10, 10);
             doors = new List<Door>();
         }
 
         public override void Initialize()
         {
-            Boundary = new Rectangle(10, 10, 800, 800);
+            Boundary = new Rectangle((int)boundaryPosition.X, (int)boundaryPosition.Y, 600, 400);
             base.Initialize();
 
-            game.Components.Add(new Door(game, "Images//door", new Vector2(50, 50), new Vector2(200, 200), true));
+            topDoorPos = new Vector2(boundaryPosition.X + (Boundary.Width / 2), boundaryPosition.Y);
+            leftDoorPos = new Vector2(boundaryPosition.X, boundaryPosition.Y + (Boundary.Height / 2));
+            rightDoorPos = new Vector2(boundaryPosition.X + Boundary.Width, boundaryPosition.Y + (Boundary.Height / 2));
+            bottomDoorPos = new Vector2(boundaryPosition.X + (Boundary.Width / 2), boundaryPosition.Y + Boundary.Height);
+
+            game.Components.Add(new Door(game, "Images//door", topDoorPos, new Vector2(200, 200), true));
+            game.Components.Add(new Door(game, "Images//door", leftDoorPos, new Vector2(200, 200), true));
+            game.Components.Add(new Door(game, "Images//door", rightDoorPos, new Vector2(200, 200), true));
+            game.Components.Add(new Door(game, "Images//door", bottomDoorPos, new Vector2(200, 200), true));
 
             drawRectangle = new Rectangle(-100, 0, texture.Width, 600);
         }
