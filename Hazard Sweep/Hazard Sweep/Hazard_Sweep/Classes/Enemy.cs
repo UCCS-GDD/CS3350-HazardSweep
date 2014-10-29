@@ -62,111 +62,117 @@ namespace Hazard_Sweep.Classes
         //update method
         public override void Update(GameTime gameTime)
         {
-            //logic for animation
-            if (this.direction == Facing.Left)
+            if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
             {
-                sRec.Y = texture.Height / spriteRows;
-            }
-            else if (this.direction == Facing.Right)
-            {
-                sRec.Y = 0;
-            }
-
-            Console.WriteLine(boundingBox.X + " " + boundingBox.Y);
-            base.Update(gameTime);
-
-            //update current time
-            currentTime++;
-
-            //check for collisions with player
-            foreach (GameComponent g in game.Components)
-            {
-                if (g is PlayerSprite)
+                //logic for animation
+                if (this.direction == Facing.Left)
                 {
-                    PlayerSprite s = (PlayerSprite)g;
-                    //get position of player
-                    target = s.getPlayerPosition();
+                    sRec.Y = texture.Height / spriteRows;
+                }
+                else if (this.direction == Facing.Right)
+                {
+                    sRec.Y = 0;
+                }
 
-                    //collision logic
-                    Rectangle b = s.getRectangle();
-                    if (b.Intersects(this.boundingBox))
+                Console.WriteLine(boundingBox.X + " " + boundingBox.Y);
+                base.Update(gameTime);
+
+                //update current time
+                currentTime++;
+
+                //check for collisions with player
+                foreach (GameComponent g in game.Components)
+                {
+                    if (g is PlayerSprite)
                     {
-                        //damage the player
-                        if (currentTime >= delay)
+                        PlayerSprite s = (PlayerSprite)g;
+                        //get position of player
+                        target = s.getPlayerPosition();
+
+                        //collision logic
+                        Rectangle b = s.getRectangle();
+                        if (b.Intersects(this.boundingBox))
                         {
-                            s.reducePlayerHealth(damage);
-                            currentTime = 0;
+                            //damage the player
+                            if (currentTime >= delay)
+                            {
+                                s.reducePlayerHealth(damage);
+                                currentTime = 0;
+                            }
+                        }
+
+                        if (position.X > (s.getPlayerPosition().X - 5f))
+                        {
+                            this.direction = Facing.Left;
+                        }
+                        else
+                        {
+                            this.direction = Facing.Right;
                         }
                     }
-
-                    if(position.X > (s.getPlayerPosition().X - 5f))
-                    {
-                        this.direction = Facing.Left;
-                    }
-                    else
-                    {
-                        this.direction = Facing.Right;
-                    }
                 }
-            }
 
-            //enemy AI (moves enemy towards player
-            Vector2 direction = target - position;
-            direction.Normalize();
-            //enemy will only move towards player if the player is within 250
-            if (Math.Abs(Vector2.Distance(target, position)) < 250)
-            {
-                Vector2 velocity = direction * moveSpeed;
-                position += velocity;
-            }
-
-            // animate
-
-            // check for movement
-            if (position.X == prevX && position.Y == prevY)
-            {
-                animate = false;
-                frameCount = 0;
-            }
-            else
-            {
-                animate = true;
-            }
-
-            // if enemy is moving, animate
-            if (animate)
-            {
-                if (frameCount == animationSpeed)
+                //enemy AI (moves enemy towards player
+                Vector2 direction = target - position;
+                direction.Normalize();
+                //enemy will only move towards player if the player is within 250
+                if (Math.Abs(Vector2.Distance(target, position)) < 250)
                 {
-                    // check for rollover on sprite strip
-                    if ((sRec.X + sRec.Width) > (texture.Width - sRec.Width))
-                    {
-                        sRec.X = 0;
-                    }
-                    else
-                    {
-                        sRec.X += sRec.Width;
-                    }
+                    Vector2 velocity = direction * moveSpeed;
+                    position += velocity;
+                }
 
-                    // restart timer
+                // animate
+
+                // check for movement
+                if (position.X == prevX && position.Y == prevY)
+                {
+                    animate = false;
                     frameCount = 0;
                 }
-            }
+                else
+                {
+                    animate = true;
+                }
 
-            // increment animation assets as appropriate
-            frameCount += 1;
-            prevX = position.X;
-            prevY = position.Y;
+                // if enemy is moving, animate
+                if (animate)
+                {
+                    if (frameCount == animationSpeed)
+                    {
+                        // check for rollover on sprite strip
+                        if ((sRec.X + sRec.Width) > (texture.Width - sRec.Width))
+                        {
+                            sRec.X = 0;
+                        }
+                        else
+                        {
+                            sRec.X += sRec.Width;
+                        }
+
+                        // restart timer
+                        frameCount = 0;
+                    }
+                }
+
+                // increment animation assets as appropriate
+                frameCount += 1;
+                prevX = position.X;
+                prevY = position.Y;
+            }
         }
 
         //draw method
         public override void Draw(GameTime gameTime)
         {
-            sb = Game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
-            sb.Begin();
-            // sb.Draw(texture, position, drawRectangle, Color.White);
-            sb.Draw(texture, position, sRec, Color.White, 0f, new Vector2(0f, 0f), new Vector2(2f, 2f), SpriteEffects.None, 0.5f);
-            sb.End();
+            if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
+            {
+                sb = Game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
+                sb.Begin();
+                // sb.Draw(texture, position, drawRectangle, Color.White);
+                sb.Draw(texture, position, sRec, Color.White, 0f, new Vector2(0f, 0f), new Vector2(2f, 2f), SpriteEffects.None, 0.5f);
+                sb.End();
+            }
         }
     }
 }

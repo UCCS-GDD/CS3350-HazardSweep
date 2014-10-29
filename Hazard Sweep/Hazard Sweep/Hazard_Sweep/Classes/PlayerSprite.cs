@@ -99,142 +99,148 @@ namespace Hazard_Sweep.Classes
         // update method
         public override void Update(GameTime gameTime)
         {
-            KeyboardState keyboardState = Keyboard.GetState();
-            ms = Mouse.GetState();            
+            if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
+            {
+                KeyboardState keyboardState = Keyboard.GetState();
+                ms = Mouse.GetState();
 
-            //logic for animation
-            if(direction == Facing.Left)
-            {
-                drawRectangle.Y = texture.Height / spriteRows;
-            }
-            else if(direction == Facing.Right)
-            {
-                drawRectangle.Y = 0;
-            }
-
-            //move the sprite with WASD
-            if (keyboardState.IsKeyDown(Keys.D))
-            {
-                position.X += 5;
-                direction = Facing.Right;
-            }
-            if (keyboardState.IsKeyDown(Keys.A))
-            {
-                position.X -= 5;
-                direction = Facing.Left;
-            }
-            if (keyboardState.IsKeyDown(Keys.W))
-            {
-                position.Y -= 5;
-            }
-            if (keyboardState.IsKeyDown(Keys.S))
-            {
-                position.Y += 5;
-            }
-
-            // weapon handling
-            if (keyboardState.IsKeyDown(Keys.Space))
-            {
-                weapon.shoot(position + bulletOrigin, direction);
-            }
-            if (keyboardState.IsKeyDown(Keys.R))
-            {
-                weapon.reload();
-            }
-
-            // changing weapons
-            if (keyboardState.IsKeyDown(Keys.D1))
-            {
-                if (hasMelee == true)
+                //logic for animation
+                if (direction == Facing.Left)
                 {
-                    game.Components.Remove(weapon);
-                    weapon = melee;
-                    game.Components.Add(weapon);
+                    drawRectangle.Y = texture.Height / spriteRows;
                 }
-            }
-            if (keyboardState.IsKeyDown(Keys.D2))
-            {
-                if (hasPistol == true)
+                else if (direction == Facing.Right)
                 {
-                    game.Components.Remove(weapon);
-                    weapon = pistol;
-                    game.Components.Add(weapon);
+                    drawRectangle.Y = 0;
                 }
-            }
-            if (keyboardState.IsKeyDown(Keys.D3))
-            {
-                if (hasAssaultRifle == true)
-                {
-                    game.Components.Remove(weapon);
-                    weapon = assaultRifle;
-                    game.Components.Add(weapon);
-                }
-            }
-            if (keyboardState.IsKeyDown(Keys.D4))
-            {
-                if (hasShotgun == true)
-                {
-                    game.Components.Remove(weapon);
-                    weapon = shotgun;
-                    game.Components.Add(weapon);
-                }
-            }
 
-            //ends the game if player's health is 0, will later go to menus
-            if (health <= 0)
-            {
-                ((Game1)Game).ChangeGameState(Game1.GameState.END);
-            }
-
-            // animate
-            
-            // check for movement
-            if(position.X == prevX && position.Y == prevY)
-            {
-                animate = false;
-                frameCount = 0;
-            }
-            else
-            {
-                animate = true;
-            }
-            
-            // if player is moving, animate
-            if(animate)
-            {
-                if(frameCount == animationSpeed)
+                //move the sprite with WASD
+                if (keyboardState.IsKeyDown(Keys.D))
                 {
-                    // check for rollover on sprite strip
-                    if ((drawRectangle.X + drawRectangle.Width) > (texture.Width - drawRectangle.Width))
+                    position.X += 5;
+                    direction = Facing.Right;
+                }
+                if (keyboardState.IsKeyDown(Keys.A))
+                {
+                    position.X -= 5;
+                    direction = Facing.Left;
+                }
+                if (keyboardState.IsKeyDown(Keys.W))
+                {
+                    position.Y -= 5;
+                }
+                if (keyboardState.IsKeyDown(Keys.S))
+                {
+                    position.Y += 5;
+                }
+
+                // weapon handling
+                if (keyboardState.IsKeyDown(Keys.Space))
+                {
+                    weapon.shoot(position + bulletOrigin, direction);
+                }
+                if (keyboardState.IsKeyDown(Keys.R))
+                {
+                    weapon.reload();
+                }
+
+                // changing weapons
+                if (keyboardState.IsKeyDown(Keys.D1))
+                {
+                    if (hasMelee == true)
                     {
-                        drawRectangle.X = 0;
+                        game.Components.Remove(weapon);
+                        weapon = melee;
+                        game.Components.Add(weapon);
                     }
-                    else
+                }
+                if (keyboardState.IsKeyDown(Keys.D2))
+                {
+                    if (hasPistol == true)
                     {
-                        drawRectangle.X += drawRectangle.Width;
+                        game.Components.Remove(weapon);
+                        weapon = pistol;
+                        game.Components.Add(weapon);
                     }
+                }
+                if (keyboardState.IsKeyDown(Keys.D3))
+                {
+                    if (hasAssaultRifle == true)
+                    {
+                        game.Components.Remove(weapon);
+                        weapon = assaultRifle;
+                        game.Components.Add(weapon);
+                    }
+                }
+                if (keyboardState.IsKeyDown(Keys.D4))
+                {
+                    if (hasShotgun == true)
+                    {
+                        game.Components.Remove(weapon);
+                        weapon = shotgun;
+                        game.Components.Add(weapon);
+                    }
+                }
 
-                    // restart timer
+                //ends the game if player's health is 0, will later go to menus
+                if (health <= 0)
+                {
+                    ((Game1)Game).ChangeGameState(Game1.GameState.END);
+                }
+
+                // animate
+
+                // check for movement
+                if (position.X == prevX && position.Y == prevY)
+                {
+                    animate = false;
                     frameCount = 0;
                 }
+                else
+                {
+                    animate = true;
+                }
+
+                // if player is moving, animate
+                if (animate)
+                {
+                    if (frameCount == animationSpeed)
+                    {
+                        // check for rollover on sprite strip
+                        if ((drawRectangle.X + drawRectangle.Width) > (texture.Width - drawRectangle.Width))
+                        {
+                            drawRectangle.X = 0;
+                        }
+                        else
+                        {
+                            drawRectangle.X += drawRectangle.Width;
+                        }
+
+                        // restart timer
+                        frameCount = 0;
+                    }
+                }
+
+                // increment animation assets as appropriate
+                frameCount += 1;
+                prevX = position.X;
+                prevY = position.Y;
+
+                base.Update(gameTime);
             }
-
-            // increment animation assets as appropriate
-            frameCount += 1;
-            prevX = position.X;
-            prevY = position.Y;
-
-            base.Update(gameTime);
         }
 
         //draw method
         public override void Draw(GameTime gameTime)
         {
-            sb = Game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
-            sb.Begin();
-            // sb.Draw(texture, position, drawRectangle, Color.White);
-            sb.Draw(texture, position, drawRectangle, Color.White, 0f, new Vector2(0f, 0f), new Vector2(2f, 2f), SpriteEffects.None, 0.5f);
-            sb.End();
+            if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
+            {
+                sb = Game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
+                sb.Begin();
+                // sb.Draw(texture, position, drawRectangle, Color.White);
+                sb.Draw(texture, position, drawRectangle, Color.White, 0f, new Vector2(0f, 0f), new Vector2(2f, 2f), SpriteEffects.None, 0.5f);
+                sb.End();
+            }
         }
 
         //returns the health

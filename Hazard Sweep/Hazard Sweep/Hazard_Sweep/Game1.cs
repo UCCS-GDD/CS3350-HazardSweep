@@ -169,5 +169,10 @@ namespace Hazard_Sweep
                     break;
             }
         }
+
+        public GameState GetGameState()
+        {
+            return currentGameState;
+        }
     }
 }
