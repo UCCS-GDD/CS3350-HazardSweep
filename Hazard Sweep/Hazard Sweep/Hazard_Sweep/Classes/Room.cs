@@ -35,10 +35,10 @@ namespace Hazard_Sweep.Classes
 
         public override void Initialize()
         {
-            Boundary = new Rectangle(100, 100, 600, 600);
+            Boundary = new Rectangle(10, 10, 800, 800);
             base.Initialize();
 
-            game.Components.Add(new Door(game, "Images//door", new Vector2(50, 50), new Vector2(600, 600)));
+            game.Components.Add(new Door(game, "Images//door", new Vector2(50, 50), new Vector2(200, 200)));
 
             drawRectangle = new Rectangle(-100, 0, texture.Width, 600);
         }

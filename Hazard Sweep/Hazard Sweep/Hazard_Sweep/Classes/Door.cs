@@ -21,7 +21,7 @@ namespace Hazard_Sweep.Classes
             : base(game, textureFile, position)
         {
             this.exitLocation = exitLocation;
-            activationArea = new Rectangle((int)position.X - 300, (int)position.Y - 300, 600, 600);
+            activationArea = new Rectangle((int)position.X - 50, (int)position.Y - 50, 100, 100);
         }
 
         //get activation area

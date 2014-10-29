@@ -47,6 +47,11 @@ namespace Hazard_Sweep.Classes
         bool contained = true;
         Vector2 previousPosition;
 
+        //activation area
+        bool inArea = false;
+        Vector2 newPosition;
+        bool displayActivationMessage = false;
+
         //Constructor
         public PlayerSprite(Game game, string textureFile, Vector2 position, int spriteRows, int spriteCols)
             : base(game, textureFile, position)
@@ -127,9 +132,27 @@ namespace Hazard_Sweep.Classes
                         {
                             contained = false;
                         }
-
-
                     }
+                    else if(g is Door)
+                    {
+                        Door d = (Door)g;
+
+                        //collision logic
+                        Rectangle b = d.getActivationArea();
+                        if(b.Intersects(this.boundingBox))
+                        {
+                            inArea = true;
+                            newPosition = d.getExitLocation();
+                        }
+                    }
+                }
+
+                //activation if player is in activation area
+                if(keyboardState.IsKeyDown(Keys.E) && inArea == true)
+                {
+                    displayActivationMessage = true;
+                    inArea = false;
+                    this.position = newPosition;
                 }
 
                 //logic for animation
