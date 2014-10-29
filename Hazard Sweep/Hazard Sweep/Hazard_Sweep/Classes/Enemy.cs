@@ -25,6 +25,13 @@ namespace Hazard_Sweep.Classes
         protected Rectangle sRec;
         protected Facing direction;
 
+        // animation variables
+        int frameCount;
+        int animationSpeed = 10;
+        float prevX;
+        float prevY;
+        bool animate;
+
         //class constructor
         public Enemy(Game game, string textureFile, Vector2 position, int spriteRows, int spriteCols)
             : base(game, textureFile, position)
@@ -58,12 +65,10 @@ namespace Hazard_Sweep.Classes
             //logic for animation
             if (this.direction == Facing.Left)
             {
-                sRec.X = 0;
                 sRec.Y = texture.Height / spriteRows;
             }
             else if (this.direction == Facing.Right)
             {
-                sRec.X = 0;
                 sRec.Y = 0;
             }
 
@@ -114,6 +119,44 @@ namespace Hazard_Sweep.Classes
                 Vector2 velocity = direction * moveSpeed;
                 position += velocity;
             }
+
+            // animate
+
+            // check for movement
+            if (position.X == prevX && position.Y == prevY)
+            {
+                animate = false;
+                frameCount = 0;
+            }
+            else
+            {
+                animate = true;
+            }
+
+            // if enemy is moving, animate
+            if (animate)
+            {
+                if (frameCount == animationSpeed)
+                {
+                    // check for rollover on sprite strip
+                    if ((sRec.X + sRec.Width) > (texture.Width - sRec.Width))
+                    {
+                        sRec.X = 0;
+                    }
+                    else
+                    {
+                        sRec.X += sRec.Width;
+                    }
+
+                    // restart timer
+                    frameCount = 0;
+                }
+            }
+
+            // increment animation assets as appropriate
+            frameCount += 1;
+            prevX = position.X;
+            prevY = position.Y;
         }
 
         //draw method
