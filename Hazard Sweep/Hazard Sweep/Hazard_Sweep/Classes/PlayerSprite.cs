@@ -109,8 +109,28 @@ namespace Hazard_Sweep.Classes
         {
             if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
             {
+
+
                 KeyboardState keyboardState = Keyboard.GetState();
                 ms = Mouse.GetState();
+
+                //checks for collisions with room's bounding box
+                foreach (GameComponent g in game.Components)
+                {
+                    if (g is Room)
+                    {
+                        Room r = (Room)g;
+
+                        //collision logic
+                        Rectangle b = r.Boundary;
+                        if (!b.Contains(this.boundingBox))
+                        {
+                            contained = false;
+                        }
+
+
+                    }
+                }
 
                 //logic for animation
                 if (direction == Facing.Left)
@@ -267,28 +287,11 @@ namespace Hazard_Sweep.Classes
                 prevX = position.X;
                 prevY = position.Y;
 
-                //checks for collisions with room's bounding box
-                foreach (GameComponent g in game.Components)
-                {
-                    if (g is Room)
-                    {
-                        Room r = (Room)g;
+                
 
-                        //collision logic
-                        Rectangle b = r.Boundary;
-                        if (!b.Contains(this.boundingBox))
-                        {
-                            contained = false;
-                        }
-
-
-                    }
-
-                    //set previous position
-                    previousPosition = position;
-
-                    base.Update(gameTime);
-                }
+                //set previous position
+                previousPosition = position;
+                base.Update(gameTime);
             }
         }
 
