@@ -30,6 +30,13 @@ namespace Hazard_Sweep.Classes
         Vector2 rightDoorPos;
         Vector2 bottomDoorPos;
 
+        //door teleport locations
+        Vector2 topTeleport;
+        Vector2 leftTeleport;
+        Vector2 rightTeleport;
+        Vector2 bottomTeleport;
+        float offset = 30.0f;
+
         //door activations
         bool topActive = false;
         bool leftActive = false;
@@ -61,10 +68,15 @@ namespace Hazard_Sweep.Classes
             rightDoorPos = new Vector2(boundaryPosition.X + Boundary.Width, boundaryPosition.Y + (Boundary.Height / 2));
             bottomDoorPos = new Vector2(boundaryPosition.X + (Boundary.Width / 2), boundaryPosition.Y + Boundary.Height);
 
-            game.Components.Add(new Door(game, "Images//door", topDoorPos, new Vector2(200, 200), true));
-            game.Components.Add(new Door(game, "Images//door", leftDoorPos, new Vector2(200, 200), true));
-            game.Components.Add(new Door(game, "Images//door", rightDoorPos, new Vector2(200, 200), true));
-            game.Components.Add(new Door(game, "Images//door", bottomDoorPos, new Vector2(200, 200), true));
+            topTeleport = new Vector2(bottomDoorPos.X, bottomDoorPos.Y - offset);
+            leftTeleport = new Vector2(rightDoorPos.X - offset, rightDoorPos.Y);
+            rightTeleport = new Vector2(leftDoorPos.X + offset, leftDoorPos.Y);
+            bottomTeleport = new Vector2(topDoorPos.X, topDoorPos.Y + offset);
+
+            game.Components.Add(new Door(game, "Images//door", topDoorPos, topTeleport, true));
+            game.Components.Add(new Door(game, "Images//door", leftDoorPos, leftTeleport, true));
+            game.Components.Add(new Door(game, "Images//door", rightDoorPos, rightTeleport, true));
+            game.Components.Add(new Door(game, "Images//door", bottomDoorPos, bottomTeleport, true));
 
             drawRectangle = new Rectangle(-100, 0, texture.Width, 600);
         }

@@ -51,6 +51,7 @@ namespace Hazard_Sweep.Classes
         bool inArea = false;
         Vector2 newPosition;
         bool displayActivationMessage = false;
+        bool teleportReleased = true;
 
         //Constructor
         public PlayerSprite(Game game, string textureFile, Vector2 position, int spriteRows, int spriteCols)
@@ -149,11 +150,17 @@ namespace Hazard_Sweep.Classes
                 }
 
                 //activation if player is in activation area
-                if(keyboardState.IsKeyDown(Keys.E) && inArea == true)
+                if(keyboardState.IsKeyDown(Keys.E) && inArea == true && teleportReleased)
                 {
                     displayActivationMessage = true;
                     inArea = false;
                     this.position = newPosition;
+                    teleportReleased = false;
+                }
+
+                if(keyboardState.IsKeyUp(Keys.E))
+                {
+                    teleportReleased = true;
                 }
 
                 //logic for animation
@@ -217,6 +224,8 @@ namespace Hazard_Sweep.Classes
                         position.Y -= 5;
                     }
                 }
+
+                contained = true;
 
 
                 // weapon handling
