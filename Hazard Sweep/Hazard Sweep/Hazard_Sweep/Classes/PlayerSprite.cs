@@ -183,7 +183,7 @@ namespace Hazard_Sweep.Classes
             //ends the game if player's health is 0, will later go to menus
             if (health <= 0)
             {
-                game.Exit();
+                ((Game1)Game).ChangeGameState(Game1.GameState.END);
             }
 
             // animate

@@ -13,7 +13,6 @@ using Hazard_Sweep.Classes.Maps.ExternalMaps;
 
 namespace Hazard_Sweep
 {
-    public enum GameState { Menu, Gameplay };
     public enum Facing { Left, Right};
     public enum WeaponType { Melee, Pistol, AssaultRifle, Shotgun };
 
@@ -30,6 +29,11 @@ namespace Hazard_Sweep
         Camera2D camera;
 
         ExternalMap testExMap;
+
+        //Splash screen
+        public enum GameState { START, PLAY, PAUSE, END };
+        SplashScreen splashScreen;
+        GameState currentGameState = GameState.START;
 
         public Game1()
         {
@@ -58,6 +62,11 @@ namespace Hazard_Sweep
             camera = new Camera2D(GraphicsDevice.Viewport);
 
             testExMap = new ExternalMap(this, "Images//Maps//External//test01", 0, Color.White);
+
+            //Splashscreen component
+            splashScreen = new SplashScreen(this);
+            Components.Add(splashScreen);
+            splashScreen.SetData("HAZARD SWEEP", currentGameState);
 
             // what is this for?
             Random rand = new Random();
@@ -103,11 +112,14 @@ namespace Hazard_Sweep
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // update game elements
-            elements.Update(gameTime);
+            if (currentGameState == GameState.PLAY)
+            {
+                // update game elements
+                elements.Update(gameTime);
 
-            //update camera
-            camera.Update();
+                //update camera
+                camera.Update();
+            }
 
             base.Update(gameTime);
         }
@@ -118,18 +130,44 @@ namespace Hazard_Sweep
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
-            // draw objects
-            // spriteBatch.Begin();
-            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null,
-                null, null, camera.Transform);
-            testExMap.Draw(spriteBatch);
-            elements.Draw(spriteBatch);
-            
-            spriteBatch.End();
+            if (currentGameState == GameState.PLAY)
+            {
+                // draw objects
+                // spriteBatch.Begin();
+                spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null,
+                    null, null, camera.Transform);
+                testExMap.Draw(spriteBatch);
+                elements.Draw(spriteBatch);
+
+                spriteBatch.End();
+            }
 
             base.Draw(gameTime);
+        }
+
+        public void ChangeGameState(GameState state)
+        {
+            currentGameState = state;
+
+            switch (currentGameState)
+            {
+                case GameState.PLAY:
+                    splashScreen.Enabled = false;
+                    splashScreen.Visible = false;
+                    break;
+                case GameState.PAUSE:
+                    splashScreen.SetData("PAUSED!", GameState.PAUSE);
+                    splashScreen.Enabled = true;
+                    splashScreen.Visible = true;
+                    break;
+                case GameState.END:
+                    splashScreen.SetData("You have been devoured by the horde!", GameState.END);
+                    splashScreen.Enabled = true;
+                    splashScreen.Visible = true;
+                    break;
+            }
         }
     }
 }

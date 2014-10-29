@@ -77,6 +77,7 @@
     <Compile Include="Classes\Camera.cs" />
     <Compile Include="Classes\Camera2D.cs" />
     <Compile Include="Classes\Enemy.cs" />
+    <Compile Include="Classes\GameComponent1.cs" />
     <Compile Include="Classes\GameElements.cs" />
     <Compile Include="Classes\GlobalClass.cs" />
     <Compile Include="Classes\InanimateSprite.cs" />
