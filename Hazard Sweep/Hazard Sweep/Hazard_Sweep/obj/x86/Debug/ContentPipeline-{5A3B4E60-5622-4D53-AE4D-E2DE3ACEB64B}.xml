@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Kim\Documents\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Animation.xnb</Output>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Animation.xnb</Output>
       <Time>2014-10-28T15:49:07.2758702-06:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Kim\Documents\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Ball.xnb</Output>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Ball.xnb</Output>
       <Time>2014-10-28T15:49:07.2808705-06:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Kim\Documents\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\laser.xnb</Output>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\laser.xnb</Output>
       <Time>2014-10-28T15:49:07.5968886-06:00</Time>
     </Item>
     <Item>
@@ -34,7 +34,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Kim\Documents\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\zombie.xnb</Output>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\zombie.xnb</Output>
       <Time>2014-10-28T15:49:07.6028889-06:00</Time>
     </Item>
     <Item>
@@ -43,7 +43,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Kim\Documents\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\playerWalk.xnb</Output>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\playerWalk.xnb</Output>
       <Time>2014-10-28T15:49:07.5998888-06:00</Time>
     </Item>
     <Item>
@@ -52,7 +52,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Kim\Documents\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\GUI\iconAssault.xnb</Output>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\GUI\iconAssault.xnb</Output>
       <Time>2014-10-28T15:49:07.2848708-06:00</Time>
     </Item>
     <Item>
@@ -61,7 +61,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Kim\Documents\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\GUI\iconMelee.xnb</Output>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\GUI\iconMelee.xnb</Output>
       <Time>2014-10-28T15:49:07.289871-06:00</Time>
     </Item>
     <Item>
@@ -70,7 +70,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Kim\Documents\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\GUI\iconPistol.xnb</Output>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\GUI\iconPistol.xnb</Output>
       <Time>2014-10-28T15:49:07.2928712-06:00</Time>
     </Item>
     <Item>
@@ -79,7 +79,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Kim\Documents\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\GUI\iconShotgun.xnb</Output>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\GUI\iconShotgun.xnb</Output>
       <Time>2014-10-28T15:49:07.4478801-06:00</Time>
     </Item>
     <Item>
@@ -88,7 +88,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Kim\Documents\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\enemyWalk.xnb</Output>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\enemyWalk.xnb</Output>
       <Time>2014-10-28T15:49:07.5928884-06:00</Time>
     </Item>
     <Item>
@@ -97,7 +97,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Kim\Documents\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Maps\External\test01.xnb</Output>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Maps\External\test01.xnb</Output>
       <Time>2014-10-28T15:49:07.4568806-06:00</Time>
     </Item>
     <Item>
@@ -106,7 +106,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Kim\Documents\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\HealthNumeric.xnb</Output>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\HealthNumeric.xnb</Output>
       <Time>2014-10-28T15:49:07.2688698-06:00</Time>
     </Item>
     <Item>
@@ -115,7 +115,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Kim\Documents\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\AmmoLabel.xnb</Output>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\AmmoLabel.xnb</Output>
       <Time>2014-10-28T15:49:07.2558691-06:00</Time>
     </Item>
     <Item>
@@ -124,7 +124,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Kim\Documents\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\HealthLabel.xnb</Output>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\HealthLabel.xnb</Output>
       <Time>2014-10-28T15:49:07.2668697-06:00</Time>
     </Item>
     <Item>
@@ -133,7 +133,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Kim\Documents\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\AmmoNumeric.xnb</Output>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\AmmoNumeric.xnb</Output>
       <Time>2014-10-28T15:49:07.2598693-06:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
@@ -143,10 +143,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Kim\Documents\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_SweepContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Kim\Documents\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Kim\Documents\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Kim\Documents\HazardSweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_SweepContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

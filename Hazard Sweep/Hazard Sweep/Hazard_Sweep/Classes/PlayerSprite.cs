@@ -36,6 +36,13 @@ namespace Hazard_Sweep.Classes
         Weapon shotgun;
         protected Vector2 bulletOrigin;
 
+        // animation variables
+        int frameCount;
+        int animationSpeed = 10;
+        float prevX;
+        float prevY;
+        bool animate;
+
         //Constructor
         public PlayerSprite(Game game, string textureFile, Vector2 position, int spriteRows, int spriteCols)
             : base(game, textureFile, position)
@@ -62,7 +69,14 @@ namespace Hazard_Sweep.Classes
             assaultRifle = new Weapon(WeaponType.AssaultRifle, game, 60, 30, 5);
             shotgun = new Weapon(WeaponType.Shotgun, game, 24, 6, 20);
 
+            // set starting weapon
             weapon = pistol;
+
+            // set up animation
+            frameCount = 0;
+            prevX = position.X;
+            prevY = position.Y;
+            animate = false;
         }
 
         //load content
@@ -91,12 +105,10 @@ namespace Hazard_Sweep.Classes
             //logic for animation
             if(direction == Facing.Left)
             {
-                drawRectangle.X = 0;
                 drawRectangle.Y = texture.Height / spriteRows;
             }
             else if(direction == Facing.Right)
             {
-                drawRectangle.X = 0;
                 drawRectangle.Y = 0;
             }
 
@@ -173,6 +185,44 @@ namespace Hazard_Sweep.Classes
             {
                 game.Exit();
             }
+
+            // animate
+            
+            // check for movement
+            if(position.X == prevX && position.Y == prevY)
+            {
+                animate = false;
+                frameCount = 0;
+            }
+            else
+            {
+                animate = true;
+            }
+            
+            // if player is moving, animate
+            if(animate)
+            {
+                if(frameCount == animationSpeed)
+                {
+                    // check for rollover on sprite strip
+                    if ((drawRectangle.X + drawRectangle.Width) > (texture.Width - drawRectangle.Width))
+                    {
+                        drawRectangle.X = 0;
+                    }
+                    else
+                    {
+                        drawRectangle.X += drawRectangle.Width;
+                    }
+
+                    // restart timer
+                    frameCount = 0;
+                }
+            }
+
+            // increment animation assets as appropriate
+            frameCount += 1;
+            prevX = position.X;
+            prevY = position.Y;
 
             base.Update(gameTime);
         }
