@@ -38,7 +38,7 @@ namespace Hazard_Sweep.Classes
             Boundary = new Rectangle(10, 10, 800, 800);
             base.Initialize();
 
-            game.Components.Add(new Door(game, "Images//door", new Vector2(50, 50), new Vector2(200, 200)));
+            game.Components.Add(new Door(game, "Images//door", new Vector2(50, 50), new Vector2(200, 200), true));
 
             drawRectangle = new Rectangle(-100, 0, texture.Width, 600);
         }

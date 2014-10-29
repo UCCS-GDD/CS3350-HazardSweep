@@ -139,7 +139,8 @@ namespace Hazard_Sweep.Classes
 
                         //collision logic
                         Rectangle b = d.getActivationArea();
-                        if(b.Intersects(this.boundingBox))
+                        bool isActive = d.getActive();
+                        if(b.Intersects(this.boundingBox) && isActive)
                         {
                             inArea = true;
                             newPosition = d.getExitLocation();
