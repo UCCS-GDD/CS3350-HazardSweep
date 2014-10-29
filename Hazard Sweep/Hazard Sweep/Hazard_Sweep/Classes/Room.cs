@@ -20,6 +20,7 @@ namespace Hazard_Sweep.Classes
         private int column;
         private bool up;
         private bool down;
+        private List<Door> doors;
 
         public Room(Game game, string textureFile, Vector2 position, int row, int column, bool up, bool down)
             : base(game, textureFile, position)
@@ -28,6 +29,8 @@ namespace Hazard_Sweep.Classes
             this.column = column;
             this.up = up;
             this.down = down;
+
+            doors = new List<Door>();
         }
 
         public override void Initialize()
@@ -35,7 +38,20 @@ namespace Hazard_Sweep.Classes
             Boundary = new Rectangle(100, 100, 600, 600);
             base.Initialize();
 
+            game.Components.Add(new Door(game, "Images//door", new Vector2(50, 50), new Vector2(600, 600)));
+
             drawRectangle = new Rectangle(-100, 0, texture.Width, 600);
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
+            {
+
+
+
+                base.Update(gameTime);
+            }
         }
 
         public override void Draw(GameTime gameTime)

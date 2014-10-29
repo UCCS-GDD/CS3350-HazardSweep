@@ -92,14 +92,17 @@ namespace Hazard_Sweep.Classes
 
         public override void Draw(GameTime gameTime)
         {
-            sb = Game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
-            sb.Begin();
-            //sb.Draw(texture, position, null, color, 0f, center, 1.0f, SpriteEffects.None,
-            //    0f);
-            sb.Draw(texture, position, color);
-            sb.End();
+            if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
+            {
+                sb = Game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
+                sb.Begin();
+                //sb.Draw(texture, position, null, color, 0f, center, 1.0f, SpriteEffects.None,
+                //    0f);
+                sb.Draw(texture, position, color);
+                sb.End();
 
-            base.Draw(gameTime);
+                base.Draw(gameTime);
+            }
         }
 
         //returns bounding box
