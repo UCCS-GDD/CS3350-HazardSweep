@@ -43,6 +43,10 @@ namespace Hazard_Sweep.Classes
         float prevY;
         bool animate;
 
+        //contain player in room
+        bool contained = true;
+        Vector2 previousPosition;
+
         //Constructor
         public PlayerSprite(Game game, string textureFile, Vector2 position, int spriteRows, int spriteCols)
             : base(game, textureFile, position)
@@ -77,6 +81,10 @@ namespace Hazard_Sweep.Classes
             prevX = position.X;
             prevY = position.Y;
             animate = false;
+
+            //set previous position
+            previousPosition = position;
+
         }
 
         //load content
@@ -117,22 +125,55 @@ namespace Hazard_Sweep.Classes
                 //move the sprite with WASD
                 if (keyboardState.IsKeyDown(Keys.D))
                 {
-                    position.X += 5;
-                    direction = Facing.Right;
+                    if (contained)
+                    {
+                        position.X += 5;
+                        direction = Facing.Right;
+                    }
+                    else
+                    {
+                        contained = true;
+                        position.X -= 5;
+                    }
                 }
-                if (keyboardState.IsKeyDown(Keys.A))
+                else if (keyboardState.IsKeyDown(Keys.A))
                 {
-                    position.X -= 5;
-                    direction = Facing.Left;
+                    if (contained)
+                    {
+                        position.X -= 5;
+                        direction = Facing.Left;
+                    }
+                    else
+                      {
+                         contained = true;
+                         position.X += 5;
+                    }
                 }
-                if (keyboardState.IsKeyDown(Keys.W))
+                else if (keyboardState.IsKeyDown(Keys.W))
                 {
-                    position.Y -= 5;
+                    if (contained)
+                    {
+                        position.Y -= 5;
+                    }
+                    else
+                    {
+                        contained = true;
+                        position.Y += 5;
+                    }
                 }
-                if (keyboardState.IsKeyDown(Keys.S))
+                else if (keyboardState.IsKeyDown(Keys.S))
                 {
-                    position.Y += 5;
+                    if (contained)
+                    {
+                        position.Y += 5;
+                    }
+                    else
+                    {
+                        contained = true;
+                        position.Y -= 5;
+                    }
                 }
+
 
                 // weapon handling
                 if (keyboardState.IsKeyDown(Keys.Space))
@@ -226,7 +267,28 @@ namespace Hazard_Sweep.Classes
                 prevX = position.X;
                 prevY = position.Y;
 
-                base.Update(gameTime);
+                //checks for collisions with room's bounding box
+                foreach (GameComponent g in game.Components)
+                {
+                    if (g is Room)
+                    {
+                        Room r = (Room)g;
+
+                        //collision logic
+                        Rectangle b = r.Boundary;
+                        if (!b.Contains(this.boundingBox))
+                        {
+                            contained = false;
+                        }
+
+
+                    }
+
+                    //set previous position
+                    previousPosition = position;
+
+                    base.Update(gameTime);
+                }
             }
         }
 

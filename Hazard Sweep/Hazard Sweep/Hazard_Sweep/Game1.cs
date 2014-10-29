@@ -27,6 +27,7 @@ namespace Hazard_Sweep
         PlayerSprite player;
         GameElements elements;
         Camera2D camera;
+        Room room0;
 
         ExternalMap testExMap;
 
@@ -53,6 +54,9 @@ namespace Hazard_Sweep
             GlobalClass.ScreenWidth = graphics.PreferredBackBufferWidth;
             GlobalClass.ScreenHeight = graphics.PreferredBackBufferHeight;
 
+            //add rooms to game
+            Components.Add(room0 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false));
+
             //Add game components
             Components.Add(player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,
                 GlobalClass.ScreenHeight / 2), 2, 6));
@@ -60,8 +64,8 @@ namespace Hazard_Sweep
             elements = new GameElements(this, player);
             elements.Initialize();
             camera = new Camera2D(GraphicsDevice.Viewport);
-
-            testExMap = new ExternalMap(this, "Images//Maps//External//test01", 0, Color.White);
+               
+            //testExMap = new ExternalMap(this, "Images//Maps//External//test01", 0, Color.White);
 
             //Splashscreen component
             splashScreen = new SplashScreen(this);
@@ -89,7 +93,7 @@ namespace Hazard_Sweep
             // load game elements
             elements.LoadContent();
 
-            testExMap.LoadContent();
+            //testExMap.LoadContent();
         }
 
         /// <summary>
@@ -135,10 +139,10 @@ namespace Hazard_Sweep
             if (currentGameState == GameState.PLAY)
             {
                 // draw objects
-                // spriteBatch.Begin();
-                spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null,
-                    null, null, camera.Transform);
-                testExMap.Draw(spriteBatch);
+                spriteBatch.Begin();
+                //spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null,
+                //    null, null, camera.Transform);
+                //testExMap.Draw(spriteBatch);
                 elements.Draw(spriteBatch);
 
                 spriteBatch.End();

@@ -34,7 +34,7 @@ namespace Hazard_Sweep.Classes
             : base(game)
         {
             this.textureFile = textureFile;
-            this.position = position + center;
+            this.position = position;
             color = Color.White;
             random = new Random();
             this.game = game;
@@ -42,8 +42,8 @@ namespace Hazard_Sweep.Classes
 
         protected override void LoadContent()
         {
-            texture = Game.Content.Load<Texture2D>(textureFile);
-            center = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
+            texture = game.Content.Load<Texture2D>(textureFile);
+            //center = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
             boundingBox = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
 
             //set the size and initial position of the bounding box
@@ -94,8 +94,9 @@ namespace Hazard_Sweep.Classes
         {
             sb = Game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
             sb.Begin();
-            sb.Draw(texture, position, null, color, 0f, center, 1.0f, SpriteEffects.None,
-                0f);
+            //sb.Draw(texture, position, null, color, 0f, center, 1.0f, SpriteEffects.None,
+            //    0f);
+            sb.Draw(texture, position, color);
             sb.End();
 
             base.Draw(gameTime);
