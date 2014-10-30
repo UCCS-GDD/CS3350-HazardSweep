@@ -42,6 +42,8 @@ namespace Hazard_Sweep.Classes
             this.spriteCols = spriteCols;
 
             direction = Facing.Right;
+
+            this.DrawOrder = 2;
         }
 
         protected override void LoadContent()

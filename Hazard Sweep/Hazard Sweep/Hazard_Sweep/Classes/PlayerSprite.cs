@@ -52,6 +52,8 @@ namespace Hazard_Sweep.Classes
         Vector2 newPosition;
         bool displayActivationMessage = false;
         bool teleportReleased = true;
+        int newRoom;
+        int currentRoom;
 
         Rectangle boundary;
 
@@ -93,6 +95,8 @@ namespace Hazard_Sweep.Classes
             //set previous position
             previousPosition = position;
 
+            this.DrawOrder = 10;
+
         }
 
         //load content
@@ -130,6 +134,7 @@ namespace Hazard_Sweep.Classes
                     if (g is Room)
                     {
                         Room r = (Room)g;
+                        currentRoom = r.GetID();
 
                         //collision logic
                         Rectangle b = r.Boundary;
@@ -151,6 +156,7 @@ namespace Hazard_Sweep.Classes
                         {
                             inArea = true;
                             newPosition = d.getExitLocation();
+                            newRoom = d.getDestination();
                         }
                     }
                 }
@@ -160,8 +166,10 @@ namespace Hazard_Sweep.Classes
                 {
                     displayActivationMessage = true;
                     inArea = false;
+                    ((Game1)Game).ChangeLevel(currentRoom, newRoom);
+                    this.DrawOrder = 10;
                     this.position = newPosition;
-                    teleportReleased = false;
+                    teleportReleased = false;                       
                 }
 
                 if(keyboardState.IsKeyUp(Keys.E))
@@ -187,15 +195,6 @@ namespace Hazard_Sweep.Classes
                     { 
                         position.X += 5;
                     }
-                    //if (contained)
-                    //{
-                    //    position.X += 5;
-                    //}
-                    //else
-                    //{
-                    //    // contained = true;
-                    //    // position.X -= 5;
-                    //}
                 }
                 else if (keyboardState.IsKeyDown(Keys.A))
                 {
@@ -204,15 +203,6 @@ namespace Hazard_Sweep.Classes
                     {
                         position.X -= 5;
                     }
-                    //if (contained)
-                    //{
-                    //    position.X -= 5;
-                    //}
-                    //else
-                    //{
-                    //     // contained = true;
-                    //     // position.X += 5;
-                    //}
                 }
                 else if (keyboardState.IsKeyDown(Keys.W))
                 {
@@ -220,15 +210,6 @@ namespace Hazard_Sweep.Classes
                     {
                         position.Y -= 5;
                     }
-                    //if (contained)
-                    //{
-                    //    position.Y -= 5;
-                    //}
-                    //else
-                    //{
-                    //    // contained = true;
-                    //    // position.Y += 5;
-                    //}
                 }
                 else if (keyboardState.IsKeyDown(Keys.S))
                 {
@@ -236,15 +217,6 @@ namespace Hazard_Sweep.Classes
                     {
                         position.Y += 5;
                     }
-                    //if (contained)
-                    //{
-                    //    position.Y += 5;
-                    //}
-                    //else
-                    //{
-                    //    // contained = true;
-                    //    // position.Y -= 5;
-                    //}
                 }
 
                 contained = true;

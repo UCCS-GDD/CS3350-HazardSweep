@@ -15,3 +15,7 @@ Content\Fonts\AmmoLabel.xnb
 Content\Fonts\HealthLabel.xnb
 Content\Fonts\AmmoNumeric.xnb
 Content\Images\Maps\External\test02.xnb
+Content\Images\Maps\Internal\test01.xnb
+Content\Images\DoorClosed.xnb
+Content\Images\WallEnd.xnb
+Content\Images\WallWide.xnb

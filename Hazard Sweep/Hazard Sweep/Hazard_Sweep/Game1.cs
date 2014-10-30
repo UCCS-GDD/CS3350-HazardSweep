@@ -24,9 +24,10 @@ namespace Hazard_Sweep
         SpriteBatch spriteBatch;
 
         PlayerSprite player;
-        GameElements elements;
+        //GameElements elements;
         Camera2D camera;
-        Room room0;
+        Room street0, street1, street2, street3, street4, street5, street6, street7, street8,
+            room0, room1, room2, room3, room4, room5, room6, room7, room8;
 
         //Splash screen
         public enum GameState { START, PLAY, PAUSE, END };
@@ -54,15 +55,39 @@ namespace Hazard_Sweep
             GlobalClass.ScreenWidth = graphics.PreferredBackBufferWidth;
             GlobalClass.ScreenHeight = graphics.PreferredBackBufferHeight;
 
+            player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,
+                GlobalClass.ScreenHeight / 2), 2, 6);
+
+            street0 = new Room(this, "Images//Maps//External//test02", new Vector2(100, 100), 1, 1, false, false, player, Color.White, 0);
+            street1 = new Room(this, "Images//Maps//External//test02", new Vector2(100, 100), 1, 1, false, false, player, Color.LightBlue, 1);
+            street2 = new Room(this, "Images//Maps//External//test02", new Vector2(100, 100), 1, 1, false, false, player, Color.LightCoral, 2);
+            street3 = new Room(this, "Images//Maps//External//test02", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGoldenrodYellow, 3);
+            street4 = new Room(this, "Images//Maps//External//test02", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGreen, 4);
+            street5 = new Room(this, "Images//Maps//External//test02", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGray, 5);
+            street6 = new Room(this, "Images//Maps//External//test02", new Vector2(100, 100), 1, 1, false, false, player, Color.LightPink, 6);
+            street7 = new Room(this, "Images//Maps//External//test02", new Vector2(100, 100), 1, 1, false, false, player, Color.LightSteelBlue, 7);
+            street8 = new Room(this, "Images//Maps//External//test02", new Vector2(100, 100), 1, 1, false, false, player, Color.LightSeaGreen, 8);
+
+            room0 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.White, 9);
+            room1 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightBlue, 10);
+            room2 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightCoral, 11);
+            room3 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGoldenrodYellow, 12);
+            room4 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGreen, 13);
+            room5 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGray, 14);
+            room6 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightPink, 15);
+            room7 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightSteelBlue, 16);
+            room8 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightSeaGreen, 17);
+
             //add rooms to game
-            Components.Add(room0 = new Room(this, "Images//Maps//External//test02", new Vector2(100, 100), 1, 1, false, false));
+            Components.Add(street0);
+            Components.Add(player);
 
             //Add game components
-            Components.Add(player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,
-                GlobalClass.ScreenHeight / 2), 2, 6));
-            Components.Add(new Enemy(this, "Images//enemyWalk", new Vector2(200, 100), 2, 5));
-            elements = new GameElements(this, player);
-            elements.Initialize();
+            //Components.Add(player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,
+            //    GlobalClass.ScreenHeight / 2), 2, 6));
+            // Components.Add(new Enemy(this, "Images//enemyWalk", new Vector2(200, 100), 2, 5));
+            //elements = new GameElements(this, player);
+            //elements.Initialize();
             camera = new Camera2D(GraphicsDevice.Viewport);
 
             //Splashscreen component
@@ -89,7 +114,7 @@ namespace Hazard_Sweep
             Services.AddService(typeof(SpriteBatch), spriteBatch);
 
             // load game elements
-            elements.LoadContent();
+            //elements.LoadContent();
 
             //testExMap.LoadContent();
         }
@@ -117,7 +142,7 @@ namespace Hazard_Sweep
             if (currentGameState == GameState.PLAY)
             {
                 // update game elements
-                elements.Update(gameTime);
+                //elements.Update(gameTime);
 
                 //update camera
                 camera.Update();
@@ -141,7 +166,7 @@ namespace Hazard_Sweep
                 //spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null,
                 //    null, null, camera.Transform);
                 //testExMap.Draw(spriteBatch);
-                elements.Draw(spriteBatch);
+                //elements.Draw(spriteBatch);
 
                 spriteBatch.End();
             }
@@ -175,6 +200,94 @@ namespace Hazard_Sweep
         public GameState GetGameState()
         {
             return currentGameState;
+        }
+
+        // I'm sure there's a better way to do this, but it's late and I have no idea what I'm doing
+        public Room GetRoom(int id)
+        {
+            switch(id)
+            {
+                case 0:
+                    return street0;
+                    break;
+                case 1:
+                    return street1;
+                    break;
+                case 2:
+                    return street2;
+                    break;
+                case 3:
+                    return street3;
+                    break;
+                case 4:
+                    return street4;
+                    break;
+                case 5:
+                    return street5;
+                    break;
+                case 6:
+                    return street6;
+                    break;
+                case 7:
+                    return street7;
+                    break;
+                case 8:
+                    return street8;
+                    break;
+                case 9:
+                    return room0;
+                    break;
+                case 10:
+                    return room1;
+                    break;
+                case 11:
+                    return room2;
+                    break;
+                case 12:
+                    return room3;
+                    break;
+                case 13:
+                    return room4;
+                    break;
+                case 14:
+                    return room5;
+                    break;
+                case 15:
+                    return room6;
+                    break;
+                case 16:
+                    return room7;
+                    break;
+                case 17:
+                    return room8;
+                    break;
+                default:
+                    return street0;
+                    break;
+            }
+        }
+        public void ChangeLevel(int oldLevel, int newLevel)
+        {
+            //foreach (DrawableGameComponent g in Components)
+            //{
+            //    if (g is Enemy)
+            //    {
+            //        Enemy e = (Enemy)g;
+            //        Components.Remove(e);
+            //    }
+            //    if (g is Barricade)
+            //    {
+            //        Barricade b = (Barricade)g;
+            //        Components.Remove(b);
+            //    }
+            //    if (g is Door)
+            //    {
+            //        Door d = (Door)g;
+            //        Components.Remove(d);
+            //    }
+            //}
+            Components.Remove(GetRoom(oldLevel));
+            Components.Add(GetRoom(newLevel));
         }
     }
 }

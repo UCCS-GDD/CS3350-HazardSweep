@@ -38,6 +38,7 @@ namespace Hazard_Sweep.Classes
             color = Color.White;
             random = new Random();
             this.game = game;
+            this.DrawOrder = 2;
         }
 
         protected override void LoadContent()

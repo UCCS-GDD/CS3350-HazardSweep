@@ -16,14 +16,18 @@ namespace Hazard_Sweep.Classes
     {
         private Rectangle activationArea;
         private Vector2 exitLocation;
+        private int destination;
         private bool isActive;
 
-        public Door(Game game, string textureFile, Vector2 position, Vector2 exitLocation, bool isActive)
+        public Door(Game game, string textureFile, Vector2 position, Vector2 exitLocation, bool isActive, int destination)
             : base(game, textureFile, position)
         {
             this.exitLocation = exitLocation;
             activationArea = new Rectangle((int)position.X - 50, (int)position.Y - 50, 100, 100);
             this.isActive = isActive;
+            this.destination = destination;
+
+            this.DrawOrder = 2;
         }
 
         //update method
@@ -53,6 +57,12 @@ namespace Hazard_Sweep.Classes
         public Vector2 getExitLocation()
         {
             return exitLocation;
+        }
+
+        //get destination
+        public int getDestination()
+        {
+            return destination;
         }
 
         //returns if door is active
