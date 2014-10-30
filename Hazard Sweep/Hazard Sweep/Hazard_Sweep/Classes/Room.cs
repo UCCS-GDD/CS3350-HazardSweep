@@ -142,6 +142,7 @@ namespace Hazard_Sweep.Classes
                     break;
                 case 13:
                     game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 4));
+                    game.Components.Add(new NPC(game, "Images//scientist", new Vector2(550, 300), Facing.Left));
                     break;
                 // case 14, 15, 16, 17
                 

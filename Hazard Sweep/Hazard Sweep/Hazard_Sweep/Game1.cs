@@ -322,6 +322,11 @@ namespace Hazard_Sweep
                     Door d = (Door)g;
                     Components.Remove(d);
                 }
+                if (g is NPC)
+                {
+                    NPC n = (NPC)g;
+                    Components.Remove(n);
+                }
             }
             Components.Remove(GetRoom(oldLevel));
             Components.Add(GetRoom(newLevel));

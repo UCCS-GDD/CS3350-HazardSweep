@@ -219,3 +219,5 @@ C:\Users\Eaven Sheets\Source\Repos\CS3350-HazardSweep2\Hazard Sweep\Hazard Sweep
 C:\Users\Eaven Sheets\Source\Repos\CS3350-HazardSweep2\Hazard Sweep\Hazard Sweep\Hazard_Sweep\obj\x86\Debug\Hazard_Sweep.exe
 C:\Users\Eaven Sheets\Source\Repos\CS3350-HazardSweep2\Hazard Sweep\Hazard Sweep\Hazard_Sweep\obj\x86\Debug\Hazard_Sweep.pdb
 C:\Users\Eaven Sheets\Source\Repos\CS3350-HazardSweep2\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\28DaysLater_72.xnb
+C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\28DaysLater_72.xnb
+C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\scientist.xnb
