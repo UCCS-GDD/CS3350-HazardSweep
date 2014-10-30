@@ -268,24 +268,26 @@ namespace Hazard_Sweep
         }
         public void ChangeLevel(int oldLevel, int newLevel)
         {
-            //foreach (DrawableGameComponent g in Components)
-            //{
-            //    if (g is Enemy)
-            //    {
-            //        Enemy e = (Enemy)g;
-            //        Components.Remove(e);
-            //    }
-            //    if (g is Barricade)
-            //    {
-            //        Barricade b = (Barricade)g;
-            //        Components.Remove(b);
-            //    }
-            //    if (g is Door)
-            //    {
-            //        Door d = (Door)g;
-            //        Components.Remove(d);
-            //    }
-            //}
+            for (int i = Components.Count() - 1; i > -1; i--)
+            //foreach (IGameComponent g in Components)
+            {
+                IGameComponent g = Components[i];
+                if (g is Enemy)
+                {
+                    Enemy e = (Enemy)g;
+                    Components.Remove(e);
+                }
+                if (g is Barricade)
+                {
+                    Barricade b = (Barricade)g;
+                    Components.Remove(b);
+                }
+                if (g is Door)
+                {
+                    Door d = (Door)g;
+                    Components.Remove(d);
+                }
+            }
             Components.Remove(GetRoom(oldLevel));
             Components.Add(GetRoom(newLevel));
         }

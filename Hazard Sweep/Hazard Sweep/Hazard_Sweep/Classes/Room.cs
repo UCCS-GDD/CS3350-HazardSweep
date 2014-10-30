@@ -89,8 +89,8 @@ namespace Hazard_Sweep.Classes
 
             topWallPos = new Vector2((topDoorPos.X - 170f), (topDoorPos.Y - 60f));
             leftWallPos = new Vector2((leftDoorPos.X - 10f), (leftDoorPos.Y - 110f));
-            rightWallPos = new Vector2((rightDoorPos.X - 10f), (rightDoorPos.Y - 110f));
-            bottomWallPos = new Vector2((bottomDoorPos.X - 170f), (bottomDoorPos.Y - 100f));
+            rightWallPos = new Vector2((rightDoorPos.X + 40f), (rightDoorPos.Y - 190f));
+            bottomWallPos = new Vector2((bottomDoorPos.X - 270f), (bottomDoorPos.Y - 100f));
 
             topTeleport = new Vector2(bottomDoorPos.X, bottomDoorPos.Y - offset);
             leftTeleport = new Vector2(rightDoorPos.X - offset, rightDoorPos.Y);
@@ -123,7 +123,7 @@ namespace Hazard_Sweep.Classes
                     game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 12));
                     break;
                 case 4:
-                    game.Components.Add(new Barricade(game, "Images//WallWide", topWallPos));
+                    game.Components.Add(new Barricade(game, "Images//WallWide", bottomWallPos));
                     game.Components.Add(new Barricade(game, "Images//WallEnd", rightWallPos));
                     game.Components.Add(new Door(game, "Images//door", topDoorPos, topTeleport, true, 1));
                     game.Components.Add(new Door(game, "Images//door", leftDoorPos, leftTeleport, true, 3));
