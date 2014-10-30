@@ -16,8 +16,10 @@ Content\Images\DoorClosed.xnb
 Content\Images\WallEnd.xnb
 Content\Images\WallWide.xnb
 Content\Fonts\28DaysLater_72.xnb
+Content\Images\scientist.xnb
+Content\Fonts\Hazard_72.xnb
+Content\Fonts\VtksMoney_30.xnb
 Content\Fonts\HealthNumeric.xnb
 Content\Fonts\AmmoLabel.xnb
 Content\Fonts\HealthLabel.xnb
 Content\Fonts\AmmoNumeric.xnb
-Content\Images\scientist.xnb

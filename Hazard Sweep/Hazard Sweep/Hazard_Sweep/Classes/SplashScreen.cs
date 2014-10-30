@@ -19,8 +19,12 @@ namespace Hazard_Sweep.Classes
     {
         string mainText;
         string secondaryText;
+        string iconTextL;
+        string iconTextR;
         SpriteFont mainSpriteFont;
         SpriteFont secondarySpriteFont;
+        SpriteFont iconLSpriteFont;
+        SpriteFont iconRSpriteFont;
         SpriteBatch spriteBatch;
         Game1.GameState currentGameState;
 
@@ -34,7 +38,9 @@ namespace Hazard_Sweep.Classes
         {
             //Load fonts
             mainSpriteFont = Game.Content.Load<SpriteFont>(@"Fonts\28DaysLater_72");
-            secondarySpriteFont = Game.Content.Load<SpriteFont>(@"Fonts\AmmoLabel");
+            secondarySpriteFont = Game.Content.Load<SpriteFont>(@"Fonts\VtksMoney_30");
+            iconLSpriteFont = Game.Content.Load<SpriteFont>(@"Fonts\Hazard_72");
+            iconRSpriteFont = Game.Content.Load<SpriteFont>(@"Fonts\Hazard_72");
 
             //Create sprite batch
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
@@ -86,11 +92,17 @@ namespace Hazard_Sweep.Classes
 
             //Draw main text
             spriteBatch.DrawString(mainSpriteFont, mainText, new Vector2(Game.Window.ClientBounds.Width / 2 - TitleSize.X / 2,
-                Game.Window.ClientBounds.Height / 2), Color.Yellow);
+                Game.Window.ClientBounds.Height / 2), Color.White);
 
             //Draw sub text
             spriteBatch.DrawString(secondarySpriteFont, secondaryText, new Vector2(Game.Window.ClientBounds.Width / 2 -
-                secondarySpriteFont.MeasureString(secondaryText).X / 2, Game.Window.ClientBounds.Height / 2 + TitleSize.Y + 10), Color.WhiteSmoke);
+                secondarySpriteFont.MeasureString(secondaryText).X / 2, Game.Window.ClientBounds.Height / 2 + TitleSize.Y + 10), Color.DarkRed);
+
+            //Draw icon text
+            spriteBatch.DrawString(iconRSpriteFont, iconTextR, new Vector2(Game.Window.ClientBounds.Width / 2 + 300,
+                Game.Window.ClientBounds.Height / 2 - 10), Color.Yellow);
+            spriteBatch.DrawString(iconLSpriteFont, iconTextL, new Vector2(Game.Window.ClientBounds.Width / 2 - 375,
+                Game.Window.ClientBounds.Height / 2 - 10), Color.Yellow);
 
             spriteBatch.End();
 
@@ -100,18 +112,20 @@ namespace Hazard_Sweep.Classes
         public void SetData(string main, Game1.GameState currGameState)
         {
             mainText = main;
+            iconTextR = "#";
+            iconTextL = "#";
             this.currentGameState = currGameState;
 
             switch (currentGameState)
             {
                 case Game1.GameState.START:
-                    secondaryText = "Press ENTER to begin";
+                    secondaryText = "press ENTER to begin";
                     break;
                 case Game1.GameState.PAUSE:
-                    secondaryText = "Press ENTER to resume";
+                    secondaryText = "press ENTER to resume";
                     break;
                 case Game1.GameState.END:
-                    secondaryText = "Press Enter to quit";
+                    secondaryText = "press Enter to quit";
                     break;
             }
         }
