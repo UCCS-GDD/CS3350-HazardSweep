@@ -145,6 +145,15 @@
       <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\AmmoNumeric.xnb</Output>
       <Time>2014-10-28T15:49:07.2598693-06:00</Time>
     </Item>
+    <Item>
+      <Source>Images\Maps\External\test02.png</Source>
+      <Name>Images\Maps\External\test02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Maps\External\test02.xnb</Output>
+      <Time>2014-10-30T00:56:43.8400394-06:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{5A3B4E60-5622-4D53-AE4D-E2DE3ACEB64B}</ContentProjectGUID>

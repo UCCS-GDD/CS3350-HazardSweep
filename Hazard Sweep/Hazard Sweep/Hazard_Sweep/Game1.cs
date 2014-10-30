@@ -55,7 +55,7 @@ namespace Hazard_Sweep
             GlobalClass.ScreenHeight = graphics.PreferredBackBufferHeight;
 
             //add rooms to game
-            Components.Add(room0 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false));
+            Components.Add(room0 = new Room(this, "Images//Maps//External//test02", new Vector2(100, 100), 1, 1, false, false));
 
             //Add game components
             Components.Add(player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,

@@ -65,10 +65,10 @@ namespace Hazard_Sweep.Classes
             Boundary = new Rectangle((int)boundaryPosition.X, (int)boundaryPosition.Y, roomWidth - 110, roomHeight - 170);
             base.Initialize();
 
-            topDoorPos = new Vector2(boundaryPosition.X + (Boundary.Width / 2), boundaryPosition.Y);
-            leftDoorPos = new Vector2(boundaryPosition.X, boundaryPosition.Y + (Boundary.Height / 2));
-            rightDoorPos = new Vector2(boundaryPosition.X + Boundary.Width, boundaryPosition.Y + (Boundary.Height / 2));
-            bottomDoorPos = new Vector2(boundaryPosition.X + (Boundary.Width / 2), boundaryPosition.Y + Boundary.Height);
+            topDoorPos = new Vector2(boundaryPosition.X + (Boundary.Width * 5 / 8), boundaryPosition.Y + Boundary.Height * 3 / 8 );
+            leftDoorPos = new Vector2(boundaryPosition.X - 50, boundaryPosition.Y + (Boundary.Height * 7 / 8));
+            rightDoorPos = new Vector2(boundaryPosition.X + Boundary.Width, boundaryPosition.Y + (Boundary.Height * 7 / 8));
+            bottomDoorPos = new Vector2(boundaryPosition.X + (Boundary.Width * 5 / 8), boundaryPosition.Y + Boundary.Height + 50);
 
             topTeleport = new Vector2(bottomDoorPos.X, bottomDoorPos.Y - offset);
             leftTeleport = new Vector2(rightDoorPos.X - offset, rightDoorPos.Y);
@@ -80,7 +80,7 @@ namespace Hazard_Sweep.Classes
             game.Components.Add(new Door(game, "Images//door", rightDoorPos, rightTeleport, true));
             game.Components.Add(new Door(game, "Images//door", bottomDoorPos, bottomTeleport, true));
 
-            drawRectangle = new Rectangle(-100, 0, texture.Width, 600);
+            drawRectangle = new Rectangle(0, 0, (int)GlobalClass.ScreenWidth, (int)GlobalClass.ScreenHeight);
         }
 
         public override void Update(GameTime gameTime)
