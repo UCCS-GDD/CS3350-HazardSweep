@@ -155,7 +155,7 @@ namespace Hazard_Sweep.Classes
                     for (int i = 0; i <= zombieNum; i++)
                     {
                         int xLoc = rand.Next(boundingBox.Width);
-                        int yLoc = rand.Next(0, 300);
+                        int yLoc = rand.Next(200, 400);
                         Enemy temp = new Enemy(game, "Images//enemyWalk", new Vector2(xLoc, yLoc), 2, 5);
                         game.Components.Add(temp);
                     }
