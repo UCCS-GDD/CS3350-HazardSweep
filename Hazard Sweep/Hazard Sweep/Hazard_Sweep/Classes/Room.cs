@@ -24,6 +24,8 @@ namespace Hazard_Sweep.Classes
         private List<Sprite> sprites;
         private int roomWidth = (int)GlobalClass.ScreenWidth;
         private int roomHeight = (int)GlobalClass.ScreenHeight;
+        private Random rand = new Random();
+        private const int maxZombie = 10;
 
         Vector2 boundaryPosition;
 
@@ -145,9 +147,18 @@ namespace Hazard_Sweep.Classes
                     game.Components.Add(new NPC(game, "Images//scientist", new Vector2(550, 300), Facing.Left));
                     break;
                 // case 14, 15, 16, 17
-                
-            }
 
+                    //load in random zombie count
+
+            }
+                    int zombieNum = rand.Next(maxZombie);
+                    for (int i = 0; i <= zombieNum; i++)
+                    {
+                        int xLoc = rand.Next(boundingBox.Width);
+                        int yLoc = rand.Next(200, 400);
+                        Enemy temp = new Enemy(game, "Images//enemyWalk", new Vector2(xLoc, yLoc), 2, 5);
+                        game.Components.Add(temp);
+                    }
             //game.Components.Add(new Door(game, "Images//door", topDoorPos, topTeleport, true));
             //game.Components.Add(new Door(game, "Images//door", leftDoorPos, leftTeleport, true));
             //game.Components.Add(new Door(game, "Images//door", rightDoorPos, rightTeleport, true));
