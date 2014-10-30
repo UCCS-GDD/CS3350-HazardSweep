@@ -14,8 +14,6 @@ namespace Hazard_Sweep.Classes
 {
     public class Room : Sprite
     {
-        private Random rand = new Random();
-        private const int maxZombie = 10;
         public Rectangle Boundary;
         private Rectangle drawRectangle;
         private int row;
@@ -23,9 +21,11 @@ namespace Hazard_Sweep.Classes
         private bool up;
         private bool down;
         private List<Door> doors;
-        private List<Sprite> sprites = new List<Sprite>();
+        private List<Sprite> sprites;
         private int roomWidth = (int)GlobalClass.ScreenWidth;
         private int roomHeight = (int)GlobalClass.ScreenHeight;
+        private Random rand = new Random();
+        private const int maxZombie = 10;
 
         Vector2 boundaryPosition;
 
@@ -63,12 +63,12 @@ namespace Hazard_Sweep.Classes
 
         public Room(Game game, string textureFile, Vector2 position, int row, int column, bool up, bool down, PlayerSprite player, Color r_color, int id)
             : base(game, textureFile, position)
-        {
+        {            
             this.row = row;
             this.column = column;
             this.up = up;
             this.down = down;
-
+            
             boundaryPosition = new Vector2(10, 10);
             doors = new List<Door>();
 
@@ -83,8 +83,8 @@ namespace Hazard_Sweep.Classes
             Boundary = new Rectangle((int)boundaryPosition.X, (int)boundaryPosition.Y + 150, roomWidth - 110, roomHeight - 270);
             base.Initialize();
 
-            topDoorPos = new Vector2(boundaryPosition.X + (Boundary.Width * 5 / 8), boundaryPosition.Y + Boundary.Height * 3 / 8);
-            leftDoorPos = new Vector2(boundaryPosition.X - 20, boundaryPosition.Y + (Boundary.Height * 7 / 8) + 70);
+            topDoorPos = new Vector2(boundaryPosition.X + (Boundary.Width * 5 / 8), boundaryPosition.Y + Boundary.Height * 3 / 8 );
+            leftDoorPos = new Vector2(boundaryPosition.X - 20, boundaryPosition.Y + (Boundary.Height * 7 / 8) + 70 );
             rightDoorPos = new Vector2(boundaryPosition.X + Boundary.Width, boundaryPosition.Y + (Boundary.Height * 7 / 8) + 70);
             bottomDoorPos = new Vector2(boundaryPosition.X + (Boundary.Width * 5 / 8), boundaryPosition.Y + Boundary.Height + 200);
             buildingDoorPos = new Vector2(120f, 75f);
@@ -120,7 +120,7 @@ namespace Hazard_Sweep.Classes
                 case 3:
                     game.Components.Add(new Barricade(game, "Images//WallWide", bottomWallPos));
                     game.Components.Add(new Barricade(game, "Images//WallEnd", leftWallPos));
-                    game.Components.Add(new Door(game, "Images//door", topDoorPos, topTeleport, true, 0));
+                    game.Components.Add(new Door(game, "Images//door", topDoorPos,topTeleport, true, 0));
                     game.Components.Add(new Door(game, "Images//door", rightDoorPos, rightTeleport, true, 4));
                     game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 12));
                     break;
@@ -144,21 +144,21 @@ namespace Hazard_Sweep.Classes
                     break;
                 case 13:
                     game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 4));
+                    game.Components.Add(new NPC(game, "Images//scientist", new Vector2(550, 300), Facing.Left));
                     break;
                 // case 14, 15, 16, 17
 
-            }
+                    //load in random zombie count
 
-            //load in random zombie count
-            int zombieNum = rand.Next(maxZombie);
-            for (int i = 0; i <= zombieNum; i++)
-            {
-                int xLoc = rand.Next(boundingBox.Width);
-                int yLoc = rand.Next(boundingBox.Height);
-                Enemy temp = new Enemy(game, "Images//enemyWalk", new Vector2(xLoc, yLoc), 2, 5);
-                game.Components.Add(temp);
             }
-
+                    int zombieNum = rand.Next(maxZombie);
+                    for (int i = 0; i <= zombieNum; i++)
+                    {
+                        int xLoc = rand.Next(boundingBox.Width);
+                        int yLoc = rand.Next(0, 300);
+                        Enemy temp = new Enemy(game, "Images//enemyWalk", new Vector2(xLoc, yLoc), 2, 5);
+                        game.Components.Add(temp);
+                    }
             //game.Components.Add(new Door(game, "Images//door", topDoorPos, topTeleport, true));
             //game.Components.Add(new Door(game, "Images//door", leftDoorPos, leftTeleport, true));
             //game.Components.Add(new Door(game, "Images//door", rightDoorPos, rightTeleport, true));
@@ -197,7 +197,7 @@ namespace Hazard_Sweep.Classes
                 sb.Draw(texture, drawRectangle, null, r_color, 0.0f, new Vector2(0, 0), SpriteEffects.None, 1.0f);
                 elements.Draw(sb);
                 sb.End();
-            }
+            }            
         }
 
         public int GetID()
