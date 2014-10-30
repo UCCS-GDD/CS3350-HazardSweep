@@ -82,7 +82,7 @@ namespace Hazard_Sweep.Classes
             base.Initialize();
 
             topDoorPos = new Vector2(boundaryPosition.X + (Boundary.Width * 5 / 8), boundaryPosition.Y + Boundary.Height * 3 / 8 );
-            leftDoorPos = new Vector2(boundaryPosition.X - 50, boundaryPosition.Y + (Boundary.Height * 7 / 8) + 70 );
+            leftDoorPos = new Vector2(boundaryPosition.X - 20, boundaryPosition.Y + (Boundary.Height * 7 / 8) + 70 );
             rightDoorPos = new Vector2(boundaryPosition.X + Boundary.Width, boundaryPosition.Y + (Boundary.Height * 7 / 8) + 70);
             bottomDoorPos = new Vector2(boundaryPosition.X + (Boundary.Width * 5 / 8), boundaryPosition.Y + Boundary.Height + 200);
             buildingDoorPos = new Vector2(120f, 75f);
@@ -96,7 +96,7 @@ namespace Hazard_Sweep.Classes
             leftTeleport = new Vector2(rightDoorPos.X - offset, rightDoorPos.Y);
             rightTeleport = new Vector2(leftDoorPos.X + offset, leftDoorPos.Y);
             bottomTeleport = new Vector2(topDoorPos.X, topDoorPos.Y + offset);
-            buildingTeleport = new Vector2(buildingTeleport.X, buildingTeleport.Y);
+            buildingTeleport = new Vector2(buildingDoorPos.X, buildingDoorPos.Y + 128);
 
             switch (id)
             {
