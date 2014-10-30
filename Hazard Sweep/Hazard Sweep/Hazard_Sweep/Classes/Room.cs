@@ -209,9 +209,7 @@ namespace Hazard_Sweep.Classes
 
         public int randomNumGen()
         {
-            int value = 0;
-            value = rand.Next(maxZombie);
-
+            int value = rand.Next(maxZombie);
             return value;
         }
 
