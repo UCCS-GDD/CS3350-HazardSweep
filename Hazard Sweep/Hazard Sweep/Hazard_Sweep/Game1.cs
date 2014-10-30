@@ -34,6 +34,10 @@ namespace Hazard_Sweep
         SplashScreen splashScreen;
         GameState currentGameState = GameState.START;
 
+        //pause press
+        bool pressed = false;
+        bool released = false;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -139,13 +143,39 @@ namespace Hazard_Sweep
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+            KeyboardState keyboardState = Keyboard.GetState();
+
+            if (keyboardState.IsKeyDown(Keys.Escape))
+            {
+                pressed = true;
+            }
+            if (keyboardState.IsKeyUp(Keys.Escape) && pressed == true)
+            {
+                released = true;
+            }
+
             if (currentGameState == GameState.PLAY)
             {
+                if (pressed == true && released == true)
+                {
+                    currentGameState = GameState.PAUSE;
+                    pressed = false;
+                    released = false;
+                }
                 // update game elements
                 //elements.Update(gameTime);
 
                 //update camera
                 camera.Update();
+            }
+            else if (currentGameState == GameState.PAUSE)
+            {
+                if (pressed == true && released == true)
+                {
+                    currentGameState = GameState.PLAY;
+                    pressed = false;
+                    released = false;
+                }
             }
 
             base.Update(gameTime);
