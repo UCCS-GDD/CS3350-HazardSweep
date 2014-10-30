@@ -167,7 +167,7 @@ namespace Hazard_Sweep.Classes
                     displayActivationMessage = true;
                     inArea = false;
                     ((Game1)Game).ChangeLevel(currentRoom, newRoom);
-                    this.DrawOrder = 10;
+                    this.DrawOrder = 20;
                     this.position = newPosition;
                     teleportReleased = false;                       
                 }
@@ -175,6 +175,7 @@ namespace Hazard_Sweep.Classes
                 if(keyboardState.IsKeyUp(Keys.E))
                 {
                     teleportReleased = true;
+                    inArea = false;
                 }
 
                 //logic for animation
