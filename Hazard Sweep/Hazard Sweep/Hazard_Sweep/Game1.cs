@@ -85,7 +85,7 @@ namespace Hazard_Sweep
             //Add game components
             //Components.Add(player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,
             //    GlobalClass.ScreenHeight / 2), 2, 6));
-            // Components.Add(new Enemy(this, "Images//enemyWalk", new Vector2(200, 100), 2, 5));
+             Components.Add(new Enemy(this, "Images//enemyWalk", new Vector2(200, 200), 2, 5));
             //elements = new GameElements(this, player);
             //elements.Initialize();
             camera = new Camera2D(GraphicsDevice.Viewport);

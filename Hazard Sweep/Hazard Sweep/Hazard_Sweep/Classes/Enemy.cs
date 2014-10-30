@@ -43,7 +43,7 @@ namespace Hazard_Sweep.Classes
 
             direction = Facing.Right;
 
-            this.DrawOrder = 2;
+            this.DrawOrder = 10;
         }
 
         protected override void LoadContent()
