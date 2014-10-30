@@ -21,6 +21,8 @@ namespace Hazard_Sweep.Classes
         private bool up;
         private bool down;
         private List<Door> doors;
+        private int roomWidth = (int)GlobalClass.ScreenWidth;
+        private int roomHeight = (int)GlobalClass.ScreenHeight;
 
         Vector2 boundaryPosition;
 
@@ -60,7 +62,7 @@ namespace Hazard_Sweep.Classes
 
         public override void Initialize()
         {
-            Boundary = new Rectangle((int)boundaryPosition.X, (int)boundaryPosition.Y, 600, 400);
+            Boundary = new Rectangle((int)boundaryPosition.X, (int)boundaryPosition.Y, roomWidth - 110, roomHeight - 170);
             base.Initialize();
 
             topDoorPos = new Vector2(boundaryPosition.X + (Boundary.Width / 2), boundaryPosition.Y);
