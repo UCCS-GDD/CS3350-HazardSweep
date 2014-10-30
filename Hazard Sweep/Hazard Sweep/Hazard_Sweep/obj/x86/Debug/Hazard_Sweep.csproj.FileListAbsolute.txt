@@ -231,3 +231,5 @@ C:\Users\Eaven Sheets\Source\Repos\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\
 C:\Users\Eaven Sheets\Source\Repos\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\scientist.xnb
 C:\Users\Eaven Sheets\Source\Repos\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\Hazard_72.xnb
 C:\Users\Eaven Sheets\Source\Repos\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\VtksMoney_30.xnb
+C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\Hazard_72.xnb
+C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\VtksMoney_30.xnb

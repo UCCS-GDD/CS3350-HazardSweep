@@ -49,6 +49,7 @@ namespace Hazard_Sweep.Classes
 
         //activation area
         bool inArea = false;
+        bool nearNPC = false;
         Vector2 newPosition;
         bool displayActivationMessage = false;
         bool teleportReleased = true;
@@ -119,7 +120,7 @@ namespace Hazard_Sweep.Classes
         // update method
         public override void Update(GameTime gameTime)
         {
-            
+
 
             if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
             {
@@ -142,40 +143,60 @@ namespace Hazard_Sweep.Classes
                         if (!b.Contains(this.boundingBox))
                         {
                             contained = false;
-                            
+
                         }
                     }
-                    else if(g is Door)
+                    else if (g is Door)
                     {
                         Door d = (Door)g;
 
                         //collision logic
                         Rectangle b = d.getActivationArea();
                         bool isActive = d.getActive();
-                        if(b.Intersects(this.boundingBox) && isActive)
+                        if (b.Intersects(this.boundingBox) && isActive)
                         {
                             inArea = true;
                             newPosition = d.getExitLocation();
                             newRoom = d.getDestination();
                         }
                     }
+                    else if (g is NPC)
+                    {
+                        NPC n = (NPC)g;
+
+                        //collision logic
+                        Rectangle b = n.getActivationArea();
+                        //bool isActive = d.getActive();
+                        if (b.Intersects(this.boundingBox))
+                        {
+                            nearNPC = true;
+                        }
+                    }
                 }
 
                 //activation if player is in activation area
-                if(keyboardState.IsKeyDown(Keys.E) && inArea == true && teleportReleased)
+                if (keyboardState.IsKeyDown(Keys.E) && inArea == true && teleportReleased)
                 {
                     displayActivationMessage = true;
                     inArea = false;
                     ((Game1)Game).ChangeLevel(currentRoom, newRoom);
                     this.DrawOrder = 20;
                     this.position = newPosition;
-                    teleportReleased = false;                       
+                    teleportReleased = false;
                 }
 
-                if(keyboardState.IsKeyUp(Keys.E))
+                if (keyboardState.IsKeyDown(Keys.E) && nearNPC == true)
+                {
+                    // in the future, we'll have this display dialogue to give guests
+                    nearNPC = false;
+                    ((Game1)Game).ChangeGameState(Game1.GameState.WIN);
+                }
+
+                if (keyboardState.IsKeyUp(Keys.E))
                 {
                     teleportReleased = true;
                     inArea = false;
+                    nearNPC = false;
                 }
 
                 //logic for animation
@@ -192,8 +213,8 @@ namespace Hazard_Sweep.Classes
                 if (keyboardState.IsKeyDown(Keys.D))
                 {
                     direction = Facing.Right;
-                    if(position.X < boundary.Right)
-                    { 
+                    if (position.X < boundary.Right)
+                    {
                         position.X += 5;
                     }
                 }
@@ -315,7 +336,7 @@ namespace Hazard_Sweep.Classes
                 prevX = position.X;
                 prevY = position.Y;
 
-                
+
 
                 //set previous position
                 previousPosition = position;
