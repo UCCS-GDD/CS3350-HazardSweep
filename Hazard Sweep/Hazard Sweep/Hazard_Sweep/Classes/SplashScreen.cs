@@ -74,7 +74,7 @@ namespace Hazard_Sweep.Classes
                 {
                     ((Game1)Game).ChangeGameState(Game1.GameState.PLAY);
                 }
-                else if (currentGameState == Game1.GameState.END)
+                else if (currentGameState == Game1.GameState.WIN || currentGameState == Game1.GameState.LOSE)
                 {
                     Game.Exit();
                 }
@@ -109,11 +109,11 @@ namespace Hazard_Sweep.Classes
             base.Draw(gameTime);
         }
 
-        public void SetData(string main, Game1.GameState currGameState)
+        public void SetData(string main, string iconL, string iconR, Game1.GameState currGameState)
         {
             mainText = main;
-            iconTextR = "#";
-            iconTextL = "#";
+            iconTextR = iconR;
+            iconTextL = iconL;
             this.currentGameState = currGameState;
 
             switch (currentGameState)
@@ -124,7 +124,10 @@ namespace Hazard_Sweep.Classes
                 case Game1.GameState.PAUSE:
                     secondaryText = "press ENTER to resume";
                     break;
-                case Game1.GameState.END:
+                case Game1.GameState.LOSE:
+                    secondaryText = "press Enter to quit";
+                    break;
+                case Game1.GameState.WIN:
                     secondaryText = "press Enter to quit";
                     break;
             }

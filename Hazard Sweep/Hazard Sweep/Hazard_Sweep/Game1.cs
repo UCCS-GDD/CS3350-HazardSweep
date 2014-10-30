@@ -30,7 +30,7 @@ namespace Hazard_Sweep
             room0, room1, room2, room3, room4, room5, room6, room7, room8;
 
         //Splash screen
-        public enum GameState { START, PLAY, PAUSE, END };
+        public enum GameState { START, PLAY, PAUSE, WIN, LOSE };
         SplashScreen splashScreen;
         GameState currentGameState = GameState.START;
 
@@ -97,7 +97,7 @@ namespace Hazard_Sweep
             //Splashscreen component
             splashScreen = new SplashScreen(this);
             Components.Add(splashScreen);
-            splashScreen.SetData("HAZARD SWEEP", currentGameState);
+            splashScreen.SetData("HAZARD SWEEP", "#", "#", currentGameState);
 
             // what is this for?
             Random rand = new Random();
@@ -220,12 +220,17 @@ namespace Hazard_Sweep
                     splashScreen.Visible = false;
                     break;
                 case GameState.PAUSE:
-                    splashScreen.SetData("PAUSED!", GameState.PAUSE);
+                    splashScreen.SetData("PAUSED!", "{", "{", GameState.PAUSE);
                     splashScreen.Enabled = true;
                     splashScreen.Visible = true;
                     break;
-                case GameState.END:
-                    splashScreen.SetData("You have been devoured by the horde!", GameState.END);
+                case GameState.LOSE:
+                    splashScreen.SetData("GAME OVER", "I", "I", GameState.LOSE);
+                    splashScreen.Enabled = true;
+                    splashScreen.Visible = true;
+                    break;
+                case GameState.WIN:
+                    splashScreen.SetData("YOU WON", "", "", GameState.WIN);
                     splashScreen.Enabled = true;
                     splashScreen.Visible = true;
                     break;
