@@ -23,7 +23,10 @@ namespace Hazard_Sweep.Classes
             : base(game, textureFile, position)
         {
             this.exitLocation = exitLocation;
-            activationArea = new Rectangle((int)position.X - 50, (int)position.Y - 50, 100, 100);
+            if (textureFile == "Images//door")
+                activationArea = new Rectangle((int)position.X - 50, (int)position.Y - 50, 100, 100);
+            if (textureFile == "Images//DoorClosed")
+                activationArea = new Rectangle((int)position.X - 50, (int)position.Y - 50, 125, 300);
             this.isActive = isActive;
             this.destination = destination;
 
