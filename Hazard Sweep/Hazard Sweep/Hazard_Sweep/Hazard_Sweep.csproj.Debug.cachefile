@@ -10,12 +10,13 @@ Content\Images\GUI\iconShotgun.xnb
 Content\Images\enemyWalk.xnb
 Content\Images\Maps\External\test01.xnb
 Content\Images\door.xnb
-Content\Fonts\HealthNumeric.xnb
-Content\Fonts\AmmoLabel.xnb
-Content\Fonts\HealthLabel.xnb
-Content\Fonts\AmmoNumeric.xnb
 Content\Images\Maps\External\test02.xnb
 Content\Images\Maps\Internal\test01.xnb
 Content\Images\DoorClosed.xnb
 Content\Images\WallEnd.xnb
 Content\Images\WallWide.xnb
+Content\Fonts\HealthNumeric.xnb
+Content\Fonts\AmmoLabel.xnb
+Content\Fonts\HealthLabel.xnb
+Content\Fonts\AmmoNumeric.xnb
+Content\Fonts\28DaysLater_72.xnb

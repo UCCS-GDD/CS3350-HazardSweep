@@ -33,7 +33,7 @@ namespace Hazard_Sweep.Classes
         protected override void LoadContent()
         {
             //Load fonts
-            mainSpriteFont = Game.Content.Load<SpriteFont>(@"Fonts\AmmoLabel");
+            mainSpriteFont = Game.Content.Load<SpriteFont>(@"Fonts\28DaysLater_72");
             secondarySpriteFont = Game.Content.Load<SpriteFont>(@"Fonts\AmmoLabel");
 
             //Create sprite batch
