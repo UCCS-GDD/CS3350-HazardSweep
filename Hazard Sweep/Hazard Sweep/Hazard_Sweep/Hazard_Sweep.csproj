@@ -82,7 +82,6 @@
     <Compile Include="Classes\GameElements.cs" />
     <Compile Include="Classes\GlobalClass.cs" />
     <Compile Include="Classes\InanimateSprite.cs" />
-    <Compile Include="Classes\Maps\ExternalMaps\ExternalMap.cs" />
     <Compile Include="Classes\PlayerSprite.cs" />
     <Compile Include="Classes\Room.cs" />
     <Compile Include="Classes\Sprite.cs" />

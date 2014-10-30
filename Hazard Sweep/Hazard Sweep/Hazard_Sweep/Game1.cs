@@ -9,7 +9,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Hazard_Sweep.Classes;
-using Hazard_Sweep.Classes.Maps.ExternalMaps;
 
 namespace Hazard_Sweep
 {
@@ -29,8 +28,6 @@ namespace Hazard_Sweep
         Camera2D camera;
         Room room0;
 
-        ExternalMap testExMap;
-
         //Splash screen
         public enum GameState { START, PLAY, PAUSE, END };
         SplashScreen splashScreen;
@@ -40,6 +37,9 @@ namespace Hazard_Sweep
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            graphics.PreferredBackBufferWidth = 1024;
+            graphics.PreferredBackBufferHeight = 576;
         }
 
         /// <summary>
@@ -64,8 +64,6 @@ namespace Hazard_Sweep
             elements = new GameElements(this, player);
             elements.Initialize();
             camera = new Camera2D(GraphicsDevice.Viewport);
-               
-            //testExMap = new ExternalMap(this, "Images//Maps//External//test01", 0, Color.White);
 
             //Splashscreen component
             splashScreen = new SplashScreen(this);

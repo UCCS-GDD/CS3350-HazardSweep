@@ -86,22 +86,22 @@ namespace Hazard_Sweep.Classes
             ks = Keyboard.GetState();
 
             //Check Move
-            if (ks.IsKeyDown(Keys.A))
-            {
-                pos.X += 5f;
-            }
-            if (ks.IsKeyDown(Keys.D))
-            {
-                pos.X -= 5f;
-            }
-            if (ks.IsKeyDown(Keys.W))
-            {
-                pos.Y += 5f;
-            }
-            if (ks.IsKeyDown(Keys.S))
-            {
-                pos.Y -= 5f;
-            }
+            //if (ks.IsKeyDown(Keys.A))
+            //{
+            //    pos.X += 5f;
+            //}
+            //if (ks.IsKeyDown(Keys.D))
+            //{
+            //    pos.X -= 5f;
+            //}
+            //if (ks.IsKeyDown(Keys.W))
+            //{
+            //    pos.Y += 5f;
+            //}
+            //if (ks.IsKeyDown(Keys.S))
+            //{
+            //    pos.Y -= 5f;
+            //}
         }
         #endregion
     }

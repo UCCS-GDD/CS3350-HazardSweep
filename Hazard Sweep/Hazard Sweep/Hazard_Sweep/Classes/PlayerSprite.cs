@@ -53,6 +53,8 @@ namespace Hazard_Sweep.Classes
         bool displayActivationMessage = false;
         bool teleportReleased = true;
 
+        Rectangle boundary;
+
         //Constructor
         public PlayerSprite(Game game, string textureFile, Vector2 position, int spriteRows, int spriteCols)
             : base(game, textureFile, position)
@@ -113,6 +115,8 @@ namespace Hazard_Sweep.Classes
         // update method
         public override void Update(GameTime gameTime)
         {
+            
+
             if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
             {
 
@@ -129,9 +133,11 @@ namespace Hazard_Sweep.Classes
 
                         //collision logic
                         Rectangle b = r.Boundary;
+                        SetBoundary(b);
                         if (!b.Contains(this.boundingBox))
                         {
                             contained = false;
+                            
                         }
                     }
                     else if(g is Door)
@@ -176,53 +182,69 @@ namespace Hazard_Sweep.Classes
                 //move the sprite with WASD
                 if (keyboardState.IsKeyDown(Keys.D))
                 {
-                    if (contained)
-                    {
+                    direction = Facing.Right;
+                    if(position.X < boundary.Right)
+                    { 
                         position.X += 5;
-                        direction = Facing.Right;
                     }
-                    else
-                    {
-                        contained = true;
-                        position.X -= 5;
-                    }
+                    //if (contained)
+                    //{
+                    //    position.X += 5;
+                    //}
+                    //else
+                    //{
+                    //    // contained = true;
+                    //    // position.X -= 5;
+                    //}
                 }
                 else if (keyboardState.IsKeyDown(Keys.A))
                 {
-                    if (contained)
+                    direction = Facing.Left;
+                    if (position.X > boundary.Left)
                     {
                         position.X -= 5;
-                        direction = Facing.Left;
                     }
-                    else
-                      {
-                         contained = true;
-                         position.X += 5;
-                    }
+                    //if (contained)
+                    //{
+                    //    position.X -= 5;
+                    //}
+                    //else
+                    //{
+                    //     // contained = true;
+                    //     // position.X += 5;
+                    //}
                 }
                 else if (keyboardState.IsKeyDown(Keys.W))
                 {
-                    if (contained)
+                    if (position.Y > boundary.Top)
                     {
                         position.Y -= 5;
                     }
-                    else
-                    {
-                        contained = true;
-                        position.Y += 5;
-                    }
+                    //if (contained)
+                    //{
+                    //    position.Y -= 5;
+                    //}
+                    //else
+                    //{
+                    //    // contained = true;
+                    //    // position.Y += 5;
+                    //}
                 }
                 else if (keyboardState.IsKeyDown(Keys.S))
                 {
-                    if (contained)
+                    if (position.Y < boundary.Bottom)
                     {
                         position.Y += 5;
                     }
-                    else
-                    {
-                        contained = true;
-                        position.Y -= 5;
-                    }
+                    //if (contained)
+                    //{
+                    //    position.Y += 5;
+                    //}
+                    //else
+                    //{
+                    //    // contained = true;
+                    //    // position.Y -= 5;
+                    //}
                 }
 
                 contained = true;
@@ -369,6 +391,11 @@ namespace Hazard_Sweep.Classes
         public void reducePlayerHealth(int damage)
         {
             health -= damage;
+        }
+
+        public void SetBoundary(Rectangle b)
+        {
+            boundary = b;
         }
     }
 }
