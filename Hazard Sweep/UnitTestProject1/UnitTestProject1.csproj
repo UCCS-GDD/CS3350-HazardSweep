@@ -61,7 +61,10 @@
     <Compile Include="Classes\EnemyTests.cs" />
     <Compile Include="Classes\InanimateSpriteTests.cs" />
     <Compile Include="Classes\PlayerSpriteTests.cs" />
+    <Compile Include="Classes\RoomTests.cs" />
+    <Compile Include="Classes\SplashScreenTests.cs" />
     <Compile Include="Classes\SpriteTests.cs" />
+    <Compile Include="Classes\WeaponIconTests.cs" />
     <Compile Include="Classes\WeaponTests.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
