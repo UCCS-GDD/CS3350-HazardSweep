@@ -25,7 +25,7 @@ namespace RoomTest.Tests
         private int column;
         private bool up;
         private bool down;
-        private List<Door> doors;
+       // private List<Door> doors;
         private int roomWidth = (int)GlobalClass.ScreenWidth;
         private int roomHeight = (int)GlobalClass.ScreenHeight;
         private Random rand = new Random();
@@ -60,168 +60,70 @@ namespace RoomTest.Tests
 
         //map variables
 
-        GameElements elements;
+        //GameElements elements;
         Color r_color;
         int id;
 
-        //[TestMethod()]
-        //public void RoomTest()
-        //{
-        //    (Game game, string textureFile, Vector2 position, int row, int column, bool up, bool down, PlayerSprite player, Color r_color, int id)
-        //    : base(game, textureFile, position)
-        //                    this.row = row;
-        //    this.column = column;
-        //    this.up = up;
-        //    this.down = down;
-            
-        //    boundaryPosition = new Vector2(10, 10);
-        //    doors = new List<Door>();
+        [TestMethod()]
+        public void RoomTest()
+        {
+            Game game = null;
+            string textureFile = "test";
+            Vector2 position = Vector2.Zero;
+            int row = 0;
+            int column = 0;
+            bool up = false;
+            bool down = false;
+            Color color = Color.AliceBlue;
+            int id = 0;
+            Assert.AreEqual(null, game);
+            Assert.AreEqual("test", textureFile);
+            Assert.AreEqual(Vector2.Zero, position);
+            Assert.AreEqual(0, row);
+            Assert.AreEqual(0, column);
+            Assert.AreEqual(false, up);
+            Assert.AreEqual(false, down);
+            Assert.AreEqual(Color.AliceBlue, color);
+            Assert.AreEqual(0, id);
+        }
 
-        //    this.player = player;
-        //    this.r_color = r_color;
-        //    this.id = id;
-        //    this.DrawOrder = 1;
-        //}
+        [TestMethod()]
+        public void InitializeTest()
+        {
+            Game game = null;
+            Boundary = new Rectangle((int)boundaryPosition.X, (int)boundaryPosition.Y + 150, roomWidth - 110, roomHeight - 270);
+            Assert.AreEqual(new Rectangle((int)boundaryPosition.X, (int)boundaryPosition.Y + 150, roomWidth - 110, roomHeight - 270), Boundary);
 
-        //[TestMethod()]
-        //public void InitializeTest()
-        //{
+            topDoorPos = new Vector2(boundaryPosition.X + (Boundary.Width * 5 / 8), boundaryPosition.Y + Boundary.Height * 3 / 8);
+            leftDoorPos = new Vector2(boundaryPosition.X - 20, boundaryPosition.Y + (Boundary.Height * 7 / 8) + 70);
+            rightDoorPos = new Vector2(boundaryPosition.X + Boundary.Width, boundaryPosition.Y + (Boundary.Height * 7 / 8) + 70);
+            bottomDoorPos = new Vector2(boundaryPosition.X + (Boundary.Width * 5 / 8), boundaryPosition.Y + Boundary.Height + 200);
+            buildingDoorPos = new Vector2(120f, 75f);
 
-        //    Boundary = new Rectangle((int)boundaryPosition.X, (int)boundaryPosition.Y + 150, roomWidth - 110, roomHeight - 270);
-        //    base.Initialize();
+            topWallPos = new Vector2((topDoorPos.X - 170f), (topDoorPos.Y - 60f));
+            leftWallPos = new Vector2((leftDoorPos.X - 10f), (leftDoorPos.Y - 110f));
+            rightWallPos = new Vector2((rightDoorPos.X + 40f), (rightDoorPos.Y - 190f));
+            bottomWallPos = new Vector2((bottomDoorPos.X - 270f), (bottomDoorPos.Y - 100f));
 
-        //    topDoorPos = new Vector2(boundaryPosition.X + (Boundary.Width * 5 / 8), boundaryPosition.Y + Boundary.Height * 3 / 8);
-        //    leftDoorPos = new Vector2(boundaryPosition.X - 20, boundaryPosition.Y + (Boundary.Height * 7 / 8) + 70);
-        //    rightDoorPos = new Vector2(boundaryPosition.X + Boundary.Width, boundaryPosition.Y + (Boundary.Height * 7 / 8) + 70);
-        //    bottomDoorPos = new Vector2(boundaryPosition.X + (Boundary.Width * 5 / 8), boundaryPosition.Y + Boundary.Height + 200);
-        //    buildingDoorPos = new Vector2(120f, 75f);
+            topTeleport = new Vector2(bottomDoorPos.X, bottomDoorPos.Y - offset);
+            leftTeleport = new Vector2(rightDoorPos.X - offset, rightDoorPos.Y);
+            rightTeleport = new Vector2(leftDoorPos.X + offset, leftDoorPos.Y);
+            bottomTeleport = new Vector2(topDoorPos.X, topDoorPos.Y + offset);
+            buildingTeleport = new Vector2(buildingDoorPos.X, buildingDoorPos.Y + 128);
 
-        //    topWallPos = new Vector2((topDoorPos.X - 170f), (topDoorPos.Y - 60f));
-        //    leftWallPos = new Vector2((leftDoorPos.X - 10f), (leftDoorPos.Y - 110f));
-        //    rightWallPos = new Vector2((rightDoorPos.X + 40f), (rightDoorPos.Y - 190f));
-        //    bottomWallPos = new Vector2((bottomDoorPos.X - 270f), (bottomDoorPos.Y - 100f));
+            int zombieNum = 1;
 
-        //    topTeleport = new Vector2(bottomDoorPos.X, bottomDoorPos.Y - offset);
-        //    leftTeleport = new Vector2(rightDoorPos.X - offset, rightDoorPos.Y);
-        //    rightTeleport = new Vector2(leftDoorPos.X + offset, leftDoorPos.Y);
-        //    bottomTeleport = new Vector2(topDoorPos.X, topDoorPos.Y + offset);
-        //    buildingTeleport = new Vector2(buildingDoorPos.X, buildingDoorPos.Y + 128);
+            for (int i = 0; i <= zombieNum; i++)
+            {
+                Rectangle boundingBox = new Rectangle(1, 1, 1, 1);
+                int xLoc = boundingBox.Width;
+                Assert.AreEqual(1, xLoc);
+                int yLoc = boundingBox.Height;
+                Assert.AreEqual(1, yLoc);
+            }
 
-        //    switch (id)
-        //    {
-        //        case 0:
-        //            game.Components.Add(new Barricade(game, "Images//WallWide", topWallPos));
-        //            game.Components.Add(new Barricade(game, "Images//WallEnd", leftWallPos));
-        //            game.Components.Add(new Door(game, "Images//door", rightDoorPos, rightTeleport, true, 1));
-        //            game.Components.Add(new Door(game, "Images//door", bottomDoorPos, bottomTeleport, true, 3));
-        //            game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 9));
-        //            break;
-        //        case 1:
-        //            game.Components.Add(new Barricade(game, "Images//WallWide", topWallPos));
-        //            game.Components.Add(new Barricade(game, "Images//WallEnd", rightWallPos));
-        //            game.Components.Add(new Door(game, "Images//door", leftDoorPos, leftTeleport, true, 0));
-        //            game.Components.Add(new Door(game, "Images//door", bottomDoorPos, bottomTeleport, true, 4));
-        //            game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 10));
-        //            break;
-        //        //case 2:
-        //        case 3:
-        //            game.Components.Add(new Barricade(game, "Images//WallWide", bottomWallPos));
-        //            game.Components.Add(new Barricade(game, "Images//WallEnd", leftWallPos));
-        //            game.Components.Add(new Door(game, "Images//door", topDoorPos, topTeleport, true, 0));
-        //            game.Components.Add(new Door(game, "Images//door", rightDoorPos, rightTeleport, true, 4));
-        //            game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 12));
-        //            break;
-        //        case 4:
-        //            game.Components.Add(new Barricade(game, "Images//WallWide", bottomWallPos));
-        //            game.Components.Add(new Barricade(game, "Images//WallEnd", rightWallPos));
-        //            game.Components.Add(new Door(game, "Images//door", topDoorPos, topTeleport, true, 1));
-        //            game.Components.Add(new Door(game, "Images//door", leftDoorPos, leftTeleport, true, 3));
-        //            game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 13));
-        //            break;
-        //        // case 5,6,7,8
-        //        case 9:
-        //            game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 0));
-        //            break;
-        //        case 10:
-        //            game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 1));
-        //            break;
-        //        // case 11:
-        //        case 12:
-        //            game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 3));
-        //            break;
-        //        case 13:
-        //            game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 4));
-        //            game.Components.Add(new NPC(game, "Images//scientist", new Vector2(550, 300), Facing.Left));
-        //            break;
-        //        // case 14, 15, 16, 17
-
-        //        //load in random zombie count
-
-        //    }
-
-        //    int zombieNum = randomNumGen();
-
-        //    for (int i = 0; i <= zombieNum; i++)
-        //    {
-        //        int xLoc = rand.Next(boundingBox.Width);
-        //        int yLoc = rand.Next(200, 400);
-        //        Enemy temp = new Enemy(game, "Images//enemyWalk", new Vector2(xLoc, yLoc), 2, 5);
-        //        game.Components.Add(temp);
-        //    }
-        //    //game.Components.Add(new Door(game, "Images//door", topDoorPos, topTeleport, true));
-        //    //game.Components.Add(new Door(game, "Images//door", leftDoorPos, leftTeleport, true));
-        //    //game.Components.Add(new Door(game, "Images//door", rightDoorPos, rightTeleport, true));
-        //    //game.Components.Add(new Door(game, "Images//door", bottomDoorPos, bottomTeleport, true));
-        //    //game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true));
-
-        //    drawRectangle = new Rectangle(0, 0, (int)GlobalClass.ScreenWidth, (int)GlobalClass.ScreenHeight);
-        //    //if (!game.Components.Contains(player))
-        //    //{
-        //    //    game.Components.Add(player);
-        //    //}
-
-        //    elements = new GameElements(game, player);
-
-        //    elements.Initialize();
-        //    elements.LoadContent();
-        //}
-
-        //[TestMethod()]
-        //public void UpdateTest()
-        //{
-        //    if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
-        //    {
-        //        elements.Update(gameTime);
-
-
-        //        base.Update(gameTime);
-        //    }
-        //}
-
-        //[TestMethod()]
-        //public void DrawTest()
-        //{
-        //    if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
-        //    {
-        //        sb = Game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
-        //        sb.Begin();
-        //        sb.Draw(texture, drawRectangle, null, r_color, 0.0f, new Vector2(0, 0), SpriteEffects.None, 1.0f);
-        //        elements.Draw(sb);
-        //        sb.End();
-        //    }   
-        //}
-
-        //[TestMethod()]
-        //public void GetIDTest()
-        //{
-        //    return id;
-        //}
-
-        //[TestMethod()]
-        //public void randomNumGenTest()
-        //{
-        //    int value = rand.Next(maxZombie);
-        //    return value;
-        //}
+            drawRectangle = new Rectangle(0, 0, (int)GlobalClass.ScreenWidth, (int)GlobalClass.ScreenHeight);
+            Assert.AreEqual(new Rectangle(0, 0, (int)GlobalClass.ScreenWidth, (int)GlobalClass.ScreenHeight), drawRectangle);
+        }
     }
 }
