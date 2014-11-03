@@ -27,6 +27,8 @@ namespace Bullet.Tests
         [TestMethod()]
         public void BulletTest()
         {
+            remove = false;
+            Assert.AreEqual(false, remove);
             Vector2 position = Vector2.One;
             Assert.AreEqual(null, game);
             Facing dir = Facing.Left;
@@ -34,41 +36,24 @@ namespace Bullet.Tests
             Assert.AreEqual(Facing.Left, direction);
         }
 
-       /*  [TestMethod()]
+       [TestMethod()]
        public void UpdateTest()
         {
+           direction = Facing.Left;
             //logic for determining which direction the bullet should move
+           position.X = 0;
             if (direction == Facing.Left)
             {
                 position.X -= 10;
             }
-            else
+            Assert.AreEqual(-10, position.X);
+            direction = Facing.Right;
+           position.X = 0;
+            if (direction == Facing.Right)
             {
                 position.X += 10;
             }
-
-            Sprite collisionSprite = new Sprite(game);
-            //check for collisions
-            foreach (GameComponent g in game.Components)
-            {
-                if (g is Enemy)
-                {
-                    Sprite s = (Sprite)g;
-                    Rectangle b = s.getRectangle();
-                    if (b.Intersects(this.boundingBox))
-                    {
-                        collisionSprite = s;
-                        remove = true;
-                    }
-                }
-            }
-
-            //remove objects that have collided (can't be removed in the loop)
-            if (remove)
-            {
-                game.Components.Remove(this);
-                game.Components.Remove(collisionSprite);
-            }
-        }*/
+            Assert.AreEqual(10, position.X);
+        }
     }
 }
