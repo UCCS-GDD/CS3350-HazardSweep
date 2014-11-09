@@ -317,6 +317,11 @@ namespace Hazard_Sweep
                     Enemy e = (Enemy)g;
                     Components.Remove(e);
                 }
+                if (g is Bullet)
+                {
+                    Bullet bu = (Bullet)g;
+                    Components.Remove(bu);
+                }
                 if (g is Barricade)
                 {
                     Barricade b = (Barricade)g;
