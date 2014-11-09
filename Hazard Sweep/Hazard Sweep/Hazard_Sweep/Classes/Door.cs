@@ -20,7 +20,7 @@ namespace Hazard_Sweep.Classes
         private bool isActive;
 
         public Door(Game game, string textureFile, Vector2 position, Vector2 exitLocation, bool isActive, int destination)
-            : base(game, textureFile, position)
+            : base(game, textureFile, position, 7)
         {
             this.exitLocation = exitLocation;
             if (textureFile == "Images//door")
@@ -30,7 +30,7 @@ namespace Hazard_Sweep.Classes
             this.isActive = isActive;
             this.destination = destination;
 
-            this.DrawOrder = 2;
+            //this.DrawOrder = 3;
         }
 
         //update method

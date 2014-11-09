@@ -18,11 +18,11 @@ namespace Hazard_Sweep.Classes
         protected Facing direction;
 
         public NPC(Game game, string textureFile, Vector2 position, Facing direction)
-            : base(game, textureFile, position)
+            : base(game, textureFile, position, 9)
         {
             this.direction = direction;
             activationArea = new Rectangle((int)position.X - 50, (int)position.Y - 50, 175, 325);
-            this.DrawOrder = 10;
+            //this.DrawOrder = 10;
         }
 
         //update method

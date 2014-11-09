@@ -20,7 +20,7 @@ namespace Hazard_Sweep.Classes
 
         //constructor
         public Bullet(Game game, string textureFile, Vector2 position, Facing dir)
-            : base(game, textureFile, position)
+            : base(game, textureFile, position, 10)
         {
             direction = dir;
         }

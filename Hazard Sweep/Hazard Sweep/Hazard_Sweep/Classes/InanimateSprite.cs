@@ -15,7 +15,7 @@ namespace Hazard_Sweep.Classes
     public class InanimateSprite : Sprite
     {
         public InanimateSprite(Game game, string textureFile, Vector2 position)
-            : base(game, textureFile, position)
+            : base(game, textureFile, position, 9)
         {
 
         }

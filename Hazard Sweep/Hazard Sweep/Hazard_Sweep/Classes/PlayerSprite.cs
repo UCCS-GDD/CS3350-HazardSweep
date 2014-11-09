@@ -60,7 +60,7 @@ namespace Hazard_Sweep.Classes
 
         //Constructor
         public PlayerSprite(Game game, string textureFile, Vector2 position, int spriteRows, int spriteCols)
-            : base(game, textureFile, position)
+            : base(game, textureFile, position, 10)
         {
 
             health = 100;

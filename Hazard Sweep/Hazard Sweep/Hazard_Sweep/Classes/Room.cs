@@ -62,7 +62,7 @@ namespace Hazard_Sweep.Classes
         int id;
 
         public Room(Game game, string textureFile, Vector2 position, int row, int column, bool up, bool down, PlayerSprite player, Color r_color, int id)
-            : base(game, textureFile, position)
+            : base(game, textureFile, position, 1)
         {            
             this.row = row;
             this.column = column;

@@ -19,7 +19,7 @@ namespace Hazard_Sweep.Classes
         protected Rectangle frame;
 
         public AnimateSprite(Game game, string textureFile, Vector2 position, int frameCount)
-            : base(game, textureFile, position)
+            : base(game, textureFile, position, 9)
         {
             this.frameCount = frameCount;
         }

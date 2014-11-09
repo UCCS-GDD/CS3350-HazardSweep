@@ -30,7 +30,7 @@ namespace Hazard_Sweep.Classes
         }
 
         //constructor with arguments
-        public Sprite(Game game, String textureFile, Vector2 position)
+        public Sprite(Game game, String textureFile, Vector2 position, int drawOrder)
             : base(game)
         {
             this.textureFile = textureFile;
@@ -38,7 +38,7 @@ namespace Hazard_Sweep.Classes
             color = Color.White;
             random = new Random();
             this.game = game;
-            this.DrawOrder = 2;
+            this.DrawOrder = drawOrder;
         }
 
         protected override void LoadContent()

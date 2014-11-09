@@ -34,7 +34,7 @@ namespace Hazard_Sweep.Classes
 
         //class constructor
         public Enemy(Game game, string textureFile, Vector2 position, int spriteRows, int spriteCols)
-            : base(game, textureFile, position)
+            : base(game, textureFile, position, 10)
         {
             health = 2;
 
@@ -43,7 +43,7 @@ namespace Hazard_Sweep.Classes
 
             direction = Facing.Right;
 
-            this.DrawOrder = 10;
+            //this.DrawOrder = 10;
         }
 
         protected override void LoadContent()
