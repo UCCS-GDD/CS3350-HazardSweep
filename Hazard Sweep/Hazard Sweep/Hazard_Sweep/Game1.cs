@@ -38,6 +38,12 @@ namespace Hazard_Sweep
         bool pressed = false;
         bool released = false;
 
+        //sound effects
+        SoundEffect music;
+        SoundEffect pistolFire;
+        SoundEffect machineFire;
+        SoundEffect shotgunFire;
+        SoundEffect shells;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -117,6 +123,13 @@ namespace Hazard_Sweep
             // Creates a service for the spritebatch so it can be used in other classes
             Services.AddService(typeof(SpriteBatch), spriteBatch);
 
+            //load sound effects
+              music = Content.Load<SoundEffect>("Sounds/Unseen Horrors");
+            //pistolFire;
+            //machineFire;
+            //shotgunFire;
+            //shells;
+              music.CreateInstance().Play();
             // load game elements
             //elements.LoadContent();
 

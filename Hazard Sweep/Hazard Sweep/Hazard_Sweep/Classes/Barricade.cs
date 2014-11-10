@@ -9,7 +9,7 @@ namespace Hazard_Sweep.Classes
     class Barricade : Sprite
     {
         public Barricade(Game game, string textureFile, Vector2 position)
-            : base(game, textureFile, position, 1)
+            : base(game, textureFile, position, 7)
         {
 
         }
