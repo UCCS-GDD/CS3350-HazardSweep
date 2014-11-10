@@ -7,6 +7,8 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using Hazard_Sweep;
+using Hazard_Sweep.Classes;
 
 namespace Hazard_Sweep.Classes
 {
@@ -22,6 +24,7 @@ namespace Hazard_Sweep.Classes
         public Bullet(Game game, string textureFile, Vector2 position, Facing dir)
             : base(game, textureFile, position, 10)
         {
+            this.game = game;
             direction = dir;
         }
 
@@ -50,6 +53,7 @@ namespace Hazard_Sweep.Classes
                     {
                         collisionSprite = s;
                         remove = true;
+                        (game as Game1).zombieDeath();
                     }
                 }
             }

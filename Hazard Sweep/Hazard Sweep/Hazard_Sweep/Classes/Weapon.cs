@@ -67,6 +67,20 @@ namespace Hazard_Sweep.Classes
         {
             if (((int)currentTime >= delay) && (loadedBullets > 0))
             {
+                if (this.type == WeaponType.Shotgun)
+                {
+                    (game as Game1).playShotgun();
+                }
+                else if (this.type == WeaponType.AssaultRifle)
+                {
+                    (game as Game1).playMachinegun();
+                }
+                else if (this.type == WeaponType.Pistol)
+                {
+                    (game as Game1).playPistol();
+                }
+                else
+                { }
                 loadedBullets--;
 
                 //creates a bullet
@@ -84,6 +98,7 @@ namespace Hazard_Sweep.Classes
                 {      
                     totalBullets -= capacity - loadedBullets;
                     loadedBullets = capacity;
+                    (game as Game1).playReload();
                 }
                 else
                 {
@@ -95,7 +110,8 @@ namespace Hazard_Sweep.Classes
                     else// if there are less total bullets than capacity but more loaded bullets plus total bullets than capacity
                     {
                         totalBullets -= capacity - loadedBullets;
-                        loadedBullets = capacity;
+                        loadedBullets = capacity;          
+                        (game as Game1).playReload();
                     }
                 }
             }

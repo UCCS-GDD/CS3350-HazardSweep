@@ -12,7 +12,7 @@ using Hazard_Sweep.Classes;
 
 namespace Hazard_Sweep
 {
-    public enum Facing { Left, Right};
+    public enum Facing { Left, Right };
     public enum WeaponType { Melee, Pistol, AssaultRifle, Shotgun };
 
     /// <summary>
@@ -39,11 +39,20 @@ namespace Hazard_Sweep
         bool released = false;
 
         //sound effects
-        SoundEffect music;
+        Song music;
+        SoundEffect reload;
         SoundEffect pistolFire;
         SoundEffect machineFire;
         SoundEffect shotgunFire;
         SoundEffect shells;
+        SoundEffect zombie1;
+        SoundEffect zombie2;
+        SoundEffect zombie3;
+        SoundEffect zombie4;
+        SoundEffect zombie5;
+        SoundEffect zombie6;
+        SoundEffect zombie7;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -95,7 +104,7 @@ namespace Hazard_Sweep
             //Add game components
             //Components.Add(player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,
             //    GlobalClass.ScreenHeight / 2), 2, 6));
-             Components.Add(new Enemy(this, "Images//enemyWalk", new Vector2(200, 200), 2, 5));
+            Components.Add(new Enemy(this, "Images//enemyWalk", new Vector2(200, 200), 2, 5));
             //elements = new GameElements(this, player);
             //elements.Initialize();
             camera = new Camera2D(GraphicsDevice.Viewport);
@@ -124,20 +133,28 @@ namespace Hazard_Sweep
             Services.AddService(typeof(SpriteBatch), spriteBatch);
 
             //load sound effects
-              music = Content.Load<SoundEffect>("Sounds/Unseen Horrors");
-              pistolFire = Content.Load<SoundEffect>("Sounds/EDITEDGUN_FIRELicenseAttribution3.0RecordedbyGoodSoundForYou");
-            //pistolFire;
-            //machineFire;
-            //shotgunFire;
-            //shells;
-              //music.CreateInstance().Play();
-              SoundEffectInstance pistolInst = pistolFire.CreateInstance();
-              pistolInst.Volume = 0.2f;
-              pistolInst.Play();
+            music = Content.Load<Song>("Sounds/Unseen Horrors");
+            reload = Content.Load<SoundEffect>("Sounds/reload");
+            pistolFire = Content.Load<SoundEffect>("Sounds/pistolLicenseAttribution3");
+            machineFire = Content.Load<SoundEffect>("Sounds/machine gun");
+            shotgunFire = Content.Load<SoundEffect>("Sounds/Shotgunsound");
+            shells = Content.Load<SoundEffect>("Sounds/shell");
+            zombie1 = Content.Load<SoundEffect>("Sounds/Zombie 1");
+            zombie2 = Content.Load<SoundEffect>("Sounds/Zombie 2");
+            zombie3 = Content.Load<SoundEffect>("Sounds/Zombie 3");
+            zombie4 = Content.Load<SoundEffect>("Sounds/Zombie 4");
+            zombie5 = Content.Load<SoundEffect>("Sounds/Zombie 5");
+            zombie6 = Content.Load<SoundEffect>("Sounds/Zombie 6");
+            zombie7 = Content.Load<SoundEffect>("Sounds/Zombie 7");
+
             // load game elements
             //elements.LoadContent();
 
             //testExMap.LoadContent();
+
+            // start music and loop
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Play(music);
         }
 
         /// <summary>
@@ -262,7 +279,7 @@ namespace Hazard_Sweep
         // I'm sure there's a better way to do this, but it's late and I have no idea what I'm doing
         public Room GetRoom(int id)
         {
-            switch(id)
+            switch (id)
             {
                 case 0:
                     return street0;
@@ -358,5 +375,105 @@ namespace Hazard_Sweep
             Components.Remove(GetRoom(oldLevel));
             Components.Add(GetRoom(newLevel));
         }
+
+        #region sound effect methods
+        //method to play reloading sound effect
+        public void playReload()
+        {
+            SoundEffectInstance reloadInst = reload.CreateInstance();
+            reloadInst.Volume = .9f;
+            reloadInst.Play();
+        }
+
+        //method to play pistol shot and shell drop
+        public void playPistol()
+        {
+            SoundEffectInstance pistolInst = pistolFire.CreateInstance();
+            pistolInst.Volume = .2f;
+            pistolInst.Play();
+            SoundEffectInstance shellInst = shells.CreateInstance();
+            shellInst.Volume = .9f;
+            shellInst.Play();
+        }
+
+        //method to play machinegun shot and shell drop
+        public void playMachinegun()
+        {
+            SoundEffectInstance machineInst = machineFire.CreateInstance();
+            machineInst.Volume = .2f;
+            machineInst.Play();
+            SoundEffectInstance shellInst = shells.CreateInstance();
+            shellInst.Volume = .9f;
+            shellInst.Play();
+        }
+
+        //method to play shotgun shot and shell drop
+        public void playShotgun()
+        {
+            SoundEffectInstance shotgunInst = shotgunFire.CreateInstance();
+            shotgunInst.Volume = .2f;
+            shotgunInst.Play();
+            SoundEffectInstance shellInst = shells.CreateInstance();
+            shellInst.Volume = .9f;
+            shellInst.Play();
+        }
+
+        //method that plays a random zombie death noise when called
+        public void zombieDeath()
+        {
+            Random rand = new Random();
+            int noise = rand.Next(1, 7);
+            switch (noise)
+            {
+                case 1:
+                    SoundEffectInstance temp1 = zombie1.CreateInstance();
+                    temp1.Volume = .5f;
+                    temp1.Play();
+                    break;
+                case 2:
+                    SoundEffectInstance temp2 = zombie2.CreateInstance();
+                    temp2.Volume = .5f;
+                    temp2.Play();
+                    break;
+                case 3:
+                    SoundEffectInstance temp3 = zombie3.CreateInstance();
+                    temp3.Volume = .5f;
+                    temp3.Play();
+                    break;
+                case 4:
+                    SoundEffectInstance temp4 = zombie4.CreateInstance();
+                    temp4.Volume = .5f;
+                    temp4.Play();
+                    break;
+                case 5:
+                    SoundEffectInstance temp5 = zombie5.CreateInstance();
+                    temp5.Volume = .5f;
+                    temp5.Play();
+                    break;
+                case 6:
+                    SoundEffectInstance temp6 = zombie6.CreateInstance();
+                    temp6.Volume = .5f;
+                    temp6.Play();
+                    break;
+                case 7:
+                    SoundEffectInstance temp7 = zombie7.CreateInstance();
+                    temp7.Volume = .5f;
+                    temp7.Play();
+                    break;
+                default:
+                    SoundEffectInstance tempdef = zombie1.CreateInstance();
+                    tempdef.Volume = .5f;
+                    tempdef.Play();
+                    break;
+            }
+        }
+        #endregion
     }
 }
+//sound effect credits
+//Pistol firing sound effect Recorded by GoodSoundForYou
+//Shotgun sound effect Recorded by Soundeffects
+//machinegunfire Recorded by WEL
+//shell sound effect Recorded by Marcel
+//game music public domain
+//zombie noises made by group members
