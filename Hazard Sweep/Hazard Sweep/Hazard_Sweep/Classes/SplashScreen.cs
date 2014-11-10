@@ -21,6 +21,7 @@ namespace Hazard_Sweep.Classes
         string secondaryText;
         string iconTextL;
         string iconTextR;
+        string credits;
         SpriteFont mainSpriteFont;
         SpriteFont secondarySpriteFont;
         SpriteFont iconLSpriteFont;
@@ -41,6 +42,7 @@ namespace Hazard_Sweep.Classes
             secondarySpriteFont = Game.Content.Load<SpriteFont>(@"Fonts\VtksMoney_30");
             iconLSpriteFont = Game.Content.Load<SpriteFont>(@"Fonts\Hazard_72");
             iconRSpriteFont = Game.Content.Load<SpriteFont>(@"Fonts\Hazard_72");
+            credits = "";
 
             //Create sprite batch
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
@@ -97,6 +99,10 @@ namespace Hazard_Sweep.Classes
             //Draw sub text
             spriteBatch.DrawString(secondarySpriteFont, secondaryText, new Vector2(Game.Window.ClientBounds.Width / 2 -
                 secondarySpriteFont.MeasureString(secondaryText).X / 2, Game.Window.ClientBounds.Height / 2 + TitleSize.Y + 10), Color.DarkRed);
+           
+            //credits text
+            spriteBatch.DrawString(secondarySpriteFont, credits, new Vector2(Game.Window.ClientBounds.Width / 2 -
+    secondarySpriteFont.MeasureString(credits).X / 2, Game.Window.ClientBounds.Height / 1.5f + TitleSize.Y + 10), Color.DarkRed);
 
             //Draw icon text
             spriteBatch.DrawString(iconRSpriteFont, iconTextR, new Vector2(Game.Window.ClientBounds.Width / 2 + 300,
@@ -125,10 +131,12 @@ namespace Hazard_Sweep.Classes
                     secondaryText = "press ENTER to resume";
                     break;
                 case Game1.GameState.LOSE:
-                    secondaryText = "press Enter to quit";
+                    secondaryText = "press Enter to quit \n";
+                    credits = "Sound Effects by: GoodSoundForYou, Soundeffects, WEL, Marcel, Mike Koenig";
                     break;
                 case Game1.GameState.WIN:
-                    secondaryText = "press Enter to quit";
+                    secondaryText = "press Enter to quit \n";
+                    credits = "Sound Effects by: GoodSoundForYou, Soundeffects, WEL, Marcel, Mike Koenig";
                     break;
             }
         }
