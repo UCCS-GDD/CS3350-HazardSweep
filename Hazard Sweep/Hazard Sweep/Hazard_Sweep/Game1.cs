@@ -125,11 +125,15 @@ namespace Hazard_Sweep
 
             //load sound effects
               music = Content.Load<SoundEffect>("Sounds/Unseen Horrors");
+              pistolFire = Content.Load<SoundEffect>("Sounds/EDITEDGUN_FIRELicenseAttribution3.0RecordedbyGoodSoundForYou");
             //pistolFire;
             //machineFire;
             //shotgunFire;
             //shells;
-              music.CreateInstance().Play();
+              //music.CreateInstance().Play();
+              SoundEffectInstance pistolInst = pistolFire.CreateInstance();
+              pistolInst.Volume = 0.2f;
+              pistolInst.Play();
             // load game elements
             //elements.LoadContent();
 
