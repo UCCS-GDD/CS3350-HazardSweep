@@ -475,5 +475,6 @@ namespace Hazard_Sweep
 //Shotgun sound effect Recorded by Soundeffects
 //machinegunfire Recorded by WEL
 //shell sound effect Recorded by Marcel
+//reload effect by Mike Koenig
 //game music public domain
 //zombie noises made by group members
