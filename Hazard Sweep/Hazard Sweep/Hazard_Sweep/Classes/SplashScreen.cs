@@ -94,7 +94,7 @@ namespace Hazard_Sweep.Classes
 
             //Draw main text
             spriteBatch.DrawString(mainSpriteFont, mainText, new Vector2(Game.Window.ClientBounds.Width / 2 - TitleSize.X / 2,
-                Game.Window.ClientBounds.Height / 2), Color.White);
+                Game.Window.ClientBounds.Height / 2 - 72 / 2), Color.White);
 
             //Draw sub text
             spriteBatch.DrawString(secondarySpriteFont, secondaryText, new Vector2(Game.Window.ClientBounds.Width / 2 -
@@ -106,9 +106,9 @@ namespace Hazard_Sweep.Classes
 
             //Draw icon text
             spriteBatch.DrawString(iconRSpriteFont, iconTextR, new Vector2(Game.Window.ClientBounds.Width / 2 + 300,
-                Game.Window.ClientBounds.Height / 2 - 10), Color.Yellow);
+                Game.Window.ClientBounds.Height / 2 - 72 / 1.25f), Color.Yellow);
             spriteBatch.DrawString(iconLSpriteFont, iconTextL, new Vector2(Game.Window.ClientBounds.Width / 2 - 375,
-                Game.Window.ClientBounds.Height / 2 - 10), Color.Yellow);
+                Game.Window.ClientBounds.Height / 2 - 72 / 1.25f), Color.Yellow);
 
             spriteBatch.End();
 
