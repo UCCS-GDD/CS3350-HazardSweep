@@ -61,7 +61,7 @@ namespace Hazard_Sweep.Classes
             //remove objects that have collided (can't be removed in the loop)
             if(remove)
             {
-                int r = randomNumGen(0, 7);
+                int r = randomNumGen(0, 5);
                 if(r == 0)
                 {
                     game.Components.Add(new itemDrop(game, null, collisionSprite.getPosition()));

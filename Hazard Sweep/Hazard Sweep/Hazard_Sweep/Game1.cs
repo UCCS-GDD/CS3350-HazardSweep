@@ -376,6 +376,11 @@ namespace Hazard_Sweep
                     NPC n = (NPC)g;
                     Components.Remove(n);
                 }
+                if (g is itemDrop)
+                {
+                    itemDrop item = (itemDrop)g;
+                    Components.Remove(item);
+                }
             }
             Components.Remove(GetRoom(oldLevel));
             Components.Add(GetRoom(newLevel));
