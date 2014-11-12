@@ -102,7 +102,9 @@ namespace Hazard_Sweep
             //add rooms to game
             Components.Add(street0);
             Components.Add(player);
-            Components.Add(new itemDrop(this, null, new Vector2(300, 300)));
+
+            //add test drops to game
+            //Components.Add(new itemDrop(this, null, new Vector2(300, 300)));
 
             //Add game components
             //Components.Add(player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,

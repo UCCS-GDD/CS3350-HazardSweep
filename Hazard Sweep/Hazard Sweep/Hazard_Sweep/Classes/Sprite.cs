@@ -111,5 +111,11 @@ namespace Hazard_Sweep.Classes
         {
             return this.boundingBox;
         }
+
+        //returns the position
+        public Vector2 getPosition()
+        {
+            return this.position;
+        }
     }
 }

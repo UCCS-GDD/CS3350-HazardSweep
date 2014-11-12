@@ -61,11 +61,23 @@ namespace Hazard_Sweep.Classes
             //remove objects that have collided (can't be removed in the loop)
             if(remove)
             {
+                int r = randomNumGen(0, 7);
+                if(r == 0)
+                {
+                    game.Components.Add(new itemDrop(game, null, collisionSprite.getPosition()));
+                }
                 game.Components.Remove(this);
-                game.Components.Remove(collisionSprite);
+                game.Components.Remove(collisionSprite);                
             }
 
             base.Update(gameTime);
+        }
+
+        //random number generator
+        public int randomNumGen(int min, int max)
+        {
+            int value = random.Next(min, max);
+            return value;
         }
     }
 }
