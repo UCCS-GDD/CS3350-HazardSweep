@@ -172,6 +172,42 @@ namespace Hazard_Sweep.Classes
                             nearNPC = true;
                         }
                     }
+                    else if (g is itemDrop)
+                    {
+                        itemDrop i = (itemDrop)g;
+
+                        //collision logic
+                        Rectangle b = i.getRectangle();
+                        if (b.Intersects(this.boundingBox))
+                        {
+                            DropType d = i.getDropType();
+                            int v = i.getDropValue();
+                            switch (d)
+                            {
+                                case (DropType.Health):
+                                    if ((health = v) <= 100)
+                                    {
+                                        health += v;
+                                    }
+                                    else
+                                    {
+                                        health = 100;
+                                    }
+                                    break;
+                                case (DropType.AssaultAmmo):
+                                    assaultRifle.addBullets(v);
+                                    break;
+                                case (DropType.PistolAmmo):
+                                    pistol.addBullets(v);
+                                    break;
+                                case (DropType.ShotgunAmmo):
+                                    shotgun.addBullets(v);
+                                    break;
+                            }
+                            //removal logic
+                            i.removeItem();
+                        }
+                    }
                 }
 
                 //activation if player is in activation area

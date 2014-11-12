@@ -15,6 +15,8 @@ namespace Hazard_Sweep
     public enum Facing { Left, Right };
     public enum WeaponType { Melee, Pistol, AssaultRifle, Shotgun };
 
+    public enum DropType { Health, PistolAmmo, AssaultAmmo, ShotgunAmmo}
+
     /// <summary>
     /// This is the main type for your game
     /// </summary>
@@ -100,6 +102,7 @@ namespace Hazard_Sweep
             //add rooms to game
             Components.Add(street0);
             Components.Add(player);
+            Components.Add(new itemDrop(this, null, new Vector2(300, 300)));
 
             //Add game components
             //Components.Add(player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,
