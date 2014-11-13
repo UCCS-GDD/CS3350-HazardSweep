@@ -158,7 +158,14 @@ namespace Hazard_Sweep.Classes
             {
                     int xLoc = rand.Next(boundingBox.Width);
                     int yLoc = rand.Next(200, 400);
-                    Enemy temp = new Enemy(game, "Images//enemyWalk", new Vector2(xLoc, yLoc), 2, 5);
+                    Vector2 location = new Vector2(xLoc, yLoc);
+                    
+                    while (Vector2.Distance(location, player.getPosition()) < 400)
+                    {
+                        location.X = rand.Next(boundingBox.Width);
+                        location.Y = rand.Next(200, 400);
+                    }
+                    Enemy temp = new Enemy(game, "Images//enemyWalk", location, 2, 5);
                     game.Components.Add(temp);
             }
             //game.Components.Add(new Door(game, "Images//door", topDoorPos, topTeleport, true));
