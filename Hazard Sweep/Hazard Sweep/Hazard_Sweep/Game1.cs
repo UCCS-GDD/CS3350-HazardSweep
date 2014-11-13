@@ -10,22 +10,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Hazard_Sweep.Classes;
 
-/*
- * Things to get done for alpha
- *      zombie dead body
- *      empty clip noise
- *      different player images for weapons
- *      stab animation
- *      game play instructions
- *      tutorial?
- *      fix bugs
- *      credits screen
- *      flash screen red when take damage?
- *      make feedback form
- *          ask about gameplay, interface, balance, art, sound, instructions, FOUND BUGS
- *      bug fixes
- *      story info
- */
 namespace Hazard_Sweep
 {
     public enum Facing { Left, Right };
