@@ -80,6 +80,7 @@
     <Compile Include="Classes\Door.cs" />
     <Compile Include="Classes\Enemy.cs" />
     <Compile Include="Classes\itemDrop.cs" />
+    <Compile Include="Classes\MeleeWeapon.cs" />
     <Compile Include="Classes\NPC.cs" />
     <Compile Include="Classes\SplashScreen.cs" />
     <Compile Include="Classes\GameElements.cs" />

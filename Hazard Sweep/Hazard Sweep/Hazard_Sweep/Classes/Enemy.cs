@@ -24,6 +24,7 @@ namespace Hazard_Sweep.Classes
         protected int spriteRows, spriteCols;
         protected Rectangle sRec;
         protected Facing direction;
+        protected bool remove;
 
         // animation variables
         int frameCount;
@@ -42,6 +43,8 @@ namespace Hazard_Sweep.Classes
             this.spriteCols = spriteCols;
 
             direction = Facing.Right;
+
+            remove = false;
 
             //this.DrawOrder = 10;
         }
@@ -66,6 +69,12 @@ namespace Hazard_Sweep.Classes
         {
             if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
             {
+                //logic for removal
+                if (remove)
+                {
+                    game.Components.Remove(this);
+                }
+
                 //logic for animation
                 if (this.direction == Facing.Left)
                 {
@@ -175,6 +184,11 @@ namespace Hazard_Sweep.Classes
                 sb.Draw(texture, position, sRec, Color.White, 0f, new Vector2(0f, 0f), new Vector2(2f, 2f), SpriteEffects.None, 0.5f);
                 sb.End();
             }
+        }
+
+        public void setRemove()
+        {
+            this.remove = true;
         }
     }
 }

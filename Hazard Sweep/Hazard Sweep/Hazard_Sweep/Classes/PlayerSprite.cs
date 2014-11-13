@@ -30,7 +30,7 @@ namespace Hazard_Sweep.Classes
         public bool hasPistol = false;
         public bool hasAssaultRifle = false;
         public bool hasShotgun = false;
-        Weapon melee;
+        MeleeWeapon melee;
         Weapon pistol;
         Weapon assaultRifle;
         Weapon shotgun;
@@ -85,10 +85,6 @@ namespace Hazard_Sweep.Classes
             this.spriteCols = spriteCols;
 
             // create weapons
-            if (hasMelee)
-            {
-                melee = new Weapon(WeaponType.Melee, game, 0, 0, 15);
-            }
             if (hasPistol)
             {
                 pistol = new Weapon(WeaponType.Pistol, game, 48, 12, 12);
@@ -127,6 +123,9 @@ namespace Hazard_Sweep.Classes
             bulletOrigin = new Vector2(texture.Width / spriteCols / 2, texture.Height / spriteRows / 2);
             game.Components.Add(weapon);
             drawRectangle = new Rectangle(0, 0, texture.Width / spriteCols, texture.Height / spriteRows);
+
+            //create melee weapon
+            melee = new MeleeWeapon(game, bulletOrigin);
 
             //set the size and initial position of the bounding box
             boundingBox.Height = texture.Height / spriteRows;
@@ -327,21 +326,16 @@ namespace Hazard_Sweep.Classes
                 {
                     weapon.shoot(position + bulletOrigin, direction);
                 }
+                if(keyboardState.IsKeyDown(Keys.C))
+                {
+                    melee.attack(direction, position);
+                }
                 if (keyboardState.IsKeyDown(Keys.R))
                 {
                     weapon.reload();
                 }
 
                 // changing weapons
-                if (keyboardState.IsKeyDown(Keys.D1))
-                {
-                    if (hasMelee == true)
-                    {
-                        game.Components.Remove(weapon);
-                        weapon = melee;
-                        game.Components.Add(weapon);
-                    }
-                }
                 if (keyboardState.IsKeyDown(Keys.D2))
                 {
                     if (hasPistol == true)
