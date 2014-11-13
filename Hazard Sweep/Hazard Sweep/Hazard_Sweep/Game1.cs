@@ -42,18 +42,8 @@ namespace Hazard_Sweep
 
         //sound effects
         Song music;
-        SoundEffect reload;
-        SoundEffect pistolFire;
-        SoundEffect machineFire;
-        SoundEffect shotgunFire;
-        SoundEffect shells;
-        SoundEffect zombie1;
-        SoundEffect zombie2;
-        SoundEffect zombie3;
-        SoundEffect zombie4;
-        SoundEffect zombie5;
-        SoundEffect zombie6;
-        SoundEffect zombie7;
+        SoundEffect reload, pistolFire, machineFire, shotgunFire, shells, stab;
+        SoundEffect zombie1, zombie2, zombie3, zombie4, zombie5, zombie6, zombie7;
 
         public Game1()
         {
@@ -144,6 +134,7 @@ namespace Hazard_Sweep
             machineFire = Content.Load<SoundEffect>("Sounds/machine gun");
             shotgunFire = Content.Load<SoundEffect>("Sounds/Shotgunsound");
             shells = Content.Load<SoundEffect>("Sounds/shell");
+            stab = Content.Load<SoundEffect>("Sounds/Stab");
             zombie1 = Content.Load<SoundEffect>("Sounds/Zombie 1");
             zombie2 = Content.Load<SoundEffect>("Sounds/Zombie 2");
             zombie3 = Content.Load<SoundEffect>("Sounds/Zombie 3");
@@ -426,6 +417,14 @@ namespace Hazard_Sweep
             SoundEffectInstance shellInst = shells.CreateInstance();
             shellInst.Volume = .9f;
             shellInst.Play();
+        }
+
+        //method that plays the stabbing sound
+        public void playStab()
+        {
+            SoundEffectInstance stabInst = stab.CreateInstance();
+            stabInst.Volume = .5f;
+            stabInst.Play();
         }
 
         //method that plays a random zombie death noise when called

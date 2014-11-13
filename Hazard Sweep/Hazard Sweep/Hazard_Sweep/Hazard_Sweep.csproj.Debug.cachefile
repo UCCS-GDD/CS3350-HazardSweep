@@ -19,6 +19,8 @@ Content\Fonts\28DaysLater_72.xnb
 Content\Images\scientist.xnb
 Content\Fonts\Hazard_72.xnb
 Content\Fonts\VtksMoney_30.xnb
+Content\Images\Health.xnb
+Content\Images\ammoBox.xnb
 Content\Fonts\HealthNumeric.xnb
 Content\Fonts\AmmoLabel.xnb
 Content\Fonts\HealthLabel.xnb
@@ -36,6 +38,5 @@ Content\Sounds\Zombie 5.xnb
 Content\Sounds\Zombie 6.xnb
 Content\Sounds\Zombie 7.xnb
 Content\Sounds\Unseen Horrors.xnb
-Content\Images\Health.xnb
-Content\Images\ammoBox.xnb
+Content\Sounds\Stab.xnb
 Content\Sounds\Unseen Horrors.wma

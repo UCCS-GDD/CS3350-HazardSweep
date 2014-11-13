@@ -22,6 +22,7 @@ namespace Hazard_Sweep.Classes
         protected int health;
         protected Rectangle drawRectangle;
         protected int spriteRows, spriteCols;
+        private bool stabPressed = false;
 
         // weapon variables
         Weapon weapon;
@@ -329,9 +330,15 @@ namespace Hazard_Sweep.Classes
                 {
                     weapon.shoot(position + bulletOrigin, direction);
                 }
-                if(keyboardState.IsKeyDown(Keys.C))
+                if (keyboardState.IsKeyDown(Keys.C))
+                {
+                    stabPressed = true;
+                }
+                if (stabPressed == true && keyboardState.IsKeyUp(Keys.C))
                 {
                     melee.attack(direction, position);
+                    (game as Game1).playStab();
+                    stabPressed = false;
                 }
                 if (keyboardState.IsKeyDown(Keys.R))
                 {

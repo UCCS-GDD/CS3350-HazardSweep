@@ -1,1 +1,2 @@
 C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_SweepContent\obj\x86\Debug\Hazard_SweepContent.contentprojResolveAssemblyReference.cache
+C:\Users\Nick\cs3350-fa14-hazardsweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_SweepContent\obj\x86\Debug\Hazard_SweepContent.contentprojResolveAssemblyReference.cache
