@@ -50,7 +50,7 @@ namespace Hazard_Sweep.Classes
                 WeaponAcquired();
             }
 
-            if(type == player.GetWeapon().GetWeaponType())
+            if (type == player.GetWeapon().GetWeaponType())
             {
                 WeaponEquipped();
             }

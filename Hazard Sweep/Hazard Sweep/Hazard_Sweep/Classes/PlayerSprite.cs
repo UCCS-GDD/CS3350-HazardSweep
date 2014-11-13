@@ -67,7 +67,10 @@ namespace Hazard_Sweep.Classes
 
             //randomize weapons spawn later
             hasMelee = true;
-            hasPistol = true;
+            //if (randomNumGen(0, 3) == 1)
+            //{
+                hasPistol = true;
+            //}
             if (randomNumGen(0, 4) == 1)
             {
                 hasAssaultRifle = true;
