@@ -22,7 +22,7 @@ using Hazard_Sweep.Classes;
  *      credits screen
  *      flash screen red when take damage?
  *      make feedback form
- *          ask about gameplay, interface, balance, art, sound, instructions
+ *          ask about gameplay, interface, balance, art, sound, instructions, FOUND BUGS
  *      bug fixes
  *      story info
  */
