@@ -26,10 +26,10 @@ namespace Hazard_Sweep.Classes
         // weapon variables
         Weapon weapon;
         protected WeaponType weaponSelect;
-        public bool hasMelee;
-        public bool hasPistol;
-        public bool hasAssaultRifle;
-        public bool hasShotgun;
+        public bool hasMelee = false;
+        public bool hasPistol = false;
+        public bool hasAssaultRifle = false;
+        public bool hasShotgun = false;
         Weapon melee;
         Weapon pistol;
         Weapon assaultRifle;
@@ -68,8 +68,14 @@ namespace Hazard_Sweep.Classes
             //randomize weapons spawn later
             hasMelee = true;
             hasPistol = true;
-            hasAssaultRifle = true;
-            hasShotgun = true;
+            if (randomNumGen(0, 4) == 1)
+            {
+                hasAssaultRifle = true;
+            }
+            if (randomNumGen(0, 4) == 1)
+            { 
+                hasShotgun = true;
+            }
 
             //sets initial direction
             direction = Facing.Left;
@@ -79,10 +85,22 @@ namespace Hazard_Sweep.Classes
             this.spriteCols = spriteCols;
 
             // create weapons
-            melee = new Weapon(WeaponType.Melee, game, 0, 0, 15);
-            pistol = new Weapon(WeaponType.Pistol, game, 48, 12, 12);
-            assaultRifle = new Weapon(WeaponType.AssaultRifle, game, 60, 30, 5);
-            shotgun = new Weapon(WeaponType.Shotgun, game, 24, 6, 20);
+            if (hasMelee)
+            {
+                melee = new Weapon(WeaponType.Melee, game, 0, 0, 15);
+            }
+            if (hasPistol)
+            {
+                pistol = new Weapon(WeaponType.Pistol, game, 48, 12, 12);
+            }
+            if (hasAssaultRifle)
+            {
+                assaultRifle = new Weapon(WeaponType.AssaultRifle, game, 60, 30, 5);
+            }
+            if (hasShotgun)
+            {
+                shotgun = new Weapon(WeaponType.Shotgun, game, 24, 6, 20);
+            }
 
             // set starting weapon
             weapon = pistol;
@@ -185,7 +203,7 @@ namespace Hazard_Sweep.Classes
                             switch (d)
                             {
                                 case (DropType.Health):
-                                    if ((health = v) <= 100)
+                                    if ((health + v) <= 100)
                                     {
                                         health += v;
                                     }
@@ -195,13 +213,37 @@ namespace Hazard_Sweep.Classes
                                     }
                                     break;
                                 case (DropType.AssaultAmmo):
-                                    assaultRifle.addBullets(v);
+                                    if (!hasAssaultRifle)
+                                    {
+                                        hasAssaultRifle = true;
+                                        assaultRifle = new Weapon(WeaponType.AssaultRifle, game, 60, 30, 5);
+                                    }
+                                    else
+                                    {
+                                        assaultRifle.addBullets(v);
+                                    }
                                     break;
                                 case (DropType.PistolAmmo):
-                                    pistol.addBullets(v);
+                                    if (!hasPistol)
+                                    {
+                                        hasPistol = true;
+                                        pistol = new Weapon(WeaponType.Pistol, game, v, 12, 12);
+                                    }
+                                    else
+                                    {
+                                        pistol.addBullets(v);
+                                    }
                                     break;
                                 case (DropType.ShotgunAmmo):
-                                    shotgun.addBullets(v);
+                                    if (!hasShotgun)
+                                    {
+                                        hasShotgun = true;
+                                        shotgun = new Weapon(WeaponType.Shotgun, game, v, 6, 20);
+                                    }
+                                    else
+                                    {
+                                        shotgun.addBullets(v);
+                                    }
                                     break;
                             }
                             //removal logic

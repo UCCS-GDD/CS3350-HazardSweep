@@ -117,5 +117,12 @@ namespace Hazard_Sweep.Classes
         {
             return this.position;
         }
+
+        //random number generator
+        public int randomNumGen(int min, int max)
+        {
+            int value = random.Next(min, max);
+            return value;
+        }
     }
 }
