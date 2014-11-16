@@ -17,12 +17,12 @@ namespace Hazard_Sweep.Classes
         protected Vector2 offset;
 
         //constructor
-        public MeleeWeapon(Game game, Vector2 offset)
+        public MeleeWeapon(Game game, Vector2 offset, int hitBoxSize)
             : base(game)
         {
             delay = 10;
-            this.offset = offset;
-            hitBox = new Rectangle(100, 100, 0, 0);
+            this.offset = offset - new Vector2(0, 50);
+            hitBox = new Rectangle(0, 0, hitBoxSize, 200);
         }
 
         //attack method

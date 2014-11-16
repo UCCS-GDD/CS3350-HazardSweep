@@ -129,7 +129,7 @@ namespace Hazard_Sweep.Classes
             drawRectangle = new Rectangle(0, 0, texture.Width / spriteCols, texture.Height / spriteRows);
 
             //create melee weapon
-            melee = new MeleeWeapon(game, bulletOrigin);
+            melee = new MeleeWeapon(game, bulletOrigin, 100);
 
             //set the size and initial position of the bounding box
             boundingBox.Height = texture.Height / spriteRows;
