@@ -70,9 +70,14 @@ namespace Hazard_Sweep.Classes
             if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
             {
                 //logic for removal
-                if (remove)
+                if (health <= 0)
                 {
                     game.Components.Remove(this);
+                    int r = randomNumGen(0, 5);
+                    if (r == 0)
+                    {
+                        game.Components.Add(new itemDrop(game, null, position));
+                    }
                 }
 
                 //logic for animation
@@ -123,15 +128,8 @@ namespace Hazard_Sweep.Classes
                     }
                 }
 
-                //enemy AI (moves enemy towards player
-                Vector2 direction = target - position;
-                direction.Normalize();
-                //enemy will only move towards player if the player is within 250
-                if (Math.Abs(Vector2.Distance(target, position)) < 250)
-                {
-                    Vector2 velocity = direction * moveSpeed;
-                    position += velocity;
-                }
+                //movement
+                AI();               
 
                 // animate
 
@@ -189,6 +187,25 @@ namespace Hazard_Sweep.Classes
         public void setRemove()
         {
             this.remove = true;
+        }
+
+        public void removeHelth(int amount)
+        {
+            health -= amount;
+        }
+
+        //method for AI
+        protected void AI()
+        {
+            //enemy AI (moves enemy towards player
+            Vector2 direction = target - position;
+            direction.Normalize();
+            //enemy will only move towards player if the player is within 250
+            if (Math.Abs(Vector2.Distance(target, position)) < 250)
+            {
+                Vector2 velocity = direction * moveSpeed;
+                position += velocity;
+            }
         }
     }
 }

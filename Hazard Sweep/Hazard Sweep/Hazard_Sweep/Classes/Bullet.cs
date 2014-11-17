@@ -19,6 +19,7 @@ namespace Hazard_Sweep.Classes
         protected int speed;
         protected Facing direction;
         protected bool remove = false;
+        protected int damage;
 
         //constructor
         public Bullet(Game game, string textureFile, Vector2 position, Facing dir)
@@ -31,6 +32,22 @@ namespace Hazard_Sweep.Classes
         //update method
         public override void Update(GameTime gameTime)
         {
+            //determine how much damage the bullet should do
+            foreach (GameComponent g in game.Components)
+                if(g is PlayerSprite)
+                {
+                    PlayerSprite p = (PlayerSprite)g;
+                    Weapon w = p.GetWeapon(); 
+                    if(w.GetWeaponType() == WeaponType.Shotgun)
+                    {
+                        damage = 2;
+                    }
+                    else
+                    {
+                        damage = 1;
+                    }
+                }
+
             //logic for determining which direction the bullet should move
             if (direction == Facing.Left)
             {
@@ -47,12 +64,13 @@ namespace Hazard_Sweep.Classes
             {
                 if (g is Enemy)
                 {
-                    Sprite s = (Sprite)g;
+                    Enemy s = (Enemy)g;
                     Rectangle b = s.getRectangle();
                     if (b.Intersects(this.boundingBox))
                     {
                         collisionSprite = s;
                         remove = true;
+                        s.removeHelth(damage);
                         (game as Game1).zombieDeath();
                     }
                 }
@@ -61,13 +79,7 @@ namespace Hazard_Sweep.Classes
             //remove objects that have collided (can't be removed in the loop)
             if(remove)
             {
-                int r = randomNumGen(0, 5);
-                if(r == 0)
-                {
-                    game.Components.Add(new itemDrop(game, null, collisionSprite.getPosition()));
-                }
-                game.Components.Remove(this);
-                game.Components.Remove(collisionSprite);                
+                game.Components.Remove(this);               
             }
 
             base.Update(gameTime);
