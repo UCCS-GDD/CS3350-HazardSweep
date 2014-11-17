@@ -26,7 +26,7 @@ namespace Hazard_Sweep
         SpriteBatch spriteBatch;
 
         PlayerSprite player;
-        //GameElements elements;
+        GameElements elements;
         Camera2D camera;
         Room street0, street1, street2, street3, street4, street5, street6, street7, street8,
             room0, room1, room2, room3, room4, room5, room6, room7, room8;
@@ -100,8 +100,9 @@ namespace Hazard_Sweep
             //Components.Add(player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,
             //    GlobalClass.ScreenHeight / 2), 2, 6));
             Components.Add(new Enemy(this, "Images//enemyWalk", new Vector2(200, 200), 2, 5));
-            //elements = new GameElements(this, player);
-            //elements.Initialize();
+            elements = new GameElements(this, player);
+            elements.Initialize();
+            //elements.LoadContent();
             camera = new Camera2D(GraphicsDevice.Viewport);
 
             //Splashscreen component
@@ -144,7 +145,7 @@ namespace Hazard_Sweep
             zombie7 = Content.Load<SoundEffect>("Sounds/Zombie 7");
 
             // load game elements
-            //elements.LoadContent();
+            elements.LoadContent();
 
             //testExMap.LoadContent();
 
@@ -194,7 +195,7 @@ namespace Hazard_Sweep
                     released = false;
                 }
                 // update game elements
-                //elements.Update(gameTime);
+                elements.Update(gameTime);
 
                 //update camera
                 camera.Update();
@@ -227,9 +228,9 @@ namespace Hazard_Sweep
                 //spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null,
                 //    null, null, camera.Transform);
                 //testExMap.Draw(spriteBatch);
-                //elements.Draw(spriteBatch);
 
-                spriteBatch.End();
+                spriteBatch.End();       
+
             }
             if (currentGameState == GameState.PAUSE)
             {
@@ -237,6 +238,13 @@ namespace Hazard_Sweep
             }
 
             base.Draw(gameTime);
+
+            //draw hud
+            if (currentGameState == GameState.PLAY)
+            {
+                elements.Draw(spriteBatch);
+            }
+
         }
 
         public void ChangeGameState(GameState state)

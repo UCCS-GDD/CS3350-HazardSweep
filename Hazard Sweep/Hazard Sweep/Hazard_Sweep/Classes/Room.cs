@@ -56,7 +56,7 @@ namespace Hazard_Sweep.Classes
 
         //map variables
 
-        GameElements elements;
+        //GameElements elements;
         PlayerSprite player;
         Color r_color;
         int id;
@@ -197,17 +197,17 @@ namespace Hazard_Sweep.Classes
             //    game.Components.Add(player);
             //}
 
-            elements = new GameElements(game, player);
+            //elements = new GameElements(game, player);
 
-            elements.Initialize();
-            elements.LoadContent();
+            //elements.Initialize();
+            //elements.LoadContent();
         }
 
         public override void Update(GameTime gameTime)
         {
             if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
             {
-                elements.Update(gameTime);
+                //elements.Update(gameTime);
 
 
                 base.Update(gameTime);
@@ -221,7 +221,7 @@ namespace Hazard_Sweep.Classes
                 sb = Game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
                 sb.Begin();
                 sb.Draw(texture, drawRectangle, null, r_color, 0.0f, new Vector2(0, 0), SpriteEffects.None, 1.0f);
-                elements.Draw(sb);
+                //elements.Draw(sb);
                 sb.End();
             }            
         }

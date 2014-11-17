@@ -26,23 +26,23 @@ namespace Hazard_Sweep.Classes
 
         // handling other entities
         Game game;
-        PlayerSprite player;
+        PlayerSprite Player { get; set; }
 
         public GameElements(Game game, PlayerSprite player)
         {
             this.game = game;
-            this.player = player;
+            this.Player = player;
         }
 
         public void Initialize()
         {
             // weapon icons
             pistolIcon = new WeaponIcon
-                ("Images//GUI//iconPistol", ((int)GlobalClass.ScreenWidth - (64 * 3)), WeaponType.Pistol, player);
+                ("Images//GUI//iconPistol", ((int)GlobalClass.ScreenWidth - (64 * 3)), WeaponType.Pistol, Player);
             assaultIcon = new WeaponIcon
-                ("Images//GUI//iconAssault", ((int)GlobalClass.ScreenWidth - (64 * 2)), WeaponType.AssaultRifle, player);
+                ("Images//GUI//iconAssault", ((int)GlobalClass.ScreenWidth - (64 * 2)), WeaponType.AssaultRifle, Player);
             shotgunIcon = new WeaponIcon
-                ("Images//GUI//iconShotgun", ((int)GlobalClass.ScreenWidth - (64)), WeaponType.Shotgun, player);
+                ("Images//GUI//iconShotgun", ((int)GlobalClass.ScreenWidth - (64)), WeaponType.Shotgun, Player);
 
             // health/ammo text locations
             ammoLabelLocation = new Vector2(48, GlobalClass.ScreenHeight - 96);
@@ -68,8 +68,8 @@ namespace Hazard_Sweep.Classes
         public void Update(GameTime gameTime)
         {
             // update health/ammo text
-            ammoText = player.GetWeapon().getClipBullets() + " / " + player.GetWeapon().getTotalNumBullets();
-            healthText = "" + player.GetHealth();
+            ammoText = Player.GetWeapon().getClipBullets() + " / " + Player.GetWeapon().getTotalNumBullets();
+            healthText = "" + Player.GetHealth();
 
             pistolIcon.Update(gameTime);
             assaultIcon.Update(gameTime);
@@ -78,13 +78,7 @@ namespace Hazard_Sweep.Classes
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            // draw ammo
-            if (player.GetWeapon().GetWeaponType() != WeaponType.Melee)
-            {
-                spriteBatch.DrawString(ammoLabelFont, "Ammo", ammoLabelLocation, Color.White);
-                spriteBatch.DrawString(ammoNumericFont, ammoText, ammoNumericLocation, Color.White);
-            }
-
+            spriteBatch.Begin();
             // draw health
             spriteBatch.DrawString(ammoLabelFont, "Health", healthLabelLocation, Color.White);
             spriteBatch.DrawString(ammoNumericFont, healthText, healthNumericLocation, Color.White);
@@ -92,7 +86,15 @@ namespace Hazard_Sweep.Classes
             // draw weapon icons
             pistolIcon.Draw(spriteBatch);
             assaultIcon.Draw(spriteBatch);
-            shotgunIcon.Draw(spriteBatch);
+            shotgunIcon.Draw(spriteBatch);     
+
+            // draw ammo
+            if (Player.GetWeapon().GetWeaponType() != WeaponType.Melee)
+            {
+                spriteBatch.DrawString(ammoLabelFont, "Ammo", ammoLabelLocation, Color.White);
+                spriteBatch.DrawString(ammoNumericFont, ammoText, ammoNumericLocation, Color.White);
+            }
+            spriteBatch.End();
         }
     }
 }
