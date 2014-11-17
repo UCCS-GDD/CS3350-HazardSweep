@@ -10,7 +10,6 @@ namespace Hazard_Sweep.Classes
     class GameElements
     {
         // icons for weapons
-        WeaponIcon meleeIcon;
         WeaponIcon pistolIcon;
         WeaponIcon assaultIcon;
         WeaponIcon shotgunIcon;
@@ -38,8 +37,6 @@ namespace Hazard_Sweep.Classes
         public void Initialize()
         {
             // weapon icons
-            meleeIcon = new WeaponIcon
-                ("Images//GUI//iconMelee", ((int)GlobalClass.ScreenWidth - (64 * 4)), WeaponType.Melee, player);
             pistolIcon = new WeaponIcon
                 ("Images//GUI//iconPistol", ((int)GlobalClass.ScreenWidth - (64 * 3)), WeaponType.Pistol, player);
             assaultIcon = new WeaponIcon
@@ -63,7 +60,6 @@ namespace Hazard_Sweep.Classes
             ammoNumericFont = game.Content.Load<SpriteFont>("Fonts//AmmoNumeric");
 
             // load weapon icons
-            meleeIcon.LoadContent(game);
             pistolIcon.LoadContent(game);
             assaultIcon.LoadContent(game);
             shotgunIcon.LoadContent(game);
@@ -75,7 +71,6 @@ namespace Hazard_Sweep.Classes
             ammoText = player.GetWeapon().getClipBullets() + " / " + player.GetWeapon().getTotalNumBullets();
             healthText = "" + player.GetHealth();
 
-            meleeIcon.Update(gameTime);
             pistolIcon.Update(gameTime);
             assaultIcon.Update(gameTime);
             shotgunIcon.Update(gameTime);
@@ -95,7 +90,6 @@ namespace Hazard_Sweep.Classes
             spriteBatch.DrawString(ammoNumericFont, healthText, healthNumericLocation, Color.White);
 
             // draw weapon icons
-            meleeIcon.Draw(spriteBatch);
             pistolIcon.Draw(spriteBatch);
             assaultIcon.Draw(spriteBatch);
             shotgunIcon.Draw(spriteBatch);

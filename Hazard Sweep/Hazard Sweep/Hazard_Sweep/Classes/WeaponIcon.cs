@@ -33,10 +33,6 @@ namespace Hazard_Sweep.Classes
             drawRec = new Rectangle(x, 0, 64, 64);
             sRec = new Rectangle(0, 0, 128, 128);
 
-            if (player.hasMelee == true && type == WeaponType.Melee)
-            {
-                WeaponAcquired();
-            }
             if (player.hasPistol == true && type == WeaponType.Pistol)
             {
                 WeaponAcquired();
