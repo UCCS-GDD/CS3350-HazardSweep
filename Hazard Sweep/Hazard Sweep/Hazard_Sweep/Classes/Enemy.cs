@@ -177,10 +177,10 @@ namespace Hazard_Sweep.Classes
             if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
             {
                 sb = Game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
-                sb.Begin();
+           //     sb.Begin();
                 // sb.Draw(texture, position, drawRectangle, Color.White);
                 sb.Draw(texture, position, sRec, Color.White, 0f, new Vector2(0f, 0f), new Vector2(2f, 2f), SpriteEffects.None, 0.5f);
-                sb.End();
+           //     sb.End();
             }
         }
 

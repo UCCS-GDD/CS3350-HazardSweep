@@ -20,17 +20,17 @@ namespace Hazard_Sweep.Classes
         Vector2 center;
 
         // class constructor
-        public Camera(Viewport newView)
+        public Camera()
         {
-            view = newView;
+            //view = newView;
         }
 
-        public void Update(GameTime gameTime, PlayerSprite sprite)
+        public void Update(GameTime gameTime, PlayerSprite player)
         {
-            Vector2 playerPos = sprite.GetCenter();
-            Rectangle playerRect = sprite.getRectangle();
-            center = new Vector2((playerPos.X + playerRect.Width / 2) - GlobalClass.ScreenWidth,
-                (playerPos.Y + playerRect.Height / 2) - GlobalClass.ScreenHeight);
+            Vector2 playerPos = player.getPosition();
+            Rectangle playerRect = player.getRectangle();
+            center = new Vector2((playerPos.X + playerRect.Width / 2) - (GlobalClass.ScreenWidth / 2),
+                (playerPos.Y + playerRect.Height / 2) - (GlobalClass.ScreenHeight / 2));
 
             transform = Matrix.CreateScale(new Vector3(1, 1, 0)) *
                 Matrix.CreateTranslation(new Vector3(-center.X, -center.Y, 0));

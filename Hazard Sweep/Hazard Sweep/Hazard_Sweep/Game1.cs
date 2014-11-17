@@ -27,7 +27,7 @@ namespace Hazard_Sweep
 
         PlayerSprite player;
         GameElements elements;
-        Camera2D camera;
+        Camera camera;
         Room street0, street1, street2, street3, street4, street5, street6, street7, street8,
             room0, room1, room2, room3, room4, room5, room6, room7, room8;
 
@@ -103,7 +103,7 @@ namespace Hazard_Sweep
             elements = new GameElements(this, player);
             elements.Initialize();
             //elements.LoadContent();
-            camera = new Camera2D(GraphicsDevice.Viewport);
+            camera = new Camera();
 
             //Splashscreen component
             splashScreen = new SplashScreen(this);
@@ -198,7 +198,7 @@ namespace Hazard_Sweep
                 elements.Update(gameTime);
 
                 //update camera
-                camera.Update();
+                camera.Update(gameTime, player);
             }
             else if (currentGameState == GameState.PAUSE)
             {
@@ -224,20 +224,22 @@ namespace Hazard_Sweep
             if (currentGameState == GameState.PLAY)
             {
                 // draw objects
-                spriteBatch.Begin();
-                //spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null,
-                //    null, null, camera.Transform);
+                //spriteBatch.Begin();
+                spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null,
+                    null, null, camera.transform);
                 //testExMap.Draw(spriteBatch);
+            base.Draw(gameTime);
 
                 spriteBatch.End();       
 
             }
             if (currentGameState == GameState.PAUSE)
             {
+                //spriteBatch.Begin();
                 splashScreen.Draw(gameTime);
+                //spriteBatch.End();
             }
 
-            base.Draw(gameTime);
 
             //draw hud
             if (currentGameState == GameState.PLAY)
