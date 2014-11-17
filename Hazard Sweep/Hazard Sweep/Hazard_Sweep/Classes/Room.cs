@@ -153,7 +153,7 @@ namespace Hazard_Sweep.Classes
             }
 
             //spawn bosses
-            int bossChance = randomNumGen(0, 1);
+            int bossChance = randomNumGen(0, 3);
             if(bossChance == 0)
             {
                 int xLoc = rand.Next(boundingBox.Width);
