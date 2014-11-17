@@ -228,12 +228,12 @@ namespace Hazard_Sweep
                 spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null,
                     null, null, camera.transform);
                 //testExMap.Draw(spriteBatch);
-            base.Draw(gameTime);
+                base.Draw(gameTime);
 
                 spriteBatch.End();       
 
             }
-            if (currentGameState == GameState.PAUSE)
+            if (currentGameState != GameState.PLAY)
             {
                 //spriteBatch.Begin();
                 splashScreen.Draw(gameTime);
