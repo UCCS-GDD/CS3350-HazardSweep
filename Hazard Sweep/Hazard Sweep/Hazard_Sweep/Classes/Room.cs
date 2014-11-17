@@ -151,22 +151,39 @@ namespace Hazard_Sweep.Classes
                     //load in random zombie count
 
             }
-            
-            int zombieNum = randomNumGen();
+
+            //spawn bosses
+            int bossChance = randomNumGen(0, 1);
+            if(bossChance == 0)
+            {
+                int xLoc = rand.Next(boundingBox.Width);
+                int yLoc = rand.Next(200, 400);
+                Vector2 location = new Vector2(xLoc, yLoc);
+
+                while (Vector2.Distance(location, player.getPosition()) < 400)
+                {
+                    location.X = rand.Next(boundingBox.Width);
+                    location.Y = rand.Next(200, 400);
+                }
+                Enemy temp = new Boss(game, "Images//enemyWalk", location, 2, 5);
+                game.Components.Add(temp);
+            }
+
+            int zombieNum = randomNumGen(1, maxZombie);
 
             for (int i = 0; i <= zombieNum; i++)
             {
-                    int xLoc = rand.Next(boundingBox.Width);
-                    int yLoc = rand.Next(200, 400);
-                    Vector2 location = new Vector2(xLoc, yLoc);
-                    
-                    while (Vector2.Distance(location, player.getPosition()) < 400)
-                    {
-                        location.X = rand.Next(boundingBox.Width);
-                        location.Y = rand.Next(200, 400);
-                    }
-                    Enemy temp = new Enemy(game, "Images//enemyWalk", location, 2, 5);
-                    game.Components.Add(temp);
+                int xLoc = rand.Next(boundingBox.Width);
+                int yLoc = rand.Next(200, 400);
+                Vector2 location = new Vector2(xLoc, yLoc);
+
+                while (Vector2.Distance(location, player.getPosition()) < 400)
+                {
+                    location.X = rand.Next(boundingBox.Width);
+                    location.Y = rand.Next(200, 400);
+                }
+                Enemy temp = new Enemy(game, "Images//enemyWalk", location, 2, 5);
+                game.Components.Add(temp);
             }
             //game.Components.Add(new Door(game, "Images//door", topDoorPos, topTeleport, true));
             //game.Components.Add(new Door(game, "Images//door", leftDoorPos, leftTeleport, true));
@@ -213,12 +230,5 @@ namespace Hazard_Sweep.Classes
         {
             return id;
         }
-
-        public int randomNumGen()
-        {
-            int value = rand.Next(maxZombie);
-            return value;
-        }
-
     }
 }
