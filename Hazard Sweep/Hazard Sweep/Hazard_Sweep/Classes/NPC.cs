@@ -38,12 +38,12 @@ namespace Hazard_Sweep.Classes
             if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
             {
                 sb = Game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
-                sb.Begin();
+                //sb.Begin();
                 if(direction == Facing.Left)
                     sb.Draw(texture, position, null, Color.White, 0f, new Vector2(0f, 0f), new Vector2(1f, 0.75f), SpriteEffects.FlipHorizontally, 0.5f);
                 else
                     sb.Draw(texture, position, null, Color.White, 0f, new Vector2(0f, 0f), new Vector2(1f, 0.75f), SpriteEffects.None, 0.5f);
-                sb.End();
+                //sb.End();
             }
         }
 
