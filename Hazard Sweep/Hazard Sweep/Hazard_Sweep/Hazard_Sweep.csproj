@@ -87,6 +87,7 @@
   <ItemGroup>
     <Compile Include="Classes\AnimateSprite.cs" />
     <Compile Include="Classes\Barricade.cs" />
+    <Compile Include="Classes\Boss.cs" />
     <Compile Include="Classes\Bullet.cs" />
     <Compile Include="Classes\Camera.cs" />
     <Compile Include="Classes\Camera2D.cs" />
