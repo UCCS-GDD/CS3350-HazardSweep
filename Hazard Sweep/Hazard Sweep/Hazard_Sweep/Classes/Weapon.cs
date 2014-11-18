@@ -80,11 +80,16 @@ namespace Hazard_Sweep.Classes
                     (game as Game1).playPistol();
                 }
                 else
-                { }
+                {  }
                 loadedBullets--;
 
                 //creates a bullet
                 game.Components.Add(new Bullet(game, "Images/laser", bulletOrigin, direction));
+                currentTime = 0;
+            }
+            if (((int)currentTime >= delay) && (loadedBullets == 0))
+            {
+                (game as Game1).playDryFire();
                 currentTime = 0;
             }
         }

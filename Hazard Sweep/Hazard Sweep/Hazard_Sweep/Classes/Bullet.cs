@@ -71,7 +71,6 @@ namespace Hazard_Sweep.Classes
                         collisionSprite = s;
                         remove = true;
                         s.removeHelth(damage);
-                        (game as Game1).zombieDeath();
                     }
                 }
             }

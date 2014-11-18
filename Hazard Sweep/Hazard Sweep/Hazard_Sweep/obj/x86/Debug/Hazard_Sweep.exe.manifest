@@ -68,14 +68,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Hazard_Sweep.exe" size="40960">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Hazard_Sweep.exe" size="41984">
       <assemblyIdentity name="Hazard_Sweep" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>LfFnrtnaGXDCZVNCUu/PTD2OFVY=</dsig:DigestValue>
+        <dsig:DigestValue>otKxY3b9d2I9JYL0CLoP+To5AgA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -322,6 +322,24 @@
       <dsig:DigestValue>SeW29jtt0f9WB/z0/V+QIuBoFnE=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Content\Sounds\damagedplayer.xnb" size="59013">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>ojJkqLVsqbcuX3QX2VwwEIA6r1Q=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sounds\Dry Fire Gun-SoundBible.com-2053652037.xnb" size="158401">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>LCvZQENhrX+SCsswfzrWO3Nnuks=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\Sounds\machine gun.xnb" size="16861">
     <hash>
       <dsig:Transforms>
@@ -382,7 +400,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>IBUrlocpygx+T8TjWk9wdlUWZuc=</dsig:DigestValue>
+      <dsig:DigestValue>unKgqWl58zTzTsxpvlnFlAbH/W0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Sounds\Unseen Horrors.xnb" size="132">
@@ -455,6 +473,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>WkSjdEboRAh8XuBdIp5EXYrkdCk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sounds\zombiedamage.xnb" size="61065">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>r3DRymelP/cM3TbKadB+fV+dPxI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Game.ico" size="4286">

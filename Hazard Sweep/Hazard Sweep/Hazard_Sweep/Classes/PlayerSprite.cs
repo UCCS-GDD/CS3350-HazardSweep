@@ -464,6 +464,7 @@ namespace Hazard_Sweep.Classes
         public void reducePlayerHealth(int damage)
         {
             health -= damage;
+            (game as Game1).playPlayerDamaged();
         }
 
         public void SetBoundary(Rectangle b)

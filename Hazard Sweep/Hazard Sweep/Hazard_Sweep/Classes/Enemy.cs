@@ -73,6 +73,7 @@ namespace Hazard_Sweep.Classes
                 if (health <= 0)
                 {
                     game.Components.Remove(this);
+                    (game as Game1).playZombieDeath();
                     int r = randomNumGen(0, 5);
                     if (r == 0)
                     {
@@ -186,12 +187,14 @@ namespace Hazard_Sweep.Classes
 
         public void setRemove()
         {
+            (game as Game1).playZombieDeath();
             this.remove = true;
         }
 
         public void removeHelth(int amount)
         {
             health -= amount;
+            (game as Game1).playZombieDamage();
         }
 
         //method for AI

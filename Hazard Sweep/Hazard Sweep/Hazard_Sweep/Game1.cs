@@ -42,7 +42,7 @@ namespace Hazard_Sweep
 
         //sound effects
         Song music;
-        SoundEffect reload, pistolFire, machineFire, shotgunFire, shells, stab;
+        SoundEffect reload, pistolFire, machineFire, shotgunFire, shells, stab, damagedPlayer, dryFire, zombieDamage;
         SoundEffect zombie1, zombie2, zombie3, zombie4, zombie5, zombie6, zombie7;
 
         public Game1()
@@ -136,6 +136,9 @@ namespace Hazard_Sweep
             shotgunFire = Content.Load<SoundEffect>("Sounds/Shotgunsound");
             shells = Content.Load<SoundEffect>("Sounds/shell");
             stab = Content.Load<SoundEffect>("Sounds/Stab");
+            damagedPlayer = Content.Load<SoundEffect>("Sounds/damagedplayer");
+            dryFire = Content.Load<SoundEffect>("Sounds/Dry Fire Gun-SoundBible.com-2053652037");
+            zombieDamage = Content.Load<SoundEffect>("Sounds/zombiedamage");
             zombie1 = Content.Load<SoundEffect>("Sounds/Zombie 1");
             zombie2 = Content.Load<SoundEffect>("Sounds/Zombie 2");
             zombie3 = Content.Load<SoundEffect>("Sounds/Zombie 3");
@@ -143,6 +146,7 @@ namespace Hazard_Sweep
             zombie5 = Content.Load<SoundEffect>("Sounds/Zombie 5");
             zombie6 = Content.Load<SoundEffect>("Sounds/Zombie 6");
             zombie7 = Content.Load<SoundEffect>("Sounds/Zombie 7");
+
 
             // load game elements
             elements.LoadContent();
@@ -453,8 +457,32 @@ namespace Hazard_Sweep
             stabInst.Play();
         }
 
+        //method to play damaged player sound
+        public void playPlayerDamaged()
+        {
+            SoundEffectInstance playerDamInst = damagedPlayer.CreateInstance();
+            playerDamInst.Volume = .7f;
+            playerDamInst.Play();
+        }
+
+        //method to play dry fire sound effect
+        public void playDryFire()
+        {
+            SoundEffectInstance dryFireInst = dryFire.CreateInstance();
+            dryFireInst.Volume = .5f;
+            dryFireInst.Play();
+        }
+
+        //method to play zombie damage sound effect
+        public void playZombieDamage()
+        {
+            SoundEffectInstance zombieDamageInst = zombieDamage.CreateInstance();
+            zombieDamageInst.Volume = .5f;
+            zombieDamageInst.Play();
+        }
+
         //method that plays a random zombie death noise when called
-        public void zombieDeath()
+        public void playZombieDeath()
         {
             Random rand = new Random();
             int noise = rand.Next(1, 7);
