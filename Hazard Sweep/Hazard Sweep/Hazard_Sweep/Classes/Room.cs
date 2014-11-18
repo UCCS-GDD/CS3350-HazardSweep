@@ -15,19 +15,22 @@ namespace Hazard_Sweep.Classes
     public class Room : Sprite
     {
         public Rectangle Boundary;
-        private Rectangle drawRectangle;
+        private Rectangle drawRectangle1, drawRectangle2, drawRectangle3, 
+            sourceRectangle1, sourceRectangle2, sourceRectangle3, roomRectangle;
         private int row;
         private int column;
         private bool up;
         private bool down;
         private List<Door> doors;
         private List<Sprite> sprites;
-        private int roomWidth = (int)GlobalClass.ScreenWidth;
-        private int roomHeight = (int)GlobalClass.ScreenHeight;
+        private int roomWidth = 1049;
+        private int roomHeight = 576;
         private Random rand = new Random();
         private const int maxZombie = 5;
 
         Vector2 boundaryPosition;
+
+        public int leftBoundary, topBoundary, rightBoundary, bottomBoundary;
 
         //door positions
         Vector2 topDoorPos;
@@ -80,19 +83,29 @@ namespace Hazard_Sweep.Classes
 
         public override void Initialize()
         {
-            Boundary = new Rectangle((int)boundaryPosition.X, (int)boundaryPosition.Y + 150, roomWidth - 110, roomHeight - 270);
+            Boundary = new Rectangle((int)boundaryPosition.X, (int)boundaryPosition.Y + 150, 800, 576);
+            leftBoundary = (int)boundaryPosition.X;
+            topBoundary = (int)boundaryPosition.Y + 15;
+            rightBoundary = roomWidth - 110;
+            bottomBoundary = roomHeight - 270;
+
             base.Initialize();
 
-            topDoorPos = new Vector2(boundaryPosition.X + (Boundary.Width * 5 / 8), boundaryPosition.Y + Boundary.Height * 3 / 8 );
-            leftDoorPos = new Vector2(boundaryPosition.X - 20, boundaryPosition.Y + (Boundary.Height * 7 / 8) + 70 );
-            rightDoorPos = new Vector2(boundaryPosition.X + Boundary.Width, boundaryPosition.Y + (Boundary.Height * 7 / 8) + 70);
-            bottomDoorPos = new Vector2(boundaryPosition.X + (Boundary.Width * 5 / 8), boundaryPosition.Y + Boundary.Height + 200);
-            buildingDoorPos = new Vector2(120f, 75f);
+            // topDoorPos = new Vector2(boundaryPosition.X + (roomWidth * 5 / 8), boundaryPosition.Y + roomHeight * 3 / 8 );
+            // leftDoorPos = new Vector2(boundaryPosition.X - 20, boundaryPosition.Y + (roomHeight * 7 / 8) + 70 );
+            // rightDoorPos = new Vector2(boundaryPosition.X + roomWidth, boundaryPosition.Y + (roomHeight * 7 / 8) + 70);
+            // bottomDoorPos = new Vector2(boundaryPosition.X + (roomWidth * 5 / 8), boundaryPosition.Y + roomHeight + 200);
+            buildingDoorPos = new Vector2(120f, 84f);
 
-            topWallPos = new Vector2((topDoorPos.X - 170f), (topDoorPos.Y - 60f));
-            leftWallPos = new Vector2((leftDoorPos.X - 10f), (leftDoorPos.Y - 110f));
-            rightWallPos = new Vector2((rightDoorPos.X + 40f), (rightDoorPos.Y - 190f));
-            bottomWallPos = new Vector2((bottomDoorPos.X - 270f), (bottomDoorPos.Y - 100f));
+            topDoorPos = new Vector2(1900, 200);
+            leftDoorPos = new Vector2(-10, 380);
+            rightDoorPos = new Vector2(2350, 380);
+            bottomDoorPos = new Vector2(1900, 500);
+
+            topWallPos = new Vector2((topDoorPos.X - 150f), (topDoorPos.Y - 160f));
+            leftWallPos = new Vector2((leftDoorPos.X - 20f), (leftDoorPos.Y - 110f));
+            rightWallPos = new Vector2((rightDoorPos.X + 30f), (rightDoorPos.Y - 110f));
+            bottomWallPos = new Vector2((bottomDoorPos.X - 150f), (bottomDoorPos.Y + 40f));
 
             topTeleport = new Vector2(bottomDoorPos.X, bottomDoorPos.Y - offset);
             leftTeleport = new Vector2(rightDoorPos.X - offset, rightDoorPos.Y);
@@ -191,11 +204,17 @@ namespace Hazard_Sweep.Classes
             //game.Components.Add(new Door(game, "Images//door", bottomDoorPos, bottomTeleport, true));
             //game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true));
 
-            drawRectangle = new Rectangle(0, 0, (int)GlobalClass.ScreenWidth, (int)GlobalClass.ScreenHeight);
+            drawRectangle1 = new Rectangle(0, 0, 804, 576);
+            sourceRectangle1 = new Rectangle(0, 0, 402, 288);
+            drawRectangle2 = new Rectangle(804, 0, 804, 576);
+            sourceRectangle2 = new Rectangle(402, 0, 402, 288);
+            drawRectangle3 = new Rectangle(1608, 0, 802, 576);
+            sourceRectangle3 = new Rectangle(804, 0, 401, 288);
             //if (!game.Components.Contains(player))
             //{
             //    game.Components.Add(player);
             //}
+            roomRectangle = new Rectangle(0, 0, roomWidth, roomHeight);
         }
 
         public override void Update(GameTime gameTime)
@@ -212,7 +231,9 @@ namespace Hazard_Sweep.Classes
             {
                 sb = Game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
                // sb.Begin();
-                sb.Draw(texture, drawRectangle, null, r_color, 0.0f, new Vector2(0, 0), SpriteEffects.None, 1.0f);
+                sb.Draw(texture, drawRectangle1, sourceRectangle1, r_color, 0.0f, new Vector2(0, 0), SpriteEffects.None, 1.0f);
+                sb.Draw(texture, drawRectangle2, sourceRectangle2, r_color, 0.0f, new Vector2(0, 0), SpriteEffects.None, 1.0f);
+                sb.Draw(texture, drawRectangle3, sourceRectangle3, r_color, 0.0f, new Vector2(0, 0), SpriteEffects.None, 1.0f);
                // sb.End();
             }            
         }
@@ -222,9 +243,9 @@ namespace Hazard_Sweep.Classes
             return id;
         }
 
-        public Rectangle GetDrawRectangle()
+        public Rectangle GetRoomRectangle()
         {
-            return drawRectangle;
+            return roomRectangle;
         }
     }
 }

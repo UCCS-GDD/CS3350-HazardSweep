@@ -294,32 +294,29 @@ namespace Hazard_Sweep.Classes
                 if (keyboardState.IsKeyDown(Keys.D))
                 {
                     direction = Facing.Right;
-                    if (position.X < boundary.Right)
-                    {
+                    //if (position.X < boundary.Right)
+                    if (position.X < 2300)
                         position.X += 5;
-                    }
+                    
                 }
                 else if (keyboardState.IsKeyDown(Keys.A))
                 {
                     direction = Facing.Left;
-                    if (position.X > boundary.Left)
-                    {
+                    //if (position.X > boundary.Left)
+                    if(position.X > 10)
                         position.X -= 5;
-                    }
                 }
                 else if (keyboardState.IsKeyDown(Keys.W))
                 {
-                    if (position.Y > boundary.Top)
-                    {
+                    //if (position.Y > boundary.Top)
+                    if(position.Y > 184)
                         position.Y -= 5;
-                    }
                 }
                 else if (keyboardState.IsKeyDown(Keys.S))
                 {
-                    if (position.Y < boundary.Bottom)
-                    {
+                    //if (position.Y < boundary.Bottom)
+                    if(position.Y < 416)
                         position.Y += 5;
-                    }
                 }
 
                 contained = true;

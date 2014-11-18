@@ -69,15 +69,15 @@ namespace Hazard_Sweep
             player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,
                 GlobalClass.ScreenHeight / 2), 2, 6);
 
-            street0 = new Room(this, "Images//Maps//External//test02", new Vector2(100, 100), 1, 1, false, false, player, Color.White, 0);
-            street1 = new Room(this, "Images//Maps//External//test02", new Vector2(100, 100), 1, 1, false, false, player, Color.LightBlue, 1);
-            street2 = new Room(this, "Images//Maps//External//test02", new Vector2(100, 100), 1, 1, false, false, player, Color.LightCoral, 2);
-            street3 = new Room(this, "Images//Maps//External//test02", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGoldenrodYellow, 3);
-            street4 = new Room(this, "Images//Maps//External//test02", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGreen, 4);
-            street5 = new Room(this, "Images//Maps//External//test02", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGray, 5);
-            street6 = new Room(this, "Images//Maps//External//test02", new Vector2(100, 100), 1, 1, false, false, player, Color.LightPink, 6);
-            street7 = new Room(this, "Images//Maps//External//test02", new Vector2(100, 100), 1, 1, false, false, player, Color.LightSteelBlue, 7);
-            street8 = new Room(this, "Images//Maps//External//test02", new Vector2(100, 100), 1, 1, false, false, player, Color.LightSeaGreen, 8);
+            street0 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.White, 0);
+            street1 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightBlue, 1);
+            street2 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightCoral, 2);
+            street3 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGoldenrodYellow, 3);
+            street4 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGreen, 4);
+            street5 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGray, 5);
+            street6 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightPink, 6);
+            street7 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightSteelBlue, 7);
+            street8 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightSeaGreen, 8);
 
             room0 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.White, 9);
             room1 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightBlue, 10);

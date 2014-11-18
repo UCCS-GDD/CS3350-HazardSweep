@@ -41,11 +41,11 @@ namespace Hazard_Sweep.Classes
             if (center.X < 0)
                 center.X = 0;
             // bottom
-            if (center.Y + GlobalClass.ScreenHeight > game.GetRoom(game.GetRoomID()).GetDrawRectangle().Height)
-                center.Y = game.GetRoom(game.GetRoomID()).GetDrawRectangle().Height - GlobalClass.ScreenHeight;
+            if (center.Y + GlobalClass.ScreenHeight > game.GetRoom(game.GetRoomID()).GetRoomRectangle().Height)
+                center.Y = game.GetRoom(game.GetRoomID()).GetRoomRectangle().Height - GlobalClass.ScreenHeight;
             // right
-            if (center.X + GlobalClass.ScreenWidth > game.GetRoom(game.GetRoomID()).GetDrawRectangle().Width)
-                // center.X = game.GetRoom(game.GetRoomID()).GetDrawRectangle().Width - GlobalClass.ScreenWidth;
+            if (center.X + GlobalClass.ScreenWidth > 2410)
+                center.X = 2410 - GlobalClass.ScreenWidth;
 
             transform = Matrix.CreateScale(new Vector3(1, 1, 0)) *
                 Matrix.CreateTranslation(new Vector3(-center.X, -center.Y, 0));
