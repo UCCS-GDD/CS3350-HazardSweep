@@ -24,6 +24,11 @@ namespace Hazard_Sweep.Classes
         protected int spriteRows, spriteCols;
         private bool stabPressed = false;
 
+        //variables for hit animations
+        Color color = Color.White;
+        int colorTimer;
+        bool shouldColor;
+
         // weapon variables
         Weapon weapon;
         protected WeaponType weaponSelect;
@@ -65,6 +70,9 @@ namespace Hazard_Sweep.Classes
         {
 
             health = 100;
+            color = Color.White;
+            colorTimer = 2;
+            shouldColor = false;
 
             //randomize weapons spawn later
             hasMelee = true;
@@ -420,6 +428,24 @@ namespace Hazard_Sweep.Classes
                 //set previous position
                 previousPosition = position;
                 base.Update(gameTime);
+
+                //player damage representation
+                if(shouldColor)
+                {
+                    color = Color.Red;
+                    colorTimer = 5;
+                    shouldColor = false;
+                }
+
+                //reduce color timer
+                colorTimer--;
+
+                //reset the color
+                if(colorTimer <= 0)
+                {
+                    color = Color.White;
+                }
+
             }
         }
 
@@ -431,7 +457,7 @@ namespace Hazard_Sweep.Classes
                 sb = Game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
             //    sb.Begin();
                 // sb.Draw(texture, position, drawRectangle, Color.White);
-                sb.Draw(texture, position, drawRectangle, Color.White, 0f, new Vector2(0f, 0f), new Vector2(2f, 2f), SpriteEffects.None, 0.5f);
+                sb.Draw(texture, position, drawRectangle, color, 0f, new Vector2(0f, 0f), new Vector2(2f, 2f), SpriteEffects.None, 0.5f);
               //  sb.End();
             }
         }
@@ -463,6 +489,7 @@ namespace Hazard_Sweep.Classes
         //sets the player's health
         public void reducePlayerHealth(int damage)
         {
+            shouldColor = true;
             health -= damage;
             (game as Game1).playPlayerDamaged();
         }
