@@ -38,8 +38,8 @@ Content\Sounds\Zombie 5.xnb
 Content\Sounds\Zombie 6.xnb
 Content\Sounds\Zombie 7.xnb
 Content\Sounds\Stab.xnb
-Content\Sounds\Unseen Horrors.xnb
-Content\Sounds\Unseen Horrors.wma
 Content\Sounds\Dry Fire Gun-SoundBible.com-2053652037.xnb
 Content\Sounds\damagedplayer.xnb
 Content\Sounds\zombiedamage.xnb
+Content\Sounds\Unseen Horrors.xnb
+Content\Sounds\Unseen Horrors.wma

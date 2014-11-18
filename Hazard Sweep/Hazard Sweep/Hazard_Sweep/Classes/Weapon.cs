@@ -55,6 +55,12 @@ namespace Hazard_Sweep.Classes
             return loadedBullets;
         }
 
+        // return clip size
+        public int GetClipSize()
+        {
+            return capacity;
+        }
+
         //returns number of total bullets held
         public int getTotalNumBullets()
         {

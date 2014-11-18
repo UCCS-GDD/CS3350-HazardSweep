@@ -23,6 +23,9 @@ namespace Hazard_Sweep.Classes
         string healthText;
         SpriteFont ammoLabelFont;
         SpriteFont ammoNumericFont;
+        Color ammoColor;
+        Color healthColor;
+
 
         // handling other entities
         Game game;
@@ -51,6 +54,8 @@ namespace Hazard_Sweep.Classes
             healthNumericLocation = new Vector2(GlobalClass.ScreenWidth - 96, GlobalClass.ScreenHeight - 64);
             ammoText = "-1/-1";
             healthText = "-1";
+            ammoColor = Color.White;
+            healthColor = Color.White;
         }
 
         public void LoadContent()
@@ -71,6 +76,20 @@ namespace Hazard_Sweep.Classes
             ammoText = Player.GetWeapon().getClipBullets() + " / " + Player.GetWeapon().getTotalNumBullets();
             healthText = "" + Player.GetHealth();
 
+            // color health text
+            if (Player.GetHealth() <= 20)
+                healthColor = Color.Red;
+            else if (Player.GetHealth() > 20 && Player.GetHealth() <= 30)
+                healthColor = Color.Orange;
+            else
+                healthColor = Color.White;
+
+            // color ammo text
+            if (((float)Player.GetWeapon().getClipBullets() / (float)Player.GetWeapon().GetClipSize()) <= 0.25)
+                ammoColor = Color.Red;
+            else
+                ammoColor = Color.White;
+
             pistolIcon.Update(gameTime);
             assaultIcon.Update(gameTime);
             shotgunIcon.Update(gameTime);
@@ -81,7 +100,7 @@ namespace Hazard_Sweep.Classes
             spriteBatch.Begin();
             // draw health
             spriteBatch.DrawString(ammoLabelFont, "Health", healthLabelLocation, Color.White);
-            spriteBatch.DrawString(ammoNumericFont, healthText, healthNumericLocation, Color.White);
+            spriteBatch.DrawString(ammoNumericFont, healthText, healthNumericLocation, healthColor);
 
             // draw weapon icons
             pistolIcon.Draw(spriteBatch);
@@ -92,7 +111,7 @@ namespace Hazard_Sweep.Classes
             if (Player.GetWeapon().GetWeaponType() != WeaponType.Melee)
             {
                 spriteBatch.DrawString(ammoLabelFont, "Ammo", ammoLabelLocation, Color.White);
-                spriteBatch.DrawString(ammoNumericFont, ammoText, ammoNumericLocation, Color.White);
+                spriteBatch.DrawString(ammoNumericFont, ammoText, ammoNumericLocation, ammoColor);
             }
             spriteBatch.End();
         }
