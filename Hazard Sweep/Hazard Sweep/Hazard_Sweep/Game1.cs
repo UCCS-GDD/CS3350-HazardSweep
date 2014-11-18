@@ -103,7 +103,7 @@ namespace Hazard_Sweep
             elements = new GameElements(this, player);
             elements.Initialize();
             //elements.LoadContent();
-            camera = new Camera();
+            camera = new Camera(this);
 
             //Splashscreen component
             splashScreen = new SplashScreen(this);
@@ -346,6 +346,22 @@ namespace Hazard_Sweep
                     break;
             }
         }
+
+        public int GetRoomID()
+        {
+            for (int i = Components.Count() - 1; i > -1; i--)
+            //foreach (IGameComponent g in Components)
+            {
+                IGameComponent g = Components[i];
+                if (g is Room)
+                {
+                    Room r = (Room)g;
+                    return r.GetID();
+                }
+            }
+            return -1;
+        }
+
         public void ChangeLevel(int oldLevel, int newLevel)
         {
             for (int i = Components.Count() - 1; i > -1; i--)

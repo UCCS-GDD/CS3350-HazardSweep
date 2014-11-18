@@ -221,5 +221,10 @@ namespace Hazard_Sweep.Classes
         {
             return id;
         }
+
+        public Rectangle GetDrawRectangle()
+        {
+            return drawRectangle;
+        }
     }
 }
