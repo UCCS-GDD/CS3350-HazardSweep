@@ -72,7 +72,7 @@ namespace Hazard_Sweep.Classes
                 //logic for removal
                 if (health <= 0)
                 {
-                    game.Components.Remove(this);
+                    this.setRemove();
                     (game as Game1).playZombieDeath();
                     int r = randomNumGen(0, 5);
                     if (r == 0)
@@ -169,6 +169,10 @@ namespace Hazard_Sweep.Classes
                 frameCount += 1;
                 prevX = position.X;
                 prevY = position.Y;
+            }
+            if (remove == true)
+            {
+                game.Components.Remove(this);
             }
         }
 

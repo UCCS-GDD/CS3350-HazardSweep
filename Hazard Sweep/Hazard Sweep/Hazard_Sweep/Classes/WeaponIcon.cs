@@ -62,20 +62,7 @@ namespace Hazard_Sweep.Classes
         {
             KeyboardState ks = Keyboard.GetState();
 
-            if (ks.IsKeyDown(Keys.D1))
-            {
-                if (player.hasMelee == true)
-                {
-                    if(type == WeaponType.Melee)
-                    {
-                        WeaponEquipped();
-                    }
-                    else
-                    {
-                        WeaponAcquired();
-                    }
-                }
-            }
+
             if (ks.IsKeyDown(Keys.D2))
             {
                 if (player.hasPistol == true)
@@ -129,7 +116,7 @@ namespace Hazard_Sweep.Classes
         // weapon acquired
         public void WeaponAcquired()
         {
-            sRec.X = 128;
+            sRec.X = 0;
         }
 
         // weapon equipped
