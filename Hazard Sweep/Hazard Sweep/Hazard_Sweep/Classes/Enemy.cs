@@ -33,11 +33,20 @@ namespace Hazard_Sweep.Classes
         float prevY;
         bool animate;
 
+        //variables for damage
+        Color color;
+        bool shouldColor;
+        int colorTimer;
+
         //class constructor
         public Enemy(Game game, string textureFile, Vector2 position, int spriteRows, int spriteCols)
             : base(game, textureFile, position, 10)
         {
             health = 2;
+
+            color = Color.White;
+            shouldColor = false;
+            colorTimer = 2;
 
             this.spriteRows = spriteRows;
             this.spriteCols = spriteCols;
@@ -79,6 +88,23 @@ namespace Hazard_Sweep.Classes
                     {
                         game.Components.Add(new itemDrop(game, null, position));
                     }
+                }
+
+                //player damage representation
+                if (shouldColor)
+                {
+                    color = Color.Red;
+                    colorTimer = 5;
+                    shouldColor = false;
+                }
+
+                //reduce color timer
+                colorTimer--;
+
+                //reset the color
+                if (colorTimer <= 0)
+                {
+                    color = Color.White;
                 }
 
                 //logic for animation
@@ -213,6 +239,11 @@ namespace Hazard_Sweep.Classes
                 Vector2 velocity = direction * moveSpeed;
                 position += velocity;
             }
+        }
+
+        public void setShouldColor()
+        {
+            shouldColor = true;
         }
     }
 }

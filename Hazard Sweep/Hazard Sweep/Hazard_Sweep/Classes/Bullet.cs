@@ -46,6 +46,7 @@ namespace Hazard_Sweep.Classes
                     {
                         damage = 1;
                     }
+
                 }
 
             //logic for determining which direction the bullet should move
@@ -71,6 +72,7 @@ namespace Hazard_Sweep.Classes
                         collisionSprite = s;
                         remove = true;
                         s.removeHelth(damage);
+                        s.setShouldColor();
                     }
                 }
             }
