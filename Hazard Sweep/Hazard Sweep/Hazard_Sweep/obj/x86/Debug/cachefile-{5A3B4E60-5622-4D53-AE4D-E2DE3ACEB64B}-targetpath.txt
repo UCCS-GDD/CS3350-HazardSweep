@@ -25,6 +25,7 @@ Content\Images\ammoBoxRifle.xnb
 Content\Images\ammoBoxShotgun.xnb
 Content\Images\healthBox.xnb
 Content\Images\reticle.xnb
+Content\Images\Maps\Internal\test01.xnb
 Content\Fonts\HealthNumeric.xnb
 Content\Fonts\AmmoLabel.xnb
 Content\Fonts\HealthLabel.xnb
@@ -47,4 +48,3 @@ Content\Sounds\damagedplayer.xnb
 Content\Sounds\zombiedamage.xnb
 Content\Sounds\Unseen Horrors.xnb
 Content\Sounds\Unseen Horrors.wma
-Content\Images\Maps\Internal\test01.xnb

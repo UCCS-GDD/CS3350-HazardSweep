@@ -374,6 +374,23 @@ namespace Hazard_Sweep.Classes
                     direction = Facing.Right;
                 }
 
+                // update bulletOrigin
+                // pistol
+                if (weapon.GetWeaponType() == WeaponType.Pistol && direction == Facing.Left)
+                    bulletOrigin = new Vector2(texture.Width / spriteCols / 2 - 32, texture.Height / spriteRows / 2 + 18);
+                if (weapon.GetWeaponType() == WeaponType.Pistol && direction == Facing.Right)
+                    bulletOrigin = new Vector2(texture.Width / spriteCols / 2 + 64, texture.Height / spriteRows / 2 + 17);
+                // assault rifle
+                if (weapon.GetWeaponType() == WeaponType.AssaultRifle && direction == Facing.Left)
+                    bulletOrigin = new Vector2(texture.Width / spriteCols / 2 - 33, texture.Height / spriteRows / 2 + 11);
+                if (weapon.GetWeaponType() == WeaponType.AssaultRifle && direction == Facing.Right)
+                    bulletOrigin = new Vector2(texture.Width / spriteCols / 2 + 75, texture.Height / spriteRows / 2 + 12);
+                // shotgun
+                if (weapon.GetWeaponType() == WeaponType.Shotgun && direction == Facing.Left)
+                    bulletOrigin = new Vector2(texture.Width / spriteCols / 2 - 33, texture.Height / spriteRows / 2 + 14);
+                if (weapon.GetWeaponType() == WeaponType.Shotgun && direction == Facing.Right)
+                    bulletOrigin = new Vector2(texture.Width / spriteCols / 2 + 75, texture.Height / spriteRows / 2 + 13);
+
                 // weapon handling
                 if (ms.LeftButton == ButtonState.Pressed)
                 {
