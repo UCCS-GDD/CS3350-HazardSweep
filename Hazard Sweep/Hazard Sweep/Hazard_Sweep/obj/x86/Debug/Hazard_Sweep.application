@@ -8,14 +8,14 @@
     <framework targetVersion="4.0" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Hazard_Sweep.exe.manifest" size="23840">
+    <dependentAssembly dependencyType="install" codebase="Hazard_Sweep.exe.manifest" size="25408">
       <assemblyIdentity name="Hazard_Sweep.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>RsERzxmsG83dyQeap1yDIl7I+vM=</dsig:DigestValue>
+        <dsig:DigestValue>NZui5gO4/CDG0KV+8w0k25Jky8M=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

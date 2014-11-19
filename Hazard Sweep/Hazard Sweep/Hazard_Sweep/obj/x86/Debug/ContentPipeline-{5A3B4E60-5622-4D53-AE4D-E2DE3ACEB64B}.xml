@@ -416,6 +416,42 @@
       <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\playerWalkRifle.xnb</Output>
       <Time>2014-11-18T18:18:11.7931335-07:00</Time>
     </Item>
+    <Item>
+      <Source>Images\ammoBoxPistol.png</Source>
+      <Name>Images\ammoBoxPistol</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\ammoBoxPistol.xnb</Output>
+      <Time>2014-11-18T18:43:35.7442604-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\ammoBoxRifle.png</Source>
+      <Name>Images\ammoBoxRifle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\ammoBoxRifle.xnb</Output>
+      <Time>2014-11-18T18:43:35.7642605-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\ammoBoxShotgun.png</Source>
+      <Name>Images\ammoBoxShotgun</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\ammoBoxShotgun.xnb</Output>
+      <Time>2014-11-18T18:43:35.803261-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\healthBox.png</Source>
+      <Name>Images\healthBox</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\healthBox.xnb</Output>
+      <Time>2014-11-18T18:43:35.8262618-07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{5A3B4E60-5622-4D53-AE4D-E2DE3ACEB64B}</ContentProjectGUID>

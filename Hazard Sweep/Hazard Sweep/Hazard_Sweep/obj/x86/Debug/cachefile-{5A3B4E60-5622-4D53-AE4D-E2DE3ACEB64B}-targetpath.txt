@@ -45,3 +45,7 @@ Content\Sounds\Unseen Horrors.xnb
 Content\Sounds\Unseen Horrors.wma
 Content\Images\playerWalkPistol.xnb
 Content\Images\playerWalkRifle.xnb
+Content\Images\ammoBoxPistol.xnb
+Content\Images\ammoBoxRifle.xnb
+Content\Images\ammoBoxShotgun.xnb
+Content\Images\healthBox.xnb

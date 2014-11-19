@@ -34,22 +34,22 @@ namespace Hazard_Sweep.Classes
                 case(0):
                     type = DropType.Health;
                     value = randomNumGen(5, 11);
-                    texture = game.Content.Load<Texture2D>("Images//Health");
+                    texture = game.Content.Load<Texture2D>("Images//healthBox");
                     break;
                 case(1):
                     type = DropType.AssaultAmmo;
                     value = randomNumGen(20, 51);
-                    texture = game.Content.Load<Texture2D>("Images//ammoBox");
+                    texture = game.Content.Load<Texture2D>("Images//ammoBoxRifle");
                     break;
                 case(2):
                     type = DropType.PistolAmmo;
                     value = randomNumGen(10, 31);
-                    texture = game.Content.Load<Texture2D>("Images//ammoBox");
+                    texture = game.Content.Load<Texture2D>("Images//ammoBoxPistol");
                     break;
                 case(3):
                     type = DropType.ShotgunAmmo;
                     value = randomNumGen(5, 16);
-                    texture = game.Content.Load<Texture2D>("Images//ammoBox");
+                    texture = game.Content.Load<Texture2D>("Images//ammoBoxShotgun");
                     break;
             }
 
