@@ -110,7 +110,7 @@ namespace Hazard_Sweep.Classes
                 //logic for animation
                 if (this.direction == Facing.Left)
                 {
-                    sRec.Y = texture.Height / spriteRows;
+                    sRec.Y = texture.Height / spriteRows + 1;
                 }
                 else if (this.direction == Facing.Right)
                 {

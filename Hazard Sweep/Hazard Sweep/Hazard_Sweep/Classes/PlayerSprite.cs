@@ -43,6 +43,7 @@ namespace Hazard_Sweep.Classes
         protected Vector2 bulletOrigin;
 
         // animation variables
+        Texture2D playerWalkPistol, playerWalkRifle, playerWalkShotgun;
         int frameCount;
         int animationSpeed = 10;
         float prevX;
@@ -130,6 +131,10 @@ namespace Hazard_Sweep.Classes
         protected override void LoadContent()
         {
             base.LoadContent();
+
+            playerWalkPistol = game.Content.Load<Texture2D>("Images//playerWalkPistol");
+            playerWalkRifle = game.Content.Load<Texture2D>("Images//playerWalkRifle");
+            playerWalkShotgun = game.Content.Load<Texture2D>("Images//playerWalk");
 
             // sets up bullet origin vector has to be here so texture is loaded when looking at width and height
             bulletOrigin = new Vector2(texture.Width / spriteCols / 2, texture.Height / spriteRows / 2);
@@ -388,6 +393,14 @@ namespace Hazard_Sweep.Classes
                         game.Components.Add(weapon);
                     }
                 }
+
+                // change sprite for weapon
+                if (weapon.GetWeaponType() == WeaponType.Pistol)
+                    texture = playerWalkPistol;
+                if (weapon.GetWeaponType() == WeaponType.AssaultRifle)
+                    texture = playerWalkRifle;
+                if (weapon.GetWeaponType() == WeaponType.Shotgun)
+                    texture = playerWalkShotgun;
 
                 //ends the game if player's health is 0, will later go to menus
                 if (health <= 0)

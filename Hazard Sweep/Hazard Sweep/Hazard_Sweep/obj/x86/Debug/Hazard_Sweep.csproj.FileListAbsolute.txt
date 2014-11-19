@@ -331,3 +331,5 @@ C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x8
 C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Sounds\Dry Fire Gun-SoundBible.com-2053652037.xnb
 C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Sounds\damagedplayer.xnb
 C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Sounds\zombiedamage.xnb
+C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\playerWalkPistol.xnb
+C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\playerWalkRifle.xnb

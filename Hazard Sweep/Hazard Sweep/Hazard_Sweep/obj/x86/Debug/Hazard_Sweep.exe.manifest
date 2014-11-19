@@ -75,7 +75,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>dF1EXg//pxzchurJ/5YRbGAPQXg=</dsig:DigestValue>
+        <dsig:DigestValue>4yIUoff5sYlcnQ1lPUl48TahJSg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -286,6 +286,24 @@
       <dsig:DigestValue>vvJ14JC+XpGu4aNx2F5PsXnJ8fY=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Content\Images\playerWalkPistol.xnb" size="244627">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>Gf/g/lmzPXV7T/uvqWIf5T5uEhk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Images\playerWalkRifle.xnb" size="244627">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>4uhm4GVIbfSHXbTRkUvPbPkEcXw=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\Images\scientist.xnb" size="137687">
     <hash>
       <dsig:Transforms>
@@ -400,7 +418,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>yccNX0Lh5wrDteG4nNsNnIOoO6o=</dsig:DigestValue>
+      <dsig:DigestValue>9SgpiVRwXzmXKxJg8KXheyBF1pc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Sounds\Unseen Horrors.xnb" size="132">
