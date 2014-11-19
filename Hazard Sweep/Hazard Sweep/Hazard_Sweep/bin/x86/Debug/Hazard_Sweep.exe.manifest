@@ -75,7 +75,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>HpIiHzJAiA0rI9ZlgiEQjooQ7r0=</dsig:DigestValue>
+        <dsig:DigestValue>UBT2njlfx1YPbYk1zEyMwxVvyi4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -400,7 +400,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>dEVfdqTdHQqaSbq3xjvcJsteDVo=</dsig:DigestValue>
+      <dsig:DigestValue>4on+URYH48bDxu4aET1WfuSEEik=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Sounds\Unseen Horrors.xnb" size="132">

@@ -33,10 +33,10 @@ namespace Hazard_Sweep.Classes
             drawRec = new Rectangle(x, 0, 64, 64);
             sRec = new Rectangle(0, 0, 128, 128);
         }
-        
+
         public void LoadContent(Game game)
         {
-            texture = game.Content.Load<Texture2D>(textureFile);  
+            texture = game.Content.Load<Texture2D>(textureFile);
         }
 
         public void Update(GameTime gameTime)
@@ -62,8 +62,8 @@ namespace Hazard_Sweep.Classes
 
         public void Draw(SpriteBatch sb)
         {
-            sb.Draw(texture, drawRec, sRec, Color.White,0f,new Vector2(0f,0f),SpriteEffects.None,0f);
-            
+            sb.Draw(texture, drawRec, sRec, Color.White, 0f, new Vector2(0f, 0f), SpriteEffects.None, 0f);
+
         }
 
         // weapon acquired
