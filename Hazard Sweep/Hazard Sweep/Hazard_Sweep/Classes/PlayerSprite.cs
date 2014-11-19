@@ -15,7 +15,7 @@ namespace Hazard_Sweep.Classes
     public class PlayerSprite : Sprite
     {
         //variables
-        protected Vector2 movement;
+        protected Vector2 movement = Vector2.Zero;
         protected MouseState ms;
         protected Vector2 mousePosition;
         protected Facing direction;
@@ -78,14 +78,14 @@ namespace Hazard_Sweep.Classes
             hasMelee = true;
             //if (randomNumGen(0, 3) == 1)
             //{
-                hasPistol = true;
+            hasPistol = true;
             //}
             if (randomNumGen(0, 4) == 1)
             {
                 hasAssaultRifle = true;
             }
             if (randomNumGen(0, 4) == 1)
-            { 
+            {
                 hasShotgun = true;
             }
 
@@ -304,28 +304,38 @@ namespace Hazard_Sweep.Classes
                     direction = Facing.Right;
                     //if (position.X < boundary.Right)
                     if (position.X < 2300)
-                        position.X += 5;
-                    
+                        movement.X += 5;
+
                 }
-                else if (keyboardState.IsKeyDown(Keys.A))
+                if (keyboardState.IsKeyDown(Keys.A))
                 {
                     direction = Facing.Left;
                     //if (position.X > boundary.Left)
-                    if(position.X > 10)
-                        position.X -= 5;
+                    if (position.X > 10)
+                        movement.X -= 5;
                 }
-                else if (keyboardState.IsKeyDown(Keys.W))
+                if (keyboardState.IsKeyDown(Keys.W))
                 {
                     //if (position.Y > boundary.Top)
-                    if(position.Y > 184)
-                        position.Y -= 5;
+                    if (position.Y > 184)
+                        movement.Y -= 5;
                 }
-                else if (keyboardState.IsKeyDown(Keys.S))
+                if (keyboardState.IsKeyDown(Keys.S))
                 {
                     //if (position.Y < boundary.Bottom)
-                    if(position.Y < 416)
-                        position.Y += 5;
+                    if (position.Y < 416)
+                        movement.Y += 5;
                 }
+
+                movement.Normalize();
+                if (movement.Length() > 0)
+                {
+                    movement.X *= 5;
+                    movement.Y *= 5;
+                    position.X = movement.X + position.X;
+                    position.Y = movement.Y + position.Y;
+                }
+                movement = Vector2.Zero;
 
                 contained = true;
 
@@ -430,7 +440,7 @@ namespace Hazard_Sweep.Classes
                 base.Update(gameTime);
 
                 //player damage representation
-                if(shouldColor)
+                if (shouldColor)
                 {
                     color = Color.Red;
                     colorTimer = 5;
@@ -441,7 +451,7 @@ namespace Hazard_Sweep.Classes
                 colorTimer--;
 
                 //reset the color
-                if(colorTimer <= 0)
+                if (colorTimer <= 0)
                 {
                     color = Color.White;
                 }
@@ -455,10 +465,10 @@ namespace Hazard_Sweep.Classes
             if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
             {
                 sb = Game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
-            //    sb.Begin();
+                //    sb.Begin();
                 // sb.Draw(texture, position, drawRectangle, Color.White);
                 sb.Draw(texture, position, drawRectangle, color, 0f, new Vector2(0f, 0f), new Vector2(2f, 2f), SpriteEffects.None, 0.5f);
-              //  sb.End();
+                //  sb.End();
             }
         }
 
