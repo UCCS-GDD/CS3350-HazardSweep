@@ -14,17 +14,22 @@ namespace Hazard_Sweep.Classes
 {
     public class Reticle : Sprite
     {
-        public Reticle(Game game, String textureFile, Vector2 position, int drawOrder)
+        Game1 gameRef;
+        public Vector2 readPosition;
+
+        //public Reticle(Game game, String textureFile, Vector2 position, int drawOrder)
+        public Reticle(Game game, String textureFile, Vector2 position, int drawOrder, Game1 gameRef)
             : base(game, textureFile, position, drawOrder)
         {
-
+            this.gameRef = gameRef;   
         }
 
         public override void Update(GameTime gameTime)
         {
             MouseState ms = Mouse.GetState();
-            position.X = ms.X + game.GraphicsDevice.Viewport.X;
-            position.Y = game.GraphicsDevice.Viewport.Y + ms.Y;
+            position.X = gameRef.GetCamera().center.X + ms.X;
+            position.Y = ms.Y;
+            readPosition = position;
             base.Update(gameTime);
         }
 
@@ -36,7 +41,7 @@ namespace Hazard_Sweep.Classes
 
         public override void Draw(GameTime gameTime)
         {
-
+            base.Draw(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch)

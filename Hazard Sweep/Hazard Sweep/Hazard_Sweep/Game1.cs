@@ -67,7 +67,7 @@ namespace Hazard_Sweep
             GlobalClass.ScreenHeight = graphics.PreferredBackBufferHeight;
 
             player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,
-                GlobalClass.ScreenHeight / 2), 2, 6);
+                GlobalClass.ScreenHeight / 2), 2, 6, this);
 
             street0 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.White, 0);
             street1 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightBlue, 1);
@@ -248,14 +248,14 @@ namespace Hazard_Sweep
             //draw hud
             if (currentGameState == GameState.PLAY)
             {
-                foreach (IGameComponent g in Components)
-                {
-                    if (g is Reticle)
-                    {
-                        Reticle r = (Reticle)g;
-                        r.Draw(spriteBatch);
-                    }
-                }
+                //foreach (IGameComponent g in Components)
+                //{
+                //    if (g is Reticle)
+                //    {
+                //        Reticle r = (Reticle)g;
+                //        r.Draw(spriteBatch);
+                //    }
+                //}
                 elements.Draw(spriteBatch);
             }
 
@@ -413,6 +413,11 @@ namespace Hazard_Sweep
             }
             Components.Remove(GetRoom(oldLevel));
             Components.Add(GetRoom(newLevel));
+        }
+
+        public Camera GetCamera()
+        {
+            return camera;
         }
 
         #region sound effect methods

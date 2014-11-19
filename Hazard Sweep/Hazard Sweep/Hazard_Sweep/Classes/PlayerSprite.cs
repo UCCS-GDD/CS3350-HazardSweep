@@ -14,6 +14,8 @@ namespace Hazard_Sweep.Classes
 {
     public class PlayerSprite : Sprite
     {
+        Game1 gameRef;
+
         //variables
         protected Vector2 movement = Vector2.Zero;
         protected MouseState ms;
@@ -70,9 +72,10 @@ namespace Hazard_Sweep.Classes
         Rectangle boundary;
 
         //Constructor
-        public PlayerSprite(Game game, string textureFile, Vector2 position, int spriteRows, int spriteCols)
+        public PlayerSprite(Game game, string textureFile, Vector2 position, int spriteRows, int spriteCols, Game1 gameRef)
             : base(game, textureFile, position, 10)
         {
+            this.gameRef = gameRef;
 
             health = 100;
             color = Color.White;
@@ -141,7 +144,7 @@ namespace Hazard_Sweep.Classes
             playerWalkShotgun = game.Content.Load<Texture2D>("Images//playerWalk");
 
             //reticle
-            reticle = new Reticle(game, "Images//reticle", new Vector2(0, 0), 20);
+            reticle = new Reticle(game, "Images//reticle", new Vector2(0, 0), 20, gameRef);
             game.Components.Add(reticle);
 
             // sets up bullet origin vector has to be here so texture is loaded when looking at width and height
@@ -352,8 +355,8 @@ namespace Hazard_Sweep.Classes
                 contained = true;
 
                 //update mouse position and bullet direction
-                mousePosition.X = ms.X;
-                mousePosition.Y = ms.Y;
+                mousePosition.X = reticle.readPosition.X;
+                mousePosition.Y = reticle.readPosition.Y;
                 bulletDirection = mousePosition - position;
                 if(bulletDirection != Vector2.Zero)
                 {

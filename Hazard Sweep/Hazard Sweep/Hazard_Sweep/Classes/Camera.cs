@@ -12,12 +12,12 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Hazard_Sweep.Classes
 {
-    class Camera
+    public class Camera
     {
         //class variables
         public Matrix transform;
         Viewport view;
-        Vector2 center;
+        public Vector2 center;
         Game1 game;
         // class constructor
         public Camera(Game1 game)
