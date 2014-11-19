@@ -41,6 +41,7 @@ namespace Hazard_Sweep.Classes
         Weapon assaultRifle;
         Weapon shotgun;
         protected Vector2 bulletOrigin;
+        protected Vector2 bulletDirection;
 
         // animation variables
         Texture2D playerWalkPistol, playerWalkRifle, playerWalkShotgun;
@@ -158,7 +159,6 @@ namespace Hazard_Sweep.Classes
 
             if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
             {
-
 
                 KeyboardState keyboardState = Keyboard.GetState();
                 ms = Mouse.GetState();
@@ -344,11 +344,19 @@ namespace Hazard_Sweep.Classes
 
                 contained = true;
 
+                //update mouse position
+                mousePosition.X = ms.X;
+                mousePosition.Y = ms.Y;
+                bulletDirection = mousePosition - position;
+                if(bulletDirection != Vector2.Zero)
+                {
+                    bulletDirection.Normalize();
+                }
 
                 // weapon handling
-                if (keyboardState.IsKeyDown(Keys.Space))
+                if (ms.LeftButton == ButtonState.Pressed)
                 {
-                    weapon.shoot(position + bulletOrigin, direction);
+                    weapon.shoot(position + bulletOrigin, bulletDirection);
                 }
                 if (keyboardState.IsKeyDown(Keys.C))
                 {

@@ -69,7 +69,7 @@ namespace Hazard_Sweep.Classes
         }
 
         //fires the weapon
-        public void shoot(Vector2 bulletOrigin, Facing direction)
+        public void shoot(Vector2 bulletOrigin, Vector2 direction)
         {
             if (((int)currentTime >= delay) && (loadedBullets > 0))
             {

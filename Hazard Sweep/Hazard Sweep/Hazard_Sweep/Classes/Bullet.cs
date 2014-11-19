@@ -17,16 +17,17 @@ namespace Hazard_Sweep.Classes
     {
         //variables
         protected int speed;
-        protected Facing direction;
+        protected Vector2 direction;
         protected bool remove = false;
         protected int damage;
 
         //constructor
-        public Bullet(Game game, string textureFile, Vector2 position, Facing dir)
+        public Bullet(Game game, string textureFile, Vector2 position, Vector2 dir)
             : base(game, textureFile, position, 10)
         {
             this.game = game;
             direction = dir;
+            speed = 900;
         }
 
         //update method
@@ -50,14 +51,7 @@ namespace Hazard_Sweep.Classes
                 }
 
             //logic for determining which direction the bullet should move
-            if (direction == Facing.Left)
-            {
-                position.X -= 10;
-            }
-            else
-            {
-                position.X += 10;
-            }
+            position += direction * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             Sprite collisionSprite = new Sprite(game);
             //check for collisions
