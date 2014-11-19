@@ -43,6 +43,9 @@ namespace Hazard_Sweep.Classes
         protected Vector2 bulletOrigin;
         protected Vector2 bulletDirection;
 
+        //reticle
+        public Reticle reticle;
+
         // animation variables
         Texture2D playerWalkPistol, playerWalkRifle, playerWalkShotgun;
         int frameCount;
@@ -137,6 +140,10 @@ namespace Hazard_Sweep.Classes
             playerWalkRifle = game.Content.Load<Texture2D>("Images//playerWalkRifle");
             playerWalkShotgun = game.Content.Load<Texture2D>("Images//playerWalk");
 
+            //reticle
+            reticle = new Reticle(game, "Images//reticle", new Vector2(0, 0), 20);
+            game.Components.Add(reticle);
+
             // sets up bullet origin vector has to be here so texture is loaded when looking at width and height
             bulletOrigin = new Vector2(texture.Width / spriteCols / 2, texture.Height / spriteRows / 2);
             game.Components.Add(weapon);
@@ -161,7 +168,7 @@ namespace Hazard_Sweep.Classes
             {
 
                 KeyboardState keyboardState = Keyboard.GetState();
-                ms = Mouse.GetState();
+                ms = Mouse.GetState();                
 
                 //checks for collisions with room's bounding box
                 foreach (GameComponent g in game.Components)
@@ -306,15 +313,15 @@ namespace Hazard_Sweep.Classes
                 //move the sprite with WASD
                 if (keyboardState.IsKeyDown(Keys.D))
                 {
-                    direction = Facing.Right;
                     //if (position.X < boundary.Right)
                     if (position.X < 2300)
+                    {
                         movement.X += 5;
+                    }
 
                 }
                 if (keyboardState.IsKeyDown(Keys.A))
                 {
-                    direction = Facing.Left;
                     //if (position.X > boundary.Left)
                     if (position.X > 10)
                         movement.X -= 5;
@@ -344,13 +351,23 @@ namespace Hazard_Sweep.Classes
 
                 contained = true;
 
-                //update mouse position
+                //update mouse position and bullet direction
                 mousePosition.X = ms.X;
                 mousePosition.Y = ms.Y;
                 bulletDirection = mousePosition - position;
                 if(bulletDirection != Vector2.Zero)
                 {
                     bulletDirection.Normalize();
+                }
+
+                //update direction
+                if(bulletDirection.X < 0)
+                {
+                    direction = Facing.Left;
+                }
+                else
+                {
+                    direction = Facing.Right;
                 }
 
                 // weapon handling

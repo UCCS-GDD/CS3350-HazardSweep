@@ -228,7 +228,6 @@ C:\Users\Eaven Sheets\Source\Repos\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\
 C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\Hazard_72.xnb
 C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Fonts\VtksMoney_30.xnb
 C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Maps\External\test02.xnb
-C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Maps\Internal\test01.xnb
 C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\DoorClosed.xnb
 C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\WallEnd.xnb
 C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\WallWide.xnb
@@ -343,3 +342,5 @@ C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sw
 C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\ammoBoxRifle.xnb
 C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\ammoBoxShotgun.xnb
 C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\healthBox.xnb
+C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Internal\test01.xnb
+C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\reticle.xnb

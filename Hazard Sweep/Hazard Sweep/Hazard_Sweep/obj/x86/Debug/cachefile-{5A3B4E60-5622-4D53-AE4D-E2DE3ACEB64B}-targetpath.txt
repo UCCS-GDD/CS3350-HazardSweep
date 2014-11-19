@@ -8,7 +8,6 @@ Content\Images\enemyWalk.xnb
 Content\Images\Maps\External\test01.xnb
 Content\Images\door.xnb
 Content\Images\Maps\External\test02.xnb
-Content\Images\Maps\Internal\test01.xnb
 Content\Images\DoorClosed.xnb
 Content\Images\WallEnd.xnb
 Content\Images\WallWide.xnb
@@ -46,3 +45,5 @@ Content\Sounds\damagedplayer.xnb
 Content\Sounds\zombiedamage.xnb
 Content\Sounds\Unseen Horrors.xnb
 Content\Sounds\Unseen Horrors.wma
+Content\Images\Internal\test01.xnb
+Content\Images\reticle.xnb

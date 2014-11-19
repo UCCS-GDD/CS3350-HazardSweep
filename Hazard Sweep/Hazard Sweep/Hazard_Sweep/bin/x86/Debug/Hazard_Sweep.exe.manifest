@@ -68,14 +68,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Hazard_Sweep.exe" size="42496">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Hazard_Sweep.exe" size="43008">
       <assemblyIdentity name="Hazard_Sweep" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>4lyHGSPHU4DQ/jXsf6vsM6jXVrU=</dsig:DigestValue>
+        <dsig:DigestValue>XlMWOT7n3Aet1vb9EPO7xZVuFmg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -259,6 +259,15 @@
       <dsig:DigestValue>rPSIcEGoMyRJzpx70s34tGRYDm8=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Content\Images\Internal\test01.xnb" size="736315">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>QIKIk9BtU4v9YSg3B5228AQc11s=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\Images\laser.xnb" size="587">
     <hash>
       <dsig:Transforms>
@@ -286,15 +295,6 @@
       <dsig:DigestValue>ha0fodet0lvAbqWG0ugQZ3kX/n0=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Images\Maps\Internal\test01.xnb" size="736315">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>QIKIk9BtU4v9YSg3B5228AQc11s=</dsig:DigestValue>
-    </hash>
-  </file>
   <file name="Content\Images\playerWalk.xnb" size="244627">
     <hash>
       <dsig:Transforms>
@@ -320,6 +320,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>4uhm4GVIbfSHXbTRkUvPbPkEcXw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Images\reticle.xnb" size="3787">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>ycEPkwOxlVZhmwi0l/EGyUol3sE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Images\scientist.xnb" size="137687">

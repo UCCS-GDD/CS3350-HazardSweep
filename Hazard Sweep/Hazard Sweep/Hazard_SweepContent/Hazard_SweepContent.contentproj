@@ -124,7 +124,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\Maps\Internal\test01.png">
+    <Compile Include="Images\Internal\test01.png">
       <Name>test01</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -315,6 +315,13 @@
     </Compile>
     <Compile Include="Images\healthBox.png">
       <Name>healthBox</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\reticle.png">
+      <Name>reticle</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

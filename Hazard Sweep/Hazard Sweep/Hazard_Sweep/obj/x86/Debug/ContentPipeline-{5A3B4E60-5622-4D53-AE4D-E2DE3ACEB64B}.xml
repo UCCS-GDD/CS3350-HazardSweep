@@ -92,15 +92,6 @@
       <Time>2014-11-11T11:22:53.211878-07:00</Time>
     </Item>
     <Item>
-      <Source>Images\Maps\Internal\test01.png</Source>
-      <Name>Images\Maps\Internal\test01</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Maps\Internal\test01.xnb</Output>
-      <Time>2014-11-11T11:22:53.2128787-07:00</Time>
-    </Item>
-    <Item>
       <Source>Images\DoorClosed.png</Source>
       <Name>Images\DoorClosed</Name>
       <Importer>TextureImporter</Importer>
@@ -424,6 +415,24 @@
       <Output>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Sounds\Unseen Horrors.xnb</Output>
       <Extra>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Sounds\Unseen Horrors.wma</Extra>
       <Time>2014-11-11T11:22:53.2919311-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Internal\test01.png</Source>
+      <Name>Images\Internal\test01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Internal\test01.xnb</Output>
+      <Time>2014-11-11T11:22:53.2128787-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\reticle.png</Source>
+      <Name>Images\reticle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\reticle.xnb</Output>
+      <Time>2014-11-18T22:52:48.6441681-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

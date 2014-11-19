@@ -95,6 +95,7 @@
     <Compile Include="Classes\itemDrop.cs" />
     <Compile Include="Classes\MeleeWeapon.cs" />
     <Compile Include="Classes\NPC.cs" />
+    <Compile Include="Classes\Reticle.cs" />
     <Compile Include="Classes\SplashScreen.cs" />
     <Compile Include="Classes\GameElements.cs" />
     <Compile Include="Classes\GlobalClass.cs" />
