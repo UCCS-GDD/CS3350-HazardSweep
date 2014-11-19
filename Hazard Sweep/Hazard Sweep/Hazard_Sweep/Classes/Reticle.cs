@@ -23,8 +23,8 @@ namespace Hazard_Sweep.Classes
         public override void Update(GameTime gameTime)
         {
             MouseState ms = Mouse.GetState();
-            position.X = ms.X;
-            position.Y = ms.Y;
+            position.X = ms.X + game.GraphicsDevice.Viewport.X;
+            position.Y = game.GraphicsDevice.Viewport.Y + ms.Y;
             base.Update(gameTime);
         }
 
@@ -32,6 +32,20 @@ namespace Hazard_Sweep.Classes
         public void moveReticle(Vector2 amount)
         {
             position += amount;
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Begin();
+            spriteBatch.Draw(texture, 
+                new Rectangle((int)position.X - texture.Width/2, (int)position.Y - texture.Height/2, texture.Width, texture.Height), 
+                Color.White);
+            spriteBatch.End();
         }
     }    
 }

@@ -8,6 +8,7 @@ Content\Images\enemyWalk.xnb
 Content\Images\Maps\External\test01.xnb
 Content\Images\door.xnb
 Content\Images\Maps\External\test02.xnb
+Content\Images\Internal\test01.xnb
 Content\Images\DoorClosed.xnb
 Content\Images\WallEnd.xnb
 Content\Images\WallWide.xnb
@@ -23,6 +24,7 @@ Content\Images\ammoBoxPistol.xnb
 Content\Images\ammoBoxRifle.xnb
 Content\Images\ammoBoxShotgun.xnb
 Content\Images\healthBox.xnb
+Content\Images\reticle.xnb
 Content\Fonts\HealthNumeric.xnb
 Content\Fonts\AmmoLabel.xnb
 Content\Fonts\HealthLabel.xnb
@@ -44,6 +46,4 @@ Content\Sounds\Dry Fire Gun-SoundBible.com-2053652037.xnb
 Content\Sounds\damagedplayer.xnb
 Content\Sounds\zombiedamage.xnb
 Content\Sounds\Unseen Horrors.xnb
-Content\Images\Internal\test01.xnb
-Content\Images\reticle.xnb
 Content\Sounds\Unseen Horrors.wma

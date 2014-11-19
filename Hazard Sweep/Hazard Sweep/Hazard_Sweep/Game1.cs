@@ -248,6 +248,14 @@ namespace Hazard_Sweep
             //draw hud
             if (currentGameState == GameState.PLAY)
             {
+                foreach (IGameComponent g in Components)
+                {
+                    if (g is Reticle)
+                    {
+                        Reticle r = (Reticle)g;
+                        r.Draw(spriteBatch);
+                    }
+                }
                 elements.Draw(spriteBatch);
             }
 

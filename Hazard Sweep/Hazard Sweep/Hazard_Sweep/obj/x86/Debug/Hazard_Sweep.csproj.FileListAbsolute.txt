@@ -25,8 +25,6 @@ C:\Users\Nick\Desktop\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\
 C:\Users\Nick\Desktop\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Nick\Desktop\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\obj\x86\Debug\Hazard_Sweep.exe
 C:\Users\Nick\Desktop\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\obj\x86\Debug\Hazard_Sweep.pdb
-C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Animation.xnb
-C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Ball.xnb
 C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\laser.xnb
 C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Hazard_Sweep.exe
 C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Hazard_Sweep.pdb
@@ -64,7 +62,6 @@ C:\Users\Nick\cs3350-fa14-hazardsweep\CS3350-HazardSweep\Hazard Sweep\Hazard Swe
 C:\Users\Nick\cs3350-fa14-hazardsweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Nick\cs3350-fa14-hazardsweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\obj\x86\Debug\Hazard_Sweep.exe
 C:\Users\Nick\cs3350-fa14-hazardsweep\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\obj\x86\Debug\Hazard_Sweep.pdb
-C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\zombie.xnb
 C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\playerWalk.xnb
 C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\GUI\iconAssault.xnb
 C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\GUI\iconMelee.xnb
@@ -181,7 +178,6 @@ C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sw
 C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\door.xnb
 C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\door.xnb
 C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Maps\External\test02.xnb
-C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Maps\Internal\test01.xnb
 C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\DoorClosed.xnb
 C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\WallEnd.xnb
 C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\WallWide.xnb
@@ -344,3 +340,5 @@ C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sw
 C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\healthBox.xnb
 C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Internal\test01.xnb
 C:\Users\HP\Documents\School\Fall 2014\Intro to GDD\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\reticle.xnb
+C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Internal\test01.xnb
+C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\reticle.xnb
