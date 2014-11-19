@@ -90,7 +90,6 @@
     <Compile Include="Classes\Boss.cs" />
     <Compile Include="Classes\Bullet.cs" />
     <Compile Include="Classes\Camera.cs" />
-    <Compile Include="Classes\Camera2D.cs" />
     <Compile Include="Classes\Door.cs" />
     <Compile Include="Classes\Enemy.cs" />
     <Compile Include="Classes\itemDrop.cs" />

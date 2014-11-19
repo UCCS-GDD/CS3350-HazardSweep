@@ -68,14 +68,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Hazard_Sweep.exe" size="43008">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Hazard_Sweep.exe" size="41984">
       <assemblyIdentity name="Hazard_Sweep" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>atPbieNgBQ3Xdy0XOSH8JmJ0veI=</dsig:DigestValue>
+        <dsig:DigestValue>40FctibuLGS1NsMgeh/5AZwzgC8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -151,49 +151,31 @@
       <dsig:DigestValue>QJFI10yL7BO+5KkEkNfz750m5Ck=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Images\ammoBoxPistol.xnb" size="80187">
+  <file name="Content\Images\ammoBoxPistol.xnb" size="20187">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>T5z2x3kldYbqf4YOfixcp8xFv0o=</dsig:DigestValue>
+      <dsig:DigestValue>qXw7fVQ1+BoMYC9POQ/KwcuEi6I=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Images\ammoBoxRifle.xnb" size="80187">
+  <file name="Content\Images\ammoBoxRifle.xnb" size="20187">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>2F5VcqU6GtGpBiTFgxD1KJFJ4vY=</dsig:DigestValue>
+      <dsig:DigestValue>Xs2ZrOM6TLIXJmOn4WRxHU+maaQ=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Images\ammoBoxShotgun.xnb" size="80187">
+  <file name="Content\Images\ammoBoxShotgun.xnb" size="20187">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>9KhYiXxS2ZE9a7nTN7ygRfiPfwk=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Content\Images\Animation.xnb" size="5187">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>G1uSc4cS8sE+CkHTXMbAG+e7xeM=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Content\Images\Ball.xnb" size="10187">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>tVYRyDSwfyGLvQDddVqhTJg3dXw=</dsig:DigestValue>
+      <dsig:DigestValue>kTpBp1KAtt2PgEZ6rx0iYEK/m0I=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Images\door.xnb" size="65723">
@@ -283,7 +265,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>3gqbHSL2kvvZrYK0RibJ+UNfKuo=</dsig:DigestValue>
+      <dsig:DigestValue>Ld6tQ39WB0GdRGY9TX3MZDqTm2c=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Images\Maps\External\test01.xnb" size="1388347">
@@ -367,15 +349,6 @@
       <dsig:DigestValue>7/QXw1W6ZbL95IKXH3vnxoLASQY=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Images\zombie.xnb" size="10187">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>SeW29jtt0f9WB/z0/V+QIuBoFnE=</dsig:DigestValue>
-    </hash>
-  </file>
   <file name="Content\Sounds\damagedplayer.xnb" size="59013">
     <hash>
       <dsig:Transforms>
@@ -454,7 +427,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>9SgpiVRwXzmXKxJg8KXheyBF1pc=</dsig:DigestValue>
+      <dsig:DigestValue>1sN8wr9b2Pn+bV7JLSUDcMmIu/Q=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Sounds\Unseen Horrors.xnb" size="132">
