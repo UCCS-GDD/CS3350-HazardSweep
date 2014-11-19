@@ -358,6 +358,7 @@ namespace Hazard_Sweep.Classes
                 mousePosition.X = reticle.readPosition.X;
                 mousePosition.Y = reticle.readPosition.Y;
                 bulletDirection = mousePosition - position;
+                bulletDirection.Y -= 30;
                 if(bulletDirection != Vector2.Zero)
                 {
                     bulletDirection.Normalize();

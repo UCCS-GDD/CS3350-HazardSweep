@@ -47,3 +47,4 @@ Content\Sounds\damagedplayer.xnb
 Content\Sounds\zombiedamage.xnb
 Content\Sounds\Unseen Horrors.xnb
 Content\Sounds\Unseen Horrors.wma
+Content\Images\Maps\Internal\test01.xnb
