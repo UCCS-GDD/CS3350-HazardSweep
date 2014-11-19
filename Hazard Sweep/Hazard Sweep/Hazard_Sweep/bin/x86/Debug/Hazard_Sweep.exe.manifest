@@ -68,14 +68,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Hazard_Sweep.exe" size="43008">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Hazard_Sweep.exe" size="43520">
       <assemblyIdentity name="Hazard_Sweep" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>jl6ZGMenJYpyY4mGemXb7Oysc0o=</dsig:DigestValue>
+        <dsig:DigestValue>C+d6lflIEBKnbfCf3eDOyo/kHYY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

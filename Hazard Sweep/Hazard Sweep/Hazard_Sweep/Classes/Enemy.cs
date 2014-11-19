@@ -228,7 +228,7 @@ namespace Hazard_Sweep.Classes
         }
 
         //method for AI
-        protected void AI()
+        protected virtual void AI()
         {
             //enemy AI (moves enemy towards player
             Vector2 direction = target - position;

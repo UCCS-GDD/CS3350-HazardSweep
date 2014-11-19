@@ -19,6 +19,19 @@ namespace Hazard_Sweep.Classes
             : base(game, textureFile, position, spriteRows, spriteCols)
         {
             health = 5;
+            moveSpeed = 5;
         }
-    }
+        protected override void AI()
+        {
+            //enemy AI (moves enemy towards player
+            Vector2 direction = target - position;
+            direction.Normalize();
+            //enemy will only move towards player if the player is within 250
+            if (Math.Abs(Vector2.Distance(target, position)) < 600)
+            {
+                Vector2 velocity = direction * moveSpeed;
+                position += velocity;
+            }
+        }
+    }    
 }
