@@ -65,6 +65,7 @@ namespace Hazard_Sweep.Classes
         bool nearNPC = false;
         Vector2 newPosition;
         bool displayActivationMessage = false;
+        bool displayNPCMessage = false;
         bool teleportReleased = true;
         int newRoom;
         int currentRoom;
@@ -223,6 +224,8 @@ namespace Hazard_Sweep.Classes
                         if (b.Intersects(this.boundingBox))
                         {
                             nearNPC = true;
+                            displayNPCMessage = true;
+                            displayTimer = 0;
                         }
                     }
                     else if (g is itemDrop)
@@ -302,6 +305,7 @@ namespace Hazard_Sweep.Classes
                 {
                     // in the future, we'll have this display dialogue to give quests
                     nearNPC = false;
+                    displayNPCMessage = false;
                     ((Game1)Game).ChangeGameState(Game1.GameState.WIN);
                 }
 
@@ -319,6 +323,7 @@ namespace Hazard_Sweep.Classes
                 if(displayTimer == 2)
                 {
                     displayActivationMessage = false;
+                    displayNPCMessage = false;
                     displayTimer = 0;
                 }
 
@@ -550,6 +555,8 @@ namespace Hazard_Sweep.Classes
 
                 if (displayActivationMessage) 
                     sb.DrawString(instructFont, "press E to proceed", new Vector2(position.X - 32, position.Y - 64), Color.Black);
+                if (displayNPCMessage)
+                    sb.DrawString(instructFont, "press E to talk to scientist", new Vector2(position.X - 32, position.Y - 64), Color.Black);
             }
         }
 
