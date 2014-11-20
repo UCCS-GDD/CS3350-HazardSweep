@@ -57,6 +57,7 @@ namespace Hazard_Sweep
         SpriteFont objFont;
         int objTimer;
         bool objShow;
+        public int objRoom;
 
         public Game1()
         {
@@ -83,6 +84,9 @@ namespace Hazard_Sweep
             gameObj = Objective.Scientist;
             objTimer = 0;
             objShow = true;
+
+            Random random = new Random();
+            objRoom = random.Next(10, 18);
 
             player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,
                 GlobalClass.ScreenHeight / 2), 2, 6, this);
@@ -502,6 +506,19 @@ namespace Hazard_Sweep
         {
             return camera;
         }
+
+        // return room id with objective
+        public int GetObjRoom()
+        {
+            return objRoom;
+        }
+
+        // return game objective
+        public Objective GetObjective()
+        {
+            return gameObj;
+        }
+
 
         #region Shuffling
         // found at http://stackoverflow.com/questions/273313/randomize-a-listt-in-c-sharp

@@ -26,7 +26,7 @@ namespace Hazard_Sweep.Classes
         private int roomWidth = 1049;
         private int roomHeight = 576;
         private Random rand = new Random();
-        private const int maxZombie = 8;
+        private const int maxZombie = 7;
 
         Vector2 boundaryPosition;
 
@@ -206,7 +206,6 @@ namespace Hazard_Sweep.Classes
                     break;
                 case 13:
                     game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 4));
-                    game.Components.Add(new NPC(game, "Images//scientist", new Vector2(550, 300), Facing.Left));
                     break;
                 case 14:
                     game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 5));
@@ -220,45 +219,48 @@ namespace Hazard_Sweep.Classes
                 case 17:
                     game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 8));
                     break;
-
-                    //load in random zombie count
-
             }
 
-            //spawn bosses
-            int bossChance = randomNumGen(0, 3);
-            if(bossChance == 0)
+            SpawnObjective();
+
+            if (((Game1)Game).GetObjRoom() != this.id)
             {
-                //int xLoc = rand.Next(boundingBox.Width);
-                int xLoc = rand.Next(200, 2210);
-                int yLoc = rand.Next(200, 400);
-                Vector2 location = new Vector2(xLoc, yLoc);
-
-                while (Vector2.Distance(location, player.getPosition()) < 700)
+                //load in random zombie count
+                //spawn bosses
+                int bossChance = randomNumGen(0, 3);
+                if (bossChance == 0)
                 {
-                    location.X = rand.Next(200, 2210);
-                    location.Y = rand.Next(200, 400);
+                    //int xLoc = rand.Next(boundingBox.Width);
+                    int xLoc = rand.Next(200, 2210);
+                    int yLoc = rand.Next(200, 400);
+                    Vector2 location = new Vector2(xLoc, yLoc);
+
+                    while (Vector2.Distance(location, player.getPosition()) < 700)
+                    {
+                        location.X = rand.Next(200, 2210);
+                        location.Y = rand.Next(200, 400);
+                    }
+                    Enemy temp = new Boss(game, "Images//enemyWalk", location, 2, 5);
+                    game.Components.Add(temp);
                 }
-                Enemy temp = new Boss(game, "Images//enemyWalk", location, 2, 5);
-                game.Components.Add(temp);
-            }
 
-            int zombieNum = randomNumGen(1, maxZombie);
+                int zombieNum = randomNumGen(1, maxZombie);
 
-            for (int i = 0; i <= zombieNum; i++)
-            {
-                // int xLoc = rand.Next(boundingBox.Width);
-                int xLoc = rand.Next(200, 2210);
-                int yLoc = rand.Next(200, 400);
-                Vector2 location = new Vector2(xLoc, yLoc);
-
-                while (Vector2.Distance(location, player.getPosition()) < 500)
+                for (int i = 0; i <= zombieNum; i++)
                 {
-                    location.X = rand.Next(200, 2210);
-                    location.Y = rand.Next(200, 400);
+                    // int xLoc = rand.Next(boundingBox.Width);
+                    int xLoc = rand.Next(200, 2210);
+                    int yLoc = rand.Next(200, 400);
+                    Vector2 location = new Vector2(xLoc, yLoc);
+
+                    while (Vector2.Distance(location, player.getPosition()) < 500)
+                    {
+                        location.X = rand.Next(200, 2210);
+                        location.Y = rand.Next(200, 400);
+                    }
+                    Enemy temp = new Enemy(game, "Images//enemyWalk", location, 2, 5);
+                    game.Components.Add(temp);
                 }
-                Enemy temp = new Enemy(game, "Images//enemyWalk", location, 2, 5);
-                game.Components.Add(temp);
             }
             //game.Components.Add(new Door(game, "Images//door", topDoorPos, topTeleport, true));
             //game.Components.Add(new Door(game, "Images//door", leftDoorPos, leftTeleport, true));
@@ -309,5 +311,19 @@ namespace Hazard_Sweep.Classes
         {
             return roomRectangle;
         }
+
+        // spawn objective in randomly assigned room
+        public void SpawnObjective()
+        {
+            NPC scientist = new NPC(game, "Images//scientist", new Vector2(1000, 300), Facing.Left);
+
+            if (((Game1)Game).GetObjRoom() == this.id)
+            {
+                if (((Game1)Game).GetObjective() == Objective.Scientist)
+                    game.Components.Add(scientist);
+            }
+        }
+
+
     }
 }
