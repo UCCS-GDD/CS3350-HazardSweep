@@ -87,14 +87,14 @@ namespace Hazard_Sweep
             player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,
                 GlobalClass.ScreenHeight / 2), 2, 6, this);
 
-            gridNumbers = new List<int>(Enumerable.Range(0,9));
+            gridNumbers = new List<int>(Enumerable.Range(0, 9));
             Shuffle(gridNumbers);
 
             street0 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.White, 0);
-            street1 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightBlue,1);
-            street2 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightCoral,2);
+            street1 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightBlue, 1);
+            street2 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightCoral, 2);
             street3 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGoldenrodYellow, 3);
-            street4 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGreen,4);
+            street4 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGreen, 4);
             street5 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGray, 5);
             street6 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightPink, 6);
             street7 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightSteelBlue, 7);
@@ -141,7 +141,7 @@ namespace Hazard_Sweep
             // what is this for?
             Random rand = new Random();
 
-            
+
 
             base.Initialize();
         }
@@ -276,17 +276,17 @@ namespace Hazard_Sweep
                 //testExMap.Draw(spriteBatch);
                 base.Draw(gameTime);
 
-                spriteBatch.End();       
+                spriteBatch.End();
 
             }
-            
+
             if (currentGameState == GameState.START)
             {
                 //spriteBatch.Begin();
                 splashScreen.Draw(gameTime);
                 //spriteBatch.End();
             }
-            
+
             if (currentGameState == GameState.MENU)
             {
                 menuScreen.Draw(gameTime);
@@ -602,7 +602,7 @@ namespace Hazard_Sweep
         public void playZombieDamage()
         {
             SoundEffectInstance zombieDamageInst = zombieDamage.CreateInstance();
-            zombieDamageInst.Volume = .5f;
+            zombieDamageInst.Volume = .6f;
             zombieDamageInst.Play();
         }
 
@@ -615,37 +615,37 @@ namespace Hazard_Sweep
             {
                 case 1:
                     SoundEffectInstance temp1 = zombie1.CreateInstance();
-                    temp1.Volume = .5f;
+                    temp1.Volume = .3f;
                     temp1.Play();
                     break;
                 case 2:
                     SoundEffectInstance temp2 = zombie2.CreateInstance();
-                    temp2.Volume = .5f;
+                    temp2.Volume = .3f;
                     temp2.Play();
                     break;
                 case 3:
                     SoundEffectInstance temp3 = zombie3.CreateInstance();
-                    temp3.Volume = .5f;
+                    temp3.Volume = .3f;
                     temp3.Play();
                     break;
                 case 4:
                     SoundEffectInstance temp4 = zombie4.CreateInstance();
-                    temp4.Volume = .5f;
+                    temp4.Volume = .3f;
                     temp4.Play();
                     break;
                 case 5:
                     SoundEffectInstance temp5 = zombie5.CreateInstance();
-                    temp5.Volume = .5f;
+                    temp5.Volume = .3f;
                     temp5.Play();
                     break;
                 case 6:
                     SoundEffectInstance temp6 = zombie6.CreateInstance();
-                    temp6.Volume = .5f;
+                    temp6.Volume = .3f;
                     temp6.Play();
                     break;
                 case 7:
                     SoundEffectInstance temp7 = zombie7.CreateInstance();
-                    temp7.Volume = .5f;
+                    temp7.Volume = .3f;
                     temp7.Play();
                     break;
                 default:

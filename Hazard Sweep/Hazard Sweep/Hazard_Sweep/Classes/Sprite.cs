@@ -25,7 +25,8 @@ namespace Hazard_Sweep.Classes
         protected Rectangle boundingBox;
 
         //default constructor (mainly to make references easy)
-        public Sprite(Game game) : base(game)
+        public Sprite(Game game)
+            : base(game)
         {
         }
 
@@ -100,7 +101,7 @@ namespace Hazard_Sweep.Classes
                 //sb.Draw(texture, position, null, color, 0f, center, 1.0f, SpriteEffects.None,
                 //    0f);
                 sb.Draw(texture, position, color);
-             //   sb.End();
+                //   sb.End();
 
                 base.Draw(gameTime);
             }

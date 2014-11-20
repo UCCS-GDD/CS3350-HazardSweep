@@ -35,11 +35,11 @@ namespace Hazard_Sweep.Classes
         {
             //determine how much damage the bullet should do
             foreach (GameComponent g in game.Components)
-                if(g is PlayerSprite)
+                if (g is PlayerSprite)
                 {
                     PlayerSprite p = (PlayerSprite)g;
-                    Weapon w = p.GetWeapon(); 
-                    if(w.GetWeaponType() == WeaponType.Shotgun)
+                    Weapon w = p.GetWeapon();
+                    if (w.GetWeaponType() == WeaponType.Shotgun)
                     {
                         damage = 2;
                     }
@@ -55,7 +55,7 @@ namespace Hazard_Sweep.Classes
 
             Sprite collisionSprite = new Sprite(game);
             //check for collisions
-            foreach( GameComponent g in game.Components)
+            foreach (GameComponent g in game.Components)
             {
                 if (g is Enemy)
                 {
@@ -72,9 +72,9 @@ namespace Hazard_Sweep.Classes
             }
 
             //remove objects that have collided (can't be removed in the loop)
-            if(remove)
+            if (remove)
             {
-                game.Components.Remove(this);               
+                game.Components.Remove(this);
             }
 
             base.Update(gameTime);

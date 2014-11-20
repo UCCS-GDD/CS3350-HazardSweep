@@ -161,7 +161,7 @@ namespace Hazard_Sweep.Classes
                 }
 
                 //movement
-                AI();               
+                AI();
 
                 // animate
 
@@ -216,7 +216,6 @@ namespace Hazard_Sweep.Classes
             {
                 sb = Game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
                 sb.Draw(texture, position, sRec, color, 0f, new Vector2(0f, 0f), new Vector2(2f, 2f), SpriteEffects.None, 0.5f);
-                //sb.Draw(texture, collisionRec, Color.Red);
             }
         }
 
