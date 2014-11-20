@@ -27,6 +27,7 @@ namespace Hazard_Sweep
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        public static Random Random;
 
         PlayerSprite player;
         GameElements elements;
@@ -66,6 +67,8 @@ namespace Hazard_Sweep
 
             graphics.PreferredBackBufferWidth = 1024;
             graphics.PreferredBackBufferHeight = 576;
+
+            Random = new Random();
         }
 
         /// <summary>
@@ -84,9 +87,7 @@ namespace Hazard_Sweep
             gameObj = Objective.Scientist;
             objTimer = 0;
             objShow = true;
-
-            Random random = new Random();
-            objRoom = random.Next(10, 18);
+            objRoom = Random.Next(10, 18);
 
             player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,
                 GlobalClass.ScreenHeight / 2), 2, 6, this);
@@ -141,9 +142,6 @@ namespace Hazard_Sweep
             Components.Add(pauseScreen);
             Components.Add(endScreen);
             Components.Add(tutScreen);
-
-            // what is this for?
-            Random rand = new Random();
 
 
 
@@ -626,8 +624,7 @@ namespace Hazard_Sweep
         //method that plays a random zombie death noise when called
         public void playZombieDeath()
         {
-            Random rand = new Random();
-            int noise = rand.Next(1, 7);
+            int noise = Random.Next(1, 7);
             switch (noise)
             {
                 case 1:

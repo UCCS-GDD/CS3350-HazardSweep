@@ -15,7 +15,7 @@ namespace Hazard_Sweep.Classes
     class itemDrop : Sprite
     {
         //class variables
-        protected int r;
+        protected int r = 0;
         protected DropType type;
         protected int value;
         protected bool remove = false;

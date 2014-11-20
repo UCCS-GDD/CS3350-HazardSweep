@@ -25,7 +25,6 @@ namespace Hazard_Sweep.Classes
         private List<Sprite> sprites;
         private int roomWidth = 1049;
         private int roomHeight = 576;
-        private Random rand = new Random();
         private const int maxZombie = 7;
 
         Vector2 boundaryPosition;
@@ -231,14 +230,14 @@ namespace Hazard_Sweep.Classes
                 if (bossChance == 0)
                 {
                     //int xLoc = rand.Next(boundingBox.Width);
-                    int xLoc = rand.Next(200, 2210);
-                    int yLoc = rand.Next(200, 400);
+                    int xLoc = Game1.Random.Next(200, 2210);
+                    int yLoc = Game1.Random.Next(200, 400);
                     Vector2 location = new Vector2(xLoc, yLoc);
 
                     while (Vector2.Distance(location, player.getPosition()) < 700)
                     {
-                        location.X = rand.Next(200, 2210);
-                        location.Y = rand.Next(200, 400);
+                        location.X = Game1.Random.Next(200, 2210);
+                        location.Y = Game1.Random.Next(200, 400);
                     }
                     Enemy temp = new Boss(game, "Images//enemyWalk", location, 2, 5);
                     game.Components.Add(temp);
@@ -249,14 +248,14 @@ namespace Hazard_Sweep.Classes
                 for (int i = 0; i <= zombieNum; i++)
                 {
                     // int xLoc = rand.Next(boundingBox.Width);
-                    int xLoc = rand.Next(200, 2210);
-                    int yLoc = rand.Next(200, 400);
+                    int xLoc = Game1.Random.Next(200, 2210);
+                    int yLoc = Game1.Random.Next(200, 400);
                     Vector2 location = new Vector2(xLoc, yLoc);
 
                     while (Vector2.Distance(location, player.getPosition()) < 500)
                     {
-                        location.X = rand.Next(200, 2210);
-                        location.Y = rand.Next(200, 400);
+                        location.X = Game1.Random.Next(200, 2210);
+                        location.Y = Game1.Random.Next(200, 400);
                     }
                     Enemy temp = new Enemy(game, "Images//enemyWalk", location, 2, 5);
                     game.Components.Add(temp);

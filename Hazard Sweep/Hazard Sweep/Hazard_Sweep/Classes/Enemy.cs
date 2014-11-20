@@ -39,8 +39,6 @@ namespace Hazard_Sweep.Classes
         bool shouldColor;
         int colorTimer;
 
-        Random dropRandom;
-
         //class constructor
         public Enemy(Game game, string textureFile, Vector2 position, int spriteRows, int spriteCols)
             : base(game, textureFile, position, 10)
@@ -85,14 +83,13 @@ namespace Hazard_Sweep.Classes
         {
             if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
             {
-                dropRandom = new Random();
 
                 //logic for removal
                 if (health <= 0)
                 {
                     this.setRemove();
                     (game as Game1).playZombieDeath();
-                    int r = dropRandom.Next(0, 5);
+                    int r = Game1.Random.Next(0, 5);
                     if (r == 0)
                     {
                         game.Components.Add(new itemDrop(game, null, position));

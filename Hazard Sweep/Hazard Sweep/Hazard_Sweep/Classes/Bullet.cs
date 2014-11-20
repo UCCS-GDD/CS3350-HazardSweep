@@ -83,7 +83,7 @@ namespace Hazard_Sweep.Classes
         //random number generator
         public int randomNumGen(int min, int max)
         {
-            int value = random.Next(min, max);
+            int value = Game1.Random.Next(min, max);
             return value;
         }
     }

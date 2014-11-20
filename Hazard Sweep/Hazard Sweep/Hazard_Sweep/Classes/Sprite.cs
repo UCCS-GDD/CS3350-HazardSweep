@@ -19,7 +19,6 @@ namespace Hazard_Sweep.Classes
         protected Vector2 position;
         protected Vector2 center;
         protected Color color;
-        protected Random random;
         protected SpriteBatch sb;
         protected Game game;
         protected Rectangle boundingBox;
@@ -37,7 +36,6 @@ namespace Hazard_Sweep.Classes
             this.textureFile = textureFile;
             this.position = position;
             color = Color.White;
-            random = new Random();
             this.game = game;
             this.DrawOrder = drawOrder;
         }
@@ -122,7 +120,7 @@ namespace Hazard_Sweep.Classes
         //random number generator
         public int randomNumGen(int min, int max)
         {
-            int value = random.Next(min, max);
+            int value = Game1.Random.Next(min, max);
             return value;
         }
     }
