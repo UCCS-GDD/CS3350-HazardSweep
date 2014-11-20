@@ -15,6 +15,7 @@ namespace Hazard_Sweep.Classes
         protected int delay;
         protected Rectangle hitBox;
         protected Vector2 offset;
+        private int damage = 2;
 
         //constructor
         public MeleeWeapon(Game game, Vector2 offset, int hitBoxSize)
@@ -48,7 +49,7 @@ namespace Hazard_Sweep.Classes
                     //collision logic
                     if (hitBox.Intersects(e.getRectangle()))
                     {
-                        e.setRemove();
+                        e.removeHelth(damage);
                     }
                 }                
             }

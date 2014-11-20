@@ -23,6 +23,7 @@ namespace Hazard_Sweep.Classes
         protected int delay = 30;
         protected int spriteRows, spriteCols;
         protected Rectangle sRec;
+        protected Rectangle collisionRec;
         protected Facing direction;
         protected bool remove;
 
@@ -69,6 +70,10 @@ namespace Hazard_Sweep.Classes
             boundingBox.Width = texture.Width / spriteCols;
             boundingBox.X = (int)position.X;
             boundingBox.Y = (int)position.Y;
+            collisionRec.Height = texture.Height;
+            collisionRec.Width = texture.Width / 3;
+            collisionRec.X = boundingBox.X;
+            collisionRec.Y = boundingBox.Y;
 
             direction = Facing.Right;
         }
@@ -200,6 +205,8 @@ namespace Hazard_Sweep.Classes
             {
                 game.Components.Remove(this);
             }
+            collisionRec.X = boundingBox.X;
+            collisionRec.Y = boundingBox.Y;
         }
 
         //draw method
@@ -208,10 +215,8 @@ namespace Hazard_Sweep.Classes
             if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
             {
                 sb = Game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
-           //     sb.Begin();
-                // sb.Draw(texture, position, drawRectangle, Color.White);
                 sb.Draw(texture, position, sRec, color, 0f, new Vector2(0f, 0f), new Vector2(2f, 2f), SpriteEffects.None, 0.5f);
-           //     sb.End();
+                //sb.Draw(texture, collisionRec, Color.Red);
             }
         }
 
@@ -225,6 +230,12 @@ namespace Hazard_Sweep.Classes
         {
             health -= amount;
             (game as Game1).playZombieDamage();
+        }
+
+        //returns bounding box
+        public Rectangle getRectangle()
+        {
+            return collisionRec;
         }
 
         //method for AI
