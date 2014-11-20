@@ -46,7 +46,8 @@ namespace Hazard_Sweep.Classes
         {
             if (isActive)
             {
-                base.Draw(gameTime);
+                if (textureFile != "Images//door")
+                    base.Draw(gameTime);
             }
         }
 
@@ -72,6 +73,12 @@ namespace Hazard_Sweep.Classes
         public bool getActive()
         {
             return isActive;
+        }
+
+        //return position
+        public Vector2 GetPosition()
+        {
+            return position;
         }
     }
 }

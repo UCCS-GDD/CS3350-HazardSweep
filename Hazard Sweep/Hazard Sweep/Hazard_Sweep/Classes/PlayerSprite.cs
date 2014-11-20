@@ -71,6 +71,9 @@ namespace Hazard_Sweep.Classes
 
         Rectangle boundary;
 
+        SpriteFont instructFont;
+        int displayTimer = 0;
+
         //Constructor
         public PlayerSprite(Game game, string textureFile, Vector2 position, int spriteRows, int spriteCols, Game1 gameRef)
             : base(game, textureFile, position, 10)
@@ -139,9 +142,13 @@ namespace Hazard_Sweep.Classes
         {
             base.LoadContent();
 
+            // sprites for weapon types
             playerWalkPistol = game.Content.Load<Texture2D>("Images//playerWalkPistol");
             playerWalkRifle = game.Content.Load<Texture2D>("Images//playerWalkRifle");
             playerWalkShotgun = game.Content.Load<Texture2D>("Images//playerWalk");
+
+            // font for entering doors
+            instructFont = Game.Content.Load<SpriteFont>(@"Fonts\VtksMoney_30");
 
             //reticle
             reticle = new Reticle(game, "Images//reticle", new Vector2(0, 0), 20, gameRef);
@@ -200,8 +207,10 @@ namespace Hazard_Sweep.Classes
                         if (b.Intersects(this.boundingBox) && isActive)
                         {
                             inArea = true;
+                            displayActivationMessage = true;
                             newPosition = d.getExitLocation();
                             newRoom = d.getDestination();
+                            displayTimer = 0;
                         }
                     }
                     else if (g is NPC)
@@ -281,7 +290,7 @@ namespace Hazard_Sweep.Classes
                 //activation if player is in activation area
                 if (keyboardState.IsKeyDown(Keys.E) && inArea == true && teleportReleased)
                 {
-                    displayActivationMessage = true;
+                    displayActivationMessage = false;
                     inArea = false;
                     ((Game1)Game).ChangeLevel(currentRoom, newRoom);
                     this.DrawOrder = 20;
@@ -291,7 +300,7 @@ namespace Hazard_Sweep.Classes
 
                 if (keyboardState.IsKeyDown(Keys.E) && nearNPC == true)
                 {
-                    // in the future, we'll have this display dialogue to give guests
+                    // in the future, we'll have this display dialogue to give quests
                     nearNPC = false;
                     ((Game1)Game).ChangeGameState(Game1.GameState.WIN);
                 }
@@ -301,6 +310,16 @@ namespace Hazard_Sweep.Classes
                     teleportReleased = true;
                     inArea = false;
                     nearNPC = false;
+                }
+
+                if(displayTimer < 2 && !inArea)
+                {
+                    displayTimer++;
+                }
+                if(displayTimer == 2)
+                {
+                    displayActivationMessage = false;
+                    displayTimer = 0;
                 }
 
                 //logic for animation
@@ -528,6 +547,9 @@ namespace Hazard_Sweep.Classes
                 // sb.Draw(texture, position, drawRectangle, Color.White);
                 sb.Draw(texture, position, drawRectangle, color, 0f, new Vector2(0f, 0f), new Vector2(2f, 2f), SpriteEffects.None, 0.5f);
                 //  sb.End();
+
+                if (displayActivationMessage) 
+                    sb.DrawString(instructFont, "press E to proceed", new Vector2(position.X - 32, position.Y - 64), Color.Black);
             }
         }
 
