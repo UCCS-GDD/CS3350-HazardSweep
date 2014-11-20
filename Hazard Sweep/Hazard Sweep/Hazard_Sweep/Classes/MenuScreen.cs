@@ -20,7 +20,9 @@ namespace Hazard_Sweep.Classes
         SpriteFont mainSpriteFont;
         SpriteFont secondarySpriteFont;
         SpriteBatch spriteBatch;
-        string credits = "Executive Producer-Eaven Sheets\n\nLead Game Designer-James Carlson\n\nLead Game Engineer-Tate Krejci\n\nLead Game Tester-Nick Kasza\n\nLead Game Artist-Alex Nissen";
+        string credits = "Executive Producer     Eaven Sheets\n\nLead Game Designer     James Carlson\n\nLead Game Engineer     Tate Krejci\n\nLead Game Tester        Nick Kasza\n\nLead Game Artist        Alex Nissen"
+            + "\n\n\n\nSound Effects\n\nDownloaded from Soundbible.com\n\n\n\nPistol Firing                 GoodSoundForYou\n\nShotgun Firing              Soundeffects\n\nMachine Gun Firing         WEL\n\nShell Hitting Ground     Marcel"
+            + "\n\nReload                          Mike Koenig\n\nZombies                         Nick Kasza\n                                    Stefanie Matthews";
         KeyboardState newState;
         KeyboardState lastState = Keyboard.GetState();
         string[] menuItemSelected = { "start", "how to play", "credits", "exit" };
@@ -115,9 +117,9 @@ namespace Hazard_Sweep.Classes
             }
             if (creditsVisible == true)
             {
-                creditsMove -= gameTime.ElapsedGameTime.Milliseconds/8;
+                creditsMove -= gameTime.ElapsedGameTime.Milliseconds / 8;
 
-                if (creditsMove < -725)
+                if (creditsMove < -1000)
                 {
                     creditsVisible = false;
                     creditsMove = 0;
@@ -132,9 +134,9 @@ namespace Hazard_Sweep.Classes
             Color tint;
 
             Vector2 TitleSize = mainSpriteFont.MeasureString(credits);
-            creditsPosition = new Vector2(Game.Window.ClientBounds.Width / 2 - TitleSize.X / 2 - 165,
+            creditsPosition = new Vector2(Game.Window.ClientBounds.Width / 2 - TitleSize.X / 2 - 130,
                 Game.Window.ClientBounds.Height / 2 + 300 + creditsMove);
-            position = new Vector2(Game.Window.ClientBounds.Width / 2 + 50,
+            position = new Vector2(Game.Window.ClientBounds.Width / 2 + 100,
                 Game.Window.ClientBounds.Height / 2);
 
             if (creditsVisible == true)
