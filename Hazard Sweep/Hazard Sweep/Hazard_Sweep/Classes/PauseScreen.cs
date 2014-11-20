@@ -73,7 +73,7 @@ namespace Hazard_Sweep.Classes
             spriteBatch.Begin();
 
             mainText = "GAME PAUSED";
-            secondaryText = "press enter to continue";
+            secondaryText = "press escape to continue";
 
             //Get size of string
             Vector2 TitleSize = mainSpriteFont.MeasureString(mainText);
