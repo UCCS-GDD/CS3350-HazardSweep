@@ -34,8 +34,9 @@ namespace Hazard_Sweep
         List<int> gridNumbers;
 
         //Splash screen
-        public enum GameState { START, PLAY, PAUSE, WIN, LOSE };
+        public enum GameState { START, PLAY, PAUSE, MENU, WIN, LOSE };
         SplashScreen splashScreen;
+        MenuScreen menuScreen;
         GameState currentGameState = GameState.START;
 
         //pause press
@@ -112,8 +113,9 @@ namespace Hazard_Sweep
 
             //Splashscreen component
             splashScreen = new SplashScreen(this);
+            menuScreen = new MenuScreen(this);
             Components.Add(splashScreen);
-            splashScreen.SetData("HAZARD SWEEP", "#", "#", currentGameState);
+            Components.Add(menuScreen);
 
             // what is this for?
             Random rand = new Random();
@@ -242,13 +244,18 @@ namespace Hazard_Sweep
                 spriteBatch.End();       
 
             }
-            if (currentGameState != GameState.PLAY)
+            
+            if (currentGameState == GameState.START)
             {
                 //spriteBatch.Begin();
                 splashScreen.Draw(gameTime);
                 //spriteBatch.End();
             }
-
+            
+            if (currentGameState == GameState.MENU)
+            {
+                menuScreen.Draw(gameTime);
+            }
 
             //draw hud
             if (currentGameState == GameState.PLAY)
@@ -270,26 +277,28 @@ namespace Hazard_Sweep
         {
             currentGameState = state;
 
+            splashScreen.Enabled = false;
+            splashScreen.Visible = false;
+            menuScreen.Enabled = false;
+            menuScreen.Visible = false;
+
             switch (currentGameState)
             {
+                case GameState.START:
+                    splashScreen.Enabled = true;
+                    splashScreen.Visible = true;
+                    break;
                 case GameState.PLAY:
-                    splashScreen.Enabled = false;
-                    splashScreen.Visible = false;
                     break;
                 case GameState.PAUSE:
-                    splashScreen.SetData("PAUSED!", "{", "{", GameState.PAUSE);
-                    splashScreen.Enabled = true;
-                    splashScreen.Visible = true;
+                    break;
+                case GameState.MENU:
+                    menuScreen.Enabled = true;
+                    menuScreen.Visible = true;
                     break;
                 case GameState.LOSE:
-                    splashScreen.SetData("GAME OVER", "I", "I", GameState.LOSE);
-                    splashScreen.Enabled = true;
-                    splashScreen.Visible = true;
                     break;
                 case GameState.WIN:
-                    splashScreen.SetData("YOU WON", "", "", GameState.WIN);
-                    splashScreen.Enabled = true;
-                    splashScreen.Visible = true;
                     break;
             }
         }
