@@ -79,7 +79,7 @@ namespace Hazard_Sweep.Classes
             //Draw main text
             spriteBatch.Draw(tutTexture, sourceRect, Color.White);
             spriteBatch.DrawString(mainSpriteFont, mainText, new Vector2(Game.Window.ClientBounds.Width / 2 - TitleSize.X / 2 + 100,
-                Game.Window.ClientBounds.Height / 2 - 260), Color.DarkRed);
+                Game.Window.ClientBounds.Height / 2 - 260), Color.White);
 
 
             spriteBatch.End();
