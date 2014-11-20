@@ -18,12 +18,17 @@ namespace Hazard_Sweep.Classes
     public class MenuScreen : Microsoft.Xna.Framework.DrawableGameComponent
     {
         SpriteFont mainSpriteFont;
+        SpriteFont secondarySpriteFont;
         SpriteBatch spriteBatch;
+        string credits = "Executive Producer-Eaven Sheets\nLead Game Designer-James Carlson\nLead Game Engineer-Tate Krejci\nLead Game Tester-Nick Kasza\nLead Game Artist-Alex Nissen";
         KeyboardState newState;
         KeyboardState lastState = Keyboard.GetState();
         string[] menuItemSelected = { "start", "how to play", "credits", "exit" };
         int itemSelected = 0;
         bool enterRelease = false, upRelease = false, downRelease = false;
+        bool creditsVisible = false;
+        Vector2 creditsPosition;
+        Vector2 position;
 
         public MenuScreen(Game game)
             : base(game)
@@ -35,6 +40,7 @@ namespace Hazard_Sweep.Classes
         {
             //Load fonts
             mainSpriteFont = Game.Content.Load<SpriteFont>(@"Fonts\VtksMoney_30");
+            secondarySpriteFont = Game.Content.Load<SpriteFont>(@"Fonts\Necro_14");
 
             //Create sprite batch
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
@@ -71,7 +77,8 @@ namespace Hazard_Sweep.Classes
                         ((Game1)Game).ChangeGameState(Game1.GameState.PLAY);
                     if (itemSelected == 1)
                         ((Game1)Game).ChangeGameState(Game1.GameState.TUT);
-                    // if (itemSelected == 2)
+                    if (itemSelected == 2)
+                        creditsVisible = true;
                     if (itemSelected == 3)
                         ((Game1)Game).Exit();
                 }
@@ -105,14 +112,28 @@ namespace Hazard_Sweep.Classes
 
                 base.Update(gameTime);
             }
+
+            if (creditsVisible == true)
+            {
+                creditsPosition.Y += 3;
+            }
         }
 
         public override void Draw(GameTime gameTime)
         {
             spriteBatch.Begin();
             Color tint;
-            Vector2 position = new Vector2(Game.Window.ClientBounds.Width / 2 + 50,
+
+            Vector2 TitleSize = mainSpriteFont.MeasureString(credits);
+            creditsPosition = new Vector2(Game.Window.ClientBounds.Width / 2 - TitleSize.X / 2 - 165,
+                Game.Window.ClientBounds.Height / 2 + 200);
+            position = new Vector2(Game.Window.ClientBounds.Width / 2 + 50,
                 Game.Window.ClientBounds.Height / 2);
+
+            if (creditsVisible == true)
+            {
+                spriteBatch.DrawString(secondarySpriteFont, credits, creditsPosition, Color.Yellow);
+            }
 
             for (int i = 0; i < menuItemSelected.Length; i++)
             {
