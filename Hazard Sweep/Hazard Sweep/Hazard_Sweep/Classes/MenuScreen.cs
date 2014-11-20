@@ -28,6 +28,7 @@ namespace Hazard_Sweep.Classes
         bool enterRelease = false, upRelease = false, downRelease = false;
         bool creditsVisible = false;
         Vector2 creditsPosition;
+        int creditsMove = 0;
         Vector2 position;
 
         public MenuScreen(Game game)
@@ -112,11 +113,11 @@ namespace Hazard_Sweep.Classes
 
                 base.Update(gameTime);
             }
-
             if (creditsVisible == true)
             {
-                creditsPosition.Y += 3;
+                creditsMove -= gameTime.ElapsedGameTime.Milliseconds/5;
             }
+
         }
 
         public override void Draw(GameTime gameTime)
@@ -126,7 +127,7 @@ namespace Hazard_Sweep.Classes
 
             Vector2 TitleSize = mainSpriteFont.MeasureString(credits);
             creditsPosition = new Vector2(Game.Window.ClientBounds.Width / 2 - TitleSize.X / 2 - 165,
-                Game.Window.ClientBounds.Height / 2 + 200);
+                Game.Window.ClientBounds.Height / 2 + 200 + creditsMove);
             position = new Vector2(Game.Window.ClientBounds.Width / 2 + 50,
                 Game.Window.ClientBounds.Height / 2);
 
