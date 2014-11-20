@@ -20,7 +20,7 @@ namespace Hazard_Sweep.Classes
         SpriteFont mainSpriteFont;
         SpriteFont secondarySpriteFont;
         SpriteBatch spriteBatch;
-        string credits = "Executive Producer-Eaven Sheets\nLead Game Designer-James Carlson\nLead Game Engineer-Tate Krejci\nLead Game Tester-Nick Kasza\nLead Game Artist-Alex Nissen";
+        string credits = "Executive Producer-Eaven Sheets\n\nLead Game Designer-James Carlson\n\nLead Game Engineer-Tate Krejci\n\nLead Game Tester-Nick Kasza\n\nLead Game Artist-Alex Nissen";
         KeyboardState newState;
         KeyboardState lastState = Keyboard.GetState();
         string[] menuItemSelected = { "start", "how to play", "credits", "exit" };
@@ -115,7 +115,13 @@ namespace Hazard_Sweep.Classes
             }
             if (creditsVisible == true)
             {
-                creditsMove -= gameTime.ElapsedGameTime.Milliseconds/5;
+                creditsMove -= gameTime.ElapsedGameTime.Milliseconds/8;
+
+                if (creditsMove < -725)
+                {
+                    creditsVisible = false;
+                    creditsMove = 0;
+                }
             }
 
         }
@@ -127,7 +133,7 @@ namespace Hazard_Sweep.Classes
 
             Vector2 TitleSize = mainSpriteFont.MeasureString(credits);
             creditsPosition = new Vector2(Game.Window.ClientBounds.Width / 2 - TitleSize.X / 2 - 165,
-                Game.Window.ClientBounds.Height / 2 + 200 + creditsMove);
+                Game.Window.ClientBounds.Height / 2 + 300 + creditsMove);
             position = new Vector2(Game.Window.ClientBounds.Width / 2 + 50,
                 Game.Window.ClientBounds.Height / 2);
 
