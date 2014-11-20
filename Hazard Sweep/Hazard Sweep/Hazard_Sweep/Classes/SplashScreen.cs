@@ -62,7 +62,7 @@ namespace Hazard_Sweep.Classes
             //Did the player press Enter?
             if (Keyboard.GetState().IsKeyDown(Keys.Enter))
             {
-                ((Game1)Game).ChangeGameState(Game1.GameState.PLAY);
+                ((Game1)Game).ChangeGameState(Game1.GameState.MENU);
             }
 
             base.Update(gameTime);

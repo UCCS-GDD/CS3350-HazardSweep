@@ -22,7 +22,8 @@ namespace Hazard_Sweep.Classes
         KeyboardState newState;
         KeyboardState lastState = Keyboard.GetState();
         string[] menuItemSelected = { "start", "how to play", "credits", "exit" };
-        bool press, release = false;
+        int itemSelected = 0;
+        bool enterRelease = false, upRelease = false, downRelease = false;
 
         public MenuScreen(Game game)
             : base(game)
@@ -60,25 +61,49 @@ namespace Hazard_Sweep.Classes
         {
             // TODO: Add your update code here
             //Did the player press Enter?
-            newState = Keyboard.GetState();
-
-            if (newState.IsKeyDown(Keys.Enter))
+            if (((Game1)Game).GetGameState() == Game1.GameState.MENU)
             {
-                press = true;
-            }
-            if (newState.IsKeyUp(Keys.Enter) && press == true)
-            {
-                release = true;
-            }
+                newState = Keyboard.GetState();
 
-            if (newState.IsKeyDown(Keys.Enter) && (press == true) && (release == true))
-            {
-                ((Game1)Game).ChangeGameState(Game1.GameState.PLAY);
-                release = false;
-                press = false;
-            }
+                if (newState.IsKeyDown(Keys.Enter) && enterRelease)
+                {
+                    if (itemSelected == 0)
+                        ((Game1)Game).ChangeGameState(Game1.GameState.PLAY);
+                    // if (itemSelected == 1)
+                    // if (itemSelected == 2)
+                    if (itemSelected == 3)
+                        ((Game1)Game).Exit();
+                }
 
-            base.Update(gameTime);
+                if (newState.IsKeyUp(Keys.Enter))
+                    enterRelease = true;
+
+                if (newState.IsKeyDown(Keys.S) && downRelease || newState.IsKeyDown(Keys.Down) && downRelease)
+                {
+                    itemSelected++;
+                    downRelease = false;
+                }
+
+                if (newState.IsKeyUp(Keys.S) && newState.IsKeyUp(Keys.Down))
+                    downRelease = true;
+
+                if (newState.IsKeyDown(Keys.W) && upRelease || newState.IsKeyDown(Keys.Up) && upRelease)
+                {
+                    itemSelected -= 1;
+                    upRelease = false;
+                }
+
+                if (newState.IsKeyUp(Keys.W) && newState.IsKeyUp(Keys.Up))
+                    upRelease = true;
+
+                if (itemSelected == 4)
+                    itemSelected = 0;
+
+                if (itemSelected == -1)
+                    itemSelected = 3;
+
+                base.Update(gameTime);
+            }
         }
 
         public override void Draw(GameTime gameTime)
@@ -90,7 +115,10 @@ namespace Hazard_Sweep.Classes
 
             for (int i = 0; i < menuItemSelected.Length; i++)
             {
-                tint = Color.White;
+                if (i == itemSelected)
+                    tint = Color.Yellow;
+                else
+                    tint = Color.White;
 
                 spriteBatch.DrawString(mainSpriteFont, menuItemSelected[i], position, tint);
                 position.Y += 37;
