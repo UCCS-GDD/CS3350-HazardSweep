@@ -517,6 +517,11 @@ namespace Hazard_Sweep
             return gameObj;
         }
 
+        public void Restart()
+        {
+            this.Initialize();
+            this.LoadContent();
+        }
 
         #region Shuffling
         // found at http://stackoverflow.com/questions/273313/randomize-a-listt-in-c-sharp

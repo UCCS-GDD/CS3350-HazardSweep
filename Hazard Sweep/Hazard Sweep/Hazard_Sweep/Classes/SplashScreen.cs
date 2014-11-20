@@ -60,7 +60,7 @@ namespace Hazard_Sweep.Classes
         {
             // TODO: Add your update code here
             //Did the player press Enter?
-            if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && ((Game1)Game).GetGameState() == Game1.GameState.START)
             {
                 ((Game1)Game).ChangeGameState(Game1.GameState.MENU);
             }

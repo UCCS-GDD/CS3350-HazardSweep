@@ -61,7 +61,8 @@ namespace SplashScreenTest.Tests
         //{
         //    // TODO: Add your update code here
         //    //Did the player press Enter?
-        //    if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+        //    if (Keyboard.GetState().
+        )
         //    {
         //        //If we're not in end game, move to play state
         //        if (currentGameState == Game1.GameState.START || currentGameState == Game1.GameState.PAUSE)

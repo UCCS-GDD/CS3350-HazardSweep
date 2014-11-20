@@ -60,9 +60,21 @@ namespace Hazard_Sweep.Classes
         {
             // TODO: Add your update code here
             //Did the player press Enter?
-            if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+            if (((Game1)Game).GetGameState() == Game1.GameState.LOSE || ((Game1)Game).GetGameState() == Game1.GameState.WIN)
             {
-                Game.Exit();
+                //if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+                //{
+                //    //((Game1)Game).ChangeGameState(Game1.GameState.START);
+                //    using(Game1 g = new Game1())
+                //    {
+                //        g.Restart();
+                //    }
+                //}
+
+                if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+                {
+                    ((Game1)Game).Exit();
+                }
             }
 
             base.Update(gameTime);
@@ -71,7 +83,8 @@ namespace Hazard_Sweep.Classes
         public override void Draw(GameTime gameTime)
         {
             spriteBatch.Begin();
-            secondaryText = "press enter to quit";
+            //secondaryText = "press enter to return to menu";
+            secondaryText = "press escape to exit";
 
             //Get size of string
             Vector2 TitleSize = mainSpriteFont.MeasureString(mainText);

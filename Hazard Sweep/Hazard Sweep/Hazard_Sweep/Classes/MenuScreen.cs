@@ -74,7 +74,7 @@ namespace Hazard_Sweep.Classes
             {
                 newState = Keyboard.GetState();
 
-                if (newState.IsKeyDown(Keys.Enter) && enterRelease)
+                if (newState.IsKeyDown(Keys.Enter) && enterRelease && ((Game1)Game).GetGameState() == Game1.GameState.MENU)
                 {
                     if (itemSelected == 0)
                         ((Game1)Game).ChangeGameState(Game1.GameState.PLAY);
