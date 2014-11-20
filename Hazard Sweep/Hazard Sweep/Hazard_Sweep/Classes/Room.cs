@@ -120,38 +120,87 @@ namespace Hazard_Sweep.Classes
                     game.Components.Add(new Barricade(game, "Images//WallEnd", leftWallPos));
                     game.Components.Add(new Door(game, "Images//door", rightDoorPos, rightTeleport, true, 1));
                     game.Components.Add(new Door(game, "Images//door", bottomDoorPos, bottomTeleport, true, 3));
+                    // figure something out to link interior to exterior
                     game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 9));
                     break;
                 case 1:
                     game.Components.Add(new Barricade(game, "Images//WallWide", topWallPos));
-                    game.Components.Add(new Barricade(game, "Images//WallEnd", rightWallPos));
                     game.Components.Add(new Door(game, "Images//door", leftDoorPos, leftTeleport, true, 0));
+                    game.Components.Add(new Door(game, "Images//door", rightDoorPos, rightTeleport, true, 2));
                     game.Components.Add(new Door(game, "Images//door", bottomDoorPos, bottomTeleport, true, 4));
+                    // nope
                     game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 10));
                     break;
-                //case 2:
+                case 2:
+                    game.Components.Add(new Barricade(game, "Images//WallWide", topWallPos));
+                    game.Components.Add(new Barricade(game, "Images//WallEnd", rightWallPos));
+                    game.Components.Add(new Door(game, "Images//door", leftDoorPos, leftTeleport, true, 2));
+                    game.Components.Add(new Door(game, "Images//door", bottomDoorPos, bottomTeleport, true, 5));
+                    // no
+                    game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 11));
+                    break;
                 case 3:
-                    game.Components.Add(new Barricade(game, "Images//WallWide", bottomWallPos));
                     game.Components.Add(new Barricade(game, "Images//WallEnd", leftWallPos));
                     game.Components.Add(new Door(game, "Images//door", topDoorPos,topTeleport, true, 0));
                     game.Components.Add(new Door(game, "Images//door", rightDoorPos, rightTeleport, true, 4));
+                    game.Components.Add(new Door(game, "Images//door", bottomDoorPos, bottomTeleport, true, 6));
+                    // nah
                     game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 12));
                     break;
                 case 4:
-                    game.Components.Add(new Barricade(game, "Images//WallWide", bottomWallPos));
-                    game.Components.Add(new Barricade(game, "Images//WallEnd", rightWallPos));
-                    game.Components.Add(new Door(game, "Images//door", topDoorPos, topTeleport, true, 1));
+                    game.Components.Add(new Door(game, "Images//door", topDoorPos,topTeleport, true, 1));
+                    game.Components.Add(new Door(game, "Images//door", rightDoorPos, rightTeleport, true, 5));
                     game.Components.Add(new Door(game, "Images//door", leftDoorPos, leftTeleport, true, 3));
+                    game.Components.Add(new Door(game, "Images//door", bottomDoorPos, bottomTeleport, true, 7));
+                    // nuh-uh
                     game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 13));
                     break;
-                // case 5,6,7,8
+                case 5:
+                    game.Components.Add(new Barricade(game, "Images//WallEnd", rightWallPos));
+                    game.Components.Add(new Door(game, "Images//door", leftDoorPos, leftTeleport, true, 4));
+                    game.Components.Add(new Door(game, "Images//door", topDoorPos,topTeleport, true, 2));
+                    game.Components.Add(new Door(game, "Images//door", bottomDoorPos, bottomTeleport, true, 8));
+                    // fix it!
+                    game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 14));
+                    break;
+                case 6:
+                    game.Components.Add(new Barricade(game, "Images//WallWide", bottomWallPos));
+                    game.Components.Add(new Barricade(game, "Images//WallEnd", leftWallPos));
+                    game.Components.Add(new Door(game, "Images//door", topDoorPos,topTeleport, true, 3));
+                    game.Components.Add(new Door(game, "Images//door", rightDoorPos, rightTeleport, true, 7));
+                    // stahp
+                    game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 15));
+                    break;
+                case 7:
+                    game.Components.Add(new Barricade(game, "Images//WallWide", bottomWallPos));
+                    game.Components.Add(new Door(game, "Images//door", topDoorPos,topTeleport, true, 4));
+                    game.Components.Add(new Door(game, "Images//door", rightDoorPos, rightTeleport, true, 8));
+                    game.Components.Add(new Door(game, "Images//door", leftDoorPos, leftTeleport, true, 6));
+                    // no no
+                    game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 16));
+                    break;
+                case 8:
+                    game.Components.Add(new Barricade(game, "Images//WallWide", bottomWallPos));
+                    game.Components.Add(new Barricade(game, "Images//WallEnd", rightWallPos));
+                    game.Components.Add(new Door(game, "Images//door", topDoorPos, topTeleport, true, 5));
+                    game.Components.Add(new Door(game, "Images//door", leftDoorPos, leftTeleport, true, 7));
+                    // your code is bad and you should feel bad
+                    game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 17));
+                    break;
+
+
+
+
+                // indoor
                 case 9:
                     game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 0));
                     break;
                 case 10:
                     game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 1));
                     break;
-                // case 11:
+                case 11:
+                    game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 2));
+                    break;
                 case 12:
                     game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 3));
                     break;
@@ -159,7 +208,18 @@ namespace Hazard_Sweep.Classes
                     game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 4));
                     game.Components.Add(new NPC(game, "Images//scientist", new Vector2(550, 300), Facing.Left));
                     break;
-                // case 14, 15, 16, 17
+                case 14:
+                    game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 5));
+                    break;
+                case 15:
+                    game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 6));
+                    break;
+                case 16:
+                    game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 7));
+                    break;
+                case 17:
+                    game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 8));
+                    break;
 
                     //load in random zombie count
 

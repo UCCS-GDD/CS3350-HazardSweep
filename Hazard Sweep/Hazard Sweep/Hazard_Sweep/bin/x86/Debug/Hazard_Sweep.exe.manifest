@@ -68,14 +68,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Hazard_Sweep.exe" size="44032">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Hazard_Sweep.exe" size="46080">
       <assemblyIdentity name="Hazard_Sweep" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>0G+CJCIRmKOl1YFQo8bxgUoYthU=</dsig:DigestValue>
+        <dsig:DigestValue>vHzBiF9w2IEIIPAYkRMlMotkhaI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -295,13 +295,13 @@
       <dsig:DigestValue>ha0fodet0lvAbqWG0ugQZ3kX/n0=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Images\Maps\Internal\test01.xnb" size="736315">
+  <file name="Content\Images\Maps\Internal\test01.xnb" size="1388347">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>QIKIk9BtU4v9YSg3B5228AQc11s=</dsig:DigestValue>
+      <dsig:DigestValue>FWdDaNLRiD9hmmK6Tx7u6+FiXQ4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Images\playerWalk.xnb" size="244627">

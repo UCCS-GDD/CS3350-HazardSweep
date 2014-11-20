@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Hazard_Sweep.Classes;
+using System.Threading;
 
 namespace Hazard_Sweep
 {
@@ -30,6 +31,7 @@ namespace Hazard_Sweep
         Camera camera;
         Room street0, street1, street2, street3, street4, street5, street6, street7, street8,
             room0, room1, room2, room3, room4, room5, room6, room7, room8;
+        List<int> gridNumbers;
 
         //Splash screen
         public enum GameState { START, PLAY, PAUSE, WIN, LOSE };
@@ -69,11 +71,14 @@ namespace Hazard_Sweep
             player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,
                 GlobalClass.ScreenHeight / 2), 2, 6, this);
 
+            gridNumbers = new List<int>(Enumerable.Range(0,9));
+            Shuffle(gridNumbers);
+
             street0 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.White, 0);
-            street1 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightBlue, 1);
-            street2 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightCoral, 2);
+            street1 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightBlue,1);
+            street2 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightCoral,2);
             street3 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGoldenrodYellow, 3);
-            street4 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGreen, 4);
+            street4 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGreen,4);
             street5 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGray, 5);
             street6 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightPink, 6);
             street7 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightSteelBlue, 7);
@@ -419,6 +424,35 @@ namespace Hazard_Sweep
         {
             return camera;
         }
+
+        #region Shuffling
+        // found at http://stackoverflow.com/questions/273313/randomize-a-listt-in-c-sharp
+
+        public static class ThreadSafeRandom
+        {
+            [ThreadStatic]
+            private static Random Local;
+
+            public static Random ThisThreadsRandom
+            {
+                get { return Local ?? (Local = new Random(unchecked(Environment.TickCount * 31 + Thread.CurrentThread.ManagedThreadId))); }
+            }
+        }
+
+        public static void Shuffle(List<int> list)
+        {
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = ThreadSafeRandom.ThisThreadsRandom.Next(n + 1);
+                int value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
+        }
+
+        #endregion
 
         #region sound effect methods
         //method to play reloading sound effect

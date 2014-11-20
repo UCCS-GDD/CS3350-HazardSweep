@@ -33,5 +33,6 @@ namespace Hazard_Sweep.Classes
                 position += velocity;
             }
         }
+
     }    
 }
