@@ -16,7 +16,9 @@ namespace Hazard_Sweep
     public enum Facing { Left, Right };
     public enum WeaponType { Melee, Pistol, AssaultRifle, Shotgun };
 
-    public enum DropType { Health, PistolAmmo, AssaultAmmo, ShotgunAmmo}
+    public enum DropType { Health, PistolAmmo, AssaultAmmo, ShotgunAmmo };
+
+    public enum Objective { Scientist };
 
     /// <summary>
     /// This is the main type for your game
@@ -50,6 +52,11 @@ namespace Hazard_Sweep
         SoundEffect reload, pistolFire, machineFire, shotgunFire, shells, stab, damagedPlayer, dryFire, zombieDamage;
         SoundEffect zombie1, zombie2, zombie3, zombie4, zombie5, zombie6, zombie7;
 
+        Objective gameObj;
+        SpriteFont objFont;
+        int objTimer;
+        bool objShow;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -70,6 +77,11 @@ namespace Hazard_Sweep
             // Adds screen size
             GlobalClass.ScreenWidth = graphics.PreferredBackBufferWidth;
             GlobalClass.ScreenHeight = graphics.PreferredBackBufferHeight;
+
+            // game objective... randomize later
+            gameObj = Objective.Scientist;
+            objTimer = 0;
+            objShow = true;
 
             player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,
                 GlobalClass.ScreenHeight / 2), 2, 6, this);
@@ -126,6 +138,8 @@ namespace Hazard_Sweep
             // what is this for?
             Random rand = new Random();
 
+            
+
             base.Initialize();
         }
 
@@ -163,6 +177,7 @@ namespace Hazard_Sweep
 
             // load game elements
             elements.LoadContent();
+            objFont = Content.Load<SpriteFont>(@"Fonts\VtksMoney_30");
 
             //testExMap.LoadContent();
 
@@ -216,6 +231,17 @@ namespace Hazard_Sweep
 
                 //update camera
                 camera.Update(gameTime, player);
+
+                // show objective
+                if (objTimer < 120)
+                    objTimer++;
+                if (objTimer >= 120)
+                    objShow = false;
+
+                if (keyboardState.IsKeyDown(Keys.Tab))
+                    objShow = true;
+                else if (objTimer >= 120)
+                    objShow = false;
             }
             else if (currentGameState == GameState.PAUSE)
             {
@@ -276,15 +302,16 @@ namespace Hazard_Sweep
             //draw hud
             if (currentGameState == GameState.PLAY)
             {
-                //foreach (IGameComponent g in Components)
-                //{
-                //    if (g is Reticle)
-                //    {
-                //        Reticle r = (Reticle)g;
-                //        r.Draw(spriteBatch);
-                //    }
-                //}
                 elements.Draw(spriteBatch);
+
+                spriteBatch.Begin();
+                if (objShow)
+                {
+                    if (gameObj == Objective.Scientist)
+                        spriteBatch.DrawString(objFont, "objective: find the scientist",
+                            new Vector2(32, 32), Color.Black);
+                }
+                spriteBatch.End();
             }
 
         }
