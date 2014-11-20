@@ -117,7 +117,7 @@ namespace Hazard_Sweep.Classes
             for (int i = 0; i < menuItemSelected.Length; i++)
             {
                 if (i == itemSelected)
-                    tint = Color.Yellow;
+                    tint = Color.DarkRed;
                 else
                     tint = Color.White;
 
