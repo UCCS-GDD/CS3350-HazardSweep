@@ -37,6 +37,8 @@ namespace Hazard_Sweep
         public enum GameState { START, PLAY, PAUSE, MENU, WIN, LOSE };
         SplashScreen splashScreen;
         MenuScreen menuScreen;
+        PauseScreen pauseScreen;
+        EndScreen endScreen;
         GameState currentGameState = GameState.START;
 
         //pause press
@@ -114,8 +116,12 @@ namespace Hazard_Sweep
             //Splashscreen component
             splashScreen = new SplashScreen(this);
             menuScreen = new MenuScreen(this);
+            pauseScreen = new PauseScreen(this);
+            endScreen = new EndScreen(this);
             Components.Add(splashScreen);
             Components.Add(menuScreen);
+            Components.Add(pauseScreen);
+            Components.Add(endScreen);
 
             // what is this for?
             Random rand = new Random();
@@ -257,6 +263,16 @@ namespace Hazard_Sweep
                 menuScreen.Draw(gameTime);
             }
 
+            if (currentGameState == GameState.PAUSE)
+            {
+                pauseScreen.Draw(gameTime);
+            }
+
+            if (currentGameState == GameState.WIN || currentGameState == GameState.LOSE)
+            {
+                endScreen.Draw(gameTime);
+            }
+
             //draw hud
             if (currentGameState == GameState.PLAY)
             {
@@ -281,6 +297,10 @@ namespace Hazard_Sweep
             splashScreen.Visible = false;
             menuScreen.Enabled = false;
             menuScreen.Visible = false;
+            pauseScreen.Enabled = false;
+            pauseScreen.Visible = false;
+            endScreen.Visible = false;
+            endScreen.Enabled = false;
 
             switch (currentGameState)
             {
@@ -291,14 +311,22 @@ namespace Hazard_Sweep
                 case GameState.PLAY:
                     break;
                 case GameState.PAUSE:
+                    pauseScreen.Enabled = true;
+                    pauseScreen.Visible = true;
                     break;
                 case GameState.MENU:
                     menuScreen.Enabled = true;
                     menuScreen.Visible = true;
                     break;
                 case GameState.LOSE:
+                    endScreen.setData("GAME OVER");
+                    endScreen.Visible = true;
+                    endScreen.Enabled = true;
                     break;
                 case GameState.WIN:
+                    endScreen.setData("HAZARD SWEPT");
+                    endScreen.Visible = true;
+                    endScreen.Enabled = true;
                     break;
             }
         }

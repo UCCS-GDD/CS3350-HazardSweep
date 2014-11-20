@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -15,7 +15,7 @@ namespace Hazard_Sweep.Classes
     /// <summary>
     /// This is a game component that implements IUpdateable.
     /// </summary>
-    public class SplashScreen : Microsoft.Xna.Framework.DrawableGameComponent
+    public class EndScreen : Microsoft.Xna.Framework.DrawableGameComponent
     {
         string mainText;
         string secondaryText;
@@ -23,7 +23,7 @@ namespace Hazard_Sweep.Classes
         SpriteFont secondarySpriteFont;
         SpriteBatch spriteBatch;
 
-        public SplashScreen(Game game)
+        public EndScreen(Game game)
             : base(game)
         {
             // TODO: Construct any child components here
@@ -62,7 +62,7 @@ namespace Hazard_Sweep.Classes
             //Did the player press Enter?
             if (Keyboard.GetState().IsKeyDown(Keys.Enter))
             {
-                ((Game1)Game).ChangeGameState(Game1.GameState.PLAY);
+                Game.Exit();
             }
 
             base.Update(gameTime);
@@ -71,9 +71,7 @@ namespace Hazard_Sweep.Classes
         public override void Draw(GameTime gameTime)
         {
             spriteBatch.Begin();
-
-            mainText = "HAZARD SWEEP";
-            secondaryText = "press enter to begin";
+            secondaryText = "press enter to quit";
 
             //Get size of string
             Vector2 TitleSize = mainSpriteFont.MeasureString(mainText);
@@ -91,6 +89,11 @@ namespace Hazard_Sweep.Classes
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        public void setData(string main)
+        {
+            mainText = main;
         }
     }
 }

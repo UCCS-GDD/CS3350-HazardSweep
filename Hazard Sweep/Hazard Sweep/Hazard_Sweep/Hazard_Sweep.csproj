@@ -91,11 +91,13 @@
     <Compile Include="Classes\Bullet.cs" />
     <Compile Include="Classes\Camera.cs" />
     <Compile Include="Classes\Door.cs" />
+    <Compile Include="Classes\EndScreen.cs" />
     <Compile Include="Classes\Enemy.cs" />
     <Compile Include="Classes\itemDrop.cs" />
     <Compile Include="Classes\MeleeWeapon.cs" />
     <Compile Include="Classes\MenuScreen.cs" />
     <Compile Include="Classes\NPC.cs" />
+    <Compile Include="Classes\PauseScreen.cs" />
     <Compile Include="Classes\Reticle.cs" />
     <Compile Include="Classes\SplashScreen.cs" />
     <Compile Include="Classes\GameElements.cs" />
