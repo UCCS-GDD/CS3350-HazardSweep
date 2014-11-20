@@ -36,11 +36,12 @@ namespace Hazard_Sweep
         List<int> gridNumbers;
 
         //Splash screen
-        public enum GameState { START, PLAY, PAUSE, MENU, WIN, LOSE };
+        public enum GameState { START, PLAY, PAUSE, MENU, TUT, WIN, LOSE };
         SplashScreen splashScreen;
         MenuScreen menuScreen;
         PauseScreen pauseScreen;
         EndScreen endScreen;
+        TutScreen tutScreen;
         GameState currentGameState = GameState.START;
 
         //pause press
@@ -130,10 +131,12 @@ namespace Hazard_Sweep
             menuScreen = new MenuScreen(this);
             pauseScreen = new PauseScreen(this);
             endScreen = new EndScreen(this);
+            tutScreen = new TutScreen(this);
             Components.Add(splashScreen);
             Components.Add(menuScreen);
             Components.Add(pauseScreen);
             Components.Add(endScreen);
+            Components.Add(tutScreen);
 
             // what is this for?
             Random rand = new Random();
@@ -299,6 +302,11 @@ namespace Hazard_Sweep
                 endScreen.Draw(gameTime);
             }
 
+            if (currentGameState == GameState.TUT)
+            {
+                tutScreen.Draw(gameTime);
+            }
+
             //draw hud
             if (currentGameState == GameState.PLAY)
             {
@@ -328,6 +336,8 @@ namespace Hazard_Sweep
             pauseScreen.Visible = false;
             endScreen.Visible = false;
             endScreen.Enabled = false;
+            tutScreen.Enabled = false;
+            tutScreen.Visible = false;
 
             switch (currentGameState)
             {
@@ -344,6 +354,10 @@ namespace Hazard_Sweep
                 case GameState.MENU:
                     menuScreen.Enabled = true;
                     menuScreen.Visible = true;
+                    break;
+                case GameState.TUT:
+                    tutScreen.Enabled = true;
+                    tutScreen.Visible = true;
                     break;
                 case GameState.LOSE:
                     endScreen.setData("GAME OVER");

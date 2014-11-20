@@ -373,3 +373,4 @@ C:\Users\Eaven Sheets\Source\Repos\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\
 C:\Users\Eaven Sheets\Source\Repos\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Hazard_Sweep.application
 C:\Users\Eaven Sheets\Source\Repos\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\obj\x86\Debug\Hazard_Sweep.exe.manifest
 C:\Users\Eaven Sheets\Source\Repos\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\obj\x86\Debug\Hazard_Sweep.application
+C:\Users\Eaven Sheets\Source\Repos\CS3350-HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Instructions.xnb

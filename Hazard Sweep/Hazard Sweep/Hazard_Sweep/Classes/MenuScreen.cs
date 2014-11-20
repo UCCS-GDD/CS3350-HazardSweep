@@ -69,7 +69,8 @@ namespace Hazard_Sweep.Classes
                 {
                     if (itemSelected == 0)
                         ((Game1)Game).ChangeGameState(Game1.GameState.PLAY);
-                    // if (itemSelected == 1)
+                    if (itemSelected == 1)
+                        ((Game1)Game).ChangeGameState(Game1.GameState.TUT);
                     // if (itemSelected == 2)
                     if (itemSelected == 3)
                         ((Game1)Game).Exit();
