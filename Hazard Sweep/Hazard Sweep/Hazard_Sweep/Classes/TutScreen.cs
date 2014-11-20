@@ -59,7 +59,7 @@ namespace Hazard_Sweep.Classes
         {
             // TODO: Add your update code here
             //Did the player press Enter?
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (Keyboard.GetState().IsKeyDown(Keys.Space))
             {
                 ((Game1)Game).ChangeGameState(Game1.GameState.MENU);
             }
@@ -71,7 +71,7 @@ namespace Hazard_Sweep.Classes
         {
             Rectangle sourceRect = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
 
-            mainText = "press escape to return";
+            mainText = "press space to return";
             Vector2 TitleSize = mainSpriteFont.MeasureString(mainText);
 
             spriteBatch.Begin();
@@ -79,7 +79,7 @@ namespace Hazard_Sweep.Classes
             //Draw main text
             spriteBatch.Draw(tutTexture, sourceRect, Color.White);
             spriteBatch.DrawString(mainSpriteFont, mainText, new Vector2(Game.Window.ClientBounds.Width / 2 - TitleSize.X / 2 + 100,
-                Game.Window.ClientBounds.Height / 2 - 240), Color.DarkRed);
+                Game.Window.ClientBounds.Height / 2 - 260), Color.DarkRed);
 
 
             spriteBatch.End();
