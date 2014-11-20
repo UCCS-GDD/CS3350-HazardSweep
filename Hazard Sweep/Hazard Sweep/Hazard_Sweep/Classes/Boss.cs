@@ -19,7 +19,7 @@ namespace Hazard_Sweep.Classes
             : base(game, textureFile, position, spriteRows, spriteCols)
         {
             health = 5;
-            moveSpeed = 5;
+            moveSpeed = 4;
         }
         protected override void AI()
         {
@@ -34,5 +34,13 @@ namespace Hazard_Sweep.Classes
             }
         }
 
+        public override void Draw(GameTime gameTime)
+        {
+            if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
+            {
+                sb = Game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
+                sb.Draw(texture, position, sRec, Color.Goldenrod, 0f, new Vector2(0f, 0f), new Vector2(2f, 2f), SpriteEffects.None, 0.5f);
+            }
+        }
     }    
 }

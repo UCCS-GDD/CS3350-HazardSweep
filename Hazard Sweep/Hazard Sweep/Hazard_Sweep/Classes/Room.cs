@@ -26,7 +26,7 @@ namespace Hazard_Sweep.Classes
         private int roomWidth = 1049;
         private int roomHeight = 576;
         private Random rand = new Random();
-        private const int maxZombie = 5;
+        private const int maxZombie = 8;
 
         Vector2 boundaryPosition;
 
@@ -229,13 +229,14 @@ namespace Hazard_Sweep.Classes
             int bossChance = randomNumGen(0, 3);
             if(bossChance == 0)
             {
-                int xLoc = rand.Next(boundingBox.Width);
+                //int xLoc = rand.Next(boundingBox.Width);
+                int xLoc = rand.Next(200, 2210);
                 int yLoc = rand.Next(200, 400);
                 Vector2 location = new Vector2(xLoc, yLoc);
 
-                while (Vector2.Distance(location, player.getPosition()) < 400)
+                while (Vector2.Distance(location, player.getPosition()) < 700)
                 {
-                    location.X = rand.Next(boundingBox.Width);
+                    location.X = rand.Next(200, 2210);
                     location.Y = rand.Next(200, 400);
                 }
                 Enemy temp = new Boss(game, "Images//enemyWalk", location, 2, 5);
@@ -246,13 +247,14 @@ namespace Hazard_Sweep.Classes
 
             for (int i = 0; i <= zombieNum; i++)
             {
-                int xLoc = rand.Next(boundingBox.Width);
+                // int xLoc = rand.Next(boundingBox.Width);
+                int xLoc = rand.Next(200, 2210);
                 int yLoc = rand.Next(200, 400);
                 Vector2 location = new Vector2(xLoc, yLoc);
 
-                while (Vector2.Distance(location, player.getPosition()) < 400)
+                while (Vector2.Distance(location, player.getPosition()) < 500)
                 {
-                    location.X = rand.Next(boundingBox.Width);
+                    location.X = rand.Next(200, 2210);
                     location.Y = rand.Next(200, 400);
                 }
                 Enemy temp = new Enemy(game, "Images//enemyWalk", location, 2, 5);
