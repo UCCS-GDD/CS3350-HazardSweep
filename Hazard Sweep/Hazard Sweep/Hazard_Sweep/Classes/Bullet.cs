@@ -41,7 +41,7 @@ namespace Hazard_Sweep.Classes
                     Weapon w = p.GetWeapon();
                     if (w.GetWeaponType() == WeaponType.Shotgun)
                     {
-                        damage = 2;
+                        damage = 1;
                     }
                     else
                     {
