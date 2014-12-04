@@ -214,13 +214,17 @@ namespace Hazard_Sweep
 
             KeyboardState keyboardState = Keyboard.GetState();
 
-            if (keyboardState.IsKeyDown(Keys.Escape))
+            if (currentGameState == GameState.PLAY || currentGameState == GameState.PAUSE)
             {
-                pressed = true;
-            }
-            if (keyboardState.IsKeyUp(Keys.Escape) && pressed == true)
-            {
-                released = true;
+
+                if (keyboardState.IsKeyDown(Keys.Escape))
+                {
+                    pressed = true;
+                }
+                if (keyboardState.IsKeyUp(Keys.Escape) && pressed == true)
+                {
+                    released = true;
+                }
             }
 
             if (currentGameState == GameState.PLAY)
