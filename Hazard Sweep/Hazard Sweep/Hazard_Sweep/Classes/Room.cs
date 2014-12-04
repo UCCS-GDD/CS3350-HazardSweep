@@ -133,7 +133,7 @@ namespace Hazard_Sweep.Classes
                 case 2:
                     game.Components.Add(new Barricade(game, "Images//WallWide", topWallPos));
                     game.Components.Add(new Barricade(game, "Images//WallEnd", rightWallPos));
-                    game.Components.Add(new Door(game, "Images//door", leftDoorPos, leftTeleport, true, 2));
+                    game.Components.Add(new Door(game, "Images//door", leftDoorPos, leftTeleport, true, 1));
                     game.Components.Add(new Door(game, "Images//door", bottomDoorPos, bottomTeleport, true, 5));
                     // no
                     game.Components.Add(new Door(game, "Images//DoorClosed", buildingDoorPos, buildingTeleport, true, 11));
