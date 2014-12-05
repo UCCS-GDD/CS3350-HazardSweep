@@ -23,6 +23,7 @@ namespace Hazard_Sweep.Classes
         protected Facing direction;
         protected int health;
         protected Rectangle drawRectangle;
+        protected Rectangle collisionRec;
         protected int spriteRows, spriteCols;
         private bool stabPressed = false;
 
@@ -168,6 +169,12 @@ namespace Hazard_Sweep.Classes
             boundingBox.Width = texture.Width / spriteCols;
             boundingBox.X = (int)position.X;
             boundingBox.Y = (int)position.Y;
+
+            //collision detection
+            collisionRec.Height = texture.Height;
+            collisionRec.Width = texture.Width / 3;
+            collisionRec.X = boundingBox.X;
+            collisionRec.Y = boundingBox.Y;
         }
 
         // update method
@@ -205,7 +212,7 @@ namespace Hazard_Sweep.Classes
                         //collision logic
                         Rectangle b = d.getActivationArea();
                         bool isActive = d.getActive();
-                        if (b.Intersects(this.boundingBox) && isActive)
+                        if (b.Intersects(this.collisionRec) && isActive)
                         {
                             inArea = true;
                             displayActivationMessage = true;
@@ -221,7 +228,7 @@ namespace Hazard_Sweep.Classes
                         //collision logic
                         Rectangle b = n.getActivationArea();
                         //bool isActive = d.getActive();
-                        if (b.Intersects(this.boundingBox))
+                        if (b.Intersects(this.collisionRec))
                         {
                             nearNPC = true;
                             displayNPCMessage = true;
@@ -234,7 +241,7 @@ namespace Hazard_Sweep.Classes
 
                         //collision logic
                         Rectangle b = i.getRectangle();
-                        if (b.Intersects(this.boundingBox))
+                        if (b.Intersects(this.collisionRec))
                         {
                             DropType d = i.getDropType();
                             int v = i.getDropValue();
@@ -538,7 +545,8 @@ namespace Hazard_Sweep.Classes
                 {
                     color = Color.White;
                 }
-
+                collisionRec.X = boundingBox.X;
+                collisionRec.Y = boundingBox.Y;
             }
         }
 
@@ -590,6 +598,12 @@ namespace Hazard_Sweep.Classes
             shouldColor = true;
             health -= damage;
             (game as Game1).playPlayerDamaged();
+        }
+
+        //returns bounding box
+        public Rectangle getRectangle()
+        {
+            return collisionRec;
         }
 
         public void SetBoundary(Rectangle b)

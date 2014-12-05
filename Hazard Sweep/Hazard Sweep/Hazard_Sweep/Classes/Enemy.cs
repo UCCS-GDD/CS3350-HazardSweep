@@ -140,7 +140,7 @@ namespace Hazard_Sweep.Classes
 
                         //collision logic
                         Rectangle b = s.getRectangle();
-                        if (b.Intersects(this.boundingBox))
+                        if (b.Intersects(this.collisionRec))
                         {
                             //damage the player
                             if (currentTime >= delay)
