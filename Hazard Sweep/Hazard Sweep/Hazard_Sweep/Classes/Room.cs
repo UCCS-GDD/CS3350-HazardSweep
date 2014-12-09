@@ -322,7 +322,5 @@ namespace Hazard_Sweep.Classes
                     game.Components.Add(scientist);
             }
         }
-
-
     }
 }

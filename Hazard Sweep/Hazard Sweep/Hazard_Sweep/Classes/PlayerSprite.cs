@@ -353,7 +353,7 @@ namespace Hazard_Sweep.Classes
                 if (keyboardState.IsKeyDown(Keys.D))
                 {
                     //if (position.X < boundary.Right)
-                    if (position.X < 2300)
+                    if (position.X < 2250)
                     {
                         movement.X += 5;
                     }
@@ -362,7 +362,7 @@ namespace Hazard_Sweep.Classes
                 if (keyboardState.IsKeyDown(Keys.A))
                 {
                     //if (position.X > boundary.Left)
-                    if (position.X > 10)
+                    if (position.X > 50)
                         movement.X -= 5;
                 }
                 if (keyboardState.IsKeyDown(Keys.W))
