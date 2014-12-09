@@ -27,7 +27,7 @@ namespace Hazard_Sweep
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D temp;
+        //Texture2D menuButtonTest;
         public static Random Random;
 
         PlayerSprite player;
@@ -134,11 +134,11 @@ namespace Hazard_Sweep
             elements.Initialize();
             //elements.LoadContent();
             camera = new Camera(this);
-            temp = Content.Load<Texture2D>("Images//ammoBox");
+            //menuButtonTest = Content.Load<Texture2D>("Images//ammoBox");
 
             //Splashscreen component
             splashScreen = new SplashScreen(this);
-            menuScreen = new MenuScreen(this, temp);
+            menuScreen = new MenuScreen(this);//, menuButtonTest);
             pauseScreen = new PauseScreen(this);
             endScreen = new EndScreen(this);
             tutScreen = new TutScreen(this);
@@ -283,6 +283,7 @@ namespace Hazard_Sweep
 
             if (currentGameState == GameState.PLAY)
             {
+                IsMouseVisible = false;
                 // draw objects
                 //spriteBatch.Begin();
                 spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null,

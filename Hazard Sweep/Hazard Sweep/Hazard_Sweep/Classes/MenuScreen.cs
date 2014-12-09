@@ -32,16 +32,16 @@ namespace Hazard_Sweep.Classes
         bool enterRelease = false, upRelease = false, downRelease = false;
         bool creditsVisible = false;
         Rectangle startRec, howRec, credRec, exitRec;
-        Texture2D temp;
+        Texture2D menuButtonTest;
         Vector2 creditsPosition;
         int creditsMove = 0;
         Vector2 position;
 
-        public MenuScreen(Game game, Texture2D tempNew)
+        public MenuScreen(Game game)//, Texture2D menuButtonTest)
             : base(game)
         {
             this.game = game;
-            temp = tempNew;
+            //this.menuButtonTest = menuButtonTest;
             // TODO: Construct any child components here
         }
 
@@ -51,17 +51,17 @@ namespace Hazard_Sweep.Classes
             mainSpriteFont = Game.Content.Load<SpriteFont>(@"Fonts\VtksMoney_30");
             secondarySpriteFont = Game.Content.Load<SpriteFont>(@"Fonts\Necro_14");
 
-            startRec = new Rectangle(Game.Window.ClientBounds.Width / 2 + 100,
-                (Game.Window.ClientBounds.Height / 2), 150, 40);
+            startRec = new Rectangle(Game.Window.ClientBounds.Width / 2 + 80,
+                (Game.Window.ClientBounds.Height / 2), 200, 40);
 
-            howRec = new Rectangle(Game.Window.ClientBounds.Width / 2 + 100,
-                (Game.Window.ClientBounds.Height / 2) + 40, 150, 40);
+            howRec = new Rectangle(Game.Window.ClientBounds.Width / 2 + 80,
+                (Game.Window.ClientBounds.Height / 2) + 40, 200, 40);
 
-            credRec = new Rectangle(Game.Window.ClientBounds.Width / 2 + 100,
-                (Game.Window.ClientBounds.Height / 2) + 80, 150, 40);
+            credRec = new Rectangle(Game.Window.ClientBounds.Width / 2 + 80,
+                (Game.Window.ClientBounds.Height / 2) + 80, 200, 40);
 
-            exitRec = new Rectangle(Game.Window.ClientBounds.Width / 2 + 100,
-                (Game.Window.ClientBounds.Height / 2) + 120, 150, 40);
+            exitRec = new Rectangle(Game.Window.ClientBounds.Width / 2 + 80,
+                (Game.Window.ClientBounds.Height / 2) + 120, 200, 40);
 
             //Create sprite batch
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
@@ -168,10 +168,12 @@ namespace Hazard_Sweep.Classes
         {
             spriteBatch.Begin();
             Color tint;
-            spriteBatch.Draw(temp, startRec, Color.White);
-            spriteBatch.Draw(temp, howRec, Color.White);
-            spriteBatch.Draw(temp, credRec, Color.White);
-            spriteBatch.Draw(temp, exitRec, Color.White);
+
+            //menu button spacing test
+            //spriteBatch.Draw(menuButtonTest, startRec, Color.White);
+            //spriteBatch.Draw(menuButtonTest, howRec, Color.White);
+            //spriteBatch.Draw(menuButtonTest, credRec, Color.White);
+            //spriteBatch.Draw(menuButtonTest, exitRec, Color.White);
 
             Vector2 TitleSize = mainSpriteFont.MeasureString(credits);
             creditsPosition = new Vector2(Game.Window.ClientBounds.Width / 2 - TitleSize.X / 2 - 130,
