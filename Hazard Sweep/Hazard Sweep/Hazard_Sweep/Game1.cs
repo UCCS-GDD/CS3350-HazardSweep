@@ -213,64 +213,67 @@ namespace Hazard_Sweep
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            ms = Mouse.GetState();                
-
-            splashScreen.Update(gameTime);
-            // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
-
-            KeyboardState keyboardState = Keyboard.GetState();
-
-            if (currentGameState == GameState.PLAY || currentGameState == GameState.PAUSE)
+            ms = Mouse.GetState();    
+            
+            //if the mouse is inside the game window, update the game
+            if (GraphicsDevice.Viewport.Bounds.Contains(ms.X, ms.Y))
             {
+                splashScreen.Update(gameTime);
+                // Allows the game to exit
+                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                    this.Exit();
 
-                if (keyboardState.IsKeyDown(Keys.Escape))
+                KeyboardState keyboardState = Keyboard.GetState();
+
+                if (currentGameState == GameState.PLAY || currentGameState == GameState.PAUSE)
                 {
-                    pressed = true;
+
+                    if (keyboardState.IsKeyDown(Keys.Escape))
+                    {
+                        pressed = true;
+                    }
+                    if (keyboardState.IsKeyUp(Keys.Escape) && pressed == true)
+                    {
+                        released = true;
+                    }
                 }
-                if (keyboardState.IsKeyUp(Keys.Escape) && pressed == true)
+
+                if (currentGameState == GameState.PLAY)
                 {
-                    released = true;
+                    if (pressed == true && released == true)
+                    {
+                        currentGameState = GameState.PAUSE;
+                        pressed = false;
+                        released = false;
+                    }
+                    // update game elements
+                    elements.Update(gameTime);
+
+                    //update camera
+                    camera.Update(gameTime, player);
+
+                    // show objective
+                    if (objTimer < 120)
+                        objTimer++;
+                    if (objTimer >= 120)
+                        objShow = false;
+
+                    if (keyboardState.IsKeyDown(Keys.Tab))
+                        objShow = true;
+                    else if (objTimer >= 120)
+                        objShow = false;
                 }
+                else if (currentGameState == GameState.PAUSE)
+                {
+                    if (pressed == true && released == true)
+                    {
+                        currentGameState = GameState.PLAY;
+                        pressed = false;
+                        released = false;
+                    }
+                }
+                base.Update(gameTime);
             }
-
-            if (currentGameState == GameState.PLAY)
-            {
-                if (pressed == true && released == true)
-                {
-                    currentGameState = GameState.PAUSE;
-                    pressed = false;
-                    released = false;
-                }
-                // update game elements
-                elements.Update(gameTime);
-
-                //update camera
-                camera.Update(gameTime, player);
-
-                // show objective
-                if (objTimer < 120)
-                    objTimer++;
-                if (objTimer >= 120)
-                    objShow = false;
-
-                if (keyboardState.IsKeyDown(Keys.Tab))
-                    objShow = true;
-                else if (objTimer >= 120)
-                    objShow = false;
-            }
-            else if (currentGameState == GameState.PAUSE)
-            {
-                if (pressed == true && released == true)
-                {
-                    currentGameState = GameState.PLAY;
-                    pressed = false;
-                    released = false;
-                }
-            }
-
-            base.Update(gameTime);
         }
 
         /// <summary>
