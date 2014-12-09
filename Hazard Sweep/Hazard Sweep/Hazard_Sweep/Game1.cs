@@ -27,6 +27,7 @@ namespace Hazard_Sweep
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Texture2D temp;
         public static Random Random;
 
         PlayerSprite player;
@@ -53,6 +54,9 @@ namespace Hazard_Sweep
         Song music;
         SoundEffect reload, pistolFire, machineFire, shotgunFire, shells, stab, damagedPlayer, dryFire, zombieDamage;
         SoundEffect zombie1, zombie2, zombie3, zombie4, zombie5, zombie6, zombie7;
+
+        //mouse state
+        protected MouseState ms;
 
         Objective gameObj;
         SpriteFont objFont;
@@ -130,10 +134,11 @@ namespace Hazard_Sweep
             elements.Initialize();
             //elements.LoadContent();
             camera = new Camera(this);
+            temp = Content.Load<Texture2D>("Images//ammoBox");
 
             //Splashscreen component
             splashScreen = new SplashScreen(this);
-            menuScreen = new MenuScreen(this);
+            menuScreen = new MenuScreen(this, temp);
             pauseScreen = new PauseScreen(this);
             endScreen = new EndScreen(this);
             tutScreen = new TutScreen(this);
@@ -154,6 +159,7 @@ namespace Hazard_Sweep
         /// </summary>
         protected override void LoadContent()
         {
+
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -207,6 +213,8 @@ namespace Hazard_Sweep
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            ms = Mouse.GetState();                
+
             splashScreen.Update(gameTime);
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
@@ -296,6 +304,7 @@ namespace Hazard_Sweep
             if (currentGameState == GameState.MENU)
             {
                 menuScreen.Draw(gameTime);
+                IsMouseVisible = true;
             }
 
             if (currentGameState == GameState.PAUSE)
@@ -382,7 +391,12 @@ namespace Hazard_Sweep
         {
             return currentGameState;
         }
-
+        
+        //method to allow other classes to use the mouse
+        public MouseState GetMouseState()
+        {
+            return ms;
+        }
         // I'm sure there's a better way to do this, but it's late and I have no idea what I'm doing
         public Room GetRoom(int id)
         {

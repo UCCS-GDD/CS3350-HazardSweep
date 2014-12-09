@@ -186,7 +186,7 @@ namespace Hazard_Sweep.Classes
             {
 
                 KeyboardState keyboardState = Keyboard.GetState();
-                ms = Mouse.GetState();                
+                ms = (game as Game1).GetMouseState();                
 
                 //checks for collisions with room's bounding box
                 foreach (GameComponent g in game.Components)

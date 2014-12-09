@@ -17,6 +17,8 @@ namespace Hazard_Sweep.Classes
     /// </summary>
     public class MenuScreen : Microsoft.Xna.Framework.DrawableGameComponent
     {
+        protected MouseState ms;
+        Game game;
         SpriteFont mainSpriteFont;
         SpriteFont secondarySpriteFont;
         SpriteBatch spriteBatch;
@@ -29,13 +31,17 @@ namespace Hazard_Sweep.Classes
         int itemSelected = 0;
         bool enterRelease = false, upRelease = false, downRelease = false;
         bool creditsVisible = false;
+        Rectangle startRec, howRec, credRec, exitRec;
+        Texture2D temp;
         Vector2 creditsPosition;
         int creditsMove = 0;
         Vector2 position;
 
-        public MenuScreen(Game game)
+        public MenuScreen(Game game, Texture2D tempNew)
             : base(game)
         {
+            this.game = game;
+            temp = tempNew;
             // TODO: Construct any child components here
         }
 
@@ -44,6 +50,18 @@ namespace Hazard_Sweep.Classes
             //Load fonts
             mainSpriteFont = Game.Content.Load<SpriteFont>(@"Fonts\VtksMoney_30");
             secondarySpriteFont = Game.Content.Load<SpriteFont>(@"Fonts\Necro_14");
+
+            startRec = new Rectangle(Game.Window.ClientBounds.Width / 2 + 100,
+                (Game.Window.ClientBounds.Height / 2), 150, 40);
+
+            howRec = new Rectangle(Game.Window.ClientBounds.Width / 2 + 100,
+                (Game.Window.ClientBounds.Height / 2) + 40, 150, 40);
+
+            credRec = new Rectangle(Game.Window.ClientBounds.Width / 2 + 100,
+                (Game.Window.ClientBounds.Height / 2) + 80, 150, 40);
+
+            exitRec = new Rectangle(Game.Window.ClientBounds.Width / 2 + 100,
+                (Game.Window.ClientBounds.Height / 2) + 120, 150, 40);
 
             //Create sprite batch
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
@@ -68,13 +86,31 @@ namespace Hazard_Sweep.Classes
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
+            ms = (game as Game1).GetMouseState();
             // TODO: Add your update code here
             //Did the player press Enter?
             if (((Game1)Game).GetGameState() == Game1.GameState.MENU)
             {
                 newState = Keyboard.GetState();
 
-                if (newState.IsKeyDown(Keys.Enter) && enterRelease && ((Game1)Game).GetGameState() == Game1.GameState.MENU)
+                if (startRec.Contains(ms.X, ms.Y))
+                {
+                    itemSelected = 0;
+                }
+                else if (howRec.Contains(ms.X, ms.Y))
+                {
+                    itemSelected = 1;
+                }
+                else if (credRec.Contains(ms.X, ms.Y))
+                {
+                    itemSelected = 2;
+                }
+                else if (exitRec.Contains(ms.X, ms.Y))
+                {
+                    itemSelected = 3;
+                }
+
+                if ((newState.IsKeyDown(Keys.Enter) && enterRelease && ((Game1)Game).GetGameState() == Game1.GameState.MENU) || (ms.LeftButton == ButtonState.Pressed && ((Game1)Game).GetGameState() == Game1.GameState.MENU))
                 {
                     if (itemSelected == 0)
                         ((Game1)Game).ChangeGameState(Game1.GameState.PLAY);
@@ -132,6 +168,10 @@ namespace Hazard_Sweep.Classes
         {
             spriteBatch.Begin();
             Color tint;
+            spriteBatch.Draw(temp, startRec, Color.White);
+            spriteBatch.Draw(temp, howRec, Color.White);
+            spriteBatch.Draw(temp, credRec, Color.White);
+            spriteBatch.Draw(temp, exitRec, Color.White);
 
             Vector2 TitleSize = mainSpriteFont.MeasureString(credits);
             creditsPosition = new Vector2(Game.Window.ClientBounds.Width / 2 - TitleSize.X / 2 - 130,
