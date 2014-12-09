@@ -71,6 +71,9 @@ namespace Hazard_Sweep.Classes
         int newRoom;
         int currentRoom;
 
+        //bug fix variables
+        private int afterMenuTimer = 30;
+
         Rectangle boundary;
 
         SpriteFont instructFont;
@@ -180,10 +183,12 @@ namespace Hazard_Sweep.Classes
         // update method
         public override void Update(GameTime gameTime)
         {
-
-
             if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
             {
+                if (afterMenuTimer > 0)
+                {
+                    afterMenuTimer--;
+                }
 
                 KeyboardState keyboardState = Keyboard.GetState();
                 ms = (game as Game1).GetMouseState();                
@@ -423,7 +428,7 @@ namespace Hazard_Sweep.Classes
                     bulletOrigin = new Vector2(texture.Width / spriteCols / 2 + 75, texture.Height / spriteRows / 2 + 13);
 
                 // weapon handling
-                if (ms.LeftButton == ButtonState.Pressed)
+                if (ms.LeftButton == ButtonState.Pressed && afterMenuTimer == 0)
                 {
                     weapon.shoot(position + bulletOrigin, bulletDirection);
                 }
