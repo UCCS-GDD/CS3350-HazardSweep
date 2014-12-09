@@ -16,20 +16,30 @@ namespace Hazard_Sweep.Classes
         protected Rectangle hitBox;
         protected Vector2 offset;
         private int damage = 2;
+        public Texture2D hitTexture;            
+        public SpriteBatch sb;
+
+
 
         //constructor
-        public MeleeWeapon(Game game, Vector2 offset, int hitBoxSize)
+        public MeleeWeapon(Game game, Vector2 offset, int hitBoxSize, Texture2D hitTexture)
             : base(game)
         {
+            this.hitTexture = hitTexture;
             delay = 10;
-            this.offset = offset - new Vector2(0, 50);
+            this.offset = offset - new Vector2(-25, 50);
             hitBox = new Rectangle(0, 0, hitBoxSize, 200);
         }
+
+        //public void Draw(GameTime gameTime)
+        //{
+        //    sb = Game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
+        //    sb.Draw(hitTexture, hitBox, Color.Red);
+        //}
 
         //attack method
         public void attack(Facing facing, Vector2 position)
         {
-            bool hit = false;
             if (facing == Facing.Left)
             {
                 hitBox.X = (int)(position.X - offset.X);

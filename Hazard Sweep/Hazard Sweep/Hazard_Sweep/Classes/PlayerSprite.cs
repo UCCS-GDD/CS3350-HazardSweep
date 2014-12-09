@@ -165,7 +165,7 @@ namespace Hazard_Sweep.Classes
             drawRectangle = new Rectangle(0, 0, texture.Width / spriteCols, texture.Height / spriteRows);
 
             //create melee weapon
-            melee = new MeleeWeapon(game, bulletOrigin, 100);
+            melee = new MeleeWeapon(game, bulletOrigin, 100, playerWalkPistol);
 
             //set the size and initial position of the bounding box
             boundingBox.Height = texture.Height / spriteRows;
@@ -565,7 +565,7 @@ namespace Hazard_Sweep.Classes
                 // sb.Draw(texture, position, drawRectangle, Color.White);
                 sb.Draw(texture, position, drawRectangle, color, 0f, new Vector2(0f, 0f), new Vector2(2f, 2f), SpriteEffects.None, 0.5f);
                 //  sb.End();
-
+                //melee.Draw(gameTime);
                 if (displayActivationMessage) 
                     sb.DrawString(instructFont, "press E to proceed", new Vector2(position.X - 32, position.Y - 64), Color.Black);
                 if (displayNPCMessage)
