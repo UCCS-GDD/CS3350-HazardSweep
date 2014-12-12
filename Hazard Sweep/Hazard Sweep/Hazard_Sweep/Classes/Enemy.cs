@@ -26,6 +26,7 @@ namespace Hazard_Sweep.Classes
         protected Rectangle collisionRec;
         protected Facing direction;
         protected bool remove;
+        private bool detection;
 
         // animation variables
         int frameCount;
@@ -244,8 +245,15 @@ namespace Hazard_Sweep.Classes
             //enemy AI (moves enemy towards player
             Vector2 direction = target - position;
             direction.Normalize();
-            //enemy will only move towards player if the player is within 300
+
+            //enemy will detect player at 300 pix
             if (Math.Abs(Vector2.Distance(target, position)) < 300)
+            {
+                detection = true;
+            }
+
+            //enemy will keep chasing once it detects you
+            if (detection == true)
             {
                 Vector2 velocity = direction * moveSpeed;
                 position += velocity;
