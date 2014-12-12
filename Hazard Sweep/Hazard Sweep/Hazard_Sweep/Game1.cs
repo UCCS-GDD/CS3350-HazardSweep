@@ -253,9 +253,9 @@ namespace Hazard_Sweep
                     camera.Update(gameTime, player);
 
                     // show objective
-                    if (objTimer < 120)
+                    if (objTimer < 500)
                         objTimer++;
-                    if (objTimer >= 120)
+                    if (objTimer >= 500)
                         objShow = false;
 
                     if (keyboardState.IsKeyDown(Keys.Tab))

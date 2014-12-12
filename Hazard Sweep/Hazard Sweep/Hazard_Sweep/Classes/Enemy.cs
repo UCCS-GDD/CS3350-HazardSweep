@@ -231,6 +231,7 @@ namespace Hazard_Sweep.Classes
         {
             health -= amount;
             (game as Game1).playZombieDamage();
+            detection = true;
         }
 
         //returns bounding box
