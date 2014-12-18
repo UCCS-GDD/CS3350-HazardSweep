@@ -18,7 +18,7 @@ namespace Hazard_Sweep
 
     public enum DropType { Health, PistolAmmo, AssaultAmmo, ShotgunAmmo };
 
-    public enum Objective { Scientist };
+    public enum Objective { Scientist, Cure, Bomb, Helicopter1, Helicopter2, Elimination, Scientist2 };
 
     /// <summary>
     /// This is the main type for your game
@@ -44,7 +44,7 @@ namespace Hazard_Sweep
         PauseScreen pauseScreen;
         EndScreen endScreen;
         TutScreen tutScreen;
-        GameState currentGameState = GameState.START;
+        public GameState currentGameState = GameState.START;
 
         //pause press
         bool pressed = false;
@@ -58,11 +58,16 @@ namespace Hazard_Sweep
         //mouse state
         protected MouseState ms;
 
-        Objective gameObj;
+        //fields for objectives
+        public Objective gameObj;
+        public int objEliminate;
         SpriteFont objFont;
-        int objTimer;
-        bool objShow;
+        public int objTimer;
+        public bool objShow;
         public int objRoom;
+        public int objRoom2;
+        public int heliRoom;
+        int objDetermine;
 
         public Game1()
         {
@@ -73,6 +78,8 @@ namespace Hazard_Sweep
             graphics.PreferredBackBufferHeight = 576;
 
             Random = new Random();
+
+
         }
 
         /// <summary>
@@ -87,68 +94,7 @@ namespace Hazard_Sweep
             GlobalClass.ScreenWidth = graphics.PreferredBackBufferWidth;
             GlobalClass.ScreenHeight = graphics.PreferredBackBufferHeight;
 
-            // game objective... randomize later
-            gameObj = Objective.Scientist;
-            objTimer = 0;
-            objShow = true;
-            objRoom = Random.Next(10, 18);
-
-            player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,
-                GlobalClass.ScreenHeight / 2), 2, 6, this);
-
-            gridNumbers = new List<int>(Enumerable.Range(0, 9));
-            Shuffle(gridNumbers);
-
-            street0 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.White, 0);
-            street1 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightBlue, 1);
-            street2 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightCoral, 2);
-            street3 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGoldenrodYellow, 3);
-            street4 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGreen, 4);
-            street5 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGray, 5);
-            street6 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightPink, 6);
-            street7 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightSteelBlue, 7);
-            street8 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightSeaGreen, 8);
-
-            room0 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.White, 9);
-            room1 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightBlue, 10);
-            room2 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightCoral, 11);
-            room3 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGoldenrodYellow, 12);
-            room4 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGreen, 13);
-            room5 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGray, 14);
-            room6 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightPink, 15);
-            room7 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightSteelBlue, 16);
-            room8 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightSeaGreen, 17);
-
-            //add rooms to game
-            Components.Add(street0);
-            Components.Add(player);
-
-            //add test drops to game
-            //Components.Add(new itemDrop(this, null, new Vector2(300, 300)));
-
-            //Add game components
-            //Components.Add(player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,
-            //    GlobalClass.ScreenHeight / 2), 2, 6));
-            Components.Add(new Enemy(this, "Images//enemyWalk", new Vector2(200, 200), 2, 5));
-            elements = new GameElements(this, player);
-            elements.Initialize();
-            //elements.LoadContent();
-            camera = new Camera(this);
-            //menuButtonTest = Content.Load<Texture2D>("Images//ammoBox");
-
-            //Splashscreen component
-            splashScreen = new SplashScreen(this);
-            menuScreen = new MenuScreen(this);//, menuButtonTest);
-            pauseScreen = new PauseScreen(this);
-            endScreen = new EndScreen(this);
-            tutScreen = new TutScreen(this);
-            Components.Add(splashScreen);
-            Components.Add(menuScreen);
-            Components.Add(pauseScreen);
-            Components.Add(endScreen);
-            Components.Add(tutScreen);
-
-
+            StartGame();
 
             base.Initialize();
         }
@@ -166,31 +112,7 @@ namespace Hazard_Sweep
             // Creates a service for the spritebatch so it can be used in other classes
             Services.AddService(typeof(SpriteBatch), spriteBatch);
 
-            //load sound effects
-            music = Content.Load<Song>("Sounds/Unseen Horrors");
-            reload = Content.Load<SoundEffect>("Sounds/reload");
-            pistolFire = Content.Load<SoundEffect>("Sounds/pistolLicenseAttribution3");
-            machineFire = Content.Load<SoundEffect>("Sounds/machine gun");
-            shotgunFire = Content.Load<SoundEffect>("Sounds/Shotgunsound");
-            shells = Content.Load<SoundEffect>("Sounds/shell");
-            stab = Content.Load<SoundEffect>("Sounds/Stab");
-            damagedPlayer = Content.Load<SoundEffect>("Sounds/damagedplayer");
-            dryFire = Content.Load<SoundEffect>("Sounds/Dry Fire Gun-SoundBible.com-2053652037");
-            zombieDamage = Content.Load<SoundEffect>("Sounds/zombiedamage");
-            zombie1 = Content.Load<SoundEffect>("Sounds/Zombie 1");
-            zombie2 = Content.Load<SoundEffect>("Sounds/Zombie 2");
-            zombie3 = Content.Load<SoundEffect>("Sounds/Zombie 3");
-            zombie4 = Content.Load<SoundEffect>("Sounds/Zombie 4");
-            zombie5 = Content.Load<SoundEffect>("Sounds/Zombie 5");
-            zombie6 = Content.Load<SoundEffect>("Sounds/Zombie 6");
-            zombie7 = Content.Load<SoundEffect>("Sounds/Zombie 7");
-
-
-            // load game elements
-            elements.LoadContent();
-            objFont = Content.Load<SpriteFont>(@"Fonts\VtksMoney_30");
-
-            //testExMap.LoadContent();
+            LoadAll();
 
             // start music and loop
             MediaPlayer.IsRepeating = true;
@@ -253,15 +175,15 @@ namespace Hazard_Sweep
                     camera.Update(gameTime, player);
 
                     // show objective
-                    if (objTimer < 500)
+                    if (objTimer < 300)
                         objTimer++;
-                    if (objTimer >= 500)
-                        objShow = false;
-
                     if (keyboardState.IsKeyDown(Keys.Tab))
                         objShow = true;
-                    else if (objTimer >= 120)
-                        objShow = false;
+                    else
+                    {
+                        if (objTimer >= 300)
+                            objShow = false;
+                    }
                 }
                 else if (currentGameState == GameState.PAUSE)
                 {
@@ -271,6 +193,14 @@ namespace Hazard_Sweep
                         pressed = false;
                         released = false;
                     }
+                }
+
+                // restart
+                if (keyboardState.IsKeyDown(Keys.D0))
+                {
+                    StartGame();
+                    LoadAll();
+                    ChangeGameState(GameState.START);
                 }
                 base.Update(gameTime);
             }
@@ -336,6 +266,21 @@ namespace Hazard_Sweep
                 {
                     if (gameObj == Objective.Scientist)
                         spriteBatch.DrawString(objFont, "objective: find the scientist",
+                            new Vector2(32, 32), Color.Black);
+                    if (gameObj == Objective.Scientist2)
+                        spriteBatch.DrawString(objFont, "objective: get back to the scientist",
+                            new Vector2(32, 32), Color.Black);
+                    if (gameObj == Objective.Cure)
+                        spriteBatch.DrawString(objFont, "objective: find the cure",
+                            new Vector2(32, 32), Color.Black);
+                    if (gameObj == Objective.Bomb)
+                        spriteBatch.DrawString(objFont, "objective: find and arm the bomb",
+                            new Vector2(32, 32), Color.Black);
+                    if (gameObj == Objective.Helicopter1 || gameObj == Objective.Helicopter2)
+                        spriteBatch.DrawString(objFont, "objective: get to the helicopter",
+                            new Vector2(32, 32), Color.Black);
+                    if (gameObj == Objective.Elimination)
+                        spriteBatch.DrawString(objFont, "objective: eliminate " + objEliminate + " hostiles",
                             new Vector2(32, 32), Color.Black);
                 }
                 spriteBatch.End();
@@ -537,6 +482,119 @@ namespace Hazard_Sweep
         public Objective GetObjective()
         {
             return gameObj;
+        }
+
+        public void StartGame()
+        {
+            Components.Clear();
+
+            // game objective
+            objDetermine = Random.Next(3);
+            switch (objDetermine)
+            {
+                case 0:
+                    gameObj = Objective.Scientist;
+                    break;
+                case 1:
+                    gameObj = Objective.Bomb;
+                    break;
+                default:
+                    gameObj = Objective.Elimination;
+                    break;
+            }
+            objTimer = 0;
+            objShow = true;
+            objRoom = Random.Next(10, 18);
+            objRoom2 = Random.Next(18);
+            while (objRoom2 == objRoom)
+                objRoom2 = Random.Next(18);
+            objEliminate = 40;
+            heliRoom = Random.Next(0, 9);
+
+            player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,
+                GlobalClass.ScreenHeight / 2), 2, 6, this);
+
+            gridNumbers = new List<int>(Enumerable.Range(0, 9));
+            Shuffle(gridNumbers);
+
+            street0 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.White, 0);
+            street1 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightBlue, 1);
+            street2 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightCoral, 2);
+            street3 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGoldenrodYellow, 3);
+            street4 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGreen, 4);
+            street5 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGray, 5);
+            street6 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightPink, 6);
+            street7 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightSteelBlue, 7);
+            street8 = new Room(this, "Images//Maps//External//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightSeaGreen, 8);
+
+            room0 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.White, 9);
+            room1 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightBlue, 10);
+            room2 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightCoral, 11);
+            room3 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGoldenrodYellow, 12);
+            room4 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGreen, 13);
+            room5 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightGray, 14);
+            room6 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightPink, 15);
+            room7 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightSteelBlue, 16);
+            room8 = new Room(this, "Images//Maps//Internal//test01", new Vector2(100, 100), 1, 1, false, false, player, Color.LightSeaGreen, 17);
+
+            //add rooms to game
+            Components.Add(street0);
+            Components.Add(player);
+
+            //add test drops to game
+            //Components.Add(new itemDrop(this, null, new Vector2(300, 300)));
+
+            //Add game components
+            //Components.Add(player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,
+            //    GlobalClass.ScreenHeight / 2), 2, 6));
+            Components.Add(new Enemy(this, "Images//enemyWalk", new Vector2(200, 200), 2, 5));
+            elements = new GameElements(this, player);
+            elements.Initialize();
+            //elements.LoadContent();
+            camera = new Camera(this);
+            //menuButtonTest = Content.Load<Texture2D>("Images//ammoBox");
+
+            //Splashscreen component
+            splashScreen = new SplashScreen(this);
+            menuScreen = new MenuScreen(this);//, menuButtonTest);
+            pauseScreen = new PauseScreen(this);
+            endScreen = new EndScreen(this);
+            tutScreen = new TutScreen(this);
+            Components.Add(splashScreen);
+            Components.Add(menuScreen);
+            Components.Add(pauseScreen);
+            Components.Add(endScreen);
+            Components.Add(tutScreen);
+
+        }
+
+        public void LoadAll()
+        {
+            //load sound effects
+            music = Content.Load<Song>("Sounds/Unseen Horrors");
+            reload = Content.Load<SoundEffect>("Sounds/reload");
+            pistolFire = Content.Load<SoundEffect>("Sounds/pistolLicenseAttribution3");
+            machineFire = Content.Load<SoundEffect>("Sounds/machine gun");
+            shotgunFire = Content.Load<SoundEffect>("Sounds/Shotgunsound");
+            shells = Content.Load<SoundEffect>("Sounds/shell");
+            stab = Content.Load<SoundEffect>("Sounds/Stab");
+            damagedPlayer = Content.Load<SoundEffect>("Sounds/damagedplayer");
+            dryFire = Content.Load<SoundEffect>("Sounds/Dry Fire Gun-SoundBible.com-2053652037");
+            zombieDamage = Content.Load<SoundEffect>("Sounds/zombiedamage");
+            zombie1 = Content.Load<SoundEffect>("Sounds/Zombie 1");
+            zombie2 = Content.Load<SoundEffect>("Sounds/Zombie 2");
+            zombie3 = Content.Load<SoundEffect>("Sounds/Zombie 3");
+            zombie4 = Content.Load<SoundEffect>("Sounds/Zombie 4");
+            zombie5 = Content.Load<SoundEffect>("Sounds/Zombie 5");
+            zombie6 = Content.Load<SoundEffect>("Sounds/Zombie 6");
+            zombie7 = Content.Load<SoundEffect>("Sounds/Zombie 7");
+
+
+            // load game elements
+            elements.LoadContent();
+            objFont = Content.Load<SpriteFont>(@"Fonts\VtksMoney_30");
+
+            //testExMap.LoadContent();
         }
 
         #region Shuffling

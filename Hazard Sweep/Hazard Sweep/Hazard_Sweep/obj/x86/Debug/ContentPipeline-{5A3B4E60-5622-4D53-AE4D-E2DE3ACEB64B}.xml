@@ -461,6 +461,33 @@
       <Extra>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Sounds\Unseen Horrors.wma</Extra>
       <Time>2014-11-19T22:27:44.5876254-07:00</Time>
     </Item>
+    <Item>
+      <Source>Images\bomb.png</Source>
+      <Name>Images\bomb</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\bomb.xnb</Output>
+      <Time>2014-12-17T22:49:54.8509339-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Vial.png</Source>
+      <Name>Images\Vial</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\Vial.xnb</Output>
+      <Time>2014-12-17T22:52:19.791224-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\helicopter.png</Source>
+      <Name>Images\helicopter</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\helicopter.xnb</Output>
+      <Time>2014-12-17T23:37:36.816629-07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{5A3B4E60-5622-4D53-AE4D-E2DE3ACEB64B}</ContentProjectGUID>

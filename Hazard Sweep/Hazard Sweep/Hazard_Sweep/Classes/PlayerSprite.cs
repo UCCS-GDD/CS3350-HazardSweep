@@ -67,6 +67,9 @@ namespace Hazard_Sweep.Classes
         Vector2 newPosition;
         bool displayActivationMessage = false;
         bool displayNPCMessage = false;
+        bool displayBombMessage = false;
+        bool displayCureMessage = false;
+        bool displayHeliMessage = false;
         bool teleportReleased = true;
         int newRoom;
         int currentRoom;
@@ -236,8 +239,18 @@ namespace Hazard_Sweep.Classes
                         if (b.Intersects(this.collisionRec))
                         {
                             nearNPC = true;
-                            displayNPCMessage = true;
                             displayTimer = 0;
+                            if (n.type == Object.Scientist)
+                            {
+                                displayNPCMessage = true;
+                                // change objective
+                            }
+                            if (n.type == Object.Bomb)
+                                displayBombMessage = true;
+                            if (n.type == Object.Cure)
+                                displayCureMessage = true;
+                            if (n.type == Object.Helicopter)
+                                displayHeliMessage = true;
                         }
                     }
                     else if (g is itemDrop)
@@ -315,10 +328,40 @@ namespace Hazard_Sweep.Classes
 
                 if (keyboardState.IsKeyDown(Keys.E) && nearNPC == true)
                 {
-                    // in the future, we'll have this display dialogue to give quests
                     nearNPC = false;
-                    displayNPCMessage = false;
-                    ((Game1)Game).ChangeGameState(Game1.GameState.WIN);
+
+                    if(displayNPCMessage == true)
+                    {
+                        if (((Game1)Game).gameObj == Objective.Scientist)
+                        {
+                            ((Game1)Game).gameObj = Objective.Cure;
+                            ((Game1)Game).objTimer = 0;
+                            ((Game1)Game).objShow = true;
+                        }
+                        if (((Game1)Game).gameObj == Objective.Scientist2)
+                        {
+                            ((Game1)Game).gameObj = Objective.Helicopter2;
+                            ((Game1)Game).objTimer = 0;
+                            ((Game1)Game).objShow = true;
+                        }
+                    }
+
+                    if(displayBombMessage == true)
+                    {
+                        ((Game1)Game).gameObj = Objective.Helicopter1;
+                        ((Game1)Game).objTimer = 0;
+                        ((Game1)Game).objShow = true;
+                    }
+                    if(displayCureMessage == true)
+                    {
+                        ((Game1)Game).gameObj = Objective.Scientist2;
+                        ((Game1)Game).objTimer = 0;
+                        ((Game1)Game).objShow = true;
+                    }
+                    if(displayHeliMessage == true)
+                    {
+                        ((Game1)Game).ChangeGameState(Game1.GameState.WIN);
+                    }
                 }
 
                 if (keyboardState.IsKeyUp(Keys.E))
@@ -336,6 +379,10 @@ namespace Hazard_Sweep.Classes
                 {
                     displayActivationMessage = false;
                     displayNPCMessage = false;
+                    displayBombMessage = false;
+                    displayCureMessage = false;
+                    displayHeliMessage = false;
+
                     displayTimer = 0;
                 }
 
@@ -552,6 +599,13 @@ namespace Hazard_Sweep.Classes
                 }
                 collisionRec.X = boundingBox.X;
                 collisionRec.Y = boundingBox.Y;
+
+                // check elimination objective
+                if (((Game1)Game).gameObj == Objective.Elimination)
+                {
+                    if (((Game1)Game).objEliminate <= 0)
+                        ((Game1)Game).ChangeGameState(Game1.GameState.WIN);
+                }
             }
         }
 
@@ -569,7 +623,23 @@ namespace Hazard_Sweep.Classes
                 if (displayActivationMessage) 
                     sb.DrawString(instructFont, "press E to proceed", new Vector2(position.X - 32, position.Y - 64), Color.Black);
                 if (displayNPCMessage)
-                    sb.DrawString(instructFont, "press E to talk to scientist", new Vector2(position.X - 32, position.Y - 64), Color.Black);
+                {
+                    if ((((Game1)Game).gameObj == Objective.Scientist))
+                        sb.DrawString(instructFont, "i was developing a cure and i dropped it.\n" +
+                            "           you have to find it\n" +
+                            "           and bring it to me!\n" +
+                            "             press E to accept", new Vector2(position.X - 32, position.Y - 64), Color.Black);
+                    if(((Game1)Game).gameObj == Objective.Scientist2)
+                        sb.DrawString(instructFont, "        you found it!\n" + 
+                            "          let's get out of here!\n" + 
+                            "             press E to accept", new Vector2(position.X - 32, position.Y - 64), Color.Black);
+                }
+                if(displayBombMessage && (((Game1)Game).gameObj == Objective.Bomb))
+                    sb.DrawString(instructFont, "press E to arm the bomb", new Vector2(position.X - 32, position.Y - 64), Color.Black);
+                if(displayCureMessage)
+                    sb.DrawString(instructFont, "press E to pick up the cure", new Vector2(position.X - 32, position.Y - 64), Color.Black);
+                if(displayHeliMessage)
+                    sb.DrawString(instructFont, "press E to evacuate", new Vector2(position.X - 32, position.Y - 64), Color.Black);
             }
         }
 

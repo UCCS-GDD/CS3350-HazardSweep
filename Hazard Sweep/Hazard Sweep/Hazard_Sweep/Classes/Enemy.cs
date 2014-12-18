@@ -205,6 +205,8 @@ namespace Hazard_Sweep.Classes
             }
             if (remove == true)
             {
+                if (((Game1)Game).gameObj == Objective.Elimination)
+                    ((Game1)Game).objEliminate -= 1;
                 game.Components.Remove(this);
             }
             collisionRec.X = boundingBox.X;

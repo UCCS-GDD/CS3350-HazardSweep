@@ -50,3 +50,6 @@ Content\Sounds\damagedplayer.xnb
 Content\Sounds\zombiedamage.xnb
 Content\Sounds\Unseen Horrors.xnb
 Content\Sounds\Unseen Horrors.wma
+Content\Images\bomb.xnb
+Content\Images\Vial.xnb
+Content\Images\helicopter.xnb

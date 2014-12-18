@@ -222,6 +222,7 @@ namespace Hazard_Sweep.Classes
 
             SpawnObjective();
 
+            // exclude objective room
             if (((Game1)Game).GetObjRoom() != this.id)
             {
                 //load in random zombie count
@@ -315,11 +316,26 @@ namespace Hazard_Sweep.Classes
         public void SpawnObjective()
         {
             NPC scientist = new NPC(game, "Images//scientist", new Vector2(800, 300), Facing.Left);
+            NPC bomb = new NPC(game, "Images//bomb", new Vector2(800,300), Facing.Left);
+            NPC cure = new NPC(game, "Images//Vial", new Vector2(800, 400), Facing.Left);
+            NPC helicopter = new NPC(game, "Images//helicopter", new Vector2(600, 100), Facing.Left);
 
             if (((Game1)Game).GetObjRoom() == this.id)
             {
-                if (((Game1)Game).GetObjective() == Objective.Scientist)
+                if (((Game1)Game).GetObjective() == Objective.Scientist || ((Game1)Game).GetObjective() == Objective.Cure || ((Game1)Game).GetObjective() == Objective.Scientist2)
                     game.Components.Add(scientist);
+                if (((Game1)Game).GetObjective() == Objective.Bomb || ((Game1)Game).GetObjective() == Objective.Helicopter1)
+                    game.Components.Add(bomb);
+            }
+            if (((Game1)Game).objRoom2 == this.id)
+            {
+                if (((Game1)Game).GetObjective() == Objective.Cure)
+                    game.Components.Add(cure);
+            }
+            if (((Game1)Game).heliRoom == this.id)
+            {
+                if (((Game1)Game).GetObjective() == Objective.Helicopter1 || ((Game1)Game).GetObjective() == Objective.Helicopter2)
+                    game.Components.Add(helicopter);
             }
         }
     }

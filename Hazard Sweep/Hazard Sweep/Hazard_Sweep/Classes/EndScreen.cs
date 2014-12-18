@@ -27,6 +27,8 @@ namespace Hazard_Sweep.Classes
             : base(game)
         {
             // TODO: Construct any child components here
+            mainText = "";
+            secondaryText = "";
         }
 
         protected override void LoadContent()
