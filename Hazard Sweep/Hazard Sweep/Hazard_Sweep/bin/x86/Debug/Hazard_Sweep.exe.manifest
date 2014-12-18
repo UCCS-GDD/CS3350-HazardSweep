@@ -337,7 +337,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>FWdDaNLRiD9hmmK6Tx7u6+FiXQ4=</dsig:DigestValue>
+      <dsig:DigestValue>oPxFhSA1DzqJbat2hG/eR/bUan0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Images\playerWalk.xnb" size="260107">
