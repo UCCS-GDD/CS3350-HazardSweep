@@ -88,7 +88,7 @@ namespace Hazard_Sweep.Classes
                 {
                     this.setRemove();
                     (game as Game1).playZombieDeath();
-                    int r = Game1.Random.Next(0, 5);
+                    int r = Game1.Random.Next(0, 8);
                     if (r == 0)
                     {
                         game.Components.Add(new itemDrop(game, null, position));
