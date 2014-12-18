@@ -314,7 +314,7 @@ namespace Hazard_Sweep.Classes
         // spawn objective in randomly assigned room
         public void SpawnObjective()
         {
-            NPC scientist = new NPC(game, "Images//scientist", new Vector2(1000, 300), Facing.Left);
+            NPC scientist = new NPC(game, "Images//scientist", new Vector2(800, 300), Facing.Left);
 
             if (((Game1)Game).GetObjRoom() == this.id)
             {

@@ -75,7 +75,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>t1+DlgiI1PShMLjYvKmfPtAGLoc=</dsig:DigestValue>
+        <dsig:DigestValue>IoPgUlSVgev36szx3DbTokB5/BI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -322,31 +322,31 @@
       <dsig:DigestValue>FWdDaNLRiD9hmmK6Tx7u6+FiXQ4=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Images\playerWalk.xnb" size="244627">
+  <file name="Content\Images\playerWalk.xnb" size="260107">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>vvJ14JC+XpGu4aNx2F5PsXnJ8fY=</dsig:DigestValue>
+      <dsig:DigestValue>lCYTQAIfrt8iUljVtZ6FVK85sTk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Images\playerWalkPistol.xnb" size="244627">
+  <file name="Content\Images\playerWalkPistol.xnb" size="260107">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>Gf/g/lmzPXV7T/uvqWIf5T5uEhk=</dsig:DigestValue>
+      <dsig:DigestValue>hOpcqeuEV7Z3+fPG2f+ENyYdqrg=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Images\playerWalkRifle.xnb" size="244627">
+  <file name="Content\Images\playerWalkRifle.xnb" size="260107">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>4uhm4GVIbfSHXbTRkUvPbPkEcXw=</dsig:DigestValue>
+      <dsig:DigestValue>KX9ip/KUpC/wiYQsGsrYkLhBd8Q=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Images\reticle.xnb" size="3787">

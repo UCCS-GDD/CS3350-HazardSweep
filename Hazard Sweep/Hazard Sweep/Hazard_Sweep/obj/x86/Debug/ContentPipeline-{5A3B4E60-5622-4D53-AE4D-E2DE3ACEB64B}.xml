@@ -17,7 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\playerWalk.xnb</Output>
-      <Time>2014-11-19T22:27:44.1556007-07:00</Time>
+      <Time>2014-12-17T21:45:41.9445603-07:00</Time>
     </Item>
     <Item>
       <Source>Images\GUI\iconAssault.png</Source>
@@ -188,7 +188,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\playerWalkPistol.xnb</Output>
-      <Time>2014-11-19T22:27:44.1596009-07:00</Time>
+      <Time>2014-12-17T21:25:48.9553252-07:00</Time>
     </Item>
     <Item>
       <Source>Images\playerWalkRifle.png</Source>
@@ -197,7 +197,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Kim\Documents\HazardSweep\Hazard Sweep\Hazard Sweep\Hazard_Sweep\bin\x86\Debug\Content\Images\playerWalkRifle.xnb</Output>
-      <Time>2014-11-19T22:27:44.161601-07:00</Time>
+      <Time>2014-12-17T21:45:11.0397926-07:00</Time>
     </Item>
     <Item>
       <Source>Images\ammoBoxPistol.png</Source>
