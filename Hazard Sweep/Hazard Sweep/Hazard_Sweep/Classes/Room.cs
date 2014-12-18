@@ -94,10 +94,10 @@ namespace Hazard_Sweep.Classes
             // leftDoorPos = new Vector2(boundaryPosition.X - 20, boundaryPosition.Y + (roomHeight * 7 / 8) + 70 );
             // rightDoorPos = new Vector2(boundaryPosition.X + roomWidth, boundaryPosition.Y + (roomHeight * 7 / 8) + 70);
             // bottomDoorPos = new Vector2(boundaryPosition.X + (roomWidth * 5 / 8), boundaryPosition.Y + roomHeight + 200);
-            buildingDoorPos = new Vector2(120f, 84f);
+            buildingDoorPos = new Vector2(300f, 84f);
 
             topDoorPos = new Vector2(1900, 200);
-            leftDoorPos = new Vector2(-10, 380);
+            leftDoorPos = new Vector2(15, 400);
             rightDoorPos = new Vector2(2350, 380);
             bottomDoorPos = new Vector2(1900, 500);
 
