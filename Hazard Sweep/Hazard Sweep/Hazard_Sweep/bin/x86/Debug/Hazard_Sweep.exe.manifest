@@ -75,7 +75,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>4WeGo35vZZ1a+1yYKOZPN4Q1RVY=</dsig:DigestValue>
+        <dsig:DigestValue>GbPOLuRBzy//MP8O/H2AcwIIvpM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -421,6 +421,15 @@
       <dsig:DigestValue>ojJkqLVsqbcuX3QX2VwwEIA6r1Q=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Content\Sounds\damagedplayer2.xnb" size="129629">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>UQ/tFk+v0ZVBhbt9OgnISnKr5do=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\Sounds\Dry Fire Gun-SoundBible.com-2053652037.xnb" size="158401">
     <hash>
       <dsig:Transforms>
@@ -490,7 +499,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>3neyxxXkq8kPLQDWCqNUIxbHF5M=</dsig:DigestValue>
+      <dsig:DigestValue>Fm5E+CmAn7Y7Y0ouNzNWz4L++RI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Sounds\Unseen Horrors.xnb" size="132">

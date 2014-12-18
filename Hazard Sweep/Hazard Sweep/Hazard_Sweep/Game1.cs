@@ -52,7 +52,7 @@ namespace Hazard_Sweep
 
         //sound effects
         Song music;
-        SoundEffect reload, pistolFire, machineFire, shotgunFire, shells, stab, damagedPlayer, dryFire, zombieDamage;
+        SoundEffect reload, pistolFire, machineFire, shotgunFire, shells, stab, damagedPlayer, damagedPlayer2, dryFire, zombieDamage;
         SoundEffect zombie1, zombie2, zombie3, zombie4, zombie5, zombie6, zombie7;
 
         //mouse state
@@ -135,8 +135,8 @@ namespace Hazard_Sweep
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            ms = Mouse.GetState();    
-            
+            ms = Mouse.GetState();
+
             //if the mouse is inside the game window, update the game
             if (GraphicsDevice.Viewport.Bounds.Contains(ms.X, ms.Y))
             {
@@ -340,7 +340,7 @@ namespace Hazard_Sweep
         {
             return currentGameState;
         }
-        
+
         //method to allow other classes to use the mouse
         public MouseState GetMouseState()
         {
@@ -579,6 +579,7 @@ namespace Hazard_Sweep
             shells = Content.Load<SoundEffect>("Sounds/shell");
             stab = Content.Load<SoundEffect>("Sounds/Stab");
             damagedPlayer = Content.Load<SoundEffect>("Sounds/damagedplayer");
+            damagedPlayer2 = Content.Load<SoundEffect>("Sounds/damagedplayer2");
             dryFire = Content.Load<SoundEffect>("Sounds/Dry Fire Gun-SoundBible.com-2053652037");
             zombieDamage = Content.Load<SoundEffect>("Sounds/zombiedamage");
             zombie1 = Content.Load<SoundEffect>("Sounds/Zombie 1");
@@ -672,16 +673,32 @@ namespace Hazard_Sweep
         public void playStab()
         {
             SoundEffectInstance stabInst = stab.CreateInstance();
-            stabInst.Volume = .5f;
+            stabInst.Volume = .9f;
             stabInst.Play();
         }
 
         //method to play damaged player sound
         public void playPlayerDamaged()
         {
-            SoundEffectInstance playerDamInst = damagedPlayer.CreateInstance();
-            playerDamInst.Volume = .7f;
-            playerDamInst.Play();
+            int noise = Random.Next(1, 3);
+            switch (noise)
+            {
+                case 1:
+                    SoundEffectInstance temp1 = damagedPlayer.CreateInstance();
+                    temp1.Volume = .7f;
+                    temp1.Play();
+                    break;
+                case 2:
+                    SoundEffectInstance temp2 = damagedPlayer2.CreateInstance();
+                    temp2.Volume = .7f;
+                    temp2.Play();
+                    break;
+                default:
+                    SoundEffectInstance temp3 = damagedPlayer2.CreateInstance();
+                    temp3.Volume = .7f;
+                    temp3.Play();
+                    break;
+            }
         }
 
         //method to play dry fire sound effect
@@ -703,7 +720,7 @@ namespace Hazard_Sweep
         //method that plays a random zombie death noise when called
         public void playZombieDeath()
         {
-            int noise = Random.Next(1, 7);
+            int noise = Random.Next(1, 8);
             switch (noise)
             {
                 case 1:
