@@ -64,15 +64,6 @@ namespace Hazard_Sweep.Classes
             //Did the player press Enter?
             if (((Game1)Game).GetGameState() == Game1.GameState.LOSE || ((Game1)Game).GetGameState() == Game1.GameState.WIN)
             {
-                //if (Keyboard.GetState().IsKeyDown(Keys.Enter))
-                //{
-                //    //((Game1)Game).ChangeGameState(Game1.GameState.START);
-                //    using(Game1 g = new Game1())
-                //    {
-                //        g.Restart();
-                //    }
-                //}
-
                 if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 {
                     ((Game1)Game).Exit();
@@ -85,7 +76,6 @@ namespace Hazard_Sweep.Classes
         public override void Draw(GameTime gameTime)
         {
             spriteBatch.Begin();
-            //secondaryText = "press enter to return to menu";
             secondaryText = "press escape to exit";
 
             //Get size of string
@@ -106,6 +96,7 @@ namespace Hazard_Sweep.Classes
             base.Draw(gameTime);
         }
 
+        //set the text to be displayed
         public void setData(string main)
         {
             mainText = main;

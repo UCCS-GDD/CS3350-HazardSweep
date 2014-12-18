@@ -26,6 +26,7 @@ namespace Hazard_Sweep.Classes
 
         public override void Initialize()
         {
+            //set animation to start from beginning
             currentFrame = 0;
 
             base.Initialize();
@@ -33,6 +34,7 @@ namespace Hazard_Sweep.Classes
 
         protected override void LoadContent()
         {
+            //set frame rectangle
             base.LoadContent();
             frame = new Rectangle(0, 0, texture.Width / 2, texture.Height);
         }
@@ -40,21 +42,6 @@ namespace Hazard_Sweep.Classes
         public override void Update(GameTime gameTime)
         {
             KeyboardState keyboardState = Keyboard.GetState();
-
-            //switches animation
-            //if (keyboardState.IsKeyDown(Keys.Space))
-            //{
-            //    if (currentFrame == 0)
-            //    {
-            //        frame.X = (texture.Width / 2);
-            //        currentFrame = 1;
-            //    }
-            //    else if (currentFrame == 1)
-            //    {
-            //        frame.X = 0;
-            //        currentFrame = 0;
-            //    }
-            //}
 
             base.Update(gameTime);
         }

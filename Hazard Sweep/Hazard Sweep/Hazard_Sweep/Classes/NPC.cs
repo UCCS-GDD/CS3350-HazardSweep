@@ -20,6 +20,7 @@ namespace Hazard_Sweep.Classes
         protected Facing direction;
         public Object type;
 
+        //NPC constructor
         public NPC(Game game, string textureFile, Vector2 position, Facing direction)
             : base(game, textureFile, position, 9)
         {
@@ -34,7 +35,6 @@ namespace Hazard_Sweep.Classes
                 type = Object.Cure;
             if (textureFile == "Images//helicopter")
                 type = Object.Helicopter;
-            //this.DrawOrder = 10;
         }
 
         //update method
@@ -53,7 +53,6 @@ namespace Hazard_Sweep.Classes
             if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
             {
                 sb = Game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
-                //sb.Begin();
                 if (direction == Facing.Left)
                 {
                     if (type == Object.Scientist)
@@ -67,7 +66,6 @@ namespace Hazard_Sweep.Classes
                     if (type == Object.Scientist)
                         sb.Draw(texture, position, null, Color.White, 0f, new Vector2(0f, 0f), new Vector2(1f, 0.75f), SpriteEffects.None, 0.5f);
                 }
-                 //sb.End();
             }
         }
 

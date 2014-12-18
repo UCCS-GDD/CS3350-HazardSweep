@@ -37,11 +37,10 @@ namespace Hazard_Sweep.Classes
         int creditsMove = 0;
         Vector2 position;
 
-        public MenuScreen(Game game)//, Texture2D menuButtonTest)
+        public MenuScreen(Game game)
             : base(game)
         {
             this.game = game;
-            //this.menuButtonTest = menuButtonTest;
             // TODO: Construct any child components here
         }
 
@@ -51,6 +50,7 @@ namespace Hazard_Sweep.Classes
             mainSpriteFont = Game.Content.Load<SpriteFont>(@"Fonts\VtksMoney_30");
             secondarySpriteFont = Game.Content.Load<SpriteFont>(@"Fonts\Necro_14");
 
+            //load menu button rectangles
             startRec = new Rectangle(Game.Window.ClientBounds.Width / 2 + 80,
                 (Game.Window.ClientBounds.Height / 2), 200, 40);
 
@@ -110,6 +110,7 @@ namespace Hazard_Sweep.Classes
                     itemSelected = 3;
                 }
 
+                //run credits if credits chosen
                 if ((newState.IsKeyDown(Keys.Enter) && enterRelease && ((Game1)Game).GetGameState() == Game1.GameState.MENU) || (ms.LeftButton == ButtonState.Pressed && ((Game1)Game).GetGameState() == Game1.GameState.MENU))
                 {
                     if (itemSelected == 0)
@@ -125,6 +126,7 @@ namespace Hazard_Sweep.Classes
                 if (newState.IsKeyUp(Keys.Enter))
                     enterRelease = true;
 
+                //move selection
                 if (newState.IsKeyDown(Keys.S) && downRelease || newState.IsKeyDown(Keys.Down) && downRelease)
                 {
                     itemSelected++;
@@ -134,6 +136,7 @@ namespace Hazard_Sweep.Classes
                 if (newState.IsKeyUp(Keys.S) && newState.IsKeyUp(Keys.Down))
                     downRelease = true;
 
+                //move selection
                 if (newState.IsKeyDown(Keys.W) && upRelease || newState.IsKeyDown(Keys.Up) && upRelease)
                 {
                     itemSelected -= 1;
@@ -151,6 +154,8 @@ namespace Hazard_Sweep.Classes
 
                 base.Update(gameTime);
             }
+
+            //role credits
             if (creditsVisible == true)
             {
                 creditsMove -= gameTime.ElapsedGameTime.Milliseconds / 8;
@@ -168,12 +173,6 @@ namespace Hazard_Sweep.Classes
         {
             spriteBatch.Begin();
             Color tint;
-
-            //menu button spacing test
-            //spriteBatch.Draw(menuButtonTest, startRec, Color.White);
-            //spriteBatch.Draw(menuButtonTest, howRec, Color.White);
-            //spriteBatch.Draw(menuButtonTest, credRec, Color.White);
-            //spriteBatch.Draw(menuButtonTest, exitRec, Color.White);
 
             Vector2 TitleSize = mainSpriteFont.MeasureString(credits);
             creditsPosition = new Vector2(Game.Window.ClientBounds.Width / 2 - TitleSize.X / 2 - 130,

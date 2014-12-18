@@ -79,12 +79,5 @@ namespace Hazard_Sweep.Classes
 
             base.Update(gameTime);
         }
-
-        //random number generator
-        public int randomNumGen(int min, int max)
-        {
-            int value = Game1.Random.Next(min, max);
-            return value;
-        }
     }
 }

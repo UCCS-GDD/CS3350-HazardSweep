@@ -172,6 +172,7 @@ namespace Hazard_Sweep.Classes
             }
         }
 
+        //accessor for weapon type
         public WeaponType GetWeaponType()
         {
             return type;

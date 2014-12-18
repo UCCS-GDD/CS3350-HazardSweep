@@ -16,7 +16,6 @@ namespace Hazard_Sweep.Classes
     {
         //class variables
         public Matrix transform;
-        Viewport view;
         public Vector2 center;
         Game1 game;
         // class constructor
@@ -47,6 +46,7 @@ namespace Hazard_Sweep.Classes
             if (center.X + GlobalClass.ScreenWidth > 2410)
                 center.X = 2410 - GlobalClass.ScreenWidth;
 
+            //move camera to follow player
             transform = Matrix.CreateScale(new Vector3(1, 1, 0)) *
                 Matrix.CreateTranslation(new Vector3(-center.X, -center.Y, 0));
         }

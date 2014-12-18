@@ -29,8 +29,6 @@ namespace Hazard_Sweep.Classes
                 activationArea = new Rectangle((int)position.X - 50, (int)position.Y - 50, 125, 300);
             this.isActive = isActive;
             this.destination = destination;
-
-            //this.DrawOrder = 3;
         }
 
         //update method

@@ -31,12 +31,6 @@ namespace Hazard_Sweep.Classes
             hitBox = new Rectangle(0, 0, hitBoxSize, 200);
         }
 
-        //public void Draw(GameTime gameTime)
-        //{
-        //    sb = Game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
-        //    sb.Draw(hitTexture, hitBox, Color.Red);
-        //}
-
         //attack method
         public void attack(Facing facing, Vector2 position)
         {

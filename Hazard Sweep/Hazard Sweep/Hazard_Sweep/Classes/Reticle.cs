@@ -17,7 +17,6 @@ namespace Hazard_Sweep.Classes
         Game1 gameRef;
         public Vector2 readPosition;
 
-        //public Reticle(Game game, String textureFile, Vector2 position, int drawOrder)
         public Reticle(Game game, String textureFile, Vector2 position, int drawOrder, Game1 gameRef)
             : base(game, textureFile, position, drawOrder)
         {
@@ -26,6 +25,7 @@ namespace Hazard_Sweep.Classes
 
         public override void Update(GameTime gameTime)
         {
+            //move reticle location based on mouse location
             MouseState ms = Mouse.GetState();
             position.X = gameRef.GetCamera().center.X + ms.X;
             position.Y = ms.Y;

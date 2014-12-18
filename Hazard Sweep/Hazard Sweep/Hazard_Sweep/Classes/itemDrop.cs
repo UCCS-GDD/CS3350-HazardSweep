@@ -29,6 +29,7 @@ namespace Hazard_Sweep.Classes
 
         public override void Initialize()
         {
+            //determine what box to drop
             switch(r)
             {
                 case(0):

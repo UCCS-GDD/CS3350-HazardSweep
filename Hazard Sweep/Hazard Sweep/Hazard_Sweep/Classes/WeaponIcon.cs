@@ -20,6 +20,7 @@ namespace Hazard_Sweep.Classes
 
         public WeaponIcon(string textureFile, int x, WeaponType type, PlayerSprite player)
         {
+            //constructor
             this.textureFile = textureFile;
             this.x = x;
             this.type = type;
@@ -30,17 +31,20 @@ namespace Hazard_Sweep.Classes
 
         public void Initialize()
         {
+            //drawing support
             drawRec = new Rectangle(x, 0, 64, 64);
             sRec = new Rectangle(0, 0, 128, 128);
         }
 
         public void LoadContent(Game game)
         {
+            //load in appropriate texture
             texture = game.Content.Load<Texture2D>(textureFile);
         }
 
         public void Update(GameTime gameTime)
         {
+            //determine which icon to display
             if (player.hasPistol == true && type == WeaponType.Pistol)
             {
                 WeaponAcquired();
@@ -66,13 +70,13 @@ namespace Hazard_Sweep.Classes
 
         }
 
-        // weapon acquired
+        // weapon acquired draw
         public void WeaponAcquired()
         {
             sRec.X = 128;
         }
 
-        // weapon equipped
+        // weapon equipped draw
         public void WeaponEquipped()
         {
             sRec.X = 256;

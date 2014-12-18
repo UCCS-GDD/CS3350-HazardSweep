@@ -288,6 +288,7 @@ namespace Hazard_Sweep
 
         }
 
+        //change the gamestate
         public void ChangeGameState(GameState state)
         {
             currentGameState = state;
@@ -303,6 +304,7 @@ namespace Hazard_Sweep
             tutScreen.Enabled = false;
             tutScreen.Visible = false;
 
+            //change what displays based on game state
             switch (currentGameState)
             {
                 case GameState.START:
@@ -336,6 +338,7 @@ namespace Hazard_Sweep
             }
         }
 
+        //returns current game state
         public GameState GetGameState()
         {
             return currentGameState;
@@ -414,7 +417,6 @@ namespace Hazard_Sweep
         public int GetRoomID()
         {
             for (int i = Components.Count() - 1; i > -1; i--)
-            //foreach (IGameComponent g in Components)
             {
                 IGameComponent g = Components[i];
                 if (g is Room)
@@ -426,10 +428,10 @@ namespace Hazard_Sweep
             return -1;
         }
 
+        //change what room you are in
         public void ChangeLevel(int oldLevel, int newLevel)
         {
             for (int i = Components.Count() - 1; i > -1; i--)
-            //foreach (IGameComponent g in Components)
             {
                 IGameComponent g = Components[i];
                 if (g is Enemy)
@@ -467,6 +469,7 @@ namespace Hazard_Sweep
             Components.Add(GetRoom(newLevel));
         }
 
+        //camera accessor
         public Camera GetCamera()
         {
             return camera;
@@ -484,6 +487,7 @@ namespace Hazard_Sweep
             return gameObj;
         }
 
+        //clears everything and starts a new game (reinitialize)
         public void StartGame()
         {
             Components.Clear();
@@ -541,22 +545,15 @@ namespace Hazard_Sweep
             Components.Add(street0);
             Components.Add(player);
 
-            //add test drops to game
-            //Components.Add(new itemDrop(this, null, new Vector2(300, 300)));
-
             //Add game components
-            //Components.Add(player = new PlayerSprite(this, "Images//playerWalk", new Vector2(GlobalClass.ScreenWidth / 2,
-            //    GlobalClass.ScreenHeight / 2), 2, 6));
             Components.Add(new Enemy(this, "Images//enemyWalk", new Vector2(200, 200), 2, 5));
             elements = new GameElements(this, player);
             elements.Initialize();
-            //elements.LoadContent();
             camera = new Camera(this);
-            //menuButtonTest = Content.Load<Texture2D>("Images//ammoBox");
 
             //Splashscreen component
             splashScreen = new SplashScreen(this);
-            menuScreen = new MenuScreen(this);//, menuButtonTest);
+            menuScreen = new MenuScreen(this);
             pauseScreen = new PauseScreen(this);
             endScreen = new EndScreen(this);
             tutScreen = new TutScreen(this);
@@ -594,8 +591,6 @@ namespace Hazard_Sweep
             // load game elements
             elements.LoadContent();
             objFont = Content.Load<SpriteFont>(@"Fonts\VtksMoney_30");
-
-            //testExMap.LoadContent();
         }
 
         #region Shuffling
@@ -677,7 +672,7 @@ namespace Hazard_Sweep
             stabInst.Play();
         }
 
-        //method to play damaged player sound
+        //method to play one of two damaged player sound
         public void playPlayerDamaged()
         {
             int noise = Random.Next(1, 3);
@@ -717,7 +712,7 @@ namespace Hazard_Sweep
             zombieDamageInst.Play();
         }
 
-        //method that plays a random zombie death noise when called
+        //method to play one of 7 zombie death sound effects
         public void playZombieDeath()
         {
             int noise = Random.Next(1, 8);

@@ -56,8 +56,6 @@ namespace Hazard_Sweep.Classes
             direction = Facing.Right;
 
             remove = false;
-
-            //this.DrawOrder = 10;
         }
 
         protected override void LoadContent()
@@ -165,8 +163,6 @@ namespace Hazard_Sweep.Classes
                 //movement
                 AI();
 
-                // animate
-
                 // check for movement
                 if (position.X == prevX && position.Y == prevY)
                 {
@@ -223,12 +219,14 @@ namespace Hazard_Sweep.Classes
             }
         }
 
+        //removal method
         public void setRemove()
         {
             (game as Game1).playZombieDeath();
             this.remove = true;
         }
 
+        //take damage method
         public void removeHelth(int amount)
         {
             health -= amount;
@@ -262,7 +260,8 @@ namespace Hazard_Sweep.Classes
                 position += velocity;
             }
         }
-
+        
+        //set color method
         public void setShouldColor()
         {
             shouldColor = true;

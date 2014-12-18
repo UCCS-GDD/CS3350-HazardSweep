@@ -28,7 +28,6 @@ namespace Hazard_Sweep.Classes
         private bool stabPressed = false;
 
         //variables for hit animations
-        Color color = Color.White;
         int colorTimer;
         bool shouldColor;
 
@@ -93,12 +92,9 @@ namespace Hazard_Sweep.Classes
             colorTimer = 2;
             shouldColor = false;
 
-            //randomize weapons spawn later
+            //randomize spawn weapons
             hasMelee = true;
-            //if (randomNumGen(0, 3) == 1)
-            //{
             hasPistol = true;
-            //}
             if (randomNumGen(0, 4) == 1)
             {
                 hasAssaultRifle = true;
@@ -235,7 +231,6 @@ namespace Hazard_Sweep.Classes
 
                         //collision logic
                         Rectangle b = n.getActivationArea();
-                        //bool isActive = d.getActive();
                         if (b.Intersects(this.collisionRec))
                         {
                             nearNPC = true;
@@ -399,7 +394,6 @@ namespace Hazard_Sweep.Classes
                 //move the sprite with WASD
                 if (keyboardState.IsKeyDown(Keys.D))
                 {
-                    //if (position.X < boundary.Right)
                     if (position.X < 2250)
                     {
                         movement.X += 5;
@@ -408,19 +402,16 @@ namespace Hazard_Sweep.Classes
                 }
                 if (keyboardState.IsKeyDown(Keys.A))
                 {
-                    //if (position.X > boundary.Left)
                     if (position.X > 50)
                         movement.X -= 5;
                 }
                 if (keyboardState.IsKeyDown(Keys.W))
                 {
-                    //if (position.Y > boundary.Top)
                     if (position.Y > 184)
                         movement.Y -= 5;
                 }
                 if (keyboardState.IsKeyDown(Keys.S))
                 {
-                    //if (position.Y < boundary.Bottom)
                     if (position.Y < 416)
                         movement.Y += 5;
                 }
@@ -615,11 +606,7 @@ namespace Hazard_Sweep.Classes
             if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
             {
                 sb = Game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
-                //    sb.Begin();
-                // sb.Draw(texture, position, drawRectangle, Color.White);
                 sb.Draw(texture, position, drawRectangle, color, 0f, new Vector2(0f, 0f), new Vector2(2f, 2f), SpriteEffects.None, 0.5f);
-                //  sb.End();
-                //melee.Draw(gameTime);
                 if (displayActivationMessage) 
                     sb.DrawString(instructFont, "press E to proceed", new Vector2(position.X - 32, position.Y - 64), Color.Black);
                 if (displayNPCMessage)

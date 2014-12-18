@@ -69,24 +69,6 @@ namespace Hazard_Sweep.Classes
             boundingBox.X = (int)position.X;
             boundingBox.Y = (int)position.Y;
 
-            //Allows the sprite to wrap around the screen
-            //if (position.X < 0)
-            //{
-            //    position.X = GlobalClass.ScreenWidth;
-            //}
-            //else if (position.X > GlobalClass.ScreenWidth)
-            //{
-            //    position.X = 0;
-            //}
-            //else if (position.Y < 0)
-            //{
-            //    position.Y = GlobalClass.ScreenHeight;
-            //}
-            //else if (position.Y > GlobalClass.ScreenHeight)
-            //{
-            //    position.Y = 0;
-            //}
-
             base.Update(gameTime);
         }
 
@@ -95,11 +77,7 @@ namespace Hazard_Sweep.Classes
             if (((Game1)Game).GetGameState() == Game1.GameState.PLAY)
             {
                 sb = Game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
-                //sb.Begin();
-                //sb.Draw(texture, position, null, color, 0f, center, 1.0f, SpriteEffects.None,
-                //    0f);
                 sb.Draw(texture, position, color);
-                //   sb.End();
 
                 base.Draw(gameTime);
             }
